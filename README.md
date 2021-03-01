@@ -2,8 +2,8 @@
 
 Read Riot Api For Summoner Information
 
-![alt text](https://imgur.com/qKri7jl)
-![alt text](https://imgur.com/d4vvFFA)
-![alt text](https://imgur.com/4TQCHm2)
-![alt text](https://imgur.com/fu8wZUF)
-![alt text](https://imgur.com/ETVFR0H)
+![alt text](https://i.imgur.com/ETVFR0H.jpg)
+![alt text](https://i.imgur.com/fu8wZUF.jpg)
+![alt text](https://i.imgur.com/4TQCHm2.jpg)
+![alt text](https://i.imgur.com/d4vvFFA.jpg)
+![alt text](https://i.imgur.com/qKri7jl.jpg)
