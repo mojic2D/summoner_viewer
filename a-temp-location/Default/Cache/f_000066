@@ -1,0 +1,913 @@
+define(['dart_sdk', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__rendering__wrap_dart(dart_sdk, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__foundation__debug$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const math = dart_sdk.math;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  var wrap = Object.create(dart.library);
+  var $toString = dartx.toString;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $add = dartx.add;
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  var WrapAlignmentL = () => (WrapAlignmentL = dart.constFn(dart.legacy(wrap.WrapAlignment)))();
+  var WrapCrossAlignmentL = () => (WrapCrossAlignmentL = dart.constFn(dart.legacy(wrap.WrapCrossAlignment)))();
+  var RenderBoxL = () => (RenderBoxL = dart.constFn(dart.legacy(box.RenderBox)))();
+  var WrapParentDataL = () => (WrapParentDataL = dart.constFn(dart.legacy(wrap.WrapParentData)))();
+  var doubleL = () => (doubleL = dart.constFn(dart.legacy(core.double)))();
+  var _RunMetricsL = () => (_RunMetricsL = dart.constFn(dart.legacy(wrap._RunMetrics)))();
+  var JSArrayOf_RunMetricsL = () => (JSArrayOf_RunMetricsL = dart.constFn(_interceptors.JSArray$(_RunMetricsL())))();
+  var AxisL = () => (AxisL = dart.constFn(dart.legacy(basic_types.Axis)))();
+  var EnumPropertyOfAxisL = () => (EnumPropertyOfAxisL = dart.constFn(diagnostics.EnumProperty$(AxisL())))();
+  var EnumPropertyOfWrapAlignmentL = () => (EnumPropertyOfWrapAlignmentL = dart.constFn(diagnostics.EnumProperty$(WrapAlignmentL())))();
+  var TextDirectionL = () => (TextDirectionL = dart.constFn(dart.legacy(ui.TextDirection)))();
+  var EnumPropertyOfTextDirectionL = () => (EnumPropertyOfTextDirectionL = dart.constFn(diagnostics.EnumProperty$(TextDirectionL())))();
+  var VerticalDirectionL = () => (VerticalDirectionL = dart.constFn(dart.legacy(basic_types.VerticalDirection)))();
+  var EnumPropertyOfVerticalDirectionL = () => (EnumPropertyOfVerticalDirectionL = dart.constFn(diagnostics.EnumProperty$(VerticalDirectionL())))();
+  const CT = Object.create(null);
+  var L1 = "file:///C:/flutter/packages/flutter/lib/src/rendering/wrap.dart";
+  var L0 = "package:flutter/src/rendering/wrap.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: wrap.WrapAlignment.prototype,
+        [_name$]: "WrapAlignment.start",
+        index: 0
+      });
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: wrap.WrapAlignment.prototype,
+        [_name$]: "WrapAlignment.end",
+        index: 1
+      });
+    },
+    get C2() {
+      return C2 = dart.const({
+        __proto__: wrap.WrapAlignment.prototype,
+        [_name$]: "WrapAlignment.center",
+        index: 2
+      });
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: wrap.WrapAlignment.prototype,
+        [_name$]: "WrapAlignment.spaceBetween",
+        index: 3
+      });
+    },
+    get C4() {
+      return C4 = dart.const({
+        __proto__: wrap.WrapAlignment.prototype,
+        [_name$]: "WrapAlignment.spaceAround",
+        index: 4
+      });
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: wrap.WrapAlignment.prototype,
+        [_name$]: "WrapAlignment.spaceEvenly",
+        index: 5
+      });
+    },
+    get C6() {
+      return C6 = dart.constList([C0 || CT.C0, C1 || CT.C1, C2 || CT.C2, C3 || CT.C3, C4 || CT.C4, C5 || CT.C5], WrapAlignmentL());
+    },
+    get C7() {
+      return C7 = dart.const({
+        __proto__: wrap.WrapCrossAlignment.prototype,
+        [_name$]: "WrapCrossAlignment.start",
+        index: 0
+      });
+    },
+    get C8() {
+      return C8 = dart.const({
+        __proto__: wrap.WrapCrossAlignment.prototype,
+        [_name$]: "WrapCrossAlignment.end",
+        index: 1
+      });
+    },
+    get C9() {
+      return C9 = dart.const({
+        __proto__: wrap.WrapCrossAlignment.prototype,
+        [_name$]: "WrapCrossAlignment.center",
+        index: 2
+      });
+    },
+    get C10() {
+      return C10 = dart.constList([C7 || CT.C7, C8 || CT.C8, C9 || CT.C9], WrapCrossAlignmentL());
+    },
+    get C11() {
+      return C11 = dart.const({
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.horizontal",
+        index: 0
+      });
+    },
+    get C12() {
+      return C12 = dart.const({
+        __proto__: basic_types.VerticalDirection.prototype,
+        [_name]: "VerticalDirection.down",
+        index: 1
+      });
+    },
+    get C13() {
+      return C13 = dart.const({
+        __proto__: ui.Clip.prototype,
+        [_name$0]: "Clip.none",
+        index: 0
+      });
+    },
+    get C14() {
+      return C14 = dart.const({
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.vertical",
+        index: 1
+      });
+    }
+  }, false);
+  var _name$ = dart.privateName(wrap, "_name");
+  var C0;
+  var C1;
+  var C2;
+  var C3;
+  var C4;
+  var C5;
+  var C6;
+  wrap.WrapAlignment = class WrapAlignment extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (wrap.WrapAlignment.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = wrap.WrapAlignment.prototype;
+  dart.addTypeTests(wrap.WrapAlignment);
+  dart.addTypeCaches(wrap.WrapAlignment);
+  dart.setMethodSignature(wrap.WrapAlignment, () => ({
+    __proto__: dart.getMethods(wrap.WrapAlignment.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(wrap.WrapAlignment, L0);
+  dart.setFieldSignature(wrap.WrapAlignment, () => ({
+    __proto__: dart.getFields(wrap.WrapAlignment.__proto__),
+    index: dart.finalFieldType(dart.legacy(core.int)),
+    [_name$]: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.defineExtensionMethods(wrap.WrapAlignment, ['toString']);
+  wrap.WrapAlignment.start = C0 || CT.C0;
+  wrap.WrapAlignment.end = C1 || CT.C1;
+  wrap.WrapAlignment.center = C2 || CT.C2;
+  wrap.WrapAlignment.spaceBetween = C3 || CT.C3;
+  wrap.WrapAlignment.spaceAround = C4 || CT.C4;
+  wrap.WrapAlignment.spaceEvenly = C5 || CT.C5;
+  wrap.WrapAlignment.values = C6 || CT.C6;
+  var C7;
+  var C8;
+  var C9;
+  var C10;
+  wrap.WrapCrossAlignment = class WrapCrossAlignment extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (wrap.WrapCrossAlignment.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = wrap.WrapCrossAlignment.prototype;
+  dart.addTypeTests(wrap.WrapCrossAlignment);
+  dart.addTypeCaches(wrap.WrapCrossAlignment);
+  dart.setMethodSignature(wrap.WrapCrossAlignment, () => ({
+    __proto__: dart.getMethods(wrap.WrapCrossAlignment.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(wrap.WrapCrossAlignment, L0);
+  dart.setFieldSignature(wrap.WrapCrossAlignment, () => ({
+    __proto__: dart.getFields(wrap.WrapCrossAlignment.__proto__),
+    index: dart.finalFieldType(dart.legacy(core.int)),
+    [_name$]: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.defineExtensionMethods(wrap.WrapCrossAlignment, ['toString']);
+  wrap.WrapCrossAlignment.start = C7 || CT.C7;
+  wrap.WrapCrossAlignment.end = C8 || CT.C8;
+  wrap.WrapCrossAlignment.center = C9 || CT.C9;
+  wrap.WrapCrossAlignment.values = C10 || CT.C10;
+  wrap._RunMetrics = class _RunMetrics extends core.Object {};
+  (wrap._RunMetrics.new = function(mainAxisExtent, crossAxisExtent, childCount) {
+    this.mainAxisExtent = mainAxisExtent;
+    this.crossAxisExtent = crossAxisExtent;
+    this.childCount = childCount;
+    ;
+  }).prototype = wrap._RunMetrics.prototype;
+  dart.addTypeTests(wrap._RunMetrics);
+  dart.addTypeCaches(wrap._RunMetrics);
+  dart.setLibraryUri(wrap._RunMetrics, L0);
+  dart.setFieldSignature(wrap._RunMetrics, () => ({
+    __proto__: dart.getFields(wrap._RunMetrics.__proto__),
+    mainAxisExtent: dart.finalFieldType(dart.legacy(core.double)),
+    crossAxisExtent: dart.finalFieldType(dart.legacy(core.double)),
+    childCount: dart.finalFieldType(dart.legacy(core.int))
+  }));
+  var _runIndex = dart.privateName(wrap, "_runIndex");
+  wrap.WrapParentData = class WrapParentData extends box.ContainerBoxParentData$(dart.legacy(box.RenderBox)) {};
+  (wrap.WrapParentData.new = function() {
+    this[_runIndex] = 0;
+    wrap.WrapParentData.__proto__.new.call(this);
+    ;
+  }).prototype = wrap.WrapParentData.prototype;
+  dart.addTypeTests(wrap.WrapParentData);
+  dart.addTypeCaches(wrap.WrapParentData);
+  dart.setLibraryUri(wrap.WrapParentData, L0);
+  dart.setFieldSignature(wrap.WrapParentData, () => ({
+    __proto__: dart.getFields(wrap.WrapParentData.__proto__),
+    [_runIndex]: dart.fieldType(dart.legacy(core.int))
+  }));
+  var _name = dart.privateName(basic_types, "_name");
+  var C11;
+  var C12;
+  var _name$0 = dart.privateName(ui, "_name");
+  var C13;
+  var _clipBehavior = dart.privateName(wrap, "_clipBehavior");
+  var _hasVisualOverflow = dart.privateName(wrap, "_hasVisualOverflow");
+  var _direction = dart.privateName(wrap, "_direction");
+  var _alignment = dart.privateName(wrap, "_alignment");
+  var _spacing = dart.privateName(wrap, "_spacing");
+  var _runAlignment = dart.privateName(wrap, "_runAlignment");
+  var _runSpacing = dart.privateName(wrap, "_runSpacing");
+  var _crossAxisAlignment = dart.privateName(wrap, "_crossAxisAlignment");
+  var _textDirection = dart.privateName(wrap, "_textDirection");
+  var _verticalDirection = dart.privateName(wrap, "_verticalDirection");
+  var C14;
+  var _debugHasNecessaryDirections = dart.privateName(wrap, "_debugHasNecessaryDirections");
+  var _computeIntrinsicHeightForWidth = dart.privateName(wrap, "_computeIntrinsicHeightForWidth");
+  var _computeIntrinsicWidthForHeight = dart.privateName(wrap, "_computeIntrinsicWidthForHeight");
+  var _getMainAxisExtent = dart.privateName(wrap, "_getMainAxisExtent");
+  var _getCrossAxisExtent = dart.privateName(wrap, "_getCrossAxisExtent");
+  var _getOffset = dart.privateName(wrap, "_getOffset");
+  var _getChildCrossAxisOffset = dart.privateName(wrap, "_getChildCrossAxisOffset");
+  const RenderBox_ContainerRenderObjectMixin$36 = class RenderBox_ContainerRenderObjectMixin extends box.RenderBox {};
+  (RenderBox_ContainerRenderObjectMixin$36.new = function() {
+    object.ContainerRenderObjectMixin$(dart.legacy(box.RenderBox), dart.legacy(wrap.WrapParentData))[dart.mixinNew].call(this);
+    RenderBox_ContainerRenderObjectMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_ContainerRenderObjectMixin$36.prototype;
+  dart.applyMixin(RenderBox_ContainerRenderObjectMixin$36, object.ContainerRenderObjectMixin$(dart.legacy(box.RenderBox), dart.legacy(wrap.WrapParentData)));
+  const RenderBox_RenderBoxContainerDefaultsMixin$36 = class RenderBox_RenderBoxContainerDefaultsMixin extends RenderBox_ContainerRenderObjectMixin$36 {};
+  (RenderBox_RenderBoxContainerDefaultsMixin$36.new = function() {
+    RenderBox_RenderBoxContainerDefaultsMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_RenderBoxContainerDefaultsMixin$36.prototype;
+  dart.applyMixin(RenderBox_RenderBoxContainerDefaultsMixin$36, box.RenderBoxContainerDefaultsMixin$(dart.legacy(box.RenderBox), dart.legacy(wrap.WrapParentData)));
+  wrap.RenderWrap = class RenderWrap extends RenderBox_RenderBoxContainerDefaultsMixin$36 {
+    get direction() {
+      return this[_direction];
+    }
+    set direction(value) {
+      if (!(value != null)) dart.assertFailed(null, L1, 152, 12, "value != null");
+      if (this[_direction] == value) return;
+      this[_direction] = value;
+      this.markNeedsLayout();
+    }
+    get alignment() {
+      return this[_alignment];
+    }
+    set alignment(value) {
+      if (!(value != null)) dart.assertFailed(null, L1, 175, 12, "value != null");
+      if (this[_alignment] == value) return;
+      this[_alignment] = value;
+      this.markNeedsLayout();
+    }
+    get spacing() {
+      return this[_spacing];
+    }
+    set spacing(value) {
+      if (!(value != null)) dart.assertFailed(null, L1, 196, 12, "value != null");
+      if (this[_spacing] == value) return;
+      this[_spacing] = value;
+      this.markNeedsLayout();
+    }
+    get runAlignment() {
+      return this[_runAlignment];
+    }
+    set runAlignment(value) {
+      if (!(value != null)) dart.assertFailed(null, L1, 220, 12, "value != null");
+      if (this[_runAlignment] == value) return;
+      this[_runAlignment] = value;
+      this.markNeedsLayout();
+    }
+    get runSpacing() {
+      return this[_runSpacing];
+    }
+    set runSpacing(value) {
+      if (!(value != null)) dart.assertFailed(null, L1, 240, 12, "value != null");
+      if (this[_runSpacing] == value) return;
+      this[_runSpacing] = value;
+      this.markNeedsLayout();
+    }
+    get crossAxisAlignment() {
+      return this[_crossAxisAlignment];
+    }
+    set crossAxisAlignment(value) {
+      if (!(value != null)) dart.assertFailed(null, L1, 265, 12, "value != null");
+      if (this[_crossAxisAlignment] == value) return;
+      this[_crossAxisAlignment] = value;
+      this.markNeedsLayout();
+    }
+    get textDirection() {
+      return this[_textDirection];
+    }
+    set textDirection(value) {
+      if (!dart.equals(this[_textDirection], value)) {
+        this[_textDirection] = value;
+        this.markNeedsLayout();
+      }
+    }
+    get verticalDirection() {
+      return this[_verticalDirection];
+    }
+    set verticalDirection(value) {
+      if (this[_verticalDirection] != value) {
+        this[_verticalDirection] = value;
+        this.markNeedsLayout();
+      }
+    }
+    get clipBehavior() {
+      return this[_clipBehavior];
+    }
+    set clipBehavior(value) {
+      if (!(value != null)) dart.assertFailed(null, L1, 341, 12, "value != null");
+      if (!dart.equals(value, this[_clipBehavior])) {
+        this[_clipBehavior] = value;
+        this.markNeedsPaint();
+        this.markNeedsSemanticsUpdate();
+      }
+    }
+    get [_debugHasNecessaryDirections]() {
+      if (!(this.direction != null)) dart.assertFailed(null, L1, 350, 12, "direction != null");
+      if (!(this.alignment != null)) dart.assertFailed(null, L1, 351, 12, "alignment != null");
+      if (!(this.runAlignment != null)) dart.assertFailed(null, L1, 352, 12, "runAlignment != null");
+      if (!(this.crossAxisAlignment != null)) dart.assertFailed(null, L1, 353, 12, "crossAxisAlignment != null");
+      if (this.firstChild != null && !dart.equals(this.lastChild, this.firstChild)) {
+        switch (this.direction) {
+          case C11 || CT.C11:
+          {
+            if (!(this.textDirection != null)) dart.assertFailed("Horizontal " + dart.str(this.runtimeType) + " with multiple children has a null textDirection, so the layout order is undefined.", L1, 358, 18, "textDirection != null");
+            break;
+          }
+          case C14 || CT.C14:
+          {
+            if (!(this.verticalDirection != null)) dart.assertFailed("Vertical " + dart.str(this.runtimeType) + " with multiple children has a null verticalDirection, so the layout order is undefined.", L1, 361, 18, "verticalDirection != null");
+            break;
+          }
+        }
+      }
+      if (this.alignment == wrap.WrapAlignment.start || this.alignment == wrap.WrapAlignment.end) {
+        switch (this.direction) {
+          case C11 || CT.C11:
+          {
+            if (!(this.textDirection != null)) dart.assertFailed("Horizontal " + dart.str(this.runtimeType) + " with alignment " + dart.str(this.alignment) + " has a null textDirection, so the alignment cannot be resolved.", L1, 368, 18, "textDirection != null");
+            break;
+          }
+          case C14 || CT.C14:
+          {
+            if (!(this.verticalDirection != null)) dart.assertFailed("Vertical " + dart.str(this.runtimeType) + " with alignment " + dart.str(this.alignment) + " has a null verticalDirection, so the alignment cannot be resolved.", L1, 371, 18, "verticalDirection != null");
+            break;
+          }
+        }
+      }
+      if (this.runAlignment == wrap.WrapAlignment.start || this.runAlignment == wrap.WrapAlignment.end) {
+        switch (this.direction) {
+          case C11 || CT.C11:
+          {
+            if (!(this.verticalDirection != null)) dart.assertFailed("Horizontal " + dart.str(this.runtimeType) + " with runAlignment " + dart.str(this.runAlignment) + " has a null verticalDirection, so the alignment cannot be resolved.", L1, 378, 18, "verticalDirection != null");
+            break;
+          }
+          case C14 || CT.C14:
+          {
+            if (!(this.textDirection != null)) dart.assertFailed("Vertical " + dart.str(this.runtimeType) + " with runAlignment " + dart.str(this.runAlignment) + " has a null textDirection, so the alignment cannot be resolved.", L1, 381, 18, "textDirection != null");
+            break;
+          }
+        }
+      }
+      if (this.crossAxisAlignment == wrap.WrapCrossAlignment.start || this.crossAxisAlignment == wrap.WrapCrossAlignment.end) {
+        switch (this.direction) {
+          case C11 || CT.C11:
+          {
+            if (!(this.verticalDirection != null)) dart.assertFailed("Horizontal " + dart.str(this.runtimeType) + " with crossAxisAlignment " + dart.str(this.crossAxisAlignment) + " has a null verticalDirection, so the alignment cannot be resolved.", L1, 388, 18, "verticalDirection != null");
+            break;
+          }
+          case C14 || CT.C14:
+          {
+            if (!(this.textDirection != null)) dart.assertFailed("Vertical " + dart.str(this.runtimeType) + " with crossAxisAlignment " + dart.str(this.crossAxisAlignment) + " has a null textDirection, so the alignment cannot be resolved.", L1, 391, 18, "textDirection != null");
+            break;
+          }
+        }
+      }
+      return true;
+    }
+    setupParentData(child) {
+      RenderBoxL().as(child);
+      if (!WrapParentDataL().is(child.parentData)) child.parentData = new wrap.WrapParentData.new();
+    }
+    [_computeIntrinsicHeightForWidth](width) {
+      if (!(this.direction == basic_types.Axis.horizontal)) dart.assertFailed(null, L1, 405, 12, "direction == Axis.horizontal");
+      let height = 0.0;
+      let runWidth = 0.0;
+      let runHeight = 0.0;
+      let childCount = 0;
+      let child = this.firstChild;
+      while (child != null) {
+        let childWidth = child.getMaxIntrinsicWidth(1 / 0);
+        let childHeight = child.getMaxIntrinsicHeight(childWidth);
+        if (childCount > 0 && runWidth + dart.notNull(childWidth) + dart.notNull(this.spacing) > dart.notNull(width)) {
+          height = height + (runHeight + dart.notNull(this.runSpacing));
+          runWidth = 0.0;
+          runHeight = 0.0;
+          childCount = 0;
+        }
+        runWidth = runWidth + dart.notNull(childWidth);
+        runHeight = math.max(doubleL(), runHeight, childHeight);
+        if (childCount > 0) runWidth = runWidth + dart.notNull(this.spacing);
+        childCount = childCount + 1;
+        child = this.childAfter(child);
+      }
+      height = height + runHeight;
+      return height;
+    }
+    [_computeIntrinsicWidthForHeight](height) {
+      if (!(this.direction == basic_types.Axis.vertical)) dart.assertFailed(null, L1, 433, 12, "direction == Axis.vertical");
+      let width = 0.0;
+      let runHeight = 0.0;
+      let runWidth = 0.0;
+      let childCount = 0;
+      let child = this.firstChild;
+      while (child != null) {
+        let childHeight = child.getMaxIntrinsicHeight(1 / 0);
+        let childWidth = child.getMaxIntrinsicWidth(childHeight);
+        if (childCount > 0 && runHeight + dart.notNull(childHeight) + dart.notNull(this.spacing) > dart.notNull(height)) {
+          width = width + (runWidth + dart.notNull(this.runSpacing));
+          runHeight = 0.0;
+          runWidth = 0.0;
+          childCount = 0;
+        }
+        runHeight = runHeight + dart.notNull(childHeight);
+        runWidth = math.max(doubleL(), runWidth, childWidth);
+        if (childCount > 0) runHeight = runHeight + dart.notNull(this.spacing);
+        childCount = childCount + 1;
+        child = this.childAfter(child);
+      }
+      width = width + runWidth;
+      return width;
+    }
+    computeMinIntrinsicWidth(height) {
+      switch (this.direction) {
+        case C11 || CT.C11:
+        {
+          let width = 0.0;
+          let child = this.firstChild;
+          while (child != null) {
+            width = math.max(doubleL(), width, child.getMinIntrinsicWidth(1 / 0));
+            child = this.childAfter(child);
+          }
+          return width;
+        }
+        case C14 || CT.C14:
+        {
+          return this[_computeIntrinsicWidthForHeight](height);
+        }
+      }
+      return null;
+    }
+    computeMaxIntrinsicWidth(height) {
+      switch (this.direction) {
+        case C11 || CT.C11:
+        {
+          let width = 0.0;
+          let child = this.firstChild;
+          while (child != null) {
+            width = width + dart.notNull(child.getMaxIntrinsicWidth(1 / 0));
+            child = this.childAfter(child);
+          }
+          return width;
+        }
+        case C14 || CT.C14:
+        {
+          return this[_computeIntrinsicWidthForHeight](height);
+        }
+      }
+      return null;
+    }
+    computeMinIntrinsicHeight(width) {
+      switch (this.direction) {
+        case C11 || CT.C11:
+        {
+          return this[_computeIntrinsicHeightForWidth](width);
+        }
+        case C14 || CT.C14:
+        {
+          let height = 0.0;
+          let child = this.firstChild;
+          while (child != null) {
+            height = math.max(doubleL(), height, child.getMinIntrinsicHeight(1 / 0));
+            child = this.childAfter(child);
+          }
+          return height;
+        }
+      }
+      return null;
+    }
+    computeMaxIntrinsicHeight(width) {
+      switch (this.direction) {
+        case C11 || CT.C11:
+        {
+          return this[_computeIntrinsicHeightForWidth](width);
+        }
+        case C14 || CT.C14:
+        {
+          let height = 0.0;
+          let child = this.firstChild;
+          while (child != null) {
+            height = height + dart.notNull(child.getMaxIntrinsicHeight(1 / 0));
+            child = this.childAfter(child);
+          }
+          return height;
+        }
+      }
+      return null;
+    }
+    computeDistanceToActualBaseline(baseline) {
+      return this.defaultComputeDistanceToHighestActualBaseline(baseline);
+    }
+    [_getMainAxisExtent](child) {
+      switch (this.direction) {
+        case C11 || CT.C11:
+        {
+          return child.size.width;
+        }
+        case C14 || CT.C14:
+        {
+          return child.size.height;
+        }
+      }
+      return 0.0;
+    }
+    [_getCrossAxisExtent](child) {
+      switch (this.direction) {
+        case C11 || CT.C11:
+        {
+          return child.size.height;
+        }
+        case C14 || CT.C14:
+        {
+          return child.size.width;
+        }
+      }
+      return 0.0;
+    }
+    [_getOffset](mainAxisOffset, crossAxisOffset) {
+      switch (this.direction) {
+        case C11 || CT.C11:
+        {
+          return new ui.Offset.new(mainAxisOffset, crossAxisOffset);
+        }
+        case C14 || CT.C14:
+        {
+          return new ui.Offset.new(crossAxisOffset, mainAxisOffset);
+        }
+      }
+      return ui.Offset.zero;
+    }
+    [_getChildCrossAxisOffset](flipCrossAxis, runCrossAxisExtent, childCrossAxisExtent) {
+      let freeSpace = dart.notNull(runCrossAxisExtent) - dart.notNull(childCrossAxisExtent);
+      switch (this.crossAxisAlignment) {
+        case C7 || CT.C7:
+        {
+          return dart.test(flipCrossAxis) ? freeSpace : 0.0;
+        }
+        case C8 || CT.C8:
+        {
+          return dart.test(flipCrossAxis) ? 0.0 : freeSpace;
+        }
+        case C9 || CT.C9:
+        {
+          return freeSpace / 2.0;
+        }
+      }
+      return 0.0;
+    }
+    performLayout() {
+      let constraints = this.constraints;
+      if (!dart.test(this[_debugHasNecessaryDirections])) dart.assertFailed(null, L1, 581, 12, "_debugHasNecessaryDirections");
+      this[_hasVisualOverflow] = false;
+      let child = this.firstChild;
+      if (child == null) {
+        this.size = constraints.smallest;
+        return;
+      }
+      let childConstraints = null;
+      let mainAxisLimit = 0.0;
+      let flipMainAxis = false;
+      let flipCrossAxis = false;
+      switch (this.direction) {
+        case C11 || CT.C11:
+        {
+          childConstraints = new box.BoxConstraints.new({maxWidth: constraints.maxWidth});
+          mainAxisLimit = constraints.maxWidth;
+          if (dart.equals(this.textDirection, ui.TextDirection.rtl)) flipMainAxis = true;
+          if (this.verticalDirection == basic_types.VerticalDirection.up) flipCrossAxis = true;
+          break;
+        }
+        case C14 || CT.C14:
+        {
+          childConstraints = new box.BoxConstraints.new({maxHeight: constraints.maxHeight});
+          mainAxisLimit = constraints.maxHeight;
+          if (this.verticalDirection == basic_types.VerticalDirection.up) flipMainAxis = true;
+          if (dart.equals(this.textDirection, ui.TextDirection.rtl)) flipCrossAxis = true;
+          break;
+        }
+      }
+      if (!(childConstraints != null)) dart.assertFailed(null, L1, 610, 12, "childConstraints != null");
+      if (!(mainAxisLimit != null)) dart.assertFailed(null, L1, 611, 12, "mainAxisLimit != null");
+      let spacing = this.spacing;
+      let runSpacing = this.runSpacing;
+      let runMetrics = JSArrayOf_RunMetricsL().of([]);
+      let mainAxisExtent = 0.0;
+      let crossAxisExtent = 0.0;
+      let runMainAxisExtent = 0.0;
+      let runCrossAxisExtent = 0.0;
+      let childCount = 0;
+      while (child != null) {
+        child.layout(childConstraints, {parentUsesSize: true});
+        let childMainAxisExtent = this[_getMainAxisExtent](child);
+        let childCrossAxisExtent = this[_getCrossAxisExtent](child);
+        if (childCount > 0 && runMainAxisExtent + dart.notNull(spacing) + dart.notNull(childMainAxisExtent) > dart.notNull(mainAxisLimit)) {
+          mainAxisExtent = math.max(doubleL(), mainAxisExtent, runMainAxisExtent);
+          crossAxisExtent = crossAxisExtent + runCrossAxisExtent;
+          if (dart.test(runMetrics[$isNotEmpty])) crossAxisExtent = crossAxisExtent + dart.notNull(runSpacing);
+          runMetrics[$add](new wrap._RunMetrics.new(runMainAxisExtent, runCrossAxisExtent, childCount));
+          runMainAxisExtent = 0.0;
+          runCrossAxisExtent = 0.0;
+          childCount = 0;
+        }
+        runMainAxisExtent = runMainAxisExtent + dart.notNull(childMainAxisExtent);
+        if (childCount > 0) runMainAxisExtent = runMainAxisExtent + dart.notNull(spacing);
+        runCrossAxisExtent = math.max(doubleL(), runCrossAxisExtent, childCrossAxisExtent);
+        childCount = childCount + 1;
+        let childParentData = WrapParentDataL().as(child.parentData);
+        childParentData[_runIndex] = runMetrics[$length];
+        child = childParentData.nextSibling;
+      }
+      if (childCount > 0) {
+        mainAxisExtent = math.max(doubleL(), mainAxisExtent, runMainAxisExtent);
+        crossAxisExtent = crossAxisExtent + runCrossAxisExtent;
+        if (dart.test(runMetrics[$isNotEmpty])) crossAxisExtent = crossAxisExtent + dart.notNull(runSpacing);
+        runMetrics[$add](new wrap._RunMetrics.new(runMainAxisExtent, runCrossAxisExtent, childCount));
+      }
+      let runCount = runMetrics[$length];
+      if (!(dart.notNull(runCount) > 0)) dart.assertFailed(null, L1, 652, 12, "runCount > 0");
+      let containerMainAxisExtent = 0.0;
+      let containerCrossAxisExtent = 0.0;
+      switch (this.direction) {
+        case C11 || CT.C11:
+        {
+          this.size = constraints.constrain(new ui.Size.new(mainAxisExtent, crossAxisExtent));
+          containerMainAxisExtent = this.size.width;
+          containerCrossAxisExtent = this.size.height;
+          break;
+        }
+        case C14 || CT.C14:
+        {
+          this.size = constraints.constrain(new ui.Size.new(crossAxisExtent, mainAxisExtent));
+          containerMainAxisExtent = this.size.height;
+          containerCrossAxisExtent = this.size.width;
+          break;
+        }
+      }
+      this[_hasVisualOverflow] = dart.notNull(containerMainAxisExtent) < mainAxisExtent || dart.notNull(containerCrossAxisExtent) < crossAxisExtent;
+      let crossAxisFreeSpace = math.max(doubleL(), 0.0, dart.notNull(containerCrossAxisExtent) - crossAxisExtent);
+      let runLeadingSpace = 0.0;
+      let runBetweenSpace = 0.0;
+      switch (this.runAlignment) {
+        case C0 || CT.C0:
+        {
+          break;
+        }
+        case C1 || CT.C1:
+        {
+          runLeadingSpace = crossAxisFreeSpace;
+          break;
+        }
+        case C2 || CT.C2:
+        {
+          runLeadingSpace = crossAxisFreeSpace / 2.0;
+          break;
+        }
+        case C3 || CT.C3:
+        {
+          runBetweenSpace = dart.notNull(runCount) > 1 ? crossAxisFreeSpace / (dart.notNull(runCount) - 1) : 0.0;
+          break;
+        }
+        case C4 || CT.C4:
+        {
+          runBetweenSpace = crossAxisFreeSpace / dart.notNull(runCount);
+          runLeadingSpace = runBetweenSpace / 2.0;
+          break;
+        }
+        case C5 || CT.C5:
+        {
+          runBetweenSpace = crossAxisFreeSpace / (dart.notNull(runCount) + 1);
+          runLeadingSpace = runBetweenSpace;
+          break;
+        }
+      }
+      runBetweenSpace = runBetweenSpace + dart.notNull(runSpacing);
+      let crossAxisOffset = flipCrossAxis ? dart.notNull(containerCrossAxisExtent) - runLeadingSpace : runLeadingSpace;
+      child = this.firstChild;
+      for (let i = 0; i < dart.notNull(runCount); i = i + 1) {
+        let metrics = runMetrics[$_get](i);
+        let runMainAxisExtent = metrics.mainAxisExtent;
+        let runCrossAxisExtent = metrics.crossAxisExtent;
+        let childCount = metrics.childCount;
+        let mainAxisFreeSpace = math.max(doubleL(), 0.0, dart.notNull(containerMainAxisExtent) - dart.notNull(runMainAxisExtent));
+        let childLeadingSpace = 0.0;
+        let childBetweenSpace = 0.0;
+        switch (this.alignment) {
+          case C0 || CT.C0:
+          {
+            break;
+          }
+          case C1 || CT.C1:
+          {
+            childLeadingSpace = mainAxisFreeSpace;
+            break;
+          }
+          case C2 || CT.C2:
+          {
+            childLeadingSpace = mainAxisFreeSpace / 2.0;
+            break;
+          }
+          case C3 || CT.C3:
+          {
+            childBetweenSpace = dart.notNull(childCount) > 1 ? mainAxisFreeSpace / (dart.notNull(childCount) - 1) : 0.0;
+            break;
+          }
+          case C4 || CT.C4:
+          {
+            childBetweenSpace = mainAxisFreeSpace / dart.notNull(childCount);
+            childLeadingSpace = childBetweenSpace / 2.0;
+            break;
+          }
+          case C5 || CT.C5:
+          {
+            childBetweenSpace = mainAxisFreeSpace / (dart.notNull(childCount) + 1);
+            childLeadingSpace = childBetweenSpace;
+            break;
+          }
+        }
+        childBetweenSpace = childBetweenSpace + dart.notNull(spacing);
+        let childMainPosition = flipMainAxis ? dart.notNull(containerMainAxisExtent) - childLeadingSpace : childLeadingSpace;
+        if (flipCrossAxis) crossAxisOffset = crossAxisOffset - dart.notNull(runCrossAxisExtent);
+        while (child != null) {
+          let childParentData = WrapParentDataL().as(child.parentData);
+          if (childParentData[_runIndex] !== i) break;
+          let childMainAxisExtent = this[_getMainAxisExtent](child);
+          let childCrossAxisExtent = this[_getCrossAxisExtent](child);
+          let childCrossAxisOffset = this[_getChildCrossAxisOffset](flipCrossAxis, runCrossAxisExtent, childCrossAxisExtent);
+          if (flipMainAxis) childMainPosition = childMainPosition - dart.notNull(childMainAxisExtent);
+          childParentData.offset = this[_getOffset](childMainPosition, crossAxisOffset + dart.notNull(childCrossAxisOffset));
+          if (flipMainAxis)
+            childMainPosition = childMainPosition - childBetweenSpace;
+          else
+            childMainPosition = childMainPosition + (dart.notNull(childMainAxisExtent) + childBetweenSpace);
+          child = childParentData.nextSibling;
+        }
+        if (flipCrossAxis)
+          crossAxisOffset = crossAxisOffset - runBetweenSpace;
+        else
+          crossAxisOffset = crossAxisOffset + (dart.notNull(runCrossAxisExtent) + runBetweenSpace);
+      }
+    }
+    hitTestChildren(result, opts) {
+      let position = opts && 'position' in opts ? opts.position : null;
+      return this.defaultHitTestChildren(result, {position: position});
+    }
+    paint(context, offset) {
+      if (dart.test(this[_hasVisualOverflow]) && !dart.equals(this.clipBehavior, ui.Clip.none))
+        context.pushClipRect(this.needsCompositing, offset, ui.Offset.zero['&'](this.size), dart.bind(this, 'defaultPaint'), {clipBehavior: this.clipBehavior});
+      else
+        this.defaultPaint(context, offset);
+    }
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(new (EnumPropertyOfAxisL()).new("direction", this.direction));
+      properties.add(new (EnumPropertyOfWrapAlignmentL()).new("alignment", this.alignment));
+      properties.add(new diagnostics.DoubleProperty.new("spacing", this.spacing));
+      properties.add(new (EnumPropertyOfWrapAlignmentL()).new("runAlignment", this.runAlignment));
+      properties.add(new diagnostics.DoubleProperty.new("runSpacing", this.runSpacing));
+      properties.add(new diagnostics.DoubleProperty.new("crossAxisAlignment", this.runSpacing));
+      properties.add(new (EnumPropertyOfTextDirectionL()).new("textDirection", this.textDirection, {defaultValue: null}));
+      properties.add(new (EnumPropertyOfVerticalDirectionL()).new("verticalDirection", this.verticalDirection, {defaultValue: basic_types.VerticalDirection.down}));
+    }
+  };
+  (wrap.RenderWrap.new = function(opts) {
+    let children = opts && 'children' in opts ? opts.children : null;
+    let direction = opts && 'direction' in opts ? opts.direction : C11 || CT.C11;
+    let alignment = opts && 'alignment' in opts ? opts.alignment : C0 || CT.C0;
+    let spacing = opts && 'spacing' in opts ? opts.spacing : 0;
+    let runAlignment = opts && 'runAlignment' in opts ? opts.runAlignment : C0 || CT.C0;
+    let runSpacing = opts && 'runSpacing' in opts ? opts.runSpacing : 0;
+    let crossAxisAlignment = opts && 'crossAxisAlignment' in opts ? opts.crossAxisAlignment : C7 || CT.C7;
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    let verticalDirection = opts && 'verticalDirection' in opts ? opts.verticalDirection : C12 || CT.C12;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C13 || CT.C13;
+    this[_clipBehavior] = ui.Clip.none;
+    this[_hasVisualOverflow] = false;
+    if (!(direction != null)) dart.assertFailed(null, L1, 124, 15, "direction != null");
+    if (!(alignment != null)) dart.assertFailed(null, L1, 125, 15, "alignment != null");
+    if (!(spacing != null)) dart.assertFailed(null, L1, 126, 15, "spacing != null");
+    if (!(runAlignment != null)) dart.assertFailed(null, L1, 127, 15, "runAlignment != null");
+    if (!(runSpacing != null)) dart.assertFailed(null, L1, 128, 15, "runSpacing != null");
+    if (!(crossAxisAlignment != null)) dart.assertFailed(null, L1, 129, 15, "crossAxisAlignment != null");
+    if (!(clipBehavior != null)) dart.assertFailed(null, L1, 130, 15, "clipBehavior != null");
+    this[_direction] = direction;
+    this[_alignment] = alignment;
+    this[_spacing] = spacing;
+    this[_runAlignment] = runAlignment;
+    this[_runSpacing] = runSpacing;
+    this[_crossAxisAlignment] = crossAxisAlignment;
+    this[_textDirection] = textDirection;
+    this[_verticalDirection] = verticalDirection;
+    this[_clipBehavior] = clipBehavior;
+    wrap.RenderWrap.__proto__.new.call(this);
+    this.addAll(children);
+  }).prototype = wrap.RenderWrap.prototype;
+  dart.addTypeTests(wrap.RenderWrap);
+  dart.addTypeCaches(wrap.RenderWrap);
+  dart.setMethodSignature(wrap.RenderWrap, () => ({
+    __proto__: dart.getMethods(wrap.RenderWrap.__proto__),
+    [_computeIntrinsicHeightForWidth]: dart.fnType(dart.legacy(core.double), [dart.legacy(core.double)]),
+    [_computeIntrinsicWidthForHeight]: dart.fnType(dart.legacy(core.double), [dart.legacy(core.double)]),
+    [_getMainAxisExtent]: dart.fnType(dart.legacy(core.double), [dart.legacy(box.RenderBox)]),
+    [_getCrossAxisExtent]: dart.fnType(dart.legacy(core.double), [dart.legacy(box.RenderBox)]),
+    [_getOffset]: dart.fnType(dart.legacy(ui.Offset), [dart.legacy(core.double), dart.legacy(core.double)]),
+    [_getChildCrossAxisOffset]: dart.fnType(dart.legacy(core.double), [dart.legacy(core.bool), dart.legacy(core.double), dart.legacy(core.double)])
+  }));
+  dart.setGetterSignature(wrap.RenderWrap, () => ({
+    __proto__: dart.getGetters(wrap.RenderWrap.__proto__),
+    direction: dart.legacy(basic_types.Axis),
+    alignment: dart.legacy(wrap.WrapAlignment),
+    spacing: dart.legacy(core.double),
+    runAlignment: dart.legacy(wrap.WrapAlignment),
+    runSpacing: dart.legacy(core.double),
+    crossAxisAlignment: dart.legacy(wrap.WrapCrossAlignment),
+    textDirection: dart.legacy(ui.TextDirection),
+    verticalDirection: dart.legacy(basic_types.VerticalDirection),
+    clipBehavior: dart.legacy(ui.Clip),
+    [_debugHasNecessaryDirections]: dart.legacy(core.bool)
+  }));
+  dart.setSetterSignature(wrap.RenderWrap, () => ({
+    __proto__: dart.getSetters(wrap.RenderWrap.__proto__),
+    direction: dart.legacy(basic_types.Axis),
+    alignment: dart.legacy(wrap.WrapAlignment),
+    spacing: dart.legacy(core.double),
+    runAlignment: dart.legacy(wrap.WrapAlignment),
+    runSpacing: dart.legacy(core.double),
+    crossAxisAlignment: dart.legacy(wrap.WrapCrossAlignment),
+    textDirection: dart.legacy(ui.TextDirection),
+    verticalDirection: dart.legacy(basic_types.VerticalDirection),
+    clipBehavior: dart.legacy(ui.Clip)
+  }));
+  dart.setLibraryUri(wrap.RenderWrap, L0);
+  dart.setFieldSignature(wrap.RenderWrap, () => ({
+    __proto__: dart.getFields(wrap.RenderWrap.__proto__),
+    [_direction]: dart.fieldType(dart.legacy(basic_types.Axis)),
+    [_alignment]: dart.fieldType(dart.legacy(wrap.WrapAlignment)),
+    [_spacing]: dart.fieldType(dart.legacy(core.double)),
+    [_runAlignment]: dart.fieldType(dart.legacy(wrap.WrapAlignment)),
+    [_runSpacing]: dart.fieldType(dart.legacy(core.double)),
+    [_crossAxisAlignment]: dart.fieldType(dart.legacy(wrap.WrapCrossAlignment)),
+    [_textDirection]: dart.fieldType(dart.legacy(ui.TextDirection)),
+    [_verticalDirection]: dart.fieldType(dart.legacy(basic_types.VerticalDirection)),
+    [_clipBehavior]: dart.fieldType(dart.legacy(ui.Clip)),
+    [_hasVisualOverflow]: dart.fieldType(dart.legacy(core.bool))
+  }));
+  dart.trackLibraries("packages/flutter/src/rendering/wrap.dart", {
+    "package:flutter/src/rendering/wrap.dart": wrap
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["wrap.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/flutter/src/rendering/wrap.dart.lib.js"}');
+  // Exports:
+  return {
+    src__rendering__wrap: wrap
+  };
+}));
+
+//# sourceMappingURL=wrap.dart.lib.js.map

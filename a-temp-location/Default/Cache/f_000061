@@ -1,0 +1,676 @@
+define(['dart_sdk', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/rendering/sliver.dart', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__rendering__sliver_multi_box_adaptor_dart(dart_sdk, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__rendering__sliver$46dart, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__foundation__debug$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _js_helper = dart_sdk._js_helper;
+  const _interceptors = dart_sdk._interceptors;
+  const ui = dart_sdk.ui;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const sliver = packages__flutter__src__rendering__sliver$46dart.src__rendering__sliver;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  var sliver_multi_box_adaptor = Object.create(dart.library);
+  var $isEmpty = dartx.isEmpty;
+  var $containsValue = dartx.containsValue;
+  var $_get = dartx._get;
+  var $remove = dartx.remove;
+  var $containsKey = dartx.containsKey;
+  var $add = dartx.add;
+  var $_set = dartx._set;
+  var $values = dartx.values;
+  var $forEach = dartx.forEach;
+  var $clear = dartx.clear;
+  var $where = dartx.where;
+  var $toList = dartx.toList;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $keys = dartx.keys;
+  var $sort = dartx.sort;
+  var RenderObjectL = () => (RenderObjectL = dart.constFn(dart.legacy(object.RenderObject)))();
+  var KeepAliveParentDataMixinL = () => (KeepAliveParentDataMixinL = dart.constFn(dart.legacy(sliver_multi_box_adaptor.KeepAliveParentDataMixin)))();
+  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
+  var RenderBoxL = () => (RenderBoxL = dart.constFn(dart.legacy(box.RenderBox)))();
+  var IdentityMapOfintL$RenderBoxL = () => (IdentityMapOfintL$RenderBoxL = dart.constFn(_js_helper.IdentityMap$(intL(), RenderBoxL())))();
+  var JSArrayOfRenderBoxL = () => (JSArrayOfRenderBoxL = dart.constFn(_interceptors.JSArray$(RenderBoxL())))();
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
+  var VoidToboolL = () => (VoidToboolL = dart.constFn(dart.fnType(boolL(), [])))();
+  var SliverMultiBoxAdaptorParentDataL = () => (SliverMultiBoxAdaptorParentDataL = dart.constFn(dart.legacy(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData)))();
+  var SliverConstraintsL = () => (SliverConstraintsL = dart.constFn(dart.legacy(sliver.SliverConstraints)))();
+  var SliverConstraintsLToNullN = () => (SliverConstraintsLToNullN = dart.constFn(dart.fnType(core.Null, [SliverConstraintsL()])))();
+  var PipelineOwnerL = () => (PipelineOwnerL = dart.constFn(dart.legacy(object.PipelineOwner)))();
+  var RenderBoxLToboolL = () => (RenderBoxLToboolL = dart.constFn(dart.fnType(boolL(), [RenderBoxL()])))();
+  var DiagnosticsNodeL = () => (DiagnosticsNodeL = dart.constFn(dart.legacy(diagnostics.DiagnosticsNode)))();
+  var JSArrayOfDiagnosticsNodeL = () => (JSArrayOfDiagnosticsNodeL = dart.constFn(_interceptors.JSArray$(DiagnosticsNodeL())))();
+  const CT = Object.create(null);
+  var L1 = "file:///C:/flutter/packages/flutter/lib/src/rendering/sliver_multi_box_adaptor.dart";
+  var L0 = "package:flutter/src/rendering/sliver_multi_box_adaptor.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.horizontal",
+        index: 0
+      });
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.vertical",
+        index: 1
+      });
+    },
+    get C2() {
+      return C2 = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: -1,
+        [OffsetBase__dx]: 0
+      });
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 0,
+        [OffsetBase__dx]: 1
+      });
+    },
+    get C4() {
+      return C4 = dart.const({
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.up",
+        index: 0
+      });
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 1,
+        [OffsetBase__dx]: 0
+      });
+    },
+    get C6() {
+      return C6 = dart.const({
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.right",
+        index: 1
+      });
+    },
+    get C7() {
+      return C7 = dart.const({
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.down",
+        index: 2
+      });
+    },
+    get C8() {
+      return C8 = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 0,
+        [OffsetBase__dx]: -1
+      });
+    },
+    get C9() {
+      return C9 = dart.const({
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.left",
+        index: 3
+      });
+    }
+  }, false);
+  sliver_multi_box_adaptor.RenderSliverBoxChildManager = class RenderSliverBoxChildManager extends core.Object {
+    didStartLayout() {
+    }
+    didFinishLayout() {
+    }
+    debugAssertChildListLocked() {
+      return true;
+    }
+  };
+  (sliver_multi_box_adaptor.RenderSliverBoxChildManager.new = function() {
+    ;
+  }).prototype = sliver_multi_box_adaptor.RenderSliverBoxChildManager.prototype;
+  dart.addTypeTests(sliver_multi_box_adaptor.RenderSliverBoxChildManager);
+  dart.addTypeCaches(sliver_multi_box_adaptor.RenderSliverBoxChildManager);
+  dart.setMethodSignature(sliver_multi_box_adaptor.RenderSliverBoxChildManager, () => ({
+    __proto__: dart.getMethods(sliver_multi_box_adaptor.RenderSliverBoxChildManager.__proto__),
+    didStartLayout: dart.fnType(dart.void, []),
+    didFinishLayout: dart.fnType(dart.void, []),
+    debugAssertChildListLocked: dart.fnType(dart.legacy(core.bool), [])
+  }));
+  dart.setLibraryUri(sliver_multi_box_adaptor.RenderSliverBoxChildManager, L0);
+  var keepAlive = dart.privateName(sliver_multi_box_adaptor, "KeepAliveParentDataMixin.keepAlive");
+  sliver_multi_box_adaptor.KeepAliveParentDataMixin = class KeepAliveParentDataMixin extends core.Object {};
+  sliver_multi_box_adaptor.KeepAliveParentDataMixin[dart.mixinOn] = Object => class KeepAliveParentDataMixin extends Object {
+    get keepAlive() {
+      return this[keepAlive];
+    }
+    set keepAlive(value) {
+      this[keepAlive] = value;
+    }
+  };
+  (sliver_multi_box_adaptor.KeepAliveParentDataMixin[dart.mixinNew] = function() {
+    this[keepAlive] = false;
+  }).prototype = sliver_multi_box_adaptor.KeepAliveParentDataMixin.prototype;
+  dart.addTypeTests(sliver_multi_box_adaptor.KeepAliveParentDataMixin);
+  dart.addTypeCaches(sliver_multi_box_adaptor.KeepAliveParentDataMixin);
+  sliver_multi_box_adaptor.KeepAliveParentDataMixin[dart.implements] = () => [object.ParentData, core.Object];
+  dart.setLibraryUri(sliver_multi_box_adaptor.KeepAliveParentDataMixin, L0);
+  dart.setFieldSignature(sliver_multi_box_adaptor.KeepAliveParentDataMixin, () => ({
+    __proto__: dart.getFields(sliver_multi_box_adaptor.KeepAliveParentDataMixin.__proto__),
+    keepAlive: dart.fieldType(dart.legacy(core.bool))
+  }));
+  sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin = class RenderSliverWithKeepAliveMixin extends core.Object {};
+  sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin[dart.mixinOn] = Object => class RenderSliverWithKeepAliveMixin extends Object {
+    setupParentData(child) {
+      RenderObjectL().as(child);
+      if (!KeepAliveParentDataMixinL().is(child.parentData)) dart.assertFailed(null, L1, 146, 12, "child.parentData is KeepAliveParentDataMixin");
+    }
+  };
+  (sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin[dart.mixinNew] = function() {
+  }).prototype = sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin.prototype;
+  dart.addTypeTests(sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin);
+  dart.addTypeCaches(sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin);
+  sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin[dart.implements] = () => [sliver.RenderSliver, core.Object];
+  dart.setMethodSignature(sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin, () => ({
+    __proto__: dart.getMethods(sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin.__proto__),
+    setupParentData: dart.fnType(dart.void, [dart.legacy(core.Object)])
+  }));
+  dart.setLibraryUri(sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin, L0);
+  var _keptAlive = dart.privateName(sliver_multi_box_adaptor, "_keptAlive");
+  var index = dart.privateName(sliver_multi_box_adaptor, "SliverMultiBoxAdaptorParentData.index");
+  const SliverLogicalParentData_ContainerParentDataMixin$36 = class SliverLogicalParentData_ContainerParentDataMixin extends sliver.SliverLogicalParentData {};
+  (SliverLogicalParentData_ContainerParentDataMixin$36.new = function() {
+    object.ContainerParentDataMixin$(dart.legacy(box.RenderBox))[dart.mixinNew].call(this);
+    SliverLogicalParentData_ContainerParentDataMixin$36.__proto__.new.call(this);
+  }).prototype = SliverLogicalParentData_ContainerParentDataMixin$36.prototype;
+  dart.applyMixin(SliverLogicalParentData_ContainerParentDataMixin$36, object.ContainerParentDataMixin$(dart.legacy(box.RenderBox)));
+  const SliverLogicalParentData_KeepAliveParentDataMixin$36 = class SliverLogicalParentData_KeepAliveParentDataMixin extends SliverLogicalParentData_ContainerParentDataMixin$36 {};
+  (SliverLogicalParentData_KeepAliveParentDataMixin$36.new = function() {
+    sliver_multi_box_adaptor.KeepAliveParentDataMixin[dart.mixinNew].call(this);
+    SliverLogicalParentData_KeepAliveParentDataMixin$36.__proto__.new.call(this);
+  }).prototype = SliverLogicalParentData_KeepAliveParentDataMixin$36.prototype;
+  dart.applyMixin(SliverLogicalParentData_KeepAliveParentDataMixin$36, sliver_multi_box_adaptor.KeepAliveParentDataMixin);
+  sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData = class SliverMultiBoxAdaptorParentData extends SliverLogicalParentData_KeepAliveParentDataMixin$36 {
+    get index() {
+      return this[index];
+    }
+    set index(value) {
+      this[index] = value;
+    }
+    get keptAlive() {
+      return this[_keptAlive];
+    }
+    toString() {
+      return "index=" + dart.str(this.index) + "; " + (dart.equals(this.keepAlive, true) ? "keepAlive; " : "") + dart.str(super.toString());
+    }
+  };
+  (sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.new = function() {
+    this[index] = null;
+    this[_keptAlive] = false;
+    sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.__proto__.new.call(this);
+    ;
+  }).prototype = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.prototype;
+  dart.addTypeTests(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData);
+  dart.addTypeCaches(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData);
+  dart.setGetterSignature(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData, () => ({
+    __proto__: dart.getGetters(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.__proto__),
+    keptAlive: dart.legacy(core.bool)
+  }));
+  dart.setLibraryUri(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData, L0);
+  dart.setFieldSignature(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData, () => ({
+    __proto__: dart.getFields(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.__proto__),
+    index: dart.fieldType(dart.legacy(core.int)),
+    [_keptAlive]: dart.fieldType(dart.legacy(core.bool))
+  }));
+  dart.defineExtensionMethods(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData, ['toString']);
+  var _keepAliveBucket = dart.privateName(sliver_multi_box_adaptor, "_keepAliveBucket");
+  var _debugDanglingKeepAlives = dart.privateName(sliver_multi_box_adaptor, "_debugDanglingKeepAlives");
+  var _debugChildIntegrityEnabled = dart.privateName(sliver_multi_box_adaptor, "_debugChildIntegrityEnabled");
+  var _childManager = dart.privateName(sliver_multi_box_adaptor, "_childManager");
+  var _debugVerifyChildOrder = dart.privateName(sliver_multi_box_adaptor, "_debugVerifyChildOrder");
+  var _debugAssertChildListLocked = dart.privateName(sliver_multi_box_adaptor, "_debugAssertChildListLocked");
+  var _createOrObtainChild = dart.privateName(sliver_multi_box_adaptor, "_createOrObtainChild");
+  var _destroyOrCacheChild = dart.privateName(sliver_multi_box_adaptor, "_destroyOrCacheChild");
+  var _name = dart.privateName(basic_types, "_name");
+  var C0;
+  var C1;
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  var C2;
+  var C3;
+  var C4;
+  var C5;
+  var C6;
+  var C7;
+  var C8;
+  var C9;
+  const RenderSliver_ContainerRenderObjectMixin$36 = class RenderSliver_ContainerRenderObjectMixin extends sliver.RenderSliver {};
+  (RenderSliver_ContainerRenderObjectMixin$36.new = function() {
+    object.ContainerRenderObjectMixin$(dart.legacy(box.RenderBox), dart.legacy(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData))[dart.mixinNew].call(this);
+    RenderSliver_ContainerRenderObjectMixin$36.__proto__.new.call(this);
+  }).prototype = RenderSliver_ContainerRenderObjectMixin$36.prototype;
+  dart.applyMixin(RenderSliver_ContainerRenderObjectMixin$36, object.ContainerRenderObjectMixin$(dart.legacy(box.RenderBox), dart.legacy(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData)));
+  const RenderSliver_RenderSliverHelpers$36 = class RenderSliver_RenderSliverHelpers extends RenderSliver_ContainerRenderObjectMixin$36 {};
+  (RenderSliver_RenderSliverHelpers$36.new = function() {
+    RenderSliver_RenderSliverHelpers$36.__proto__.new.call(this);
+  }).prototype = RenderSliver_RenderSliverHelpers$36.prototype;
+  dart.applyMixin(RenderSliver_RenderSliverHelpers$36, sliver.RenderSliverHelpers);
+  const RenderSliver_RenderSliverWithKeepAliveMixin$36 = class RenderSliver_RenderSliverWithKeepAliveMixin extends RenderSliver_RenderSliverHelpers$36 {};
+  (RenderSliver_RenderSliverWithKeepAliveMixin$36.new = function() {
+    RenderSliver_RenderSliverWithKeepAliveMixin$36.__proto__.new.call(this);
+  }).prototype = RenderSliver_RenderSliverWithKeepAliveMixin$36.prototype;
+  dart.applyMixin(RenderSliver_RenderSliverWithKeepAliveMixin$36, sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin);
+  sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor = class RenderSliverMultiBoxAdaptor extends RenderSliver_RenderSliverWithKeepAliveMixin$36 {
+    setupParentData(child) {
+      RenderObjectL().as(child);
+      if (!SliverMultiBoxAdaptorParentDataL().is(child.parentData)) child.parentData = new sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.new();
+    }
+    get childManager() {
+      return this[_childManager];
+    }
+    get debugChildIntegrityEnabled() {
+      return this[_debugChildIntegrityEnabled];
+    }
+    set debugChildIntegrityEnabled(enabled) {
+      if (!(enabled != null)) dart.assertFailed(null, L1, 237, 12, "enabled != null");
+      if (!dart.test(dart.fn(() => {
+        this[_debugChildIntegrityEnabled] = enabled;
+        return dart.test(this[_debugVerifyChildOrder]()) && (!dart.test(this[_debugChildIntegrityEnabled]) || dart.test(this[_debugDanglingKeepAlives][$isEmpty]));
+      }, VoidToboolL())())) dart.assertFailed(null, L1, 238, 12, "() {\r\n      _debugChildIntegrityEnabled = enabled;\r\n      return _debugVerifyChildOrder() &&\r\n        (!_debugChildIntegrityEnabled || _debugDanglingKeepAlives.isEmpty);\r\n    }()");
+    }
+    adoptChild(child) {
+      RenderObjectL().as(child);
+      super.adoptChild(child);
+      let childParentData = SliverMultiBoxAdaptorParentDataL().as(child.parentData);
+      if (!dart.test(childParentData[_keptAlive])) this.childManager.didAdoptChild(RenderBoxL().as(child));
+    }
+    [_debugAssertChildListLocked]() {
+      return this.childManager.debugAssertChildListLocked();
+    }
+    [_debugVerifyChildOrder]() {
+      if (dart.test(this[_debugChildIntegrityEnabled])) {
+        let child = this.firstChild;
+        let index = null;
+        while (child != null) {
+          index = this.indexOf(child);
+          child = this.childAfter(child);
+          if (!(child == null || dart.notNull(this.indexOf(child)) > dart.notNull(index))) dart.assertFailed(null, L1, 265, 16, "child == null || indexOf(child) > index");
+        }
+      }
+      return true;
+    }
+    insert(child, opts) {
+      RenderBoxL().as(child);
+      let after = opts && 'after' in opts ? opts.after : null;
+      RenderBoxL().as(after);
+      if (!!dart.test(this[_keepAliveBucket][$containsValue](child))) dart.assertFailed(null, L1, 273, 12, "!_keepAliveBucket.containsValue(child)");
+      super.insert(child, {after: after});
+      if (!(this.firstChild != null)) dart.assertFailed(null, L1, 275, 12, "firstChild != null");
+      if (!dart.test(this[_debugVerifyChildOrder]())) dart.assertFailed(null, L1, 276, 12, "_debugVerifyChildOrder()");
+    }
+    move(child, opts) {
+      RenderBoxL().as(child);
+      let after = opts && 'after' in opts ? opts.after : null;
+      RenderBoxL().as(after);
+      let childParentData = SliverMultiBoxAdaptorParentDataL().as(child.parentData);
+      if (!dart.test(childParentData.keptAlive)) {
+        super.move(child, {after: after});
+        this.childManager.didAdoptChild(child);
+        this.markNeedsLayout();
+      } else {
+        if (dart.equals(this[_keepAliveBucket][$_get](childParentData.index), child)) {
+          this[_keepAliveBucket][$remove](childParentData.index);
+        }
+        if (!dart.test(dart.fn(() => {
+          this[_debugDanglingKeepAlives][$remove](child);
+          return true;
+        }, VoidToboolL())())) dart.assertFailed(null, L1, 303, 14, "() {\r\n        _debugDanglingKeepAlives.remove(child);\r\n        return true;\r\n      }()");
+        this.childManager.didAdoptChild(child);
+        if (!dart.test(dart.fn(() => {
+          if (dart.test(this[_keepAliveBucket][$containsKey](childParentData.index))) this[_debugDanglingKeepAlives][$add](this[_keepAliveBucket][$_get](childParentData.index));
+          return true;
+        }, VoidToboolL())())) dart.assertFailed(null, L1, 312, 14, "() {\r\n        if (_keepAliveBucket.containsKey(childParentData.index))\r\n          _debugDanglingKeepAlives.add(_keepAliveBucket[childParentData.index]);\r\n        return true;\r\n      }()");
+        this[_keepAliveBucket][$_set](childParentData.index, child);
+      }
+    }
+    remove(child) {
+      RenderBoxL().as(child);
+      let childParentData = SliverMultiBoxAdaptorParentDataL().as(child.parentData);
+      if (!dart.test(childParentData[_keptAlive])) {
+        super.remove(child);
+        return;
+      }
+      if (!dart.equals(this[_keepAliveBucket][$_get](childParentData.index), child)) dart.assertFailed(null, L1, 328, 12, "_keepAliveBucket[childParentData.index] == child");
+      if (!dart.test(dart.fn(() => {
+        this[_debugDanglingKeepAlives][$remove](child);
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L1, 329, 12, "() {\r\n      _debugDanglingKeepAlives.remove(child);\r\n      return true;\r\n    }()");
+      this[_keepAliveBucket][$remove](childParentData.index);
+      this.dropChild(child);
+    }
+    removeAll() {
+      super.removeAll();
+      this[_keepAliveBucket][$values][$forEach](dart.bind(this, 'dropChild'));
+      this[_keepAliveBucket][$clear]();
+    }
+    [_createOrObtainChild](index, opts) {
+      let after = opts && 'after' in opts ? opts.after : null;
+      this.invokeLayoutCallback(SliverConstraintsL(), dart.fn(constraints => {
+        if (!dart.equals(constraints, this.constraints)) dart.assertFailed(null, L1, 346, 14, "constraints == this.constraints");
+        if (dart.test(this[_keepAliveBucket][$containsKey](index))) {
+          let child = this[_keepAliveBucket][$remove](index);
+          let childParentData = SliverMultiBoxAdaptorParentDataL().as(child.parentData);
+          if (!dart.test(childParentData[_keptAlive])) dart.assertFailed(null, L1, 350, 16, "childParentData._keptAlive");
+          this.dropChild(child);
+          child.parentData = childParentData;
+          this.insert(child, {after: after});
+          childParentData[_keptAlive] = false;
+        } else {
+          this[_childManager].createChild(index, {after: after});
+        }
+      }, SliverConstraintsLToNullN()));
+    }
+    [_destroyOrCacheChild](child) {
+      let childParentData = SliverMultiBoxAdaptorParentDataL().as(child.parentData);
+      if (dart.test(childParentData.keepAlive)) {
+        if (!!dart.test(childParentData[_keptAlive])) dart.assertFailed(null, L1, 364, 14, "!childParentData._keptAlive");
+        this.remove(child);
+        this[_keepAliveBucket][$_set](childParentData.index, child);
+        child.parentData = childParentData;
+        super.adoptChild(child);
+        childParentData[_keptAlive] = true;
+      } else {
+        if (!dart.equals(child.parent, this)) dart.assertFailed(null, L1, 371, 14, "child.parent == this");
+        this[_childManager].removeChild(child);
+        if (!(child.parent == null)) dart.assertFailed(null, L1, 373, 14, "child.parent == null");
+      }
+    }
+    attach(owner) {
+      PipelineOwnerL().as(owner);
+      super.attach(owner);
+      for (let child of this[_keepAliveBucket][$values])
+        child.attach(owner);
+    }
+    detach() {
+      super.detach();
+      for (let child of this[_keepAliveBucket][$values])
+        child.detach();
+    }
+    redepthChildren() {
+      super.redepthChildren();
+      this[_keepAliveBucket][$values][$forEach](dart.bind(this, 'redepthChild'));
+    }
+    visitChildren(visitor) {
+      super.visitChildren(visitor);
+      this[_keepAliveBucket][$values][$forEach](visitor);
+    }
+    visitChildrenForSemantics(visitor) {
+      super.visitChildren(visitor);
+    }
+    addInitialChild(opts) {
+      let index = opts && 'index' in opts ? opts.index : 0;
+      let layoutOffset = opts && 'layoutOffset' in opts ? opts.layoutOffset : 0;
+      if (!dart.test(this[_debugAssertChildListLocked]())) dart.assertFailed(null, L1, 427, 12, "_debugAssertChildListLocked()");
+      if (!(this.firstChild == null)) dart.assertFailed(null, L1, 428, 12, "firstChild == null");
+      this[_createOrObtainChild](index, {after: null});
+      if (this.firstChild != null) {
+        if (!dart.equals(this.firstChild, this.lastChild)) dart.assertFailed(null, L1, 431, 14, "firstChild == lastChild");
+        if (!(this.indexOf(this.firstChild) == index)) dart.assertFailed(null, L1, 432, 14, "indexOf(firstChild) == index");
+        let firstChildParentData = SliverMultiBoxAdaptorParentDataL().as(this.firstChild.parentData);
+        firstChildParentData.layoutOffset = layoutOffset;
+        return true;
+      }
+      this.childManager.setDidUnderflow(true);
+      return false;
+    }
+    insertAndLayoutLeadingChild(childConstraints, opts) {
+      let parentUsesSize = opts && 'parentUsesSize' in opts ? opts.parentUsesSize : false;
+      if (!dart.test(this[_debugAssertChildListLocked]())) dart.assertFailed(null, L1, 459, 12, "_debugAssertChildListLocked()");
+      let index = dart.notNull(this.indexOf(this.firstChild)) - 1;
+      this[_createOrObtainChild](index, {after: null});
+      if (this.indexOf(this.firstChild) === index) {
+        this.firstChild.layout(childConstraints, {parentUsesSize: parentUsesSize});
+        return this.firstChild;
+      }
+      this.childManager.setDidUnderflow(true);
+      return null;
+    }
+    insertAndLayoutChild(childConstraints, opts) {
+      let after = opts && 'after' in opts ? opts.after : null;
+      let parentUsesSize = opts && 'parentUsesSize' in opts ? opts.parentUsesSize : false;
+      if (!dart.test(this[_debugAssertChildListLocked]())) dart.assertFailed(null, L1, 488, 12, "_debugAssertChildListLocked()");
+      if (!(after != null)) dart.assertFailed(null, L1, 489, 12, "after != null");
+      let index = dart.notNull(this.indexOf(after)) + 1;
+      this[_createOrObtainChild](index, {after: after});
+      let child = this.childAfter(after);
+      if (child != null && this.indexOf(child) === index) {
+        child.layout(childConstraints, {parentUsesSize: parentUsesSize});
+        return child;
+      }
+      this.childManager.setDidUnderflow(true);
+      return null;
+    }
+    collectGarbage(leadingGarbage, trailingGarbage) {
+      if (!dart.test(this[_debugAssertChildListLocked]())) dart.assertFailed(null, L1, 512, 12, "_debugAssertChildListLocked()");
+      if (!(dart.notNull(this.childCount) >= dart.notNull(leadingGarbage) + dart.notNull(trailingGarbage))) dart.assertFailed(null, L1, 513, 12, "childCount >= leadingGarbage + trailingGarbage");
+      this.invokeLayoutCallback(SliverConstraintsL(), dart.fn(constraints => {
+        while (dart.notNull(leadingGarbage) > 0) {
+          this[_destroyOrCacheChild](this.firstChild);
+          leadingGarbage = dart.notNull(leadingGarbage) - 1;
+        }
+        while (dart.notNull(trailingGarbage) > 0) {
+          this[_destroyOrCacheChild](this.lastChild);
+          trailingGarbage = dart.notNull(trailingGarbage) - 1;
+        }
+        this[_keepAliveBucket][$values][$where](dart.fn(child => {
+          let childParentData = SliverMultiBoxAdaptorParentDataL().as(child.parentData);
+          return !dart.test(childParentData.keepAlive);
+        }, RenderBoxLToboolL()))[$toList]()[$forEach](dart.bind(this[_childManager], 'removeChild'));
+        if (!dart.test(this[_keepAliveBucket][$values][$where](dart.fn(child => {
+          let childParentData = SliverMultiBoxAdaptorParentDataL().as(child.parentData);
+          return !dart.test(childParentData.keepAlive);
+        }, RenderBoxLToboolL()))[$isEmpty])) dart.assertFailed(null, L1, 530, 14, "_keepAliveBucket.values.where((RenderBox child) {\r\n        final SliverMultiBoxAdaptorParentData childParentData = child.parentData as SliverMultiBoxAdaptorParentData;\r\n        return !childParentData.keepAlive;\r\n      }).isEmpty");
+      }, SliverConstraintsLToNullN()));
+    }
+    indexOf(child) {
+      if (!(child != null)) dart.assertFailed(null, L1, 540, 12, "child != null");
+      let childParentData = SliverMultiBoxAdaptorParentDataL().as(child.parentData);
+      if (!(childParentData.index != null)) dart.assertFailed(null, L1, 542, 12, "childParentData.index != null");
+      return childParentData.index;
+    }
+    paintExtentOf(child) {
+      if (!(child != null)) dart.assertFailed(null, L1, 550, 12, "child != null");
+      if (!dart.test(child.hasSize)) dart.assertFailed(null, L1, 551, 12, "child.hasSize");
+      switch (this.constraints.axis) {
+        case C0 || CT.C0:
+        {
+          return child.size.width;
+        }
+        case C1 || CT.C1:
+        {
+          return child.size.height;
+        }
+      }
+      return null;
+    }
+    hitTestChildren(result, opts) {
+      let mainAxisPosition = opts && 'mainAxisPosition' in opts ? opts.mainAxisPosition : null;
+      let crossAxisPosition = opts && 'crossAxisPosition' in opts ? opts.crossAxisPosition : null;
+      let child = this.lastChild;
+      let boxResult = new box.BoxHitTestResult.wrap(result);
+      while (child != null) {
+        if (dart.test(this.hitTestBoxChild(boxResult, child, {mainAxisPosition: mainAxisPosition, crossAxisPosition: crossAxisPosition}))) return true;
+        child = this.childBefore(child);
+      }
+      return false;
+    }
+    childMainAxisPosition(child) {
+      RenderBoxL().as(child);
+      return dart.notNull(this.childScrollOffset(child)) - dart.notNull(this.constraints.scrollOffset);
+    }
+    childScrollOffset(child) {
+      RenderObjectL().as(child);
+      if (!(child != null)) dart.assertFailed(null, L1, 580, 12, "child != null");
+      if (!dart.equals(child.parent, this)) dart.assertFailed(null, L1, 581, 12, "child.parent == this");
+      let childParentData = SliverMultiBoxAdaptorParentDataL().as(child.parentData);
+      return childParentData.layoutOffset;
+    }
+    applyPaintTransform(child, transform) {
+      RenderBoxL().as(child);
+      if (dart.test(this[_keepAliveBucket][$containsKey](this.indexOf(child)))) {
+        transform.setZero();
+      } else {
+        this.applyPaintTransformForBoxChild(child, transform);
+      }
+    }
+    paint(context, offset) {
+      if (this.firstChild == null) return;
+      let mainAxisUnit = null;
+      let crossAxisUnit = null;
+      let originOffset = null;
+      let addExtent = null;
+      switch (sliver.applyGrowthDirectionToAxisDirection(this.constraints.axisDirection, this.constraints.growthDirection)) {
+        case C4 || CT.C4:
+        {
+          mainAxisUnit = C2 || CT.C2;
+          crossAxisUnit = C3 || CT.C3;
+          originOffset = offset['+'](new ui.Offset.new(0.0, this.geometry.paintExtent));
+          addExtent = true;
+          break;
+        }
+        case C6 || CT.C6:
+        {
+          mainAxisUnit = C3 || CT.C3;
+          crossAxisUnit = C5 || CT.C5;
+          originOffset = offset;
+          addExtent = false;
+          break;
+        }
+        case C7 || CT.C7:
+        {
+          mainAxisUnit = C5 || CT.C5;
+          crossAxisUnit = C3 || CT.C3;
+          originOffset = offset;
+          addExtent = false;
+          break;
+        }
+        case C9 || CT.C9:
+        {
+          mainAxisUnit = C8 || CT.C8;
+          crossAxisUnit = C5 || CT.C5;
+          originOffset = offset['+'](new ui.Offset.new(this.geometry.paintExtent, 0.0));
+          addExtent = true;
+          break;
+        }
+      }
+      if (!(mainAxisUnit != null)) dart.assertFailed(null, L1, 633, 12, "mainAxisUnit != null");
+      if (!(addExtent != null)) dart.assertFailed(null, L1, 634, 12, "addExtent != null");
+      let child = this.firstChild;
+      while (child != null) {
+        let mainAxisDelta = this.childMainAxisPosition(child);
+        let crossAxisDelta = this.childCrossAxisPosition(child);
+        let childOffset = new ui.Offset.new(dart.notNull(originOffset.dx) + dart.notNull(mainAxisUnit.dx) * dart.notNull(mainAxisDelta) + dart.notNull(crossAxisUnit.dx) * dart.notNull(crossAxisDelta), dart.notNull(originOffset.dy) + dart.notNull(mainAxisUnit.dy) * dart.notNull(mainAxisDelta) + dart.notNull(crossAxisUnit.dy) * dart.notNull(crossAxisDelta));
+        if (dart.test(addExtent)) childOffset = childOffset['+'](mainAxisUnit['*'](this.paintExtentOf(child)));
+        if (dart.notNull(mainAxisDelta) < dart.notNull(this.constraints.remainingPaintExtent) && dart.notNull(mainAxisDelta) + dart.notNull(this.paintExtentOf(child)) > 0) context.paintChild(child, childOffset);
+        child = this.childAfter(child);
+      }
+    }
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(diagnostics.DiagnosticsNode.message(this.firstChild != null ? "currently live children: " + dart.str(this.indexOf(this.firstChild)) + " to " + dart.str(this.indexOf(this.lastChild)) : "no children current live"));
+    }
+    debugAssertChildListIsNonEmptyAndContiguous() {
+      if (!dart.test(dart.fn(() => {
+        if (!(this.firstChild != null)) dart.assertFailed(null, L1, 667, 14, "firstChild != null");
+        let index = this.indexOf(this.firstChild);
+        let child = this.childAfter(this.firstChild);
+        while (child != null) {
+          index = dart.notNull(index) + 1;
+          if (!(this.indexOf(child) == index)) dart.assertFailed(null, L1, 672, 16, "indexOf(child) == index");
+          child = this.childAfter(child);
+        }
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L1, 666, 12, "() {\r\n      assert(firstChild != null);\r\n      int index = indexOf(firstChild);\r\n      RenderBox child = childAfter(firstChild);\r\n      while (child != null) {\r\n        index += 1;\r\n        assert(indexOf(child) == index);\r\n        child = childAfter(child);\r\n      }\r\n      return true;\r\n    }()");
+      return true;
+    }
+    debugDescribeChildren() {
+      let t0;
+      let children = JSArrayOfDiagnosticsNodeL().of([]);
+      if (this.firstChild != null) {
+        let child = this.firstChild;
+        while (true) {
+          let childParentData = SliverMultiBoxAdaptorParentDataL().as(child.parentData);
+          children[$add](child.toDiagnosticsNode({name: "child with index " + dart.str(childParentData.index)}));
+          if (dart.equals(child, this.lastChild)) break;
+          child = childParentData.nextSibling;
+        }
+      }
+      if (dart.test(this[_keepAliveBucket][$isNotEmpty])) {
+        let indices = (t0 = this[_keepAliveBucket][$keys][$toList](), (() => {
+          t0[$sort]();
+          return t0;
+        })());
+        for (let index of indices) {
+          children[$add](this[_keepAliveBucket][$_get](index).toDiagnosticsNode({name: "child with index " + dart.str(index) + " (kept alive but not laid out)", style: diagnostics.DiagnosticsTreeStyle.offstage}));
+        }
+      }
+      return children;
+    }
+  };
+  (sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.new = function(opts) {
+    let childManager = opts && 'childManager' in opts ? opts.childManager : null;
+    this[_keepAliveBucket] = new (IdentityMapOfintL$RenderBoxL()).new();
+    this[_debugDanglingKeepAlives] = null;
+    this[_debugChildIntegrityEnabled] = true;
+    if (!(childManager != null)) dart.assertFailed(null, L1, 197, 15, "childManager != null");
+    this[_childManager] = childManager;
+    sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.__proto__.new.call(this);
+    if (!dart.test(dart.fn(() => {
+      this[_debugDanglingKeepAlives] = JSArrayOfRenderBoxL().of([]);
+      return true;
+    }, VoidToboolL())())) dart.assertFailed(null, L1, 199, 12, "() {\r\n      _debugDanglingKeepAlives = <RenderBox>[];\r\n      return true;\r\n    }()");
+  }).prototype = sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.prototype;
+  dart.addTypeTests(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor);
+  dart.addTypeCaches(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor);
+  dart.setMethodSignature(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor, () => ({
+    __proto__: dart.getMethods(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.__proto__),
+    [_debugAssertChildListLocked]: dart.fnType(dart.legacy(core.bool), []),
+    [_debugVerifyChildOrder]: dart.fnType(dart.legacy(core.bool), []),
+    [_createOrObtainChild]: dart.fnType(dart.void, [dart.legacy(core.int)], {after: dart.legacy(box.RenderBox)}, {}),
+    [_destroyOrCacheChild]: dart.fnType(dart.void, [dart.legacy(box.RenderBox)]),
+    addInitialChild: dart.fnType(dart.legacy(core.bool), [], {index: dart.legacy(core.int), layoutOffset: dart.legacy(core.double)}, {}),
+    insertAndLayoutLeadingChild: dart.fnType(dart.legacy(box.RenderBox), [dart.legacy(box.BoxConstraints)], {parentUsesSize: dart.legacy(core.bool)}, {}),
+    insertAndLayoutChild: dart.fnType(dart.legacy(box.RenderBox), [dart.legacy(box.BoxConstraints)], {after: dart.legacy(box.RenderBox), parentUsesSize: dart.legacy(core.bool)}, {}),
+    collectGarbage: dart.fnType(dart.void, [dart.legacy(core.int), dart.legacy(core.int)]),
+    indexOf: dart.fnType(dart.legacy(core.int), [dart.legacy(box.RenderBox)]),
+    paintExtentOf: dart.fnType(dart.legacy(core.double), [dart.legacy(box.RenderBox)]),
+    debugAssertChildListIsNonEmptyAndContiguous: dart.fnType(dart.legacy(core.bool), [])
+  }));
+  dart.setGetterSignature(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor, () => ({
+    __proto__: dart.getGetters(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.__proto__),
+    childManager: dart.legacy(sliver_multi_box_adaptor.RenderSliverBoxChildManager),
+    debugChildIntegrityEnabled: dart.legacy(core.bool)
+  }));
+  dart.setSetterSignature(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor, () => ({
+    __proto__: dart.getSetters(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.__proto__),
+    debugChildIntegrityEnabled: dart.legacy(core.bool)
+  }));
+  dart.setLibraryUri(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor, L0);
+  dart.setFieldSignature(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor, () => ({
+    __proto__: dart.getFields(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.__proto__),
+    [_childManager]: dart.finalFieldType(dart.legacy(sliver_multi_box_adaptor.RenderSliverBoxChildManager)),
+    [_keepAliveBucket]: dart.finalFieldType(dart.legacy(core.Map$(dart.legacy(core.int), dart.legacy(box.RenderBox)))),
+    [_debugDanglingKeepAlives]: dart.fieldType(dart.legacy(core.List$(dart.legacy(box.RenderBox)))),
+    [_debugChildIntegrityEnabled]: dart.fieldType(dart.legacy(core.bool))
+  }));
+  dart.trackLibraries("packages/flutter/src/rendering/sliver_multi_box_adaptor.dart", {
+    "package:flutter/src/rendering/sliver_multi_box_adaptor.dart": sliver_multi_box_adaptor
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["sliver_multi_box_adaptor.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/flutter/src/rendering/sliver_multi_box_adaptor.dart.lib.js"}');
+  // Exports:
+  return {
+    src__rendering__sliver_multi_box_adaptor: sliver_multi_box_adaptor
+  };
+}));
+
+//# sourceMappingURL=sliver_multi_box_adaptor.dart.lib.js.map

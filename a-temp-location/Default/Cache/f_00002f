@@ -1,0 +1,575 @@
+define(['dart_sdk', 'packages/flutter/src/cupertino/route.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/cupertino/dialog.dart', 'packages/summoner_viewer/common_widgets/alert_dialog/platform_widget.dart'], (function load__packages__summoner_viewer__common_widgets__alert_dialog__platform_alert_dialog_dart(dart_sdk, packages__flutter__src__cupertino__route$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__cupertino__dialog$46dart, packages__summoner_viewer__common_widgets__alert_dialog__platform_widget$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const io = dart_sdk.io;
+  const async = dart_sdk.async;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const route = packages__flutter__src__cupertino__route$46dart.src__cupertino__route;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const dialog = packages__flutter__src__material__icon_button$46dart.src__material__dialog;
+  const flat_button = packages__flutter__src__material__icon_button$46dart.src__material__flat_button;
+  const dialog$ = packages__flutter__src__cupertino__dialog$46dart.src__cupertino__dialog;
+  const platform_widget = packages__summoner_viewer__common_widgets__alert_dialog__platform_widget$46dart.common_widgets__alert_dialog__platform_widget;
+  var platform_alert_dialog = Object.create(dart.library);
+  var $add = dartx.add;
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
+  var PlatformAlertDialogL = () => (PlatformAlertDialogL = dart.constFn(dart.legacy(platform_alert_dialog.PlatformAlertDialog)))();
+  var BuildContextL = () => (BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))();
+  var BuildContextLToPlatformAlertDialogL = () => (BuildContextLToPlatformAlertDialogL = dart.constFn(dart.fnType(PlatformAlertDialogL(), [BuildContextL()])))();
+  var _LocationL = () => (_LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))();
+  var WidgetL = () => (WidgetL = dart.constFn(dart.legacy(framework.Widget)))();
+  var JSArrayOfWidgetL = () => (JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(WidgetL())))();
+  var VoidTovoid = () => (VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))();
+  const CT = Object.create(null);
+  var L1 = "package:summoner_viewer/common_widgets/alert_dialog/platform_alert_dialog.dart";
+  var L0 = "file:///C:/Users/Mojic/AndroidStudioProjects/summoner_viewer/lib/common_widgets/alert_dialog/platform_alert_dialog.dart";
+  dart.defineLazy(CT, {
+    get C2() {
+      return C2 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 19,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C1 = dart.constList([C2 || CT.C2], _LocationL());
+    },
+    get C0() {
+      return C0 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C1 || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 38,
+        [_Location_file]: "file:///C:/Users/Mojic/AndroidStudioProjects/summoner_viewer/lib/common_widgets/alert_dialog/platform_alert_dialog.dart"
+      });
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 21,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C4 = dart.constList([C5 || CT.C5], _LocationL());
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C4 || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 39,
+        [_Location_file]: "file:///C:/Users/Mojic/AndroidStudioProjects/summoner_viewer/lib/common_widgets/alert_dialog/platform_alert_dialog.dart"
+      });
+    },
+    get C8() {
+      return C8 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 7,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C9 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "content",
+        [_Location_column]: 7,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C10 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "actions",
+        [_Location_column]: 7,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C7 = dart.constList([C8 || CT.C8, C9 || CT.C9, C10 || CT.C10], _LocationL());
+    },
+    get C6() {
+      return C6 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C7 || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 37,
+        [_Location_file]: "file:///C:/Users/Mojic/AndroidStudioProjects/summoner_viewer/lib/common_widgets/alert_dialog/platform_alert_dialog.dart"
+      });
+    },
+    get C13() {
+      return C13 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 19,
+        [_Location_line]: 47,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C12 = dart.constList([C13 || CT.C13], _LocationL());
+    },
+    get C11() {
+      return C11 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C12 || CT.C12,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 47,
+        [_Location_file]: "file:///C:/Users/Mojic/AndroidStudioProjects/summoner_viewer/lib/common_widgets/alert_dialog/platform_alert_dialog.dart"
+      });
+    },
+    get C16() {
+      return C16 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 21,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C15 = dart.constList([C16 || CT.C16], _LocationL());
+    },
+    get C14() {
+      return C14 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C15 || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 48,
+        [_Location_file]: "file:///C:/Users/Mojic/AndroidStudioProjects/summoner_viewer/lib/common_widgets/alert_dialog/platform_alert_dialog.dart"
+      });
+    },
+    get C19() {
+      return C19 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 7,
+        [_Location_line]: 47,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C20 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "content",
+        [_Location_column]: 7,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C21 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "actions",
+        [_Location_column]: 7,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C18 = dart.constList([C19 || CT.C19, C20 || CT.C20, C21 || CT.C21], _LocationL());
+    },
+    get C17() {
+      return C17 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C18 || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 46,
+        [_Location_file]: "file:///C:/Users/Mojic/AndroidStudioProjects/summoner_viewer/lib/common_widgets/alert_dialog/platform_alert_dialog.dart"
+      });
+    },
+    get C24() {
+      return C24 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 23,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C23 = dart.constList([C24 || CT.C24], _LocationL());
+    },
+    get C22() {
+      return C22 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C23 || CT.C23,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 58,
+        [_Location_file]: "file:///C:/Users/Mojic/AndroidStudioProjects/summoner_viewer/lib/common_widgets/alert_dialog/platform_alert_dialog.dart"
+      });
+    },
+    get C27() {
+      return C27 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C28 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 11,
+        [_Location_line]: 59,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C26 = dart.constList([C27 || CT.C27, C28 || CT.C28], _LocationL());
+    },
+    get C25() {
+      return C25 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C26 || CT.C26,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 57,
+        [_Location_file]: "file:///C:/Users/Mojic/AndroidStudioProjects/summoner_viewer/lib/common_widgets/alert_dialog/platform_alert_dialog.dart"
+      });
+    },
+    get C31() {
+      return C31 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 21,
+        [_Location_line]: 65,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C30 = dart.constList([C31 || CT.C31], _LocationL());
+    },
+    get C29() {
+      return C29 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C30 || CT.C30,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 65,
+        [_Location_file]: "file:///C:/Users/Mojic/AndroidStudioProjects/summoner_viewer/lib/common_widgets/alert_dialog/platform_alert_dialog.dart"
+      });
+    },
+    get C34() {
+      return C34 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 65,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C35 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 9,
+        [_Location_line]: 66,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C33 = dart.constList([C34 || CT.C34, C35 || CT.C35], _LocationL());
+    },
+    get C32() {
+      return C32 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C33 || CT.C33,
+        [_Location_name]: null,
+        [_Location_column]: 7,
+        [_Location_line]: 64,
+        [_Location_file]: "file:///C:/Users/Mojic/AndroidStudioProjects/summoner_viewer/lib/common_widgets/alert_dialog/platform_alert_dialog.dart"
+      });
+    },
+    get C38() {
+      return C38 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 81,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C39 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 7,
+        [_Location_line]: 82,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C37 = dart.constList([C38 || CT.C38, C39 || CT.C39], _LocationL());
+    },
+    get C36() {
+      return C36 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C37 || CT.C37,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 80,
+        [_Location_file]: "file:///C:/Users/Mojic/AndroidStudioProjects/summoner_viewer/lib/common_widgets/alert_dialog/platform_alert_dialog.dart"
+      });
+    },
+    get C42() {
+      return C42 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 89,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C43 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 7,
+        [_Location_line]: 90,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C41 = dart.constList([C42 || CT.C42, C43 || CT.C43], _LocationL());
+    },
+    get C40() {
+      return C40 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C41 || CT.C41,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 88,
+        [_Location_file]: "file:///C:/Users/Mojic/AndroidStudioProjects/summoner_viewer/lib/common_widgets/alert_dialog/platform_alert_dialog.dart"
+      });
+    }
+  }, false);
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var C2;
+  var C1;
+  var C0;
+  var C5;
+  var C4;
+  var C3;
+  var _buildActions = dart.privateName(platform_alert_dialog, "_buildActions");
+  var C8;
+  var C9;
+  var C10;
+  var C7;
+  var C6;
+  var C13;
+  var C12;
+  var C11;
+  var C16;
+  var C15;
+  var C14;
+  var C19;
+  var C20;
+  var C21;
+  var C18;
+  var C17;
+  var C24;
+  var C23;
+  var C22;
+  var C27;
+  var C28;
+  var C26;
+  var C25;
+  var C31;
+  var C30;
+  var C29;
+  var C34;
+  var C35;
+  var C33;
+  var C32;
+  var title$ = dart.privateName(platform_alert_dialog, "PlatformAlertDialog.title");
+  var content$ = dart.privateName(platform_alert_dialog, "PlatformAlertDialog.content");
+  var cancelActionText$ = dart.privateName(platform_alert_dialog, "PlatformAlertDialog.cancelActionText");
+  var defaultActionText$ = dart.privateName(platform_alert_dialog, "PlatformAlertDialog.defaultActionText");
+  platform_alert_dialog.PlatformAlertDialog = class PlatformAlertDialog extends platform_widget.PlatformWidget {
+    get title() {
+      return this[title$];
+    }
+    set title(value) {
+      super.title = value;
+    }
+    get content() {
+      return this[content$];
+    }
+    set content(value) {
+      super.content = value;
+    }
+    get cancelActionText() {
+      return this[cancelActionText$];
+    }
+    set cancelActionText(value) {
+      super.cancelActionText = value;
+    }
+    get defaultActionText() {
+      return this[defaultActionText$];
+    }
+    set defaultActionText(value) {
+      super.defaultActionText = value;
+    }
+    show(context) {
+      return async.async(boolL(), (function* show() {
+        return dart.test(io.Platform.isIOS) ? (yield route.showCupertinoDialog(boolL(), {context: context, builder: dart.fn(context => this, BuildContextLToPlatformAlertDialogL())})) : (yield dialog.showDialog(boolL(), {context: context, barrierDismissible: false, builder: dart.fn(context => this, BuildContextLToPlatformAlertDialogL())}));
+      }).bind(this));
+    }
+    buildCupertinoWidget(context) {
+      return new dialog$.CupertinoAlertDialog.new({title: new text.Text.new(this.title, {$creationLocationd_0dea112b090073317d4: C0 || CT.C0}), content: new text.Text.new(this.content, {$creationLocationd_0dea112b090073317d4: C3 || CT.C3}), actions: this[_buildActions](context), $creationLocationd_0dea112b090073317d4: C6 || CT.C6});
+    }
+    buildMaterialWidget(context) {
+      return new dialog.AlertDialog.new({title: new text.Text.new(this.title, {$creationLocationd_0dea112b090073317d4: C11 || CT.C11}), content: new text.Text.new(this.content, {$creationLocationd_0dea112b090073317d4: C14 || CT.C14}), actions: this[_buildActions](context), $creationLocationd_0dea112b090073317d4: C17 || CT.C17});
+    }
+    [_buildActions](context) {
+      let actions = JSArrayOfWidgetL().of([]);
+      if (this.cancelActionText != null) {
+        actions[$add](new platform_alert_dialog.PlatformAlertDialogAction.new({child: new text.Text.new(this.cancelActionText, {$creationLocationd_0dea112b090073317d4: C22 || CT.C22}), onPressed: dart.fn(() => navigator.Navigator.of(context).pop(boolL(), false), VoidTovoid()), $creationLocationd_0dea112b090073317d4: C25 || CT.C25}));
+      }
+      actions[$add](new platform_alert_dialog.PlatformAlertDialogAction.new({child: new text.Text.new(this.defaultActionText, {$creationLocationd_0dea112b090073317d4: C29 || CT.C29}), onPressed: dart.fn(() => navigator.Navigator.of(context).pop(boolL(), true), VoidTovoid()), $creationLocationd_0dea112b090073317d4: C32 || CT.C32}));
+      return actions;
+    }
+  };
+  (platform_alert_dialog.PlatformAlertDialog.new = function(opts) {
+    let title = opts && 'title' in opts ? opts.title : null;
+    let content = opts && 'content' in opts ? opts.content : null;
+    let cancelActionText = opts && 'cancelActionText' in opts ? opts.cancelActionText : null;
+    let defaultActionText = opts && 'defaultActionText' in opts ? opts.defaultActionText : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[title$] = title;
+    this[content$] = content;
+    this[cancelActionText$] = cancelActionText;
+    this[defaultActionText$] = defaultActionText;
+    if (!(title != null)) dart.assertFailed(null, L0, 13, 16, "title != null");
+    if (!(content != null)) dart.assertFailed(null, L0, 14, 16, "content != null");
+    if (!(defaultActionText != null)) dart.assertFailed(null, L0, 15, 16, "defaultActionText != null");
+    platform_alert_dialog.PlatformAlertDialog.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = platform_alert_dialog.PlatformAlertDialog.prototype;
+  dart.addTypeTests(platform_alert_dialog.PlatformAlertDialog);
+  dart.addTypeCaches(platform_alert_dialog.PlatformAlertDialog);
+  dart.setMethodSignature(platform_alert_dialog.PlatformAlertDialog, () => ({
+    __proto__: dart.getMethods(platform_alert_dialog.PlatformAlertDialog.__proto__),
+    show: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.bool))), [dart.legacy(framework.BuildContext)]),
+    buildCupertinoWidget: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)]),
+    buildMaterialWidget: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)]),
+    [_buildActions]: dart.fnType(dart.legacy(core.List$(dart.legacy(framework.Widget))), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(platform_alert_dialog.PlatformAlertDialog, L1);
+  dart.setFieldSignature(platform_alert_dialog.PlatformAlertDialog, () => ({
+    __proto__: dart.getFields(platform_alert_dialog.PlatformAlertDialog.__proto__),
+    title: dart.finalFieldType(dart.legacy(core.String)),
+    content: dart.finalFieldType(dart.legacy(core.String)),
+    cancelActionText: dart.finalFieldType(dart.legacy(core.String)),
+    defaultActionText: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  var C38;
+  var C39;
+  var C37;
+  var C36;
+  var C42;
+  var C43;
+  var C41;
+  var C40;
+  var child$ = dart.privateName(platform_alert_dialog, "PlatformAlertDialogAction.child");
+  var onPressed$ = dart.privateName(platform_alert_dialog, "PlatformAlertDialogAction.onPressed");
+  platform_alert_dialog.PlatformAlertDialogAction = class PlatformAlertDialogAction extends platform_widget.PlatformWidget {
+    get child() {
+      return this[child$];
+    }
+    set child(value) {
+      super.child = value;
+    }
+    get onPressed() {
+      return this[onPressed$];
+    }
+    set onPressed(value) {
+      super.onPressed = value;
+    }
+    buildCupertinoWidget(context) {
+      return new dialog$.CupertinoDialogAction.new({child: this.child, onPressed: this.onPressed, $creationLocationd_0dea112b090073317d4: C36 || CT.C36});
+    }
+    buildMaterialWidget(context) {
+      return new flat_button.FlatButton.new({child: this.child, onPressed: this.onPressed, $creationLocationd_0dea112b090073317d4: C40 || CT.C40});
+    }
+  };
+  (platform_alert_dialog.PlatformAlertDialogAction.new = function(opts) {
+    let child = opts && 'child' in opts ? opts.child : null;
+    let onPressed = opts && 'onPressed' in opts ? opts.onPressed : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[child$] = child;
+    this[onPressed$] = onPressed;
+    platform_alert_dialog.PlatformAlertDialogAction.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = platform_alert_dialog.PlatformAlertDialogAction.prototype;
+  dart.addTypeTests(platform_alert_dialog.PlatformAlertDialogAction);
+  dart.addTypeCaches(platform_alert_dialog.PlatformAlertDialogAction);
+  dart.setMethodSignature(platform_alert_dialog.PlatformAlertDialogAction, () => ({
+    __proto__: dart.getMethods(platform_alert_dialog.PlatformAlertDialogAction.__proto__),
+    buildCupertinoWidget: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)]),
+    buildMaterialWidget: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(platform_alert_dialog.PlatformAlertDialogAction, L1);
+  dart.setFieldSignature(platform_alert_dialog.PlatformAlertDialogAction, () => ({
+    __proto__: dart.getFields(platform_alert_dialog.PlatformAlertDialogAction.__proto__),
+    child: dart.finalFieldType(dart.legacy(framework.Widget)),
+    onPressed: dart.finalFieldType(dart.legacy(dart.fnType(dart.void, [])))
+  }));
+  dart.trackLibraries("packages/summoner_viewer/common_widgets/alert_dialog/platform_alert_dialog.dart", {
+    "package:summoner_viewer/common_widgets/alert_dialog/platform_alert_dialog.dart": platform_alert_dialog
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["platform_alert_dialog.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAgBe;;;;;;IACA;;;;;;IACA;;;;;;IACA;;;;;;SAEkB;AAAd;AACf,yBAAgB,sBACV,MAAM,6CACK,OAAO,WACP,QAAC,WAAY,mDAExB,MAAM,qCACK,OAAO,sBACI,gBACX,QAAC,WAAY;MAEhC;;yBAGyC;AACvC,YAAO,8CACE,kBAAK,6EACH,kBAAK,+EACL,oBAAc,OAAO;IAElC;wBAGwC;AACtC,YAAO,oCACE,kBAAK,+EACH,kBAAK,iFACL,oBAAc,OAAO;IAElC;oBAEwC;AAChC,oBAAkB;AACxB,UAAI,yBAAoB;AAMrB,QALD,AAAQ,OAAD,OACL,gEACS,kBAAK,4FACD,cAAgB,AAAY,uBAAT,OAAO,eAAM;;AAShD,MALD,AAAQ,OAAD,OACL,gEACS,kBAAK,6FACD,cAAgB,AAAY,uBAAT,OAAO,eAAM;AAG/C,YAAO,QAAO;IAChB;;;QA7DiB;QACA;QACV;QACU;;IAHA;IACA;IACV;IACU;UACJ,AAAM,KAAD,IAAI;UACT,AAAQ,OAAD,IAAI;UACX,AAAkB,iBAAD,IAAI;AAPlC;;EAOuC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA4D1B;;;;;;IACM;;;;;;yBAGsB;AACvC,YAAO,+CACE,uBACI;IAEf;wBAGwC;AACtC,YAAO,wCACE,uBACI;IAEf;;;QAlBgC;QAAY;;IAAZ;IAAY;AAA5C;;EAAuD","file":"../../../../../../../packages/summoner_viewer/common_widgets/alert_dialog/platform_alert_dialog.dart.lib.js"}');
+  // Exports:
+  return {
+    common_widgets__alert_dialog__platform_alert_dialog: platform_alert_dialog
+  };
+}));
+
+//# sourceMappingURL=platform_alert_dialog.dart.lib.js.map

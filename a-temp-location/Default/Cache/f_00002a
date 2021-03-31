@@ -1,0 +1,210 @@
+define(['dart_sdk', 'packages/summoner_viewer/rito_api/challenger_player.dart', 'packages/summoner_viewer/rito_api/summoner/summoner.dart', 'packages/summoner_viewer/rito_api/summoner/summoner_ranked.dart', 'packages/http/http.dart', 'packages/http/src/browser_client.dart', 'packages/summoner_viewer/rito_api/summoner/summoner_single_match_history.dart'], (function load__packages__summoner_viewer__rito_api__rito_api_calls_dart(dart_sdk, packages__summoner_viewer__rito_api__challenger_player$46dart, packages__summoner_viewer__rito_api__summoner__summoner$46dart, packages__summoner_viewer__rito_api__summoner__summoner_ranked$46dart, packages__http__http$46dart, packages__http__src__browser_client$46dart, packages__summoner_viewer__rito_api__summoner__summoner_single_match_history$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const convert = dart_sdk.convert;
+  const _interceptors = dart_sdk._interceptors;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const challenger_player = packages__summoner_viewer__rito_api__challenger_player$46dart.rito_api__challenger_player;
+  const summoner = packages__summoner_viewer__rito_api__summoner__summoner$46dart.rito_api__summoner__summoner;
+  const summoner_ranked = packages__summoner_viewer__rito_api__summoner__summoner_ranked$46dart.rito_api__summoner__summoner_ranked;
+  const http = packages__http__http$46dart.http;
+  const response = packages__http__src__browser_client$46dart.src__response;
+  const summoner_single_match_history = packages__summoner_viewer__rito_api__summoner__summoner_single_match_history$46dart.rito_api__summoner__summoner_single_match_history;
+  var rito_api_calls = Object.create(dart.library);
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  var $add = dartx.add;
+  var $compareTo = dartx.compareTo;
+  var $sort = dartx.sort;
+  var $isEmpty = dartx.isEmpty;
+  var ListL = () => (ListL = dart.constFn(dart.legacy(core.List)))();
+  var ChallengerPlayerL = () => (ChallengerPlayerL = dart.constFn(dart.legacy(challenger_player.ChallengerPlayer)))();
+  var JSArrayOfChallengerPlayerL = () => (JSArrayOfChallengerPlayerL = dart.constFn(_interceptors.JSArray$(ChallengerPlayerL())))();
+  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
+  var MapOfStringL$dynamic = () => (MapOfStringL$dynamic = dart.constFn(core.Map$(StringL(), dart.dynamic)))();
+  var MapLOfStringL$dynamic = () => (MapLOfStringL$dynamic = dart.constFn(dart.legacy(MapOfStringL$dynamic())))();
+  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
+  var ChallengerPlayerLAndChallengerPlayerLTointL = () => (ChallengerPlayerLAndChallengerPlayerLTointL = dart.constFn(dart.fnType(intL(), [ChallengerPlayerL(), ChallengerPlayerL()])))();
+  var ListOfChallengerPlayerL = () => (ListOfChallengerPlayerL = dart.constFn(core.List$(ChallengerPlayerL())))();
+  var ListLOfChallengerPlayerL = () => (ListLOfChallengerPlayerL = dart.constFn(dart.legacy(ListOfChallengerPlayerL())))();
+  var SummonerL = () => (SummonerL = dart.constFn(dart.legacy(summoner.Summoner)))();
+  var ResponseL = () => (ResponseL = dart.constFn(dart.legacy(response.Response)))();
+  var JSArrayOfintL = () => (JSArrayOfintL = dart.constFn(_interceptors.JSArray$(intL())))();
+  var SummonerSingleMatchHistoryL = () => (SummonerSingleMatchHistoryL = dart.constFn(dart.legacy(summoner_single_match_history.SummonerSingleMatchHistory)))();
+  var JSArrayOfSummonerSingleMatchHistoryL = () => (JSArrayOfSummonerSingleMatchHistoryL = dart.constFn(_interceptors.JSArray$(SummonerSingleMatchHistoryL())))();
+  var ListOfSummonerSingleMatchHistoryL = () => (ListOfSummonerSingleMatchHistoryL = dart.constFn(core.List$(SummonerSingleMatchHistoryL())))();
+  var ListLOfSummonerSingleMatchHistoryL = () => (ListLOfSummonerSingleMatchHistoryL = dart.constFn(dart.legacy(ListOfSummonerSingleMatchHistoryL())))();
+  const CT = Object.create(null);
+  var L0 = "package:summoner_viewer/rito_api/rito_api_calls.dart";
+  var _dataContainsSoloRanked = dart.privateName(rito_api_calls, "_dataContainsSoloRanked");
+  var _dataContainsFlexRanked = dart.privateName(rito_api_calls, "_dataContainsFlexRanked");
+  var apiKey$ = dart.privateName(rito_api_calls, "RitoApiCalls.apiKey");
+  rito_api_calls.RitoApiCalls = class RitoApiCalls extends core.Object {
+    get apiKey() {
+      return this[apiKey$];
+    }
+    set apiKey(value) {
+      super.apiKey = value;
+    }
+    getChallengerLadder() {
+      return async.async(ListLOfChallengerPlayerL(), (function* getChallengerLadder() {
+        let response = (yield this.getChallengerData());
+        let challengerList = ListL().as(dart.dsend(convert.jsonDecode(response.body), '_get', ["entries"]));
+        let challengerListOrdered = JSArrayOfChallengerPlayerL().of([]);
+        for (let i = 0; i < dart.notNull(challengerList[$length]); i = i + 1) {
+          let challengerPlayerInfo = MapLOfStringL$dynamic().as(challengerList[$_get](i));
+          challengerListOrdered[$add](new challenger_player.ChallengerPlayer.new({summonerName: StringL().as(challengerPlayerInfo[$_get]("summonerName")), leaguePoints: intL().as(challengerPlayerInfo[$_get]("leaguePoints")), wins: intL().as(challengerPlayerInfo[$_get]("wins")), losses: intL().as(challengerPlayerInfo[$_get]("losses"))}));
+          i = i + 1;
+        }
+        challengerListOrdered[$sort](dart.fn((a, b) => b.leaguePoints[$compareTo](a.leaguePoints), ChallengerPlayerLAndChallengerPlayerLTointL()));
+        return challengerListOrdered;
+      }).bind(this));
+    }
+    getSummoner(summonerName, region) {
+      return async.async(SummonerL(), (function* getSummoner() {
+        let baseSummonerInfoResponse = (yield this.getBaseSummonerData(summonerName, region));
+        let summonerData = MapLOfStringL$dynamic().as(convert.jsonDecode(baseSummonerInfoResponse.body));
+        let matchHistoryInfoResponse = (yield this.getMatchHistory(StringL().as(summonerData[$_get]("accountId"))));
+        let matchHistoryBruteData = MapLOfStringL$dynamic().as(convert.jsonDecode(matchHistoryInfoResponse.body));
+        let matchHistoryData = ListL().as(matchHistoryBruteData[$_get]("matches"));
+        let matchHistory = (yield this.createMatchHistoryList(StringL().as(summonerData[$_get]("id")), this.extractMatchIds(matchHistoryData)));
+        let rankedSummonerInfoResponse = (yield this.getRankedData(StringL().as(summonerData[$_get]("id"))));
+        let summonerRankedData = ListL().as(convert.jsonDecode(rankedSummonerInfoResponse.body));
+        let soloRankedIndex = -1;
+        let flexRankedIndex = -1;
+        if (dart.test(summonerRankedData[$isEmpty])) {
+          return summoner.Summoner.createSummoner(summonerData, summoner_ranked.SummonerRanked.createUnrankedSummoner(), summoner_ranked.SummonerRanked.createUnrankedSummoner(), matchHistory);
+        } else {
+          soloRankedIndex = this[_dataContainsSoloRanked](summonerRankedData);
+          flexRankedIndex = this[_dataContainsFlexRanked](summonerRankedData);
+          if (soloRankedIndex !== -1) {
+            let response2 = (yield this.getLeagueName(StringL().as(dart.dsend(summonerRankedData[$_get](soloRankedIndex), '_get', ["leagueId"]))));
+            let summonerLeagueData = MapLOfStringL$dynamic().as(convert.jsonDecode(response2.body));
+            if (flexRankedIndex !== -1) {
+              return summoner.Summoner.createSummoner(summonerData, summoner_ranked.SummonerRanked.extractSoloRanked(summonerRankedData, soloRankedIndex, summonerLeagueData), summoner_ranked.SummonerRanked.extractFlexRanked(summonerRankedData, flexRankedIndex), matchHistory);
+            }
+            return summoner.Summoner.createSummoner(summonerData, summoner_ranked.SummonerRanked.extractSoloRanked(summonerRankedData, soloRankedIndex, summonerLeagueData), summoner_ranked.SummonerRanked.createUnrankedSummoner(), matchHistory);
+          }
+        }
+        return summoner.Summoner.createSummoner(summonerData, summoner_ranked.SummonerRanked.createUnrankedSummoner(), summoner_ranked.SummonerRanked.extractFlexRanked(summonerRankedData, flexRankedIndex), matchHistory);
+      }).bind(this));
+    }
+    getChallengerData() {
+      return async.async(ResponseL(), (function* getChallengerData() {
+        let url = "https://euw1.api.riotgames.com/lol/league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5?api_key=" + dart.str(this.apiKey);
+        return yield http.get(url);
+      }).bind(this));
+    }
+    getBaseSummonerData(summonerName, region) {
+      return async.async(ResponseL(), (function* getBaseSummonerData() {
+        let url = "https://" + dart.str(region) + ".api.riotgames.com/lol/summoner/v4/summoners/by-name/" + dart.str(summonerName) + "?api_key=" + dart.str(this.apiKey);
+        return yield http.get(url);
+      }).bind(this));
+    }
+    getRankedData(userId) {
+      return async.async(ResponseL(), (function* getRankedData() {
+        let url = "https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/" + dart.str(userId) + "?api_key=" + dart.str(this.apiKey);
+        return yield http.get(url);
+      }).bind(this));
+    }
+    getLeagueName(name) {
+      return async.async(ResponseL(), (function* getLeagueName() {
+        let url = "https://euw1.api.riotgames.com/lol/league/v4/leagues/" + dart.str(name) + "?api_key=" + dart.str(this.apiKey);
+        return yield http.get(url);
+      }).bind(this));
+    }
+    getMatchHistory(accountId) {
+      return async.async(ResponseL(), (function* getMatchHistory() {
+        let url = "https://euw1.api.riotgames.com/lol/match/v4/matchlists/by-account/" + dart.str(accountId) + "?endIndex=10&api_key=" + dart.str(this.apiKey);
+        return yield http.get(url);
+      }).bind(this));
+    }
+    getMatchData(matchId) {
+      return async.async(ResponseL(), (function* getMatchData() {
+        let url = "https://euw1.api.riotgames.com/lol/match/v4/matches/" + dart.str(matchId) + "?api_key=" + dart.str(this.apiKey);
+        return yield http.get(url);
+      }).bind(this));
+    }
+    extractMatchIds(matchHistoryData) {
+      let matchIds = JSArrayOfintL().of([]);
+      for (let i = 0; i < 5; i = i + 1) {
+        matchIds[$add](intL().as(dart.dsend(matchHistoryData[$_get](i), '_get', ["gameId"])));
+      }
+      return matchIds;
+    }
+    createMatchHistoryList(summonerId, matchIds) {
+      return async.async(ListLOfSummonerSingleMatchHistoryL(), (function* createMatchHistoryList() {
+        let matchHistoryList = JSArrayOfSummonerSingleMatchHistoryL().of([]);
+        let matchDataResponse = null;
+        let matchData = null;
+        for (let i = 0; i < 5; i = i + 1) {
+          matchDataResponse = (yield this.getMatchData(matchIds[$_get](i)));
+          matchData = MapLOfStringL$dynamic().as(convert.jsonDecode(matchDataResponse.body));
+          matchHistoryList[$add](yield summoner_single_match_history.SummonerSingleMatchHistory.createSingleMatchHistory(summonerId, matchData));
+        }
+        return matchHistoryList;
+      }).bind(this));
+    }
+    [_dataContainsSoloRanked](data) {
+      if (dart.equals(dart.dsend(data[$_get](0), '_get', ["queueType"]), "RANKED_SOLO_5x5")) {
+        return 0;
+      }
+      if (data[$length] === 2) {
+        if (dart.equals(dart.dsend(data[$_get](1), '_get', ["queueType"]), "RANKED_SOLO_5x5")) {
+          return 1;
+        }
+      }
+      return -1;
+    }
+    [_dataContainsFlexRanked](data) {
+      if (dart.equals(dart.dsend(data[$_get](0), '_get', ["queueType"]), "RANKED_FLEX_SR")) {
+        return 0;
+      }
+      if (data[$length] === 2) {
+        if (dart.equals(dart.dsend(data[$_get](1), '_get', ["queueType"]), "RANKED_FLEX_SR")) {
+          return 1;
+        }
+      }
+      return -1;
+    }
+  };
+  (rito_api_calls.RitoApiCalls.new = function(opts) {
+    let apiKey = opts && 'apiKey' in opts ? opts.apiKey : null;
+    this[apiKey$] = apiKey;
+    ;
+  }).prototype = rito_api_calls.RitoApiCalls.prototype;
+  dart.addTypeTests(rito_api_calls.RitoApiCalls);
+  dart.addTypeCaches(rito_api_calls.RitoApiCalls);
+  dart.setMethodSignature(rito_api_calls.RitoApiCalls, () => ({
+    __proto__: dart.getMethods(rito_api_calls.RitoApiCalls.__proto__),
+    getChallengerLadder: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.List$(dart.legacy(challenger_player.ChallengerPlayer))))), []),
+    getSummoner: dart.fnType(dart.legacy(async.Future$(dart.legacy(summoner.Summoner))), [dart.legacy(core.String), dart.legacy(core.String)]),
+    getChallengerData: dart.fnType(dart.legacy(async.Future$(dart.legacy(response.Response))), []),
+    getBaseSummonerData: dart.fnType(dart.legacy(async.Future$(dart.legacy(response.Response))), [dart.legacy(core.String), dart.legacy(core.String)]),
+    getRankedData: dart.fnType(dart.legacy(async.Future$(dart.legacy(response.Response))), [dart.legacy(core.String)]),
+    getLeagueName: dart.fnType(dart.legacy(async.Future$(dart.legacy(response.Response))), [dart.legacy(core.String)]),
+    getMatchHistory: dart.fnType(dart.legacy(async.Future$(dart.legacy(response.Response))), [dart.legacy(core.String)]),
+    getMatchData: dart.fnType(dart.legacy(async.Future$(dart.legacy(response.Response))), [dart.legacy(core.int)]),
+    extractMatchIds: dart.fnType(dart.legacy(core.List$(dart.legacy(core.int))), [dart.legacy(core.List)]),
+    createMatchHistoryList: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.List$(dart.legacy(summoner_single_match_history.SummonerSingleMatchHistory))))), [dart.legacy(core.String), dart.legacy(core.List$(dart.legacy(core.int)))]),
+    [_dataContainsSoloRanked]: dart.fnType(dart.legacy(core.int), [dart.legacy(core.List)]),
+    [_dataContainsFlexRanked]: dart.fnType(dart.legacy(core.int), [dart.legacy(core.List)])
+  }));
+  dart.setLibraryUri(rito_api_calls.RitoApiCalls, L0);
+  dart.setFieldSignature(rito_api_calls.RitoApiCalls, () => ({
+    __proto__: dart.getFields(rito_api_calls.RitoApiCalls.__proto__),
+    apiKey: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.trackLibraries("packages/summoner_viewer/rito_api/rito_api_calls.dart", {
+    "package:summoner_viewer/rito_api/rito_api_calls.dart": rito_api_calls
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["rito_api_calls.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/summoner_viewer/rito_api/rito_api_calls.dart.lib.js"}');
+  // Exports:
+  return {
+    rito_api__rito_api_calls: rito_api_calls
+  };
+}));
+
+//# sourceMappingURL=rito_api_calls.dart.lib.js.map

@@ -1,0 +1,520 @@
+define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/animation/listener_helpers.dart'], (function load__packages__flutter__src__material__arc_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__animation__listener_helpers$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const math = dart_sdk.math;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  var arc = Object.create(dart.library);
+  var $abs = dartx.abs;
+  var $sign = dartx.sign;
+  var $toString = dartx.toString;
+  var doubleL = () => (doubleL = dart.constFn(dart.legacy(core.double)))();
+  var VoidTodoubleL = () => (VoidTodoubleL = dart.constFn(dart.fnType(doubleL(), [])))();
+  var OffsetL = () => (OffsetL = dart.constFn(dart.legacy(ui.Offset)))();
+  var _CornerIdL = () => (_CornerIdL = dart.constFn(dart.legacy(arc._CornerId)))();
+  var _DiagonalL = () => (_DiagonalL = dart.constFn(dart.legacy(arc._Diagonal)))();
+  var _DiagonalLTodoubleL = () => (_DiagonalLTodoubleL = dart.constFn(dart.fnType(doubleL(), [_DiagonalL()])))();
+  var RectL = () => (RectL = dart.constFn(dart.legacy(ui.Rect)))();
+  const CT = Object.create(null);
+  var L1 = "package:flutter/src/material/arc.dart";
+  var L0 = "file:///C:/flutter/packages/flutter/lib/src/material/arc.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: arc._CornerId.prototype,
+        [_name$]: "_CornerId.topLeft",
+        index: 0
+      });
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: arc._CornerId.prototype,
+        [_name$]: "_CornerId.topRight",
+        index: 1
+      });
+    },
+    get C2() {
+      return C2 = dart.const({
+        __proto__: arc._CornerId.prototype,
+        [_name$]: "_CornerId.bottomLeft",
+        index: 2
+      });
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: arc._CornerId.prototype,
+        [_name$]: "_CornerId.bottomRight",
+        index: 3
+      });
+    },
+    get C4() {
+      return C4 = dart.constList([C0 || CT.C0, C1 || CT.C1, C2 || CT.C2, C3 || CT.C3], _CornerIdL());
+    },
+    get C6() {
+      return C6 = dart.const({
+        __proto__: arc._Diagonal.prototype,
+        [endId$]: C3 || CT.C3,
+        [beginId$]: C0 || CT.C0
+      });
+    },
+    get C7() {
+      return C7 = dart.const({
+        __proto__: arc._Diagonal.prototype,
+        [endId$]: C0 || CT.C0,
+        [beginId$]: C3 || CT.C3
+      });
+    },
+    get C8() {
+      return C8 = dart.const({
+        __proto__: arc._Diagonal.prototype,
+        [endId$]: C2 || CT.C2,
+        [beginId$]: C1 || CT.C1
+      });
+    },
+    get C9() {
+      return C9 = dart.const({
+        __proto__: arc._Diagonal.prototype,
+        [endId$]: C1 || CT.C1,
+        [beginId$]: C2 || CT.C2
+      });
+    },
+    get C5() {
+      return C5 = dart.constList([C6 || CT.C6, C7 || CT.C7, C8 || CT.C8, C9 || CT.C9], _DiagonalL());
+    }
+  }, false);
+  var _dirty = dart.privateName(arc, "_dirty");
+  var _center = dart.privateName(arc, "_center");
+  var _radius = dart.privateName(arc, "_radius");
+  var _beginAngle = dart.privateName(arc, "_beginAngle");
+  var _endAngle = dart.privateName(arc, "_endAngle");
+  var _initialize = dart.privateName(arc, "_initialize");
+  arc.MaterialPointArcTween = class MaterialPointArcTween extends tween.Tween$(dart.legacy(ui.Offset)) {
+    [_initialize]() {
+      if (!(this.begin != null)) dart.assertFailed(null, L0, 48, 12, "begin != null");
+      if (!(this.end != null)) dart.assertFailed(null, L0, 49, 12, "end != null");
+      let delta = this.end['-'](this.begin);
+      let deltaX = delta.dx[$abs]();
+      let deltaY = delta.dy[$abs]();
+      let distanceFromAtoB = delta.distance;
+      let c = new ui.Offset.new(this.end.dx, this.begin.dy);
+      const sweepAngle = () => {
+        return 2.0 * math.asin(dart.notNull(distanceFromAtoB) / (2.0 * dart.notNull(this[_radius])));
+      };
+      dart.fn(sweepAngle, VoidTodoubleL());
+      if (deltaX > 2 && deltaY > 2) {
+        if (deltaX < deltaY) {
+          this[_radius] = dart.notNull(distanceFromAtoB) * dart.notNull(distanceFromAtoB) / dart.notNull(c['-'](this.begin).distance) / 2.0;
+          this[_center] = new ui.Offset.new(dart.notNull(this.end.dx) + dart.notNull(this[_radius]) * (dart.notNull(this.begin.dx) - dart.notNull(this.end.dx))[$sign], this.end.dy);
+          if (dart.notNull(this.begin.dx) < dart.notNull(this.end.dx)) {
+            this[_beginAngle] = dart.notNull(sweepAngle()) * (dart.notNull(this.begin.dy) - dart.notNull(this.end.dy))[$sign];
+            this[_endAngle] = 0.0;
+          } else {
+            this[_beginAngle] = 3.141592653589793 + dart.notNull(sweepAngle()) * (dart.notNull(this.end.dy) - dart.notNull(this.begin.dy))[$sign];
+            this[_endAngle] = 3.141592653589793;
+          }
+        } else {
+          this[_radius] = dart.notNull(distanceFromAtoB) * dart.notNull(distanceFromAtoB) / dart.notNull(c['-'](this.end).distance) / 2.0;
+          this[_center] = new ui.Offset.new(this.begin.dx, dart.notNull(this.begin.dy) + (dart.notNull(this.end.dy) - dart.notNull(this.begin.dy))[$sign] * dart.notNull(this[_radius]));
+          if (dart.notNull(this.begin.dy) < dart.notNull(this.end.dy)) {
+            this[_beginAngle] = -3.141592653589793 / 2.0;
+            this[_endAngle] = dart.notNull(this[_beginAngle]) + dart.notNull(sweepAngle()) * (dart.notNull(this.end.dx) - dart.notNull(this.begin.dx))[$sign];
+          } else {
+            this[_beginAngle] = 3.141592653589793 / 2.0;
+            this[_endAngle] = dart.notNull(this[_beginAngle]) + dart.notNull(sweepAngle()) * (dart.notNull(this.begin.dx) - dart.notNull(this.end.dx))[$sign];
+          }
+        }
+        if (!(this[_beginAngle] != null)) dart.assertFailed(null, L0, 82, 14, "_beginAngle != null");
+        if (!(this[_endAngle] != null)) dart.assertFailed(null, L0, 83, 14, "_endAngle != null");
+      } else {
+        this[_beginAngle] = null;
+        this[_endAngle] = null;
+      }
+      this[_dirty] = false;
+    }
+    get center() {
+      if (this.begin == null || this.end == null) return null;
+      if (dart.test(this[_dirty])) this[_initialize]();
+      return this[_center];
+    }
+    get radius() {
+      if (this.begin == null || this.end == null) return null;
+      if (dart.test(this[_dirty])) this[_initialize]();
+      return this[_radius];
+    }
+    get beginAngle() {
+      if (this.begin == null || this.end == null) return null;
+      if (dart.test(this[_dirty])) this[_initialize]();
+      return this[_beginAngle];
+    }
+    get endAngle() {
+      if (this.begin == null || this.end == null) return null;
+      if (dart.test(this[_dirty])) this[_initialize]();
+      return this[_beginAngle];
+    }
+    set begin(value) {
+      OffsetL().as(value);
+      if (!dart.equals(value, this.begin)) {
+        super.begin = value;
+        this[_dirty] = true;
+      }
+    }
+    get begin() {
+      return super.begin;
+    }
+    set end(value) {
+      OffsetL().as(value);
+      if (!dart.equals(value, this.end)) {
+        super.end = value;
+        this[_dirty] = true;
+      }
+    }
+    get end() {
+      return super.end;
+    }
+    lerp(t) {
+      if (dart.test(this[_dirty])) this[_initialize]();
+      if (t === 0.0) return this.begin;
+      if (t === 1.0) return this.end;
+      if (this[_beginAngle] == null || this[_endAngle] == null) return ui.Offset.lerp(this.begin, this.end, t);
+      let angle = ui.lerpDouble(this[_beginAngle], this[_endAngle], t);
+      let x = math.cos(angle) * dart.notNull(this[_radius]);
+      let y = math.sin(angle) * dart.notNull(this[_radius]);
+      return this[_center]['+'](new ui.Offset.new(x, y));
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "MaterialPointArcTween")) + "(" + dart.str(this.begin) + " → " + dart.str(this.end) + "; center=" + dart.str(this.center) + ", radius=" + dart.str(this.radius) + ", beginAngle=" + dart.str(this.beginAngle) + ", endAngle=" + dart.str(this.endAngle) + ")";
+    }
+  };
+  (arc.MaterialPointArcTween.new = function(opts) {
+    let begin = opts && 'begin' in opts ? opts.begin : null;
+    let end = opts && 'end' in opts ? opts.end : null;
+    this[_dirty] = true;
+    this[_center] = null;
+    this[_radius] = null;
+    this[_beginAngle] = null;
+    this[_endAngle] = null;
+    arc.MaterialPointArcTween.__proto__.new.call(this, {begin: begin, end: end});
+    ;
+  }).prototype = arc.MaterialPointArcTween.prototype;
+  dart.addTypeTests(arc.MaterialPointArcTween);
+  dart.addTypeCaches(arc.MaterialPointArcTween);
+  dart.setMethodSignature(arc.MaterialPointArcTween, () => ({
+    __proto__: dart.getMethods(arc.MaterialPointArcTween.__proto__),
+    [_initialize]: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(arc.MaterialPointArcTween, () => ({
+    __proto__: dart.getGetters(arc.MaterialPointArcTween.__proto__),
+    center: dart.legacy(ui.Offset),
+    radius: dart.legacy(core.double),
+    beginAngle: dart.legacy(core.double),
+    endAngle: dart.legacy(core.double)
+  }));
+  dart.setSetterSignature(arc.MaterialPointArcTween, () => ({
+    __proto__: dart.getSetters(arc.MaterialPointArcTween.__proto__),
+    begin: dart.legacy(core.Object),
+    end: dart.legacy(core.Object)
+  }));
+  dart.setLibraryUri(arc.MaterialPointArcTween, L1);
+  dart.setFieldSignature(arc.MaterialPointArcTween, () => ({
+    __proto__: dart.getFields(arc.MaterialPointArcTween.__proto__),
+    [_dirty]: dart.fieldType(dart.legacy(core.bool)),
+    [_center]: dart.fieldType(dart.legacy(ui.Offset)),
+    [_radius]: dart.fieldType(dart.legacy(core.double)),
+    [_beginAngle]: dart.fieldType(dart.legacy(core.double)),
+    [_endAngle]: dart.fieldType(dart.legacy(core.double))
+  }));
+  dart.defineExtensionMethods(arc.MaterialPointArcTween, ['toString']);
+  var _name$ = dart.privateName(arc, "_name");
+  var C0;
+  var C1;
+  var C2;
+  var C3;
+  var C4;
+  arc._CornerId = class _CornerId extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (arc._CornerId.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = arc._CornerId.prototype;
+  dart.addTypeTests(arc._CornerId);
+  dart.addTypeCaches(arc._CornerId);
+  dart.setMethodSignature(arc._CornerId, () => ({
+    __proto__: dart.getMethods(arc._CornerId.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(arc._CornerId, L1);
+  dart.setFieldSignature(arc._CornerId, () => ({
+    __proto__: dart.getFields(arc._CornerId.__proto__),
+    index: dart.finalFieldType(dart.legacy(core.int)),
+    [_name$]: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.defineExtensionMethods(arc._CornerId, ['toString']);
+  arc._CornerId.topLeft = C0 || CT.C0;
+  arc._CornerId.topRight = C1 || CT.C1;
+  arc._CornerId.bottomLeft = C2 || CT.C2;
+  arc._CornerId.bottomRight = C3 || CT.C3;
+  arc._CornerId.values = C4 || CT.C4;
+  var beginId$ = dart.privateName(arc, "_Diagonal.beginId");
+  var endId$ = dart.privateName(arc, "_Diagonal.endId");
+  arc._Diagonal = class _Diagonal extends core.Object {
+    get beginId() {
+      return this[beginId$];
+    }
+    set beginId(value) {
+      super.beginId = value;
+    }
+    get endId() {
+      return this[endId$];
+    }
+    set endId(value) {
+      super.endId = value;
+    }
+  };
+  (arc._Diagonal.new = function(beginId, endId) {
+    this[beginId$] = beginId;
+    this[endId$] = endId;
+    ;
+  }).prototype = arc._Diagonal.prototype;
+  dart.addTypeTests(arc._Diagonal);
+  dart.addTypeCaches(arc._Diagonal);
+  dart.setLibraryUri(arc._Diagonal, L1);
+  dart.setFieldSignature(arc._Diagonal, () => ({
+    __proto__: dart.getFields(arc._Diagonal.__proto__),
+    beginId: dart.finalFieldType(dart.legacy(arc._CornerId)),
+    endId: dart.finalFieldType(dart.legacy(arc._CornerId))
+  }));
+  var _beginArc = dart.privateName(arc, "_beginArc");
+  var _endArc = dart.privateName(arc, "_endArc");
+  var _diagonalSupport = dart.privateName(arc, "_diagonalSupport");
+  var _cornerFor = dart.privateName(arc, "_cornerFor");
+  arc.MaterialRectArcTween = class MaterialRectArcTween extends tween.RectTween {
+    [_initialize]() {
+      if (!(this.begin != null)) dart.assertFailed(null, L0, 248, 12, "begin != null");
+      if (!(this.end != null)) dart.assertFailed(null, L0, 249, 12, "end != null");
+      let centersVector = this.end.center['-'](this.begin.center);
+      let diagonal = arc._maxBy(_DiagonalL(), arc._allDiagonals, dart.fn(d => this[_diagonalSupport](centersVector, d), _DiagonalLTodoubleL()));
+      this[_beginArc] = new arc.MaterialPointArcTween.new({begin: this[_cornerFor](this.begin, diagonal.beginId), end: this[_cornerFor](this.end, diagonal.beginId)});
+      this[_endArc] = new arc.MaterialPointArcTween.new({begin: this[_cornerFor](this.begin, diagonal.endId), end: this[_cornerFor](this.end, diagonal.endId)});
+      this[_dirty] = false;
+    }
+    [_diagonalSupport](centersVector, diagonal) {
+      let delta = this[_cornerFor](this.begin, diagonal.endId)['-'](this[_cornerFor](this.begin, diagonal.beginId));
+      let length = delta.distance;
+      return dart.notNull(centersVector.dx) * dart.notNull(delta.dx) / dart.notNull(length) + dart.notNull(centersVector.dy) * dart.notNull(delta.dy) / dart.notNull(length);
+    }
+    [_cornerFor](rect, id) {
+      switch (id) {
+        case C0 || CT.C0:
+        {
+          return rect.topLeft;
+        }
+        case C1 || CT.C1:
+        {
+          return rect.topRight;
+        }
+        case C2 || CT.C2:
+        {
+          return rect.bottomLeft;
+        }
+        case C3 || CT.C3:
+        {
+          return rect.bottomRight;
+        }
+      }
+      return ui.Offset.zero;
+    }
+    get beginArc() {
+      if (this.begin == null) return null;
+      if (dart.test(this[_dirty])) this[_initialize]();
+      return this[_beginArc];
+    }
+    get endArc() {
+      if (this.end == null) return null;
+      if (dart.test(this[_dirty])) this[_initialize]();
+      return this[_endArc];
+    }
+    set begin(value) {
+      RectL().as(value);
+      if (!dart.equals(value, this.begin)) {
+        super.begin = value;
+        this[_dirty] = true;
+      }
+    }
+    get begin() {
+      return super.begin;
+    }
+    set end(value) {
+      RectL().as(value);
+      if (!dart.equals(value, this.end)) {
+        super.end = value;
+        this[_dirty] = true;
+      }
+    }
+    get end() {
+      return super.end;
+    }
+    lerp(t) {
+      if (dart.test(this[_dirty])) this[_initialize]();
+      if (t === 0.0) return this.begin;
+      if (t === 1.0) return this.end;
+      return new ui.Rect.fromPoints(this[_beginArc].lerp(t), this[_endArc].lerp(t));
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "MaterialRectArcTween")) + "(" + dart.str(this.begin) + " → " + dart.str(this.end) + "; beginArc=" + dart.str(this.beginArc) + ", endArc=" + dart.str(this.endArc) + ")";
+    }
+  };
+  (arc.MaterialRectArcTween.new = function(opts) {
+    let begin = opts && 'begin' in opts ? opts.begin : null;
+    let end = opts && 'end' in opts ? opts.end : null;
+    this[_dirty] = true;
+    this[_beginArc] = null;
+    this[_endArc] = null;
+    arc.MaterialRectArcTween.__proto__.new.call(this, {begin: begin, end: end});
+    ;
+  }).prototype = arc.MaterialRectArcTween.prototype;
+  dart.addTypeTests(arc.MaterialRectArcTween);
+  dart.addTypeCaches(arc.MaterialRectArcTween);
+  dart.setMethodSignature(arc.MaterialRectArcTween, () => ({
+    __proto__: dart.getMethods(arc.MaterialRectArcTween.__proto__),
+    [_initialize]: dart.fnType(dart.void, []),
+    [_diagonalSupport]: dart.fnType(dart.legacy(core.double), [dart.legacy(ui.Offset), dart.legacy(arc._Diagonal)]),
+    [_cornerFor]: dart.fnType(dart.legacy(ui.Offset), [dart.legacy(ui.Rect), dart.legacy(arc._CornerId)])
+  }));
+  dart.setGetterSignature(arc.MaterialRectArcTween, () => ({
+    __proto__: dart.getGetters(arc.MaterialRectArcTween.__proto__),
+    beginArc: dart.legacy(arc.MaterialPointArcTween),
+    endArc: dart.legacy(arc.MaterialPointArcTween)
+  }));
+  dart.setSetterSignature(arc.MaterialRectArcTween, () => ({
+    __proto__: dart.getSetters(arc.MaterialRectArcTween.__proto__),
+    begin: dart.legacy(core.Object),
+    end: dart.legacy(core.Object)
+  }));
+  dart.setLibraryUri(arc.MaterialRectArcTween, L1);
+  dart.setFieldSignature(arc.MaterialRectArcTween, () => ({
+    __proto__: dart.getFields(arc.MaterialRectArcTween.__proto__),
+    [_dirty]: dart.fieldType(dart.legacy(core.bool)),
+    [_beginArc]: dart.fieldType(dart.legacy(arc.MaterialPointArcTween)),
+    [_endArc]: dart.fieldType(dart.legacy(arc.MaterialPointArcTween))
+  }));
+  dart.defineExtensionMethods(arc.MaterialRectArcTween, ['toString']);
+  var _centerArc = dart.privateName(arc, "_centerArc");
+  arc.MaterialRectCenterArcTween = class MaterialRectCenterArcTween extends tween.RectTween {
+    [_initialize]() {
+      if (!(this.begin != null)) dart.assertFailed(null, L0, 364, 12, "begin != null");
+      if (!(this.end != null)) dart.assertFailed(null, L0, 365, 12, "end != null");
+      this[_centerArc] = new arc.MaterialPointArcTween.new({begin: this.begin.center, end: this.end.center});
+      this[_dirty] = false;
+    }
+    get centerArc() {
+      if (this.begin == null || this.end == null) return null;
+      if (dart.test(this[_dirty])) this[_initialize]();
+      return this[_centerArc];
+    }
+    set begin(value) {
+      RectL().as(value);
+      if (!dart.equals(value, this.begin)) {
+        super.begin = value;
+        this[_dirty] = true;
+      }
+    }
+    get begin() {
+      return super.begin;
+    }
+    set end(value) {
+      RectL().as(value);
+      if (!dart.equals(value, this.end)) {
+        super.end = value;
+        this[_dirty] = true;
+      }
+    }
+    get end() {
+      return super.end;
+    }
+    lerp(t) {
+      if (dart.test(this[_dirty])) this[_initialize]();
+      if (t === 0.0) return this.begin;
+      if (t === 1.0) return this.end;
+      let center = this[_centerArc].lerp(t);
+      let width = ui.lerpDouble(this.begin.width, this.end.width, t);
+      let height = ui.lerpDouble(this.begin.height, this.end.height, t);
+      return new ui.Rect.fromLTWH(dart.notNull(center.dx) - dart.notNull(width) / 2.0, dart.notNull(center.dy) - dart.notNull(height) / 2.0, width, height);
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "MaterialRectCenterArcTween")) + "(" + dart.str(this.begin) + " → " + dart.str(this.end) + "; centerArc=" + dart.str(this.centerArc) + ")";
+    }
+  };
+  (arc.MaterialRectCenterArcTween.new = function(opts) {
+    let begin = opts && 'begin' in opts ? opts.begin : null;
+    let end = opts && 'end' in opts ? opts.end : null;
+    this[_dirty] = true;
+    this[_centerArc] = null;
+    arc.MaterialRectCenterArcTween.__proto__.new.call(this, {begin: begin, end: end});
+    ;
+  }).prototype = arc.MaterialRectCenterArcTween.prototype;
+  dart.addTypeTests(arc.MaterialRectCenterArcTween);
+  dart.addTypeCaches(arc.MaterialRectCenterArcTween);
+  dart.setMethodSignature(arc.MaterialRectCenterArcTween, () => ({
+    __proto__: dart.getMethods(arc.MaterialRectCenterArcTween.__proto__),
+    [_initialize]: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(arc.MaterialRectCenterArcTween, () => ({
+    __proto__: dart.getGetters(arc.MaterialRectCenterArcTween.__proto__),
+    centerArc: dart.legacy(arc.MaterialPointArcTween)
+  }));
+  dart.setSetterSignature(arc.MaterialRectCenterArcTween, () => ({
+    __proto__: dart.getSetters(arc.MaterialRectCenterArcTween.__proto__),
+    begin: dart.legacy(core.Object),
+    end: dart.legacy(core.Object)
+  }));
+  dart.setLibraryUri(arc.MaterialRectCenterArcTween, L1);
+  dart.setFieldSignature(arc.MaterialRectCenterArcTween, () => ({
+    __proto__: dart.getFields(arc.MaterialRectCenterArcTween.__proto__),
+    [_dirty]: dart.fieldType(dart.legacy(core.bool)),
+    [_centerArc]: dart.fieldType(dart.legacy(arc.MaterialPointArcTween))
+  }));
+  dart.defineExtensionMethods(arc.MaterialRectCenterArcTween, ['toString']);
+  arc._maxBy = function _maxBy(T, input, keyFunc) {
+    let maxValue = null;
+    let maxKey = null;
+    for (let value of input) {
+      let key = keyFunc(value);
+      if (maxKey == null || dart.notNull(key) > dart.notNull(maxKey)) {
+        maxValue = value;
+        maxKey = key;
+      }
+    }
+    return maxValue;
+  };
+  var C6;
+  var C7;
+  var C8;
+  var C9;
+  var C5;
+  dart.defineLazy(arc, {
+    /*arc._kOnAxisDelta*/get _kOnAxisDelta() {
+      return 2;
+    },
+    /*arc._allDiagonals*/get _allDiagonals() {
+      return C5 || CT.C5;
+    }
+  }, true);
+  dart.trackLibraries("packages/flutter/src/material/arc.dart", {
+    "package:flutter/src/material/arc.dart": arc
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["arc.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/flutter/src/material/arc.dart.lib.js"}');
+  // Exports:
+  return {
+    src__material__arc: arc
+  };
+}));
+
+//# sourceMappingURL=arc.dart.lib.js.map

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "966366765320",
+    "firebase_url": "https://summoner-viewer.firebaseio.com",
+    "project_id": "summoner-viewer",
+    "storage_bucket": "summoner-viewer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966366765320:android:bcf872faadf03c43a68cbd",
+        "android_client_info": {
+          "package_name": "com.example.summoner_viewer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "966366765320-mbtn7rt5hiscni6qsiq4e2f2cr3odlg2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSOnqcjk72kJ6H6KufeQOK8ArF4bvN6Vk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "966366765320-mbtn7rt5hiscni6qsiq4e2f2cr3odlg2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

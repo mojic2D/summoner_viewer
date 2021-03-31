@@ -1,0 +1,285 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/cupertino/app.dart', 'packages/flutter/src/cupertino/route.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__cupertino__tab_view_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__cupertino__app$46dart, packages__flutter__src__cupertino__route$46dart, packages__flutter__src__foundation__debug$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const heroes = packages__flutter__src__widgets__widget_span$46dart.src__widgets__heroes;
+  const app = packages__flutter__src__cupertino__app$46dart.src__cupertino__app;
+  const route = packages__flutter__src__cupertino__route$46dart.src__cupertino__route;
+  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
+  var tab_view = Object.create(dart.library);
+  var $add = dartx.add;
+  var $_get = dartx._get;
+  var NavigatorObserverL = () => (NavigatorObserverL = dart.constFn(dart.legacy(navigator.NavigatorObserver)))();
+  var CupertinoTabViewL = () => (CupertinoTabViewL = dart.constFn(dart.legacy(tab_view.CupertinoTabView)))();
+  var ListOfNavigatorObserverL = () => (ListOfNavigatorObserverL = dart.constFn(core.List$(NavigatorObserverL())))();
+  var _LocationL = () => (_LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))();
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
+  var VoidToboolL = () => (VoidToboolL = dart.constFn(dart.fnType(boolL(), [])))();
+  const CT = Object.create(null);
+  var L0 = "file:///C:/flutter/packages/flutter/lib/src/cupertino/tab_view.dart";
+  var L1 = "package:flutter/src/cupertino/tab_view.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.constList([], NavigatorObserverL());
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 7,
+        [_Location_line]: 165,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C4 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onGenerateRoute",
+        [_Location_column]: 7,
+        [_Location_line]: 166,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onUnknownRoute",
+        [_Location_column]: 7,
+        [_Location_line]: 167,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C6 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "observers",
+        [_Location_column]: 7,
+        [_Location_line]: 168,
+        [_Location_file]: null
+      });
+    },
+    get C2() {
+      return C2 = dart.constList([C3 || CT.C3, C4 || CT.C4, C5 || CT.C5, C6 || CT.C6], _LocationL());
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C2 || CT.C2,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 164,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/cupertino/tab_view.dart"
+      });
+    }
+  }, false);
+  var C0;
+  var builder$ = dart.privateName(tab_view, "CupertinoTabView.builder");
+  var navigatorKey$ = dart.privateName(tab_view, "CupertinoTabView.navigatorKey");
+  var defaultTitle$ = dart.privateName(tab_view, "CupertinoTabView.defaultTitle");
+  var routes$ = dart.privateName(tab_view, "CupertinoTabView.routes");
+  var onGenerateRoute$ = dart.privateName(tab_view, "CupertinoTabView.onGenerateRoute");
+  var onUnknownRoute$ = dart.privateName(tab_view, "CupertinoTabView.onUnknownRoute");
+  var navigatorObservers$ = dart.privateName(tab_view, "CupertinoTabView.navigatorObservers");
+  tab_view.CupertinoTabView = class CupertinoTabView extends framework.StatefulWidget {
+    get builder() {
+      return this[builder$];
+    }
+    set builder(value) {
+      super.builder = value;
+    }
+    get navigatorKey() {
+      return this[navigatorKey$];
+    }
+    set navigatorKey(value) {
+      super.navigatorKey = value;
+    }
+    get defaultTitle() {
+      return this[defaultTitle$];
+    }
+    set defaultTitle(value) {
+      super.defaultTitle = value;
+    }
+    get routes() {
+      return this[routes$];
+    }
+    set routes(value) {
+      super.routes = value;
+    }
+    get onGenerateRoute() {
+      return this[onGenerateRoute$];
+    }
+    set onGenerateRoute(value) {
+      super.onGenerateRoute = value;
+    }
+    get onUnknownRoute() {
+      return this[onUnknownRoute$];
+    }
+    set onUnknownRoute(value) {
+      super.onUnknownRoute = value;
+    }
+    get navigatorObservers() {
+      return this[navigatorObservers$];
+    }
+    set navigatorObservers(value) {
+      super.navigatorObservers = value;
+    }
+    createState() {
+      return new tab_view._CupertinoTabViewState.new();
+    }
+  };
+  (tab_view.CupertinoTabView.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let builder = opts && 'builder' in opts ? opts.builder : null;
+    let navigatorKey = opts && 'navigatorKey' in opts ? opts.navigatorKey : null;
+    let defaultTitle = opts && 'defaultTitle' in opts ? opts.defaultTitle : null;
+    let routes = opts && 'routes' in opts ? opts.routes : null;
+    let onGenerateRoute = opts && 'onGenerateRoute' in opts ? opts.onGenerateRoute : null;
+    let onUnknownRoute = opts && 'onUnknownRoute' in opts ? opts.onUnknownRoute : null;
+    let navigatorObservers = opts && 'navigatorObservers' in opts ? opts.navigatorObservers : C0 || CT.C0;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[builder$] = builder;
+    this[navigatorKey$] = navigatorKey;
+    this[defaultTitle$] = defaultTitle;
+    this[routes$] = routes;
+    this[onGenerateRoute$] = onGenerateRoute;
+    this[onUnknownRoute$] = onUnknownRoute;
+    this[navigatorObservers$] = navigatorObservers;
+    if (!(navigatorObservers != null)) dart.assertFailed(null, L0, 54, 15, "navigatorObservers != null");
+    tab_view.CupertinoTabView.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = tab_view.CupertinoTabView.prototype;
+  dart.addTypeTests(tab_view.CupertinoTabView);
+  dart.addTypeCaches(tab_view.CupertinoTabView);
+  dart.setMethodSignature(tab_view.CupertinoTabView, () => ({
+    __proto__: dart.getMethods(tab_view.CupertinoTabView.__proto__),
+    createState: dart.fnType(dart.legacy(tab_view._CupertinoTabViewState), [])
+  }));
+  dart.setLibraryUri(tab_view.CupertinoTabView, L1);
+  dart.setFieldSignature(tab_view.CupertinoTabView, () => ({
+    __proto__: dart.getFields(tab_view.CupertinoTabView.__proto__),
+    builder: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)]))),
+    navigatorKey: dart.finalFieldType(dart.legacy(framework.GlobalKey$(dart.legacy(navigator.NavigatorState)))),
+    defaultTitle: dart.finalFieldType(dart.legacy(core.String)),
+    routes: dart.finalFieldType(dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)]))))),
+    onGenerateRoute: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(navigator.Route), [dart.legacy(navigator.RouteSettings)]))),
+    onUnknownRoute: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(navigator.Route), [dart.legacy(navigator.RouteSettings)]))),
+    navigatorObservers: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(navigator.NavigatorObserver))))
+  }));
+  var _heroController = dart.privateName(tab_view, "_heroController");
+  var _navigatorObservers = dart.privateName(tab_view, "_navigatorObservers");
+  var _updateObservers = dart.privateName(tab_view, "_updateObservers");
+  var _onGenerateRoute = dart.privateName(tab_view, "_onGenerateRoute");
+  var _onUnknownRoute = dart.privateName(tab_view, "_onUnknownRoute");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var C3;
+  var C4;
+  var C5;
+  var C6;
+  var C2;
+  var C1;
+  tab_view._CupertinoTabViewState = class _CupertinoTabViewState extends framework.State$(dart.legacy(tab_view.CupertinoTabView)) {
+    initState() {
+      super.initState();
+      this[_heroController] = app.CupertinoApp.createCupertinoHeroController();
+      this[_updateObservers]();
+    }
+    didUpdateWidget(oldWidget) {
+      CupertinoTabViewL().as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+      if (!dart.equals(this.widget.navigatorKey, oldWidget.navigatorKey) || !dart.equals(this.widget.navigatorObservers, oldWidget.navigatorObservers)) {
+        this[_updateObservers]();
+      }
+    }
+    [_updateObservers]() {
+      let t0;
+      this[_navigatorObservers] = (t0 = ListOfNavigatorObserverL().from(this.widget.navigatorObservers), (() => {
+        t0[$add](this[_heroController]);
+        return t0;
+      })());
+    }
+    build(context) {
+      return new navigator.Navigator.new({key: this.widget.navigatorKey, onGenerateRoute: dart.bind(this, _onGenerateRoute), onUnknownRoute: dart.bind(this, _onUnknownRoute), observers: this[_navigatorObservers], $creationLocationd_0dea112b090073317d4: C1 || CT.C1});
+    }
+    [_onGenerateRoute](settings) {
+      let t1, t0;
+      let name = settings.name;
+      let routeBuilder = null;
+      let title = null;
+      if (name === "/" && this.widget.builder != null) {
+        routeBuilder = this.widget.builder;
+        title = this.widget.defaultTitle;
+      } else if (this.widget.routes != null) {
+        routeBuilder = this.widget.routes[$_get](name);
+      }
+      if (routeBuilder != null) {
+        return new route.CupertinoPageRoute.new({builder: routeBuilder, title: title, settings: settings});
+      }
+      if (this.widget.onGenerateRoute != null) {
+        t0 = this.widget;
+        t1 = settings;
+        return t0.onGenerateRoute(t1);
+      }
+      return null;
+    }
+    [_onUnknownRoute](settings) {
+      let t1, t0;
+      if (!dart.test(dart.fn(() => {
+        if (this.widget.onUnknownRoute == null) {
+          dart.throw(assertions.FlutterError.new("Could not find a generator for route " + dart.str(settings) + " in the " + dart.str(this.runtimeType) + ".\n" + "Generators for routes are searched for in the following order:\n" + " 1. For the \"/\" route, the \"builder\" property, if non-null, is used.\n" + " 2. Otherwise, the \"routes\" table is used, if it has an entry for " + "the route.\n" + " 3. Otherwise, onGenerateRoute is called. It should return a " + "non-null value for any valid route not handled by \"builder\" and \"routes\".\n" + " 4. Finally if all else fails onUnknownRoute is called.\n" + "Unfortunately, onUnknownRoute was not set."));
+        }
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L0, 195, 12, "() {\r\n      if (widget.onUnknownRoute == null) {\r\n        throw FlutterError(\r\n          'Could not find a generator for route $settings in the $runtimeType.\\n'\r\n          'Generators for routes are searched for in the following order:\\n'\r\n          ' 1. For the \"/\" route, the \"builder\" property, if non-null, is used.\\n'\r\n          ' 2. Otherwise, the \"routes\" table is used, if it has an entry for '\r\n          'the route.\\n'\r\n          ' 3. Otherwise, onGenerateRoute is called. It should return a '\r\n          'non-null value for any valid route not handled by \"builder\" and \"routes\".\\n'\r\n          ' 4. Finally if all else fails onUnknownRoute is called.\\n'\r\n          'Unfortunately, onUnknownRoute was not set.'\r\n        );\r\n      }\r\n      return true;\r\n    }()");
+      let result = (t0 = this.widget, t1 = settings, t0.onUnknownRoute(t1));
+      if (!dart.test(dart.fn(() => {
+        if (result == null) {
+          dart.throw(assertions.FlutterError.new("The onUnknownRoute callback returned null.\n" + "When the " + dart.str(this.runtimeType) + " requested the route " + dart.str(settings) + " from its " + "onUnknownRoute callback, the callback returned null. Such callbacks " + "must never return null."));
+        }
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L0, 212, 12, "() {\r\n      if (result == null) {\r\n        throw FlutterError(\r\n          'The onUnknownRoute callback returned null.\\n'\r\n          'When the $runtimeType requested the route $settings from its '\r\n          'onUnknownRoute callback, the callback returned null. Such callbacks '\r\n          'must never return null.'\r\n        );\r\n      }\r\n      return true;\r\n    }()");
+      return result;
+    }
+  };
+  (tab_view._CupertinoTabViewState.new = function() {
+    this[_heroController] = null;
+    this[_navigatorObservers] = null;
+    tab_view._CupertinoTabViewState.__proto__.new.call(this);
+    ;
+  }).prototype = tab_view._CupertinoTabViewState.prototype;
+  dart.addTypeTests(tab_view._CupertinoTabViewState);
+  dart.addTypeCaches(tab_view._CupertinoTabViewState);
+  dart.setMethodSignature(tab_view._CupertinoTabViewState, () => ({
+    __proto__: dart.getMethods(tab_view._CupertinoTabViewState.__proto__),
+    [_updateObservers]: dart.fnType(dart.void, []),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)]),
+    [_onGenerateRoute]: dart.fnType(dart.legacy(navigator.Route), [dart.legacy(navigator.RouteSettings)]),
+    [_onUnknownRoute]: dart.fnType(dart.legacy(navigator.Route), [dart.legacy(navigator.RouteSettings)])
+  }));
+  dart.setLibraryUri(tab_view._CupertinoTabViewState, L1);
+  dart.setFieldSignature(tab_view._CupertinoTabViewState, () => ({
+    __proto__: dart.getFields(tab_view._CupertinoTabViewState.__proto__),
+    [_heroController]: dart.fieldType(dart.legacy(heroes.HeroController)),
+    [_navigatorObservers]: dart.fieldType(dart.legacy(core.List$(dart.legacy(navigator.NavigatorObserver))))
+  }));
+  dart.trackLibraries("packages/flutter/src/cupertino/tab_view.dart", {
+    "package:flutter/src/cupertino/tab_view.dart": tab_view
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["tab_view.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAsEsB;;;;;;IAaY;;;;;;IAGnB;;;;;;IAqBoB;;;;;;IAKd;;;;;;IAUA;;;;;;IAKW;;;;;;;AAI5B,YAAO;IACT;;;QAvFM;QACC;QACA;QACA;QACA;QACA;QACA;QACA;;IANA;IACA;IACA;IACA;IACA;IACA;IACA;UACK,AAAmB,kBAAD,IAAI;AAC7B,6DAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAuFD,MAAX;AACwD,MAA9D,wBAA+B;AACb,MAAlB;IACF;;6BAGsC;AACJ,MAA1B,sBAAgB,SAAS;AAC/B,uBAAI,AAAO,0BAAgB,AAAU,SAAD,+BAC7B,AAAO,gCAAsB,AAAU,SAAD;AACzB,QAAlB;;IAEJ;;;AAK8B,MAF5B,kCACI,gCAA6B,AAAO,iCAApC;AACI,iBAAI;;;IACd;UAG0B;AACxB,YAAO,mCACA,AAAO,qDACK,mDACD,mCACL;IAEf;uBAE8C;;AAC/B,iBAAO,AAAS,QAAD;AACd;AACP;AACP,UAAI,AAAK,IAAD,YAAkC,AAAO,uBAAW;AAC7B,QAA7B,eAAe,AAAO;AACK,QAA3B,QAAQ,AAAO;YACV,KAAI,AAAO,sBAAU;AACQ,QAAlC,eAAe,AAAO,AAAM,0BAAC,IAAI;;AAEnC,UAAI,YAAY,IAAI;AAClB,cAAO,4CACI,YAAY,SACd,KAAK,YACF,QAAQ;;AAGtB,UAAI,AAAO,+BAAmB,MAC5B;aAAO;aAAuB,QAAQ;cAAT;;AAC/B,YAAO;IACT;sBAE6C;;AAC3C,qBAAO,AAeN;AAdC,YAAI,AAAO,AAAe,8BAAG;AAW1B,UAVD,WAAM,4BAAY,AAChB,mDAAuC,QAAQ,0BAAS,oBAAW,QACnE,qEACA,+EACA,yEACA,iBACA,kEACA,oFACA,8DACA;;AAGJ,cAAO;;AAEY,yBAAS,kBAAsB,QAAQ,EAAT;AACnD,qBAAO,AAUN;AATC,YAAI,AAAO,MAAD,IAAI;AAMX,UALD,WAAM,4BAAY,AAChB,iDACA,uBAAW,oBAAW,mCAAsB,QAAQ,mBACpD,yEACA;;AAGJ,cAAO;;AAET,YAAO,OAAM;IACf;;;IAvFe;IACS;;;EAuF1B","file":"../../../../../../packages/flutter/src/cupertino/tab_view.dart.lib.js"}');
+  // Exports:
+  return {
+    src__cupertino__tab_view: tab_view
+  };
+}));
+
+//# sourceMappingURL=tab_view.dart.lib.js.map

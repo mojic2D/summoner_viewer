@@ -1,0 +1,326 @@
+define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__rendering__flow_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__foundation__change_notifier$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__foundation__debug$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const object$ = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
+  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
+  var flow = Object.create(dart.library);
+  var $toString = dartx.toString;
+  var $isFinite = dartx.isFinite;
+  var $clear = dartx.clear;
+  var $add = dartx.add;
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  var FlowDelegateL = () => (FlowDelegateL = dart.constFn(dart.legacy(flow.FlowDelegate)))();
+  var RenderBoxL = () => (RenderBoxL = dart.constFn(dart.legacy(box.RenderBox)))();
+  var JSArrayOfRenderBoxL = () => (JSArrayOfRenderBoxL = dart.constFn(_interceptors.JSArray$(RenderBoxL())))();
+  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
+  var JSArrayOfintL = () => (JSArrayOfintL = dart.constFn(_interceptors.JSArray$(intL())))();
+  var FlowParentDataL = () => (FlowParentDataL = dart.constFn(dart.legacy(flow.FlowParentData)))();
+  var PipelineOwnerL = () => (PipelineOwnerL = dart.constFn(dart.legacy(object$.PipelineOwner)))();
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
+  var VoidToboolL = () => (VoidToboolL = dart.constFn(dart.fnType(boolL(), [])))();
+  var PaintingContextL = () => (PaintingContextL = dart.constFn(dart.legacy(object$.PaintingContext)))();
+  var OffsetL = () => (OffsetL = dart.constFn(dart.legacy(ui.Offset)))();
+  var PaintingContextLAndOffsetLTovoid = () => (PaintingContextLAndOffsetLTovoid = dart.constFn(dart.fnType(dart.void, [PaintingContextL(), OffsetL()])))();
+  var PaintingContextLAndOffsetLToNullN = () => (PaintingContextLAndOffsetLToNullN = dart.constFn(dart.fnType(core.Null, [PaintingContextL(), OffsetL()])))();
+  var BoxHitTestResultL = () => (BoxHitTestResultL = dart.constFn(dart.legacy(box.BoxHitTestResult)))();
+  var BoxHitTestResultLAndOffsetLToboolL = () => (BoxHitTestResultLAndOffsetLToboolL = dart.constFn(dart.fnType(boolL(), [BoxHitTestResultL(), OffsetL()])))();
+  const CT = Object.create(null);
+  var L0 = "package:flutter/src/rendering/flow.dart";
+  var L1 = "file:///C:/flutter/packages/flutter/lib/src/rendering/flow.dart";
+  flow.FlowPaintingContext = class FlowPaintingContext extends core.Object {};
+  (flow.FlowPaintingContext.new = function() {
+    ;
+  }).prototype = flow.FlowPaintingContext.prototype;
+  dart.addTypeTests(flow.FlowPaintingContext);
+  dart.addTypeCaches(flow.FlowPaintingContext);
+  dart.setLibraryUri(flow.FlowPaintingContext, L0);
+  var _repaint = dart.privateName(flow, "_repaint");
+  var _repaint$ = dart.privateName(flow, "FlowDelegate._repaint");
+  flow.FlowDelegate = class FlowDelegate extends core.Object {
+    get [_repaint]() {
+      return this[_repaint$];
+    }
+    set [_repaint](value) {
+      super[_repaint] = value;
+    }
+    getSize(constraints) {
+      return constraints.biggest;
+    }
+    getConstraintsForChild(i, constraints) {
+      return constraints;
+    }
+    shouldRelayout(oldDelegate) {
+      FlowDelegateL().as(oldDelegate);
+      return false;
+    }
+    toString() {
+      return object.objectRuntimeType(this, "FlowDelegate");
+    }
+  };
+  (flow.FlowDelegate.new = function(opts) {
+    let repaint = opts && 'repaint' in opts ? opts.repaint : null;
+    this[_repaint$] = repaint;
+    ;
+  }).prototype = flow.FlowDelegate.prototype;
+  dart.addTypeTests(flow.FlowDelegate);
+  dart.addTypeCaches(flow.FlowDelegate);
+  dart.setMethodSignature(flow.FlowDelegate, () => ({
+    __proto__: dart.getMethods(flow.FlowDelegate.__proto__),
+    getSize: dart.fnType(dart.legacy(ui.Size), [dart.legacy(box.BoxConstraints)]),
+    getConstraintsForChild: dart.fnType(dart.legacy(box.BoxConstraints), [dart.legacy(core.int), dart.legacy(box.BoxConstraints)]),
+    shouldRelayout: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(flow.FlowDelegate, L0);
+  dart.setFieldSignature(flow.FlowDelegate, () => ({
+    __proto__: dart.getFields(flow.FlowDelegate.__proto__),
+    [_repaint]: dart.finalFieldType(dart.legacy(change_notifier.Listenable))
+  }));
+  dart.defineExtensionMethods(flow.FlowDelegate, ['toString']);
+  var _transform = dart.privateName(flow, "_transform");
+  flow.FlowParentData = class FlowParentData extends box.ContainerBoxParentData$(dart.legacy(box.RenderBox)) {};
+  (flow.FlowParentData.new = function() {
+    this[_transform] = null;
+    flow.FlowParentData.__proto__.new.call(this);
+    ;
+  }).prototype = flow.FlowParentData.prototype;
+  dart.addTypeTests(flow.FlowParentData);
+  dart.addTypeCaches(flow.FlowParentData);
+  dart.setLibraryUri(flow.FlowParentData, L0);
+  dart.setFieldSignature(flow.FlowParentData, () => ({
+    __proto__: dart.getFields(flow.FlowParentData.__proto__),
+    [_transform]: dart.fieldType(dart.legacy(vector_math_64.Matrix4))
+  }));
+  var _randomAccessChildren = dart.privateName(flow, "_randomAccessChildren");
+  var _lastPaintOrder = dart.privateName(flow, "_lastPaintOrder");
+  var _paintingContext = dart.privateName(flow, "_paintingContext");
+  var _paintingOffset = dart.privateName(flow, "_paintingOffset");
+  var _delegate = dart.privateName(flow, "_delegate");
+  var _getSize = dart.privateName(flow, "_getSize");
+  var _paintWithDelegate = dart.privateName(flow, "_paintWithDelegate");
+  const RenderBox_ContainerRenderObjectMixin$36 = class RenderBox_ContainerRenderObjectMixin extends box.RenderBox {};
+  (RenderBox_ContainerRenderObjectMixin$36.new = function() {
+    object$.ContainerRenderObjectMixin$(dart.legacy(box.RenderBox), dart.legacy(flow.FlowParentData))[dart.mixinNew].call(this);
+    RenderBox_ContainerRenderObjectMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_ContainerRenderObjectMixin$36.prototype;
+  dart.applyMixin(RenderBox_ContainerRenderObjectMixin$36, object$.ContainerRenderObjectMixin$(dart.legacy(box.RenderBox), dart.legacy(flow.FlowParentData)));
+  const RenderBox_RenderBoxContainerDefaultsMixin$36 = class RenderBox_RenderBoxContainerDefaultsMixin extends RenderBox_ContainerRenderObjectMixin$36 {};
+  (RenderBox_RenderBoxContainerDefaultsMixin$36.new = function() {
+    RenderBox_RenderBoxContainerDefaultsMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_RenderBoxContainerDefaultsMixin$36.prototype;
+  dart.applyMixin(RenderBox_RenderBoxContainerDefaultsMixin$36, box.RenderBoxContainerDefaultsMixin$(dart.legacy(box.RenderBox), dart.legacy(flow.FlowParentData)));
+  flow.RenderFlow = class RenderFlow extends RenderBox_RenderBoxContainerDefaultsMixin$36 {
+    setupParentData(child) {
+      RenderBoxL().as(child);
+      let childParentData = child.parentData;
+      if (FlowParentDataL().is(childParentData))
+        childParentData[_transform] = null;
+      else
+        child.parentData = new flow.FlowParentData.new();
+    }
+    get delegate() {
+      return this[_delegate];
+    }
+    set delegate(newDelegate) {
+      let t0, t0$;
+      if (!(newDelegate != null)) dart.assertFailed(null, L1, 209, 12, "newDelegate != null");
+      if (dart.equals(this[_delegate], newDelegate)) return;
+      let oldDelegate = this[_delegate];
+      this[_delegate] = newDelegate;
+      if (!dart.equals(dart.runtimeType(newDelegate), dart.runtimeType(oldDelegate)) || dart.test(newDelegate.shouldRelayout(oldDelegate)))
+        this.markNeedsLayout();
+      else if (dart.test(newDelegate.shouldRepaint(oldDelegate))) this.markNeedsPaint();
+      if (dart.test(this.attached)) {
+        t0 = oldDelegate[_repaint];
+        t0 == null ? null : t0.removeListener(dart.bind(this, 'markNeedsPaint'));
+        t0$ = newDelegate[_repaint];
+        t0$ == null ? null : t0$.addListener(dart.bind(this, 'markNeedsPaint'));
+      }
+    }
+    attach(owner) {
+      let t0;
+      PipelineOwnerL().as(owner);
+      super.attach(owner);
+      t0 = this[_delegate][_repaint];
+      t0 == null ? null : t0.addListener(dart.bind(this, 'markNeedsPaint'));
+    }
+    detach() {
+      let t0;
+      t0 = this[_delegate][_repaint];
+      t0 == null ? null : t0.removeListener(dart.bind(this, 'markNeedsPaint'));
+      super.detach();
+    }
+    [_getSize](constraints) {
+      if (!dart.test(constraints.debugAssertIsValid())) dart.assertFailed(null, L1, 239, 12, "constraints.debugAssertIsValid()");
+      return constraints.constrain(this[_delegate].getSize(constraints));
+    }
+    get isRepaintBoundary() {
+      return true;
+    }
+    computeMinIntrinsicWidth(height) {
+      let width = this[_getSize](new box.BoxConstraints.tightForFinite({height: height})).width;
+      if (width[$isFinite]) return width;
+      return 0.0;
+    }
+    computeMaxIntrinsicWidth(height) {
+      let width = this[_getSize](new box.BoxConstraints.tightForFinite({height: height})).width;
+      if (width[$isFinite]) return width;
+      return 0.0;
+    }
+    computeMinIntrinsicHeight(width) {
+      let height = this[_getSize](new box.BoxConstraints.tightForFinite({width: width})).height;
+      if (height[$isFinite]) return height;
+      return 0.0;
+    }
+    computeMaxIntrinsicHeight(width) {
+      let height = this[_getSize](new box.BoxConstraints.tightForFinite({width: width})).height;
+      if (height[$isFinite]) return height;
+      return 0.0;
+    }
+    performLayout() {
+      let constraints = this.constraints;
+      this.size = this[_getSize](constraints);
+      let i = 0;
+      this[_randomAccessChildren][$clear]();
+      let child = this.firstChild;
+      while (child != null) {
+        this[_randomAccessChildren][$add](child);
+        let innerConstraints = this[_delegate].getConstraintsForChild(i, constraints);
+        child.layout(innerConstraints, {parentUsesSize: true});
+        let childParentData = FlowParentDataL().as(child.parentData);
+        childParentData.offset = ui.Offset.zero;
+        child = childParentData.nextSibling;
+        i = i + 1;
+      }
+    }
+    getChildSize(i) {
+      if (dart.notNull(i) < 0 || dart.notNull(i) >= dart.notNull(this[_randomAccessChildren][$length])) return null;
+      return this[_randomAccessChildren][$_get](i).size;
+    }
+    paintChild(i, opts) {
+      let transform = opts && 'transform' in opts ? opts.transform : null;
+      let opacity = opts && 'opacity' in opts ? opts.opacity : 1;
+      transform == null ? transform = vector_math_64.Matrix4.identity() : null;
+      let child = this[_randomAccessChildren][$_get](i);
+      let childParentData = FlowParentDataL().as(child.parentData);
+      if (!dart.test(dart.fn(() => {
+        if (childParentData[_transform] != null) {
+          dart.throw(assertions.FlutterError.new("Cannot call paintChild twice for the same child.\n" + "The flow delegate of type " + dart.str(dart.runtimeType(this[_delegate])) + " attempted to " + "paint child " + dart.str(i) + " multiple times, which is not permitted."));
+        }
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L1, 322, 12, "() {\r\n      if (childParentData._transform != null) {\r\n        throw FlutterError(\r\n          'Cannot call paintChild twice for the same child.\\n'\r\n          'The flow delegate of type ${_delegate.runtimeType} attempted to '\r\n          'paint child $i multiple times, which is not permitted.'\r\n        );\r\n      }\r\n      return true;\r\n    }()");
+      this[_lastPaintOrder][$add](i);
+      childParentData[_transform] = transform;
+      if (opacity === 0.0) return;
+      function painter(context, offset) {
+        context.paintChild(child, offset);
+      }
+      dart.fn(painter, PaintingContextLAndOffsetLTovoid());
+      if (opacity === 1.0) {
+        this[_paintingContext].pushTransform(this.needsCompositing, this[_paintingOffset], transform, painter);
+      } else {
+        this[_paintingContext].pushOpacity(this[_paintingOffset], ui.Color.getAlphaFromOpacity(opacity), dart.fn((context, offset) => {
+          context.pushTransform(this.needsCompositing, offset, transform, painter);
+        }, PaintingContextLAndOffsetLToNullN()));
+      }
+    }
+    [_paintWithDelegate](context, offset) {
+      this[_lastPaintOrder][$clear]();
+      this[_paintingContext] = context;
+      this[_paintingOffset] = offset;
+      for (let child of this[_randomAccessChildren]) {
+        let childParentData = FlowParentDataL().as(child.parentData);
+        childParentData[_transform] = null;
+      }
+      try {
+        this[_delegate].paintChildren(this);
+      } finally {
+        this[_paintingContext] = null;
+        this[_paintingOffset] = null;
+      }
+    }
+    paint(context, offset) {
+      context.pushClipRect(this.needsCompositing, offset, ui.Offset.zero['&'](this.size), dart.bind(this, _paintWithDelegate));
+    }
+    hitTestChildren(result, opts) {
+      let position = opts && 'position' in opts ? opts.position : null;
+      let children = this.getChildrenAsList();
+      for (let i = dart.notNull(this[_lastPaintOrder][$length]) - 1; i >= 0; i = i - 1) {
+        let childIndex = this[_lastPaintOrder][$_get](i);
+        if (dart.notNull(childIndex) >= dart.notNull(children[$length])) continue;
+        let child = children[$_get](childIndex);
+        let childParentData = FlowParentDataL().as(child.parentData);
+        let transform = childParentData[_transform];
+        if (transform == null) continue;
+        let absorbed = result.addWithPaintTransform({transform: transform, position: position, hitTest: dart.fn((result, position) => child.hitTest(result, {position: position}), BoxHitTestResultLAndOffsetLToboolL())});
+        if (dart.test(absorbed)) return true;
+      }
+      return false;
+    }
+    applyPaintTransform(child, transform) {
+      RenderBoxL().as(child);
+      let childParentData = FlowParentDataL().as(child.parentData);
+      if (childParentData[_transform] != null) transform.multiply(childParentData[_transform]);
+      super.applyPaintTransform(child, transform);
+    }
+  };
+  (flow.RenderFlow.new = function(opts) {
+    let children = opts && 'children' in opts ? opts.children : null;
+    let delegate = opts && 'delegate' in opts ? opts.delegate : null;
+    this[_randomAccessChildren] = JSArrayOfRenderBoxL().of([]);
+    this[_lastPaintOrder] = JSArrayOfintL().of([]);
+    this[_paintingContext] = null;
+    this[_paintingOffset] = null;
+    if (!(delegate != null)) dart.assertFailed(null, L1, 186, 15, "delegate != null");
+    this[_delegate] = delegate;
+    flow.RenderFlow.__proto__.new.call(this);
+    this.addAll(children);
+  }).prototype = flow.RenderFlow.prototype;
+  dart.addTypeTests(flow.RenderFlow);
+  dart.addTypeCaches(flow.RenderFlow);
+  flow.RenderFlow[dart.implements] = () => [flow.FlowPaintingContext];
+  dart.setMethodSignature(flow.RenderFlow, () => ({
+    __proto__: dart.getMethods(flow.RenderFlow.__proto__),
+    [_getSize]: dart.fnType(dart.legacy(ui.Size), [dart.legacy(box.BoxConstraints)]),
+    getChildSize: dart.fnType(dart.legacy(ui.Size), [dart.legacy(core.int)]),
+    paintChild: dart.fnType(dart.void, [dart.legacy(core.int)], {opacity: dart.legacy(core.double), transform: dart.legacy(vector_math_64.Matrix4)}, {}),
+    [_paintWithDelegate]: dart.fnType(dart.void, [dart.legacy(object$.PaintingContext), dart.legacy(ui.Offset)])
+  }));
+  dart.setGetterSignature(flow.RenderFlow, () => ({
+    __proto__: dart.getGetters(flow.RenderFlow.__proto__),
+    delegate: dart.legacy(flow.FlowDelegate)
+  }));
+  dart.setSetterSignature(flow.RenderFlow, () => ({
+    __proto__: dart.getSetters(flow.RenderFlow.__proto__),
+    delegate: dart.legacy(flow.FlowDelegate)
+  }));
+  dart.setLibraryUri(flow.RenderFlow, L0);
+  dart.setFieldSignature(flow.RenderFlow, () => ({
+    __proto__: dart.getFields(flow.RenderFlow.__proto__),
+    [_delegate]: dart.fieldType(dart.legacy(flow.FlowDelegate)),
+    [_randomAccessChildren]: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(box.RenderBox)))),
+    [_lastPaintOrder]: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(core.int)))),
+    [_paintingContext]: dart.fieldType(dart.legacy(object$.PaintingContext)),
+    [_paintingOffset]: dart.fieldType(dart.legacy(ui.Offset))
+  }));
+  dart.trackLibraries("packages/flutter/src/rendering/flow.dart", {
+    "package:flutter/src/rendering/flow.dart": flow
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["flow.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/flutter/src/rendering/flow.dart.lib.js"}');
+  // Exports:
+  return {
+    src__rendering__flow: flow
+  };
+}));
+
+//# sourceMappingURL=flow.dart.lib.js.map

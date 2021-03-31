@@ -1,0 +1,329 @@
+define(['dart_sdk', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/rendering/shifted_box.dart', 'packages/flutter/src/scheduler/ticker.dart'], (function load__packages__flutter__src__rendering__animated_size_dart(dart_sdk, packages__flutter__src__animation__curves$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__rendering__shifted_box$46dart, packages__flutter__src__scheduler__ticker$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const animations = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animations;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const shifted_box = packages__flutter__src__rendering__shifted_box$46dart.src__rendering__shifted_box;
+  const ticker = packages__flutter__src__scheduler__ticker$46dart.src__scheduler__ticker;
+  var animated_size = Object.create(dart.library);
+  var $toString = dartx.toString;
+  var RenderAnimatedSizeStateL = () => (RenderAnimatedSizeStateL = dart.constFn(dart.legacy(animated_size.RenderAnimatedSizeState)))();
+  var VoidToNullN = () => (VoidToNullN = dart.constFn(dart.fnType(core.Null, [])))();
+  const CT = Object.create(null);
+  var L0 = "package:flutter/src/rendering/animated_size.dart";
+  var L1 = "file:///C:/flutter/packages/flutter/lib/src/rendering/animated_size.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: animated_size.RenderAnimatedSizeState.prototype,
+        [_name$]: "RenderAnimatedSizeState.start",
+        index: 0
+      });
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: animated_size.RenderAnimatedSizeState.prototype,
+        [_name$]: "RenderAnimatedSizeState.stable",
+        index: 1
+      });
+    },
+    get C2() {
+      return C2 = dart.const({
+        __proto__: animated_size.RenderAnimatedSizeState.prototype,
+        [_name$]: "RenderAnimatedSizeState.changed",
+        index: 2
+      });
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: animated_size.RenderAnimatedSizeState.prototype,
+        [_name$]: "RenderAnimatedSizeState.unstable",
+        index: 3
+      });
+    },
+    get C4() {
+      return C4 = dart.constList([C0 || CT.C0, C1 || CT.C1, C2 || CT.C2, C3 || CT.C3], RenderAnimatedSizeStateL());
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: curves._Linear.prototype
+      });
+    },
+    get C6() {
+      return C6 = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [Alignment_y]: 0,
+        [Alignment_x]: 0
+      });
+    }
+  }, false);
+  var _name$ = dart.privateName(animated_size, "_name");
+  var C0;
+  var C1;
+  var C2;
+  var C3;
+  var C4;
+  animated_size.RenderAnimatedSizeState = class RenderAnimatedSizeState extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (animated_size.RenderAnimatedSizeState.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = animated_size.RenderAnimatedSizeState.prototype;
+  dart.addTypeTests(animated_size.RenderAnimatedSizeState);
+  dart.addTypeCaches(animated_size.RenderAnimatedSizeState);
+  dart.setMethodSignature(animated_size.RenderAnimatedSizeState, () => ({
+    __proto__: dart.getMethods(animated_size.RenderAnimatedSizeState.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(animated_size.RenderAnimatedSizeState, L0);
+  dart.setFieldSignature(animated_size.RenderAnimatedSizeState, () => ({
+    __proto__: dart.getFields(animated_size.RenderAnimatedSizeState.__proto__),
+    index: dart.finalFieldType(dart.legacy(core.int)),
+    [_name$]: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.defineExtensionMethods(animated_size.RenderAnimatedSizeState, ['toString']);
+  animated_size.RenderAnimatedSizeState.start = C0 || CT.C0;
+  animated_size.RenderAnimatedSizeState.stable = C1 || CT.C1;
+  animated_size.RenderAnimatedSizeState.changed = C2 || CT.C2;
+  animated_size.RenderAnimatedSizeState.unstable = C3 || CT.C3;
+  animated_size.RenderAnimatedSizeState.values = C4 || CT.C4;
+  var C5;
+  var Alignment_y = dart.privateName(alignment, "Alignment.y");
+  var Alignment_x = dart.privateName(alignment, "Alignment.x");
+  var C6;
+  var _controller = dart.privateName(animated_size, "_controller");
+  var _animation = dart.privateName(animated_size, "_animation");
+  var _sizeTween = dart.privateName(animated_size, "_sizeTween");
+  var _hasVisualOverflow = dart.privateName(animated_size, "_hasVisualOverflow");
+  var _lastValue = dart.privateName(animated_size, "_lastValue");
+  var _state = dart.privateName(animated_size, "_state");
+  var _vsync = dart.privateName(animated_size, "_vsync");
+  var _animatedSize = dart.privateName(animated_size, "_animatedSize");
+  var _layoutStart = dart.privateName(animated_size, "_layoutStart");
+  var _layoutStable = dart.privateName(animated_size, "_layoutStable");
+  var _layoutChanged = dart.privateName(animated_size, "_layoutChanged");
+  var _layoutUnstable = dart.privateName(animated_size, "_layoutUnstable");
+  var _restartAnimation = dart.privateName(animated_size, "_restartAnimation");
+  animated_size.RenderAnimatedSize = class RenderAnimatedSize extends shifted_box.RenderAligningShiftedBox {
+    get state() {
+      return this[_state];
+    }
+    get duration() {
+      return this[_controller].duration;
+    }
+    set duration(value) {
+      if (!(value != null)) dart.assertFailed(null, L1, 121, 12, "value != null");
+      if (dart.equals(value, this[_controller].duration)) return;
+      this[_controller].duration = value;
+    }
+    get reverseDuration() {
+      return this[_controller].reverseDuration;
+    }
+    set reverseDuration(value) {
+      if (dart.equals(value, this[_controller].reverseDuration)) return;
+      this[_controller].reverseDuration = value;
+    }
+    get curve() {
+      return this[_animation].curve;
+    }
+    set curve(value) {
+      if (!(value != null)) dart.assertFailed(null, L1, 138, 12, "value != null");
+      if (dart.equals(value, this[_animation].curve)) return;
+      this[_animation].curve = value;
+    }
+    get isAnimating() {
+      return this[_controller].isAnimating;
+    }
+    get vsync() {
+      return this[_vsync];
+    }
+    set vsync(value) {
+      if (!(value != null)) dart.assertFailed(null, L1, 154, 12, "value != null");
+      if (dart.equals(value, this[_vsync])) return;
+      this[_vsync] = value;
+      this[_controller].resync(this.vsync);
+    }
+    detach() {
+      this[_controller].stop();
+      super.detach();
+    }
+    get [_animatedSize]() {
+      return this[_sizeTween].evaluate(this[_animation]);
+    }
+    performLayout() {
+      let t0;
+      this[_lastValue] = this[_controller].value;
+      this[_hasVisualOverflow] = false;
+      let constraints = this.constraints;
+      if (this.child == null || dart.test(constraints.isTight)) {
+        this[_controller].stop();
+        this.size = this[_sizeTween].begin = this[_sizeTween].end = constraints.smallest;
+        this[_state] = animated_size.RenderAnimatedSizeState.start;
+        t0 = this.child;
+        t0 == null ? null : t0.layout(constraints);
+        return;
+      }
+      this.child.layout(constraints, {parentUsesSize: true});
+      if (!(this[_state] != null)) dart.assertFailed(null, L1, 186, 12, "_state != null");
+      switch (this[_state]) {
+        case C0 || CT.C0:
+        {
+          this[_layoutStart]();
+          break;
+        }
+        case C1 || CT.C1:
+        {
+          this[_layoutStable]();
+          break;
+        }
+        case C2 || CT.C2:
+        {
+          this[_layoutChanged]();
+          break;
+        }
+        case C3 || CT.C3:
+        {
+          this[_layoutUnstable]();
+          break;
+        }
+      }
+      this.size = constraints.constrain(this[_animatedSize]);
+      this.alignChild();
+      if (dart.notNull(this.size.width) < dart.notNull(this[_sizeTween].end.width) || dart.notNull(this.size.height) < dart.notNull(this[_sizeTween].end.height)) this[_hasVisualOverflow] = true;
+    }
+    [_restartAnimation]() {
+      this[_lastValue] = 0.0;
+      this[_controller].forward({from: 0.0});
+    }
+    [_layoutStart]() {
+      this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(this.child.size);
+      this[_state] = animated_size.RenderAnimatedSizeState.stable;
+    }
+    [_layoutStable]() {
+      if (!dart.equals(this[_sizeTween].end, this.child.size)) {
+        this[_sizeTween].begin = this.size;
+        this[_sizeTween].end = this.debugAdoptSize(this.child.size);
+        this[_restartAnimation]();
+        this[_state] = animated_size.RenderAnimatedSizeState.changed;
+      } else if (this[_controller].value == this[_controller].upperBound) {
+        this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(this.child.size);
+      } else if (!dart.test(this[_controller].isAnimating)) {
+        this[_controller].forward();
+      }
+    }
+    [_layoutChanged]() {
+      if (!dart.equals(this[_sizeTween].end, this.child.size)) {
+        this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(this.child.size);
+        this[_restartAnimation]();
+        this[_state] = animated_size.RenderAnimatedSizeState.unstable;
+      } else {
+        this[_state] = animated_size.RenderAnimatedSizeState.stable;
+        if (!dart.test(this[_controller].isAnimating)) this[_controller].forward();
+      }
+    }
+    [_layoutUnstable]() {
+      if (!dart.equals(this[_sizeTween].end, this.child.size)) {
+        this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(this.child.size);
+        this[_restartAnimation]();
+      } else {
+        this[_controller].stop();
+        this[_state] = animated_size.RenderAnimatedSizeState.stable;
+      }
+    }
+    paint(context, offset) {
+      if (this.child != null && dart.test(this[_hasVisualOverflow])) {
+        let rect = ui.Offset.zero['&'](this.size);
+        context.pushClipRect(this.needsCompositing, offset, rect, dart.bind(this, 'paint', super.paint));
+      } else {
+        super.paint(context, offset);
+      }
+    }
+  };
+  (animated_size.RenderAnimatedSize.new = function(opts) {
+    let t0;
+    let vsync = opts && 'vsync' in opts ? opts.vsync : null;
+    let duration = opts && 'duration' in opts ? opts.duration : null;
+    let reverseDuration = opts && 'reverseDuration' in opts ? opts.reverseDuration : null;
+    let curve = opts && 'curve' in opts ? opts.curve : C5 || CT.C5;
+    let alignment = opts && 'alignment' in opts ? opts.alignment : C6 || CT.C6;
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    this[_controller] = null;
+    this[_animation] = null;
+    this[_sizeTween] = new tween.SizeTween.new();
+    this[_hasVisualOverflow] = null;
+    this[_lastValue] = null;
+    this[_state] = animated_size.RenderAnimatedSizeState.start;
+    if (!(vsync != null)) dart.assertFailed(null, L1, 86, 15, "vsync != null");
+    if (!(duration != null)) dart.assertFailed(null, L1, 87, 15, "duration != null");
+    if (!(curve != null)) dart.assertFailed(null, L1, 88, 15, "curve != null");
+    this[_vsync] = vsync;
+    animated_size.RenderAnimatedSize.__proto__.new.call(this, {child: child, alignment: alignment, textDirection: textDirection});
+    this[_controller] = (t0 = new animation_controller.AnimationController.new({vsync: vsync, duration: duration, reverseDuration: reverseDuration}), (() => {
+      t0.addListener(dart.fn(() => {
+        if (this[_controller].value != this[_lastValue]) this.markNeedsLayout();
+      }, VoidToNullN()));
+      return t0;
+    })());
+    this[_animation] = new animations.CurvedAnimation.new({parent: this[_controller], curve: curve});
+  }).prototype = animated_size.RenderAnimatedSize.prototype;
+  dart.addTypeTests(animated_size.RenderAnimatedSize);
+  dart.addTypeCaches(animated_size.RenderAnimatedSize);
+  dart.setMethodSignature(animated_size.RenderAnimatedSize, () => ({
+    __proto__: dart.getMethods(animated_size.RenderAnimatedSize.__proto__),
+    [_restartAnimation]: dart.fnType(dart.void, []),
+    [_layoutStart]: dart.fnType(dart.void, []),
+    [_layoutStable]: dart.fnType(dart.void, []),
+    [_layoutChanged]: dart.fnType(dart.void, []),
+    [_layoutUnstable]: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(animated_size.RenderAnimatedSize, () => ({
+    __proto__: dart.getGetters(animated_size.RenderAnimatedSize.__proto__),
+    state: dart.legacy(animated_size.RenderAnimatedSizeState),
+    duration: dart.legacy(core.Duration),
+    reverseDuration: dart.legacy(core.Duration),
+    curve: dart.legacy(curves.Curve),
+    isAnimating: dart.legacy(core.bool),
+    vsync: dart.legacy(ticker.TickerProvider),
+    [_animatedSize]: dart.legacy(ui.Size)
+  }));
+  dart.setSetterSignature(animated_size.RenderAnimatedSize, () => ({
+    __proto__: dart.getSetters(animated_size.RenderAnimatedSize.__proto__),
+    duration: dart.legacy(core.Duration),
+    reverseDuration: dart.legacy(core.Duration),
+    curve: dart.legacy(curves.Curve),
+    vsync: dart.legacy(ticker.TickerProvider)
+  }));
+  dart.setLibraryUri(animated_size.RenderAnimatedSize, L0);
+  dart.setFieldSignature(animated_size.RenderAnimatedSize, () => ({
+    __proto__: dart.getFields(animated_size.RenderAnimatedSize.__proto__),
+    [_controller]: dart.fieldType(dart.legacy(animation_controller.AnimationController)),
+    [_animation]: dart.fieldType(dart.legacy(animations.CurvedAnimation)),
+    [_sizeTween]: dart.finalFieldType(dart.legacy(tween.SizeTween)),
+    [_hasVisualOverflow]: dart.fieldType(dart.legacy(core.bool)),
+    [_lastValue]: dart.fieldType(dart.legacy(core.double)),
+    [_state]: dart.fieldType(dart.legacy(animated_size.RenderAnimatedSizeState)),
+    [_vsync]: dart.fieldType(dart.legacy(ticker.TickerProvider))
+  }));
+  dart.trackLibraries("packages/flutter/src/rendering/animated_size.dart", {
+    "package:flutter/src/rendering/animated_size.dart": animated_size
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["animated_size.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/flutter/src/rendering/animated_size.dart.lib.js"}');
+  // Exports:
+  return {
+    src__rendering__animated_size: animated_size
+  };
+}));
+
+//# sourceMappingURL=animated_size.dart.lib.js.map

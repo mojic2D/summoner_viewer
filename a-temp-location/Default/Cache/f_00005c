@@ -1,0 +1,259 @@
+define(['dart_sdk', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/gestures/pointer_router.dart', 'packages/flutter/src/gestures/arena.dart', 'packages/flutter/src/gestures/pointer_signal_resolver.dart', 'packages/flutter/src/gestures/hit_test.dart', 'packages/flutter/src/gestures/converter.dart', 'packages/flutter/src/gestures/debug.dart', 'packages/flutter/src/foundation/print.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/foundation/binding.dart'], (function load__packages__flutter__src__gestures__binding_dart(dart_sdk, packages__flutter__src__gestures__events$46dart, packages__flutter__src__gestures__pointer_router$46dart, packages__flutter__src__gestures__arena$46dart, packages__flutter__src__gestures__pointer_signal_resolver$46dart, packages__flutter__src__gestures__hit_test$46dart, packages__flutter__src__gestures__converter$46dart, packages__flutter__src__gestures__debug$46dart, packages__flutter__src__foundation__print$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__foundation__binding$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const collection = dart_sdk.collection;
+  const _js_helper = dart_sdk._js_helper;
+  const async = dart_sdk.async;
+  const ui = dart_sdk.ui;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const pointer_router = packages__flutter__src__gestures__pointer_router$46dart.src__gestures__pointer_router;
+  const arena = packages__flutter__src__gestures__arena$46dart.src__gestures__arena;
+  const pointer_signal_resolver = packages__flutter__src__gestures__pointer_signal_resolver$46dart.src__gestures__pointer_signal_resolver;
+  const hit_test = packages__flutter__src__gestures__hit_test$46dart.src__gestures__hit_test;
+  const converter = packages__flutter__src__gestures__converter$46dart.src__gestures__converter;
+  const debug = packages__flutter__src__gestures__debug$46dart.src__gestures__debug;
+  const print = packages__flutter__src__foundation__print$46dart.src__foundation__print;
+  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const binding = packages__flutter__src__foundation__binding$46dart.src__foundation__binding;
+  var binding$ = Object.create(dart.library);
+  var $isEmpty = dartx.isEmpty;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $containsKey = dartx.containsKey;
+  var $_set = dartx._set;
+  var $remove = dartx.remove;
+  var $_get = dartx._get;
+  var PointerEventL = () => (PointerEventL = dart.constFn(dart.legacy(events.PointerEvent)))();
+  var ListQueueOfPointerEventL = () => (ListQueueOfPointerEventL = dart.constFn(collection.ListQueue$(PointerEventL())))();
+  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
+  var HitTestResultL = () => (HitTestResultL = dart.constFn(dart.legacy(hit_test.HitTestResult)))();
+  var IdentityMapOfintL$HitTestResultL = () => (IdentityMapOfintL$HitTestResultL = dart.constFn(_js_helper.IdentityMap$(intL(), HitTestResultL())))();
+  var PointerDownEventL = () => (PointerDownEventL = dart.constFn(dart.legacy(events.PointerDownEvent)))();
+  var PointerSignalEventL = () => (PointerSignalEventL = dart.constFn(dart.legacy(events.PointerSignalEvent)))();
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
+  var VoidToboolL = () => (VoidToboolL = dart.constFn(dart.fnType(boolL(), [])))();
+  var PointerUpEventL = () => (PointerUpEventL = dart.constFn(dart.legacy(events.PointerUpEvent)))();
+  var PointerCancelEventL = () => (PointerCancelEventL = dart.constFn(dart.legacy(events.PointerCancelEvent)))();
+  var PointerHoverEventL = () => (PointerHoverEventL = dart.constFn(dart.legacy(events.PointerHoverEvent)))();
+  var PointerAddedEventL = () => (PointerAddedEventL = dart.constFn(dart.legacy(events.PointerAddedEvent)))();
+  var PointerRemovedEventL = () => (PointerRemovedEventL = dart.constFn(dart.legacy(events.PointerRemovedEvent)))();
+  var DiagnosticsPropertyOfPointerEventL = () => (DiagnosticsPropertyOfPointerEventL = dart.constFn(diagnostics.DiagnosticsProperty$(PointerEventL())))();
+  var DiagnosticsNodeL = () => (DiagnosticsNodeL = dart.constFn(dart.legacy(diagnostics.DiagnosticsNode)))();
+  var SyncIterableOfDiagnosticsNodeL = () => (SyncIterableOfDiagnosticsNodeL = dart.constFn(_js_helper.SyncIterable$(DiagnosticsNodeL())))();
+  var IterableOfDiagnosticsNodeL = () => (IterableOfDiagnosticsNodeL = dart.constFn(core.Iterable$(DiagnosticsNodeL())))();
+  var IterableLOfDiagnosticsNodeL = () => (IterableLOfDiagnosticsNodeL = dart.constFn(dart.legacy(IterableOfDiagnosticsNodeL())))();
+  var VoidToIterableLOfDiagnosticsNodeL = () => (VoidToIterableLOfDiagnosticsNodeL = dart.constFn(dart.fnType(IterableLOfDiagnosticsNodeL(), [])))();
+  var HitTestTargetL = () => (HitTestTargetL = dart.constFn(dart.legacy(hit_test.HitTestTarget)))();
+  var DiagnosticsPropertyOfHitTestTargetL = () => (DiagnosticsPropertyOfHitTestTargetL = dart.constFn(diagnostics.DiagnosticsProperty$(HitTestTargetL())))();
+  const CT = Object.create(null);
+  var L0 = "file:///C:/flutter/packages/flutter/lib/src/gestures/binding.dart";
+  var L1 = "package:flutter/src/gestures/binding.dart";
+  var _pendingPointerEvents = dart.privateName(binding$, "_pendingPointerEvents");
+  var _hitTests = dart.privateName(binding$, "_hitTests");
+  var _handlePointerDataPacket = dart.privateName(binding$, "_handlePointerDataPacket");
+  var _flushPointerEventQueue = dart.privateName(binding$, "_flushPointerEventQueue");
+  var _handlePointerEvent = dart.privateName(binding$, "_handlePointerEvent");
+  var pointerRouter = dart.privateName(binding$, "GestureBinding.pointerRouter");
+  var gestureArena = dart.privateName(binding$, "GestureBinding.gestureArena");
+  var pointerSignalResolver = dart.privateName(binding$, "GestureBinding.pointerSignalResolver");
+  binding$.GestureBinding = class GestureBinding extends binding.BindingBase {
+    static get instance() {
+      return binding$.GestureBinding._instance;
+    }
+  };
+  binding$.GestureBinding[dart.mixinOn] = BindingBase => class GestureBinding extends BindingBase {
+    get pointerRouter() {
+      return this[pointerRouter];
+    }
+    set pointerRouter(value) {
+      super.pointerRouter = value;
+    }
+    get gestureArena() {
+      return this[gestureArena];
+    }
+    set gestureArena(value) {
+      super.gestureArena = value;
+    }
+    get pointerSignalResolver() {
+      return this[pointerSignalResolver];
+    }
+    set pointerSignalResolver(value) {
+      super.pointerSignalResolver = value;
+    }
+    initInstances() {
+      super.initInstances();
+      binding$.GestureBinding._instance = this;
+      this.window.onPointerDataPacket = dart.bind(this, _handlePointerDataPacket);
+    }
+    unlocked() {
+      super.unlocked();
+      this[_flushPointerEventQueue]();
+    }
+    [_handlePointerDataPacket](packet) {
+      this[_pendingPointerEvents].addAll(converter.PointerEventConverter.expand(packet.data, this.window.devicePixelRatio));
+      if (!dart.test(this.locked)) this[_flushPointerEventQueue]();
+    }
+    cancelPointer(pointer) {
+      if (dart.test(this[_pendingPointerEvents][$isEmpty]) && !dart.test(this.locked)) async.scheduleMicrotask(dart.bind(this, _flushPointerEventQueue));
+      this[_pendingPointerEvents].addFirst(new events.PointerCancelEvent.new({pointer: pointer}));
+    }
+    [_flushPointerEventQueue]() {
+      if (!!dart.test(this.locked)) dart.assertFailed(null, L0, 102, 12, "!locked");
+      while (dart.test(this[_pendingPointerEvents][$isNotEmpty]))
+        this[_handlePointerEvent](this[_pendingPointerEvents].removeFirst());
+    }
+    [_handlePointerEvent](event) {
+      if (!!dart.test(this.locked)) dart.assertFailed(null, L0, 125, 12, "!locked");
+      let hitTestResult = null;
+      if (PointerDownEventL().is(event) || PointerSignalEventL().is(event)) {
+        if (!!dart.test(this[_hitTests][$containsKey](event.pointer))) dart.assertFailed(null, L0, 128, 14, "!_hitTests.containsKey(event.pointer)");
+        hitTestResult = new hit_test.HitTestResult.new();
+        this.hitTest(hitTestResult, event.position);
+        if (PointerDownEventL().is(event)) {
+          this[_hitTests][$_set](event.pointer, hitTestResult);
+        }
+        if (!dart.test(dart.fn(() => {
+          if (dart.test(debug.debugPrintHitTestResults)) print.debugPrint(dart.str(event) + ": " + dart.str(hitTestResult));
+          return true;
+        }, VoidToboolL())())) dart.assertFailed(null, L0, 134, 14, "() {\r\n        if (debugPrintHitTestResults)\r\n          debugPrint('$event: $hitTestResult');\r\n        return true;\r\n      }()");
+      } else if (PointerUpEventL().is(event) || PointerCancelEventL().is(event)) {
+        hitTestResult = this[_hitTests][$remove](event.pointer);
+      } else if (dart.test(event.down)) {
+        hitTestResult = this[_hitTests][$_get](event.pointer);
+      }
+      if (!dart.test(dart.fn(() => {
+        if (dart.test(debug.debugPrintMouseHoverEvents) && PointerHoverEventL().is(event)) print.debugPrint(dart.str(event));
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L0, 149, 12, "() {\r\n      if (debugPrintMouseHoverEvents && event is PointerHoverEvent)\r\n        debugPrint('$event');\r\n      return true;\r\n    }()");
+      if (hitTestResult != null || PointerHoverEventL().is(event) || PointerAddedEventL().is(event) || PointerRemovedEventL().is(event)) {
+        this.dispatchEvent(event, hitTestResult);
+      }
+    }
+    hitTest(result, position) {
+      result.add(new hit_test.HitTestEntry.new(this));
+    }
+    dispatchEvent(event, hitTestResult) {
+      if (!!dart.test(this.locked)) dart.assertFailed(null, L0, 176, 12, "!locked");
+      if (hitTestResult == null) {
+        if (!(PointerHoverEventL().is(event) || PointerAddedEventL().is(event) || PointerRemovedEventL().is(event))) dart.assertFailed(null, L0, 180, 14, "event is PointerHoverEvent || event is PointerAddedEvent || event is PointerRemovedEvent");
+        try {
+          this.pointerRouter.route(event);
+        } catch (e) {
+          let exception = dart.getThrown(e);
+          let stack = dart.stackTrace(e);
+          assertions.FlutterError.reportError(new binding$.FlutterErrorDetailsForPointerEventDispatcher.new({exception: exception, stack: stack, library: "gesture library", context: new assertions.ErrorDescription.new("while dispatching a non-hit-tested pointer event"), event: event, hitTestEntry: null, informationCollector: dart.fn(() => new (SyncIterableOfDiagnosticsNodeL()).new(function*() {
+              yield new (DiagnosticsPropertyOfPointerEventL()).new("Event", event, {style: diagnostics.DiagnosticsTreeStyle.errorProperty});
+            }), VoidToIterableLOfDiagnosticsNodeL())}));
+        }
+        return;
+      }
+      for (let entry of hitTestResult.path) {
+        try {
+          entry.target.handleEvent(event.transformed(entry.transform), entry);
+        } catch (e$) {
+          let exception = dart.getThrown(e$);
+          let stack = dart.stackTrace(e$);
+          assertions.FlutterError.reportError(new binding$.FlutterErrorDetailsForPointerEventDispatcher.new({exception: exception, stack: stack, library: "gesture library", context: new assertions.ErrorDescription.new("while dispatching a pointer event"), event: event, hitTestEntry: entry, informationCollector: dart.fn(() => new (SyncIterableOfDiagnosticsNodeL()).new(function*() {
+              yield new (DiagnosticsPropertyOfPointerEventL()).new("Event", event, {style: diagnostics.DiagnosticsTreeStyle.errorProperty});
+              yield new (DiagnosticsPropertyOfHitTestTargetL()).new("Target", entry.target, {style: diagnostics.DiagnosticsTreeStyle.errorProperty});
+            }), VoidToIterableLOfDiagnosticsNodeL())}));
+        }
+      }
+    }
+    handleEvent(event, entry) {
+      this.pointerRouter.route(event);
+      if (PointerDownEventL().is(event)) {
+        this.gestureArena.close(event.pointer);
+      } else if (PointerUpEventL().is(event)) {
+        this.gestureArena.sweep(event.pointer);
+      } else if (PointerSignalEventL().is(event)) {
+        this.pointerSignalResolver.resolve(event);
+      }
+    }
+  };
+  (binding$.GestureBinding[dart.mixinNew] = function() {
+    this[_pendingPointerEvents] = new (ListQueueOfPointerEventL()).new();
+    this[pointerRouter] = new pointer_router.PointerRouter.new();
+    this[gestureArena] = new arena.GestureArenaManager.new();
+    this[pointerSignalResolver] = new pointer_signal_resolver.PointerSignalResolver.new();
+    this[_hitTests] = new (IdentityMapOfintL$HitTestResultL()).new();
+  }).prototype = binding$.GestureBinding.prototype;
+  dart.addTypeTests(binding$.GestureBinding);
+  dart.addTypeCaches(binding$.GestureBinding);
+  binding$.GestureBinding[dart.implements] = () => [hit_test.HitTestable, hit_test.HitTestDispatcher, hit_test.HitTestTarget, binding.BindingBase];
+  dart.setMethodSignature(binding$.GestureBinding, () => ({
+    __proto__: dart.getMethods(binding$.GestureBinding.__proto__),
+    [_handlePointerDataPacket]: dart.fnType(dart.void, [dart.legacy(ui.PointerDataPacket)]),
+    cancelPointer: dart.fnType(dart.void, [dart.legacy(core.int)]),
+    [_flushPointerEventQueue]: dart.fnType(dart.void, []),
+    [_handlePointerEvent]: dart.fnType(dart.void, [dart.legacy(events.PointerEvent)]),
+    hitTest: dart.fnType(dart.void, [dart.legacy(hit_test.HitTestResult), dart.legacy(ui.Offset)]),
+    dispatchEvent: dart.fnType(dart.void, [dart.legacy(events.PointerEvent), dart.legacy(hit_test.HitTestResult)]),
+    handleEvent: dart.fnType(dart.void, [dart.legacy(events.PointerEvent), dart.legacy(hit_test.HitTestEntry)])
+  }));
+  dart.setLibraryUri(binding$.GestureBinding, L1);
+  dart.setFieldSignature(binding$.GestureBinding, () => ({
+    __proto__: dart.getFields(binding$.GestureBinding.__proto__),
+    [_pendingPointerEvents]: dart.finalFieldType(dart.legacy(collection.Queue$(dart.legacy(events.PointerEvent)))),
+    pointerRouter: dart.finalFieldType(dart.legacy(pointer_router.PointerRouter)),
+    gestureArena: dart.finalFieldType(dart.legacy(arena.GestureArenaManager)),
+    pointerSignalResolver: dart.finalFieldType(dart.legacy(pointer_signal_resolver.PointerSignalResolver)),
+    [_hitTests]: dart.finalFieldType(dart.legacy(core.Map$(dart.legacy(core.int), dart.legacy(hit_test.HitTestResult))))
+  }));
+  dart.defineLazy(binding$.GestureBinding, {
+    /*binding$.GestureBinding._instance*/get _instance() {
+      return null;
+    },
+    set _instance(_) {}
+  }, true);
+  var event$ = dart.privateName(binding$, "FlutterErrorDetailsForPointerEventDispatcher.event");
+  var hitTestEntry$ = dart.privateName(binding$, "FlutterErrorDetailsForPointerEventDispatcher.hitTestEntry");
+  binding$.FlutterErrorDetailsForPointerEventDispatcher = class FlutterErrorDetailsForPointerEventDispatcher extends assertions.FlutterErrorDetails {
+    get event() {
+      return this[event$];
+    }
+    set event(value) {
+      super.event = value;
+    }
+    get hitTestEntry() {
+      return this[hitTestEntry$];
+    }
+    set hitTestEntry(value) {
+      super.hitTestEntry = value;
+    }
+  };
+  (binding$.FlutterErrorDetailsForPointerEventDispatcher.new = function(opts) {
+    let exception = opts && 'exception' in opts ? opts.exception : null;
+    let stack = opts && 'stack' in opts ? opts.stack : null;
+    let library = opts && 'library' in opts ? opts.library : null;
+    let context = opts && 'context' in opts ? opts.context : null;
+    let event = opts && 'event' in opts ? opts.event : null;
+    let hitTestEntry = opts && 'hitTestEntry' in opts ? opts.hitTestEntry : null;
+    let informationCollector = opts && 'informationCollector' in opts ? opts.informationCollector : null;
+    let silent = opts && 'silent' in opts ? opts.silent : false;
+    this[event$] = event;
+    this[hitTestEntry$] = hitTestEntry;
+    binding$.FlutterErrorDetailsForPointerEventDispatcher.__proto__.new.call(this, {exception: exception, stack: stack, library: library, context: context, informationCollector: informationCollector, silent: silent});
+    ;
+  }).prototype = binding$.FlutterErrorDetailsForPointerEventDispatcher.prototype;
+  dart.addTypeTests(binding$.FlutterErrorDetailsForPointerEventDispatcher);
+  dart.addTypeCaches(binding$.FlutterErrorDetailsForPointerEventDispatcher);
+  dart.setLibraryUri(binding$.FlutterErrorDetailsForPointerEventDispatcher, L1);
+  dart.setFieldSignature(binding$.FlutterErrorDetailsForPointerEventDispatcher, () => ({
+    __proto__: dart.getFields(binding$.FlutterErrorDetailsForPointerEventDispatcher.__proto__),
+    event: dart.finalFieldType(dart.legacy(events.PointerEvent)),
+    hitTestEntry: dart.finalFieldType(dart.legacy(hit_test.HitTestEntry))
+  }));
+  dart.trackLibraries("packages/flutter/src/gestures/binding.dart", {
+    "package:flutter/src/gestures/binding.dart": binding$
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["binding.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/flutter/src/gestures/binding.dart.lib.js"}');
+  // Exports:
+  return {
+    src__gestures__binding: binding$
+  };
+}));
+
+//# sourceMappingURL=binding.dart.lib.js.map

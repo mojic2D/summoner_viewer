@@ -1,0 +1,612 @@
+define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/foundation/collections.dart'], (function load__packages__flutter__src__painting__borders_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__foundation__collections$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const math = dart_sdk.math;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const collections = packages__flutter__src__foundation__collections$46dart.src__foundation__collections;
+  var borders$ = Object.create(dart.library);
+  var $toString = dartx.toString;
+  var $runtimeType = dartx.runtimeType;
+  var $toStringAsFixed = dartx.toStringAsFixed;
+  var $_equals = dartx._equals;
+  var $hashCode = dartx.hashCode;
+  var $length = dartx.length;
+  var $any = dartx.any;
+  var $fold = dartx.fold;
+  var $last = dartx.last;
+  var $first = dartx.first;
+  var $add = dartx.add;
+  var $_set = dartx._set;
+  var $map = dartx.map;
+  var $toList = dartx.toList;
+  var $_get = dartx._get;
+  var $reversed = dartx.reversed;
+  var $join = dartx.join;
+  var BorderStyleL = () => (BorderStyleL = dart.constFn(dart.legacy(borders$.BorderStyle)))();
+  var doubleL = () => (doubleL = dart.constFn(dart.legacy(core.double)))();
+  var BorderSideL = () => (BorderSideL = dart.constFn(dart.legacy(borders$.BorderSide)))();
+  var ShapeBorderL = () => (ShapeBorderL = dart.constFn(dart.legacy(borders$.ShapeBorder)))();
+  var JSArrayOfShapeBorderL = () => (JSArrayOfShapeBorderL = dart.constFn(_interceptors.JSArray$(ShapeBorderL())))();
+  var _CompoundBorderL = () => (_CompoundBorderL = dart.constFn(dart.legacy(borders$._CompoundBorder)))();
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
+  var ShapeBorderLToboolL = () => (ShapeBorderLToboolL = dart.constFn(dart.fnType(boolL(), [ShapeBorderL()])))();
+  var EdgeInsetsGeometryL = () => (EdgeInsetsGeometryL = dart.constFn(dart.legacy(edge_insets.EdgeInsetsGeometry)))();
+  var EdgeInsetsGeometryLAndShapeBorderLToEdgeInsetsGeometryL = () => (EdgeInsetsGeometryLAndShapeBorderLToEdgeInsetsGeometryL = dart.constFn(dart.fnType(EdgeInsetsGeometryL(), [EdgeInsetsGeometryL(), ShapeBorderL()])))();
+  var ShapeBorderLToShapeBorderL = () => (ShapeBorderLToShapeBorderL = dart.constFn(dart.fnType(ShapeBorderL(), [ShapeBorderL()])))();
+  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
+  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
+  var ShapeBorderLToStringL = () => (ShapeBorderLToStringL = dart.constFn(dart.fnType(StringL(), [ShapeBorderL()])))();
+  const CT = Object.create(null);
+  var L1 = "file:///C:/flutter/packages/flutter/lib/src/painting/borders.dart";
+  var L0 = "package:flutter/src/painting/borders.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: borders$.BorderStyle.prototype,
+        [_name$]: "BorderStyle.none",
+        index: 0
+      });
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: borders$.BorderStyle.prototype,
+        [_name$]: "BorderStyle.solid",
+        index: 1
+      });
+    },
+    get C2() {
+      return C2 = dart.constList([C0 || CT.C0, C1 || CT.C1], BorderStyleL());
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278190080.0
+      });
+    },
+    get C4() {
+      return C4 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 0
+      });
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: borders$.BorderSide.prototype,
+        [style$]: C0 || CT.C0,
+        [width$]: 0,
+        [color$]: C3 || CT.C3
+      });
+    }
+  }, false);
+  var _name$ = dart.privateName(borders$, "_name");
+  var C0;
+  var C1;
+  var C2;
+  borders$.BorderStyle = class BorderStyle extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (borders$.BorderStyle.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = borders$.BorderStyle.prototype;
+  dart.addTypeTests(borders$.BorderStyle);
+  dart.addTypeCaches(borders$.BorderStyle);
+  dart.setMethodSignature(borders$.BorderStyle, () => ({
+    __proto__: dart.getMethods(borders$.BorderStyle.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(borders$.BorderStyle, L0);
+  dart.setFieldSignature(borders$.BorderStyle, () => ({
+    __proto__: dart.getFields(borders$.BorderStyle.__proto__),
+    index: dart.finalFieldType(dart.legacy(core.int)),
+    [_name$]: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.defineExtensionMethods(borders$.BorderStyle, ['toString']);
+  borders$.BorderStyle.none = C0 || CT.C0;
+  borders$.BorderStyle.solid = C1 || CT.C1;
+  borders$.BorderStyle.values = C2 || CT.C2;
+  var Color_value = dart.privateName(ui, "Color.value");
+  var C3;
+  var C4;
+  var color$ = dart.privateName(borders$, "BorderSide.color");
+  var width$ = dart.privateName(borders$, "BorderSide.width");
+  var style$ = dart.privateName(borders$, "BorderSide.style");
+  var C5;
+  borders$.BorderSide = class BorderSide extends core.Object {
+    get color() {
+      return this[color$];
+    }
+    set color(value) {
+      super.color = value;
+    }
+    get width() {
+      return this[width$];
+    }
+    set width(value) {
+      super.width = value;
+    }
+    get style() {
+      return this[style$];
+    }
+    set style(value) {
+      super.style = value;
+    }
+    static merge(a, b) {
+      if (!(a != null)) dart.assertFailed(null, L1, 88, 12, "a != null");
+      if (!(b != null)) dart.assertFailed(null, L1, 89, 12, "b != null");
+      if (!dart.test(borders$.BorderSide.canMerge(a, b))) dart.assertFailed(null, L1, 90, 12, "canMerge(a, b)");
+      let aIsNone = a.style == borders$.BorderStyle.none && a.width === 0.0;
+      let bIsNone = b.style == borders$.BorderStyle.none && b.width === 0.0;
+      if (aIsNone && bIsNone) return borders$.BorderSide.none;
+      if (aIsNone) return b;
+      if (bIsNone) return a;
+      if (!dart.equals(a.color, b.color)) dart.assertFailed(null, L1, 99, 12, "a.color == b.color");
+      if (!(a.style == b.style)) dart.assertFailed(null, L1, 100, 12, "a.style == b.style");
+      return new borders$.BorderSide.new({color: a.color, width: dart.notNull(a.width) + dart.notNull(b.width), style: a.style});
+    }
+    copyWith(opts) {
+      let t0, t0$, t0$0;
+      let color = opts && 'color' in opts ? opts.color : null;
+      let width = opts && 'width' in opts ? opts.width : null;
+      let style = opts && 'style' in opts ? opts.style : null;
+      if (!(width == null || dart.notNull(width) >= 0.0)) dart.assertFailed(null, L1, 137, 12, "width == null || width >= 0.0");
+      return new borders$.BorderSide.new({color: (t0 = color, t0 == null ? this.color : t0), width: (t0$ = width, t0$ == null ? this.width : t0$), style: (t0$0 = style, t0$0 == null ? this.style : t0$0)});
+    }
+    scale(t) {
+      if (!(t != null)) dart.assertFailed(null, L1, 162, 12, "t != null");
+      return new borders$.BorderSide.new({color: this.color, width: math.max(doubleL(), 0.0, dart.notNull(this.width) * dart.notNull(t)), style: dart.notNull(t) <= 0.0 ? borders$.BorderStyle.none : this.style});
+    }
+    toPaint() {
+      let t0, t0$;
+      switch (this.style) {
+        case C1 || CT.C1:
+        {
+          t0 = ui.Paint.new();
+          return (() => {
+            t0.color = this.color;
+            t0.strokeWidth = this.width;
+            t0.style = ui.PaintingStyle.stroke;
+            return t0;
+          })();
+        }
+        case C0 || CT.C0:
+        {
+          t0$ = ui.Paint.new();
+          return (() => {
+            t0$.color = C4 || CT.C4;
+            t0$.strokeWidth = 0.0;
+            t0$.style = ui.PaintingStyle.stroke;
+            return t0$;
+          })();
+        }
+      }
+      return null;
+    }
+    static canMerge(a, b) {
+      if (!(a != null)) dart.assertFailed(null, L1, 200, 12, "a != null");
+      if (!(b != null)) dart.assertFailed(null, L1, 201, 12, "b != null");
+      if (a.style == borders$.BorderStyle.none && a.width === 0.0 || b.style == borders$.BorderStyle.none && b.width === 0.0) return true;
+      return a.style == b.style && dart.equals(a.color, b.color);
+    }
+    static lerp(a, b, t) {
+      if (!(a != null)) dart.assertFailed(null, L1, 215, 12, "a != null");
+      if (!(b != null)) dart.assertFailed(null, L1, 216, 12, "b != null");
+      if (!(t != null)) dart.assertFailed(null, L1, 217, 12, "t != null");
+      if (t === 0.0) return a;
+      if (t === 1.0) return b;
+      let width = ui.lerpDouble(a.width, b.width, t);
+      if (dart.notNull(width) < 0.0) return borders$.BorderSide.none;
+      if (a.style == b.style) {
+        return new borders$.BorderSide.new({color: ui.Color.lerp(a.color, b.color, t), width: width, style: a.style});
+      }
+      let colorA = null;
+      let colorB = null;
+      switch (a.style) {
+        case C1 || CT.C1:
+        {
+          colorA = a.color;
+          break;
+        }
+        case C0 || CT.C0:
+        {
+          colorA = a.color.withAlpha(0);
+          break;
+        }
+      }
+      switch (b.style) {
+        case C1 || CT.C1:
+        {
+          colorB = b.color;
+          break;
+        }
+        case C0 || CT.C0:
+        {
+          colorB = b.color.withAlpha(0);
+          break;
+        }
+      }
+      return new borders$.BorderSide.new({color: ui.Color.lerp(colorA, colorB, t), width: width, style: borders$.BorderStyle.solid});
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      if (!dart.equals(dart.runtimeType(other), this.runtimeType)) return false;
+      return BorderSideL().is(other) && dart.equals(other.color, this.color) && other.width == this.width && other.style == this.style;
+    }
+    get hashCode() {
+      return ui.hashValues(this.color, this.width, this.style);
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "BorderSide")) + "(" + dart.str(this.color) + ", " + dart.str(this.width[$toStringAsFixed](1)) + ", " + dart.str(this.style) + ")";
+    }
+  };
+  (borders$.BorderSide.new = function(opts) {
+    let color = opts && 'color' in opts ? opts.color : C3 || CT.C3;
+    let width = opts && 'width' in opts ? opts.width : 1;
+    let style = opts && 'style' in opts ? opts.style : C1 || CT.C1;
+    this[color$] = color;
+    this[width$] = width;
+    this[style$] = style;
+    if (!(color != null)) dart.assertFailed(null, L1, 71, 15, "color != null");
+    if (!(width != null)) dart.assertFailed(null, L1, 72, 15, "width != null");
+    if (!(dart.notNull(width) >= 0.0)) dart.assertFailed(null, L1, 73, 15, "width >= 0.0");
+    if (!(style != null)) dart.assertFailed(null, L1, 74, 15, "style != null");
+    ;
+  }).prototype = borders$.BorderSide.prototype;
+  dart.addTypeTests(borders$.BorderSide);
+  dart.addTypeCaches(borders$.BorderSide);
+  dart.setMethodSignature(borders$.BorderSide, () => ({
+    __proto__: dart.getMethods(borders$.BorderSide.__proto__),
+    copyWith: dart.fnType(dart.legacy(borders$.BorderSide), [], {color: dart.legacy(ui.Color), style: dart.legacy(borders$.BorderStyle), width: dart.legacy(core.double)}, {}),
+    scale: dart.fnType(dart.legacy(borders$.BorderSide), [dart.legacy(core.double)]),
+    toPaint: dart.fnType(dart.legacy(ui.Paint), []),
+    _equals: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+    [$_equals]: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setGetterSignature(borders$.BorderSide, () => ({
+    __proto__: dart.getGetters(borders$.BorderSide.__proto__),
+    hashCode: dart.legacy(core.int),
+    [$hashCode]: dart.legacy(core.int)
+  }));
+  dart.setLibraryUri(borders$.BorderSide, L0);
+  dart.setFieldSignature(borders$.BorderSide, () => ({
+    __proto__: dart.getFields(borders$.BorderSide.__proto__),
+    color: dart.finalFieldType(dart.legacy(ui.Color)),
+    width: dart.finalFieldType(dart.legacy(core.double)),
+    style: dart.finalFieldType(dart.legacy(borders$.BorderStyle))
+  }));
+  dart.defineExtensionMethods(borders$.BorderSide, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(borders$.BorderSide, ['hashCode']);
+  dart.defineLazy(borders$.BorderSide, {
+    /*borders$.BorderSide.none*/get none() {
+      return C5 || CT.C5;
+    }
+  }, true);
+  borders$.ShapeBorder = class ShapeBorder extends core.Object {
+    add(other, opts) {
+      let reversed = opts && 'reversed' in opts ? opts.reversed : false;
+      return null;
+    }
+    ['+'](other) {
+      let t0, t0$;
+      t0$ = (t0 = this.add(other), t0 == null ? other.add(this, {reversed: true}) : t0);
+      return t0$ == null ? new borders$._CompoundBorder.new(JSArrayOfShapeBorderL().of([other, this])) : t0$;
+    }
+    lerpFrom(a, t) {
+      if (a == null) return this.scale(t);
+      return null;
+    }
+    lerpTo(b, t) {
+      if (b == null) return this.scale(1.0 - dart.notNull(t));
+      return null;
+    }
+    static lerp(a, b, t) {
+      let t0;
+      if (!(t != null)) dart.assertFailed(null, L1, 432, 12, "t != null");
+      let result = null;
+      if (b != null) result = b.lerpFrom(a, t);
+      if (result == null && a != null) result = a.lerpTo(b, t);
+      t0 = result;
+      return t0 == null ? dart.notNull(t) < 0.5 ? a : b : t0;
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "ShapeBorder")) + "()";
+    }
+  };
+  (borders$.ShapeBorder.new = function() {
+    ;
+  }).prototype = borders$.ShapeBorder.prototype;
+  dart.addTypeTests(borders$.ShapeBorder);
+  dart.addTypeCaches(borders$.ShapeBorder);
+  dart.setMethodSignature(borders$.ShapeBorder, () => ({
+    __proto__: dart.getMethods(borders$.ShapeBorder.__proto__),
+    add: dart.fnType(dart.legacy(borders$.ShapeBorder), [dart.legacy(borders$.ShapeBorder)], {reversed: dart.legacy(core.bool)}, {}),
+    '+': dart.fnType(dart.legacy(borders$.ShapeBorder), [dart.legacy(borders$.ShapeBorder)]),
+    lerpFrom: dart.fnType(dart.legacy(borders$.ShapeBorder), [dart.legacy(borders$.ShapeBorder), dart.legacy(core.double)]),
+    lerpTo: dart.fnType(dart.legacy(borders$.ShapeBorder), [dart.legacy(borders$.ShapeBorder), dart.legacy(core.double)]),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(borders$.ShapeBorder, L0);
+  dart.defineExtensionMethods(borders$.ShapeBorder, ['toString']);
+  var side$ = dart.privateName(borders$, "OutlinedBorder.side");
+  borders$.OutlinedBorder = class OutlinedBorder extends borders$.ShapeBorder {
+    get side() {
+      return this[side$];
+    }
+    set side(value) {
+      super.side = value;
+    }
+  };
+  (borders$.OutlinedBorder.new = function(opts) {
+    let side = opts && 'side' in opts ? opts.side : C5 || CT.C5;
+    this[side$] = side;
+    if (!(side != null)) dart.assertFailed(null, L1, 505, 66, "side != null");
+    borders$.OutlinedBorder.__proto__.new.call(this);
+    ;
+  }).prototype = borders$.OutlinedBorder.prototype;
+  dart.addTypeTests(borders$.OutlinedBorder);
+  dart.addTypeCaches(borders$.OutlinedBorder);
+  dart.setLibraryUri(borders$.OutlinedBorder, L0);
+  dart.setFieldSignature(borders$.OutlinedBorder, () => ({
+    __proto__: dart.getFields(borders$.OutlinedBorder.__proto__),
+    side: dart.finalFieldType(dart.legacy(borders$.BorderSide))
+  }));
+  borders$._CompoundBorder = class _CompoundBorder extends borders$.ShapeBorder {
+    get dimensions() {
+      return this.borders[$fold](EdgeInsetsGeometryL(), edge_insets.EdgeInsets.zero, dart.fn((previousValue, border) => previousValue.add(border.dimensions), EdgeInsetsGeometryLAndShapeBorderLToEdgeInsetsGeometryL()));
+    }
+    add(other, opts) {
+      let t0;
+      let reversed = opts && 'reversed' in opts ? opts.reversed : false;
+      if (!_CompoundBorderL().is(other)) {
+        let ours = dart.test(reversed) ? this.borders[$last] : this.borders[$first];
+        let merged = (t0 = ours.add(other, {reversed: reversed}), t0 == null ? other.add(ours, {reversed: !dart.test(reversed)}) : t0);
+        if (merged != null) {
+          let result = (() => {
+            let t0 = JSArrayOfShapeBorderL().of([]);
+            for (let t1 of this.borders)
+              t0[$add](t1);
+            return t0;
+          })();
+          result[$_set](dart.test(reversed) ? dart.notNull(result[$length]) - 1 : 0, merged);
+          return new borders$._CompoundBorder.new(result);
+        }
+      }
+      let mergedBorders = (() => {
+        let t2 = JSArrayOfShapeBorderL().of([]);
+        if (dart.test(reversed)) for (let t3 of this.borders)
+          t2[$add](t3);
+        if (_CompoundBorderL().is(other))
+          for (let t4 of other.borders)
+            t2[$add](t4);
+        else
+          t2[$add](other);
+        if (!dart.test(reversed)) for (let t5 of this.borders)
+          t2[$add](t5);
+        return t2;
+      })();
+      return new borders$._CompoundBorder.new(mergedBorders);
+    }
+    scale(t) {
+      return new borders$._CompoundBorder.new(this.borders[$map](ShapeBorderL(), dart.fn(border => border.scale(t), ShapeBorderLToShapeBorderL()))[$toList]());
+    }
+    lerpFrom(a, t) {
+      return borders$._CompoundBorder.lerp(a, this, t);
+    }
+    lerpTo(b, t) {
+      return borders$._CompoundBorder.lerp(this, b, t);
+    }
+    static lerp(a, b, t) {
+      let t6;
+      if (!(t != null)) dart.assertFailed(null, L1, 587, 12, "t != null");
+      if (!(_CompoundBorderL().is(a) || _CompoundBorderL().is(b))) dart.assertFailed(null, L1, 588, 12, "a is _CompoundBorder || b is _CompoundBorder");
+      let aList = _CompoundBorderL().is(a) ? a.borders : JSArrayOfShapeBorderL().of([a]);
+      let bList = _CompoundBorderL().is(b) ? b.borders : JSArrayOfShapeBorderL().of([b]);
+      let results = JSArrayOfShapeBorderL().of([]);
+      let length = math.max(intL(), aList[$length], bList[$length]);
+      for (let index = 0; index < length; index = index + 1) {
+        let localA = index < dart.notNull(aList[$length]) ? aList[$_get](index) : null;
+        let localB = index < dart.notNull(bList[$length]) ? bList[$_get](index) : null;
+        if (localA != null && localB != null) {
+          let localResult = (t6 = localA.lerpTo(localB, t), t6 == null ? localB.lerpFrom(localA, t) : t6);
+          if (localResult != null) {
+            results[$add](localResult);
+            continue;
+          }
+        }
+        if (localB != null) results[$add](localB.scale(t));
+        if (localA != null) results[$add](localA.scale(1.0 - dart.notNull(t)));
+      }
+      return new borders$._CompoundBorder.new(results);
+    }
+    getInnerPath(rect, opts) {
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      for (let index = 0; index < dart.notNull(this.borders[$length]) - 1; index = index + 1)
+        rect = this.borders[$_get](index).dimensions.resolve(textDirection).deflateRect(rect);
+      return this.borders[$last].getInnerPath(rect, {textDirection: textDirection});
+    }
+    getOuterPath(rect, opts) {
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      return this.borders[$first].getOuterPath(rect, {textDirection: textDirection});
+    }
+    paint(canvas, rect, opts) {
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      for (let border of this.borders) {
+        border.paint(canvas, rect, {textDirection: textDirection});
+        rect = border.dimensions.resolve(textDirection).deflateRect(rect);
+      }
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      if (!dart.equals(dart.runtimeType(other), this.runtimeType)) return false;
+      return _CompoundBorderL().is(other) && dart.test(collections.listEquals(ShapeBorderL(), other.borders, this.borders));
+    }
+    get hashCode() {
+      return ui.hashList(this.borders);
+    }
+    toString() {
+      return this.borders[$reversed][$map](StringL(), dart.fn(border => dart.toString(border), ShapeBorderLToStringL()))[$join](" + ");
+    }
+  };
+  (borders$._CompoundBorder.new = function(borders) {
+    this.borders = borders;
+    if (!(borders != null)) dart.assertFailed(null, L1, 523, 14, "borders != null");
+    if (!(dart.notNull(borders[$length]) >= 2)) dart.assertFailed(null, L1, 524, 14, "borders.length >= 2");
+    if (!!dart.test(borders[$any](dart.fn(border => _CompoundBorderL().is(border), ShapeBorderLToboolL())))) dart.assertFailed(null, L1, 525, 14, "!borders.any((ShapeBorder border) => border is _CompoundBorder)");
+    borders$._CompoundBorder.__proto__.new.call(this);
+    ;
+  }).prototype = borders$._CompoundBorder.prototype;
+  dart.addTypeTests(borders$._CompoundBorder);
+  dart.addTypeCaches(borders$._CompoundBorder);
+  dart.setMethodSignature(borders$._CompoundBorder, () => ({
+    __proto__: dart.getMethods(borders$._CompoundBorder.__proto__),
+    scale: dart.fnType(dart.legacy(borders$.ShapeBorder), [dart.legacy(core.double)]),
+    getInnerPath: dart.fnType(dart.legacy(ui.Path), [dart.legacy(ui.Rect)], {textDirection: dart.legacy(ui.TextDirection)}, {}),
+    getOuterPath: dart.fnType(dart.legacy(ui.Path), [dart.legacy(ui.Rect)], {textDirection: dart.legacy(ui.TextDirection)}, {}),
+    paint: dart.fnType(dart.void, [dart.legacy(ui.Canvas), dart.legacy(ui.Rect)], {textDirection: dart.legacy(ui.TextDirection)}, {}),
+    _equals: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+    [$_equals]: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)])
+  }));
+  dart.setGetterSignature(borders$._CompoundBorder, () => ({
+    __proto__: dart.getGetters(borders$._CompoundBorder.__proto__),
+    dimensions: dart.legacy(edge_insets.EdgeInsetsGeometry),
+    hashCode: dart.legacy(core.int),
+    [$hashCode]: dart.legacy(core.int)
+  }));
+  dart.setLibraryUri(borders$._CompoundBorder, L0);
+  dart.setFieldSignature(borders$._CompoundBorder, () => ({
+    __proto__: dart.getFields(borders$._CompoundBorder.__proto__),
+    borders: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(borders$.ShapeBorder))))
+  }));
+  dart.defineExtensionMethods(borders$._CompoundBorder, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(borders$._CompoundBorder, ['hashCode']);
+  borders$.paintBorder = function paintBorder(canvas, rect, opts) {
+    let t6;
+    let top = opts && 'top' in opts ? opts.top : C5 || CT.C5;
+    let right = opts && 'right' in opts ? opts.right : C5 || CT.C5;
+    let bottom = opts && 'bottom' in opts ? opts.bottom : C5 || CT.C5;
+    let left = opts && 'left' in opts ? opts.left : C5 || CT.C5;
+    if (!(canvas != null)) dart.assertFailed(null, L1, 683, 10, "canvas != null");
+    if (!(rect != null)) dart.assertFailed(null, L1, 684, 10, "rect != null");
+    if (!(top != null)) dart.assertFailed(null, L1, 685, 10, "top != null");
+    if (!(right != null)) dart.assertFailed(null, L1, 686, 10, "right != null");
+    if (!(bottom != null)) dart.assertFailed(null, L1, 687, 10, "bottom != null");
+    if (!(left != null)) dart.assertFailed(null, L1, 688, 10, "left != null");
+    let paint = (t6 = ui.Paint.new(), (() => {
+      t6.strokeWidth = 0.0;
+      return t6;
+    })());
+    let path = ui.Path.new();
+    switch (top.style) {
+      case C1 || CT.C1:
+      {
+        paint.color = top.color;
+        path.reset();
+        path.moveTo(rect.left, rect.top);
+        path.lineTo(rect.right, rect.top);
+        if (top.width === 0.0) {
+          paint.style = ui.PaintingStyle.stroke;
+        } else {
+          paint.style = ui.PaintingStyle.fill;
+          path.lineTo(dart.notNull(rect.right) - dart.notNull(right.width), dart.notNull(rect.top) + dart.notNull(top.width));
+          path.lineTo(dart.notNull(rect.left) + dart.notNull(left.width), dart.notNull(rect.top) + dart.notNull(top.width));
+        }
+        canvas.drawPath(path, paint);
+        break;
+      }
+      case C0 || CT.C0:
+      {
+        break;
+      }
+    }
+    switch (right.style) {
+      case C1 || CT.C1:
+      {
+        paint.color = right.color;
+        path.reset();
+        path.moveTo(rect.right, rect.top);
+        path.lineTo(rect.right, rect.bottom);
+        if (right.width === 0.0) {
+          paint.style = ui.PaintingStyle.stroke;
+        } else {
+          paint.style = ui.PaintingStyle.fill;
+          path.lineTo(dart.notNull(rect.right) - dart.notNull(right.width), dart.notNull(rect.bottom) - dart.notNull(bottom.width));
+          path.lineTo(dart.notNull(rect.right) - dart.notNull(right.width), dart.notNull(rect.top) + dart.notNull(top.width));
+        }
+        canvas.drawPath(path, paint);
+        break;
+      }
+      case C0 || CT.C0:
+      {
+        break;
+      }
+    }
+    switch (bottom.style) {
+      case C1 || CT.C1:
+      {
+        paint.color = bottom.color;
+        path.reset();
+        path.moveTo(rect.right, rect.bottom);
+        path.lineTo(rect.left, rect.bottom);
+        if (bottom.width === 0.0) {
+          paint.style = ui.PaintingStyle.stroke;
+        } else {
+          paint.style = ui.PaintingStyle.fill;
+          path.lineTo(dart.notNull(rect.left) + dart.notNull(left.width), dart.notNull(rect.bottom) - dart.notNull(bottom.width));
+          path.lineTo(dart.notNull(rect.right) - dart.notNull(right.width), dart.notNull(rect.bottom) - dart.notNull(bottom.width));
+        }
+        canvas.drawPath(path, paint);
+        break;
+      }
+      case C0 || CT.C0:
+      {
+        break;
+      }
+    }
+    switch (left.style) {
+      case C1 || CT.C1:
+      {
+        paint.color = left.color;
+        path.reset();
+        path.moveTo(rect.left, rect.bottom);
+        path.lineTo(rect.left, rect.top);
+        if (left.width === 0.0) {
+          paint.style = ui.PaintingStyle.stroke;
+        } else {
+          paint.style = ui.PaintingStyle.fill;
+          path.lineTo(dart.notNull(rect.left) + dart.notNull(left.width), dart.notNull(rect.top) + dart.notNull(top.width));
+          path.lineTo(dart.notNull(rect.left) + dart.notNull(left.width), dart.notNull(rect.bottom) - dart.notNull(bottom.width));
+        }
+        canvas.drawPath(path, paint);
+        break;
+      }
+      case C0 || CT.C0:
+      {
+        break;
+      }
+    }
+  };
+  dart.trackLibraries("packages/flutter/src/painting/borders.dart", {
+    "package:flutter/src/painting/borders.dart": borders$
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["borders.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/flutter/src/painting/borders.dart.lib.js"}');
+  // Exports:
+  return {
+    src__painting__borders: borders$
+  };
+}));
+
+//# sourceMappingURL=borders.dart.lib.js.map

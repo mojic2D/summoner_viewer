@@ -1,0 +1,1316 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/cupertino/text_theme.dart', 'packages/flutter/src/cupertino/date_picker.dart', 'packages/flutter/src/cupertino/interface_level.dart', 'packages/flutter/src/cupertino/route.dart', 'packages/flutter/src/cupertino/button.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/widgets/icon_data.dart', 'packages/flutter/src/painting/edge_insets.dart'], (function load__packages__flutter__src__cupertino__app_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__cupertino__text_theme$46dart, packages__flutter__src__cupertino__date_picker$46dart, packages__flutter__src__cupertino__interface_level$46dart, packages__flutter__src__cupertino__route$46dart, packages__flutter__src__cupertino__button$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__widgets__icon_data$46dart, packages__flutter__src__painting__edge_insets$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _js_helper = dart_sdk._js_helper;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const heroes = packages__flutter__src__widgets__widget_span$46dart.src__widgets__heroes;
+  const localizations = packages__flutter__src__widgets__widget_span$46dart.src__widgets__localizations;
+  const shortcuts = packages__flutter__src__widgets__widget_span$46dart.src__widgets__shortcuts;
+  const actions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__actions;
+  const scroll_physics = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_physics;
+  const scroll_configuration = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_configuration;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const app = packages__flutter__src__widgets__widget_span$46dart.src__widgets__app;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const theme = packages__flutter__src__cupertino__text_theme$46dart.src__cupertino__theme;
+  const colors = packages__flutter__src__cupertino__text_theme$46dart.src__cupertino__colors;
+  const localizations$ = packages__flutter__src__cupertino__date_picker$46dart.src__cupertino__localizations;
+  const interface_level = packages__flutter__src__cupertino__interface_level$46dart.src__cupertino__interface_level;
+  const route = packages__flutter__src__cupertino__route$46dart.src__cupertino__route;
+  const button = packages__flutter__src__cupertino__button$46dart.src__cupertino__button;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icon_data = packages__flutter__src__widgets__icon_data$46dart.src__widgets__icon_data;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  var app$ = Object.create(dart.library);
+  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
+  var WidgetL = () => (WidgetL = dart.constFn(dart.legacy(framework.Widget)))();
+  var BuildContextL = () => (BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))();
+  var BuildContextLToWidgetL = () => (BuildContextLToWidgetL = dart.constFn(dart.fnType(WidgetL(), [BuildContextL()])))();
+  var BuildContextLToLWidgetL = () => (BuildContextLToLWidgetL = dart.constFn(dart.legacy(BuildContextLToWidgetL())))();
+  var NavigatorObserverL = () => (NavigatorObserverL = dart.constFn(dart.legacy(navigator.NavigatorObserver)))();
+  var LocaleL = () => (LocaleL = dart.constFn(dart.legacy(ui.Locale)))();
+  var CupertinoAppL = () => (CupertinoAppL = dart.constFn(dart.legacy(app$.CupertinoApp)))();
+  var LocalizationsDelegateL = () => (LocalizationsDelegateL = dart.constFn(dart.legacy(localizations.LocalizationsDelegate)))();
+  var SyncIterableOfLocalizationsDelegateL = () => (SyncIterableOfLocalizationsDelegateL = dart.constFn(_js_helper.SyncIterable$(LocalizationsDelegateL())))();
+  var StatefulWidgetL = () => (StatefulWidgetL = dart.constFn(dart.legacy(framework.StatefulWidget)))();
+  var StateOfStatefulWidgetL = () => (StateOfStatefulWidgetL = dart.constFn(framework.State$(StatefulWidgetL())))();
+  var StateLOfStatefulWidgetL = () => (StateLOfStatefulWidgetL = dart.constFn(dart.legacy(StateOfStatefulWidgetL())))();
+  var GlobalObjectKeyOfStateLOfStatefulWidgetL = () => (GlobalObjectKeyOfStateLOfStatefulWidgetL = dart.constFn(framework.GlobalObjectKey$(StateLOfStatefulWidgetL())))();
+  var RouteSettingsL = () => (RouteSettingsL = dart.constFn(dart.legacy(navigator.RouteSettings)))();
+  var RouteSettingsLAndFnToCupertinoPageRouteLOfTL = () => (RouteSettingsLAndFnToCupertinoPageRouteLOfTL = dart.constFn(dart.gFnType(T => {
+    var TL = () => (TL = dart.constFn(dart.legacy(T)))();
+    var CupertinoPageRouteOfTL = () => (CupertinoPageRouteOfTL = dart.constFn(route.CupertinoPageRoute$(TL())))();
+    var CupertinoPageRouteLOfTL = () => (CupertinoPageRouteLOfTL = dart.constFn(dart.legacy(CupertinoPageRouteOfTL())))();
+    return [CupertinoPageRouteLOfTL(), [RouteSettingsL(), BuildContextLToLWidgetL()]];
+  })))();
+  var _LocationL = () => (_LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))();
+  var CupertinoButtonL = () => (CupertinoButtonL = dart.constFn(dart.legacy(button.CupertinoButton)))();
+  var VoidTovoid = () => (VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))();
+  var VoidToLvoid = () => (VoidToLvoid = dart.constFn(dart.legacy(VoidTovoid())))();
+  var BuildContextLAndFnToCupertinoButtonL = () => (BuildContextLAndFnToCupertinoButtonL = dart.constFn(dart.fnType(CupertinoButtonL(), [BuildContextL(), VoidToLvoid()])))();
+  var HeroControllerScopeL = () => (HeroControllerScopeL = dart.constFn(dart.legacy(navigator.HeroControllerScope)))();
+  var BuildContextLToHeroControllerScopeL = () => (BuildContextLToHeroControllerScopeL = dart.constFn(dart.fnType(HeroControllerScopeL(), [BuildContextL()])))();
+  const CT = Object.create(null);
+  var L0 = "file:///C:/flutter/packages/flutter/lib/src/cupertino/app.dart";
+  var L1 = "package:flutter/src/cupertino/app.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.constMap(StringL(), BuildContextLToLWidgetL(), []);
+    },
+    get C1() {
+      return C1 = dart.constList([], NavigatorObserverL());
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: ui.Locale.prototype,
+        [Locale__countryCode]: "US",
+        [Locale_scriptCode]: null,
+        [Locale__languageCode]: "en"
+      });
+    },
+    get C2() {
+      return C2 = dart.constList([C3 || CT.C3], LocaleL());
+    },
+    get C4() {
+      return C4 = dart.const({
+        __proto__: scroll_physics.BouncingScrollPhysics.prototype,
+        [ScrollPhysics_parent]: null
+      });
+    },
+    get C9() {
+      return C9 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4285887861.0
+      });
+    },
+    get C10() {
+      return C10 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4288256409.0
+      });
+    },
+    get C8() {
+      return C8 = dart.const({
+        __proto__: colors.CupertinoDynamicColor.prototype,
+        [Color_value]: 0,
+        [CupertinoDynamicColor_darkHighContrastElevatedColor]: C9 || CT.C9,
+        [CupertinoDynamicColor_highContrastElevatedColor]: C10 || CT.C10,
+        [CupertinoDynamicColor_darkElevatedColor]: C9 || CT.C9,
+        [CupertinoDynamicColor_elevatedColor]: C10 || CT.C10,
+        [CupertinoDynamicColor_darkHighContrastColor]: C9 || CT.C9,
+        [CupertinoDynamicColor_highContrastColor]: C10 || CT.C10,
+        [CupertinoDynamicColor_darkColor]: C9 || CT.C9,
+        [CupertinoDynamicColor_color]: C10 || CT.C10,
+        [CupertinoDynamicColor__debugResolveContext]: null,
+        [CupertinoDynamicColor__debugLabel]: "inactiveGray",
+        [CupertinoDynamicColor__effectiveColor]: C10 || CT.C10
+      });
+    },
+    get C12() {
+      return C12 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294967295.0
+      });
+    },
+    get C13() {
+      return C13 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278190080.0
+      });
+    },
+    get C11() {
+      return C11 = dart.const({
+        __proto__: colors.CupertinoDynamicColor.prototype,
+        [Color_value]: 0,
+        [CupertinoDynamicColor_darkHighContrastElevatedColor]: C12 || CT.C12,
+        [CupertinoDynamicColor_highContrastElevatedColor]: C13 || CT.C13,
+        [CupertinoDynamicColor_darkElevatedColor]: C12 || CT.C12,
+        [CupertinoDynamicColor_elevatedColor]: C13 || CT.C13,
+        [CupertinoDynamicColor_darkHighContrastColor]: C12 || CT.C12,
+        [CupertinoDynamicColor_highContrastColor]: C13 || CT.C13,
+        [CupertinoDynamicColor_darkColor]: C12 || CT.C12,
+        [CupertinoDynamicColor_color]: C13 || CT.C13,
+        [CupertinoDynamicColor__debugResolveContext]: null,
+        [CupertinoDynamicColor__debugLabel]: "label",
+        [CupertinoDynamicColor__effectiveColor]: C13 || CT.C13
+      });
+    },
+    get C7() {
+      return C7 = dart.const({
+        __proto__: theme._CupertinoTextThemeDefaults.prototype,
+        [_CupertinoTextThemeDefaults_inactiveGray]: C8 || CT.C8,
+        [_CupertinoTextThemeDefaults_labelColor]: C11 || CT.C11
+      });
+    },
+    get C15() {
+      return C15 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280558630.0
+      });
+    },
+    get C16() {
+      return C16 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280032286.0
+      });
+    },
+    get C14() {
+      return C14 = dart.const({
+        __proto__: colors.CupertinoDynamicColor.prototype,
+        [Color_value]: 0,
+        [CupertinoDynamicColor_darkHighContrastElevatedColor]: C15 || CT.C15,
+        [CupertinoDynamicColor_highContrastElevatedColor]: C12 || CT.C12,
+        [CupertinoDynamicColor_darkElevatedColor]: C16 || CT.C16,
+        [CupertinoDynamicColor_elevatedColor]: C12 || CT.C12,
+        [CupertinoDynamicColor_darkHighContrastColor]: C13 || CT.C13,
+        [CupertinoDynamicColor_highContrastColor]: C12 || CT.C12,
+        [CupertinoDynamicColor_darkColor]: C13 || CT.C13,
+        [CupertinoDynamicColor_color]: C12 || CT.C12,
+        [CupertinoDynamicColor__debugResolveContext]: null,
+        [CupertinoDynamicColor__debugLabel]: "systemBackground",
+        [CupertinoDynamicColor__effectiveColor]: C12 || CT.C12
+      });
+    },
+    get C18() {
+      return C18 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4028439837.0
+      });
+    },
+    get C19() {
+      return C19 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4042914297.0
+      });
+    },
+    get C17() {
+      return C17 = dart.const({
+        __proto__: colors.CupertinoDynamicColor.prototype,
+        [Color_value]: 0,
+        [CupertinoDynamicColor_darkHighContrastElevatedColor]: C18 || CT.C18,
+        [CupertinoDynamicColor_highContrastElevatedColor]: C19 || CT.C19,
+        [CupertinoDynamicColor_darkElevatedColor]: C18 || CT.C18,
+        [CupertinoDynamicColor_elevatedColor]: C19 || CT.C19,
+        [CupertinoDynamicColor_darkHighContrastColor]: C18 || CT.C18,
+        [CupertinoDynamicColor_highContrastColor]: C19 || CT.C19,
+        [CupertinoDynamicColor_darkColor]: C18 || CT.C18,
+        [CupertinoDynamicColor_color]: C19 || CT.C19,
+        [CupertinoDynamicColor__debugResolveContext]: null,
+        [CupertinoDynamicColor__debugLabel]: null,
+        [CupertinoDynamicColor__effectiveColor]: C19 || CT.C19
+      });
+    },
+    get C21() {
+      return C21 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4282424575.0
+      });
+    },
+    get C22() {
+      return C22 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278206685.0
+      });
+    },
+    get C23() {
+      return C23 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278879487.0
+      });
+    },
+    get C24() {
+      return C24 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278221567.0
+      });
+    },
+    get C20() {
+      return C20 = dart.const({
+        __proto__: colors.CupertinoDynamicColor.prototype,
+        [Color_value]: 0,
+        [CupertinoDynamicColor_darkHighContrastElevatedColor]: C21 || CT.C21,
+        [CupertinoDynamicColor_highContrastElevatedColor]: C22 || CT.C22,
+        [CupertinoDynamicColor_darkElevatedColor]: C23 || CT.C23,
+        [CupertinoDynamicColor_elevatedColor]: C24 || CT.C24,
+        [CupertinoDynamicColor_darkHighContrastColor]: C21 || CT.C21,
+        [CupertinoDynamicColor_highContrastColor]: C22 || CT.C22,
+        [CupertinoDynamicColor_darkColor]: C23 || CT.C23,
+        [CupertinoDynamicColor_color]: C24 || CT.C24,
+        [CupertinoDynamicColor__debugResolveContext]: null,
+        [CupertinoDynamicColor__debugLabel]: "systemBlue",
+        [CupertinoDynamicColor__effectiveColor]: C24 || CT.C24
+      });
+    },
+    get C6() {
+      return C6 = dart.const({
+        __proto__: theme._CupertinoThemeDefaults.prototype,
+        [_CupertinoThemeDefaults_textThemeDefaults]: C7 || CT.C7,
+        [_CupertinoThemeDefaults_scaffoldBackgroundColor]: C14 || CT.C14,
+        [_CupertinoThemeDefaults_barBackgroundColor]: C17 || CT.C17,
+        [_CupertinoThemeDefaults_primaryContrastingColor]: C14 || CT.C14,
+        [_CupertinoThemeDefaults_primaryColor]: C20 || CT.C20,
+        [_CupertinoThemeDefaults_brightness]: null
+      });
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: theme.CupertinoThemeData.prototype,
+        [CupertinoThemeData__scaffoldBackgroundColor]: null,
+        [CupertinoThemeData__barBackgroundColor]: null,
+        [CupertinoThemeData__textTheme]: null,
+        [CupertinoThemeData__primaryContrastingColor]: null,
+        [CupertinoThemeData__primaryColor]: null,
+        [CupertinoThemeData_brightness]: null,
+        [CupertinoThemeData__defaults]: C6 || CT.C6
+      });
+    },
+    get C28() {
+      return C28 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 40,
+        [_Location_line]: 363,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C29 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 25,
+        [_Location_line]: 364,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C30 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 25,
+        [_Location_line]: 365,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C27 = dart.constList([C28 || CT.C28, C29 || CT.C29, C30 || CT.C30], _LocationL());
+    },
+    get C26() {
+      return C26 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C27 || CT.C27,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 362,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/cupertino/app.dart"
+      });
+    },
+    get C31() {
+      return C31 = dart.const({
+        __proto__: icon_data.IconData.prototype,
+        [IconData_matchTextDirection]: false,
+        [IconData_fontPackage]: "cupertino_icons",
+        [IconData_fontFamily]: "CupertinoIcons",
+        [IconData_codePoint]: 62629
+      });
+    },
+    get C25() {
+      return C25 = dart.const({
+        __proto__: icon.Icon.prototype,
+        [Widget__location]: C26 || CT.C26,
+        [Widget_key]: null,
+        [Icon_textDirection]: null,
+        [Icon_semanticLabel]: null,
+        [Icon_color]: C12 || CT.C12,
+        [Icon_size]: 28,
+        [Icon_icon]: C31 || CT.C31
+      });
+    },
+    get C34() {
+      return C34 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 362,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C35 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 23,
+        [_Location_line]: 367,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C36 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 23,
+        [_Location_line]: 368,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C33 = dart.constList([C34 || CT.C34, C35 || CT.C35, C36 || CT.C36], _LocationL());
+    },
+    get C32() {
+      return C32 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C33 || CT.C33,
+        [_Location_name]: null,
+        [_Location_column]: 44,
+        [_Location_line]: 361,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/cupertino/app.dart"
+      });
+    },
+    get C39() {
+      return C39 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 19,
+        [_Location_line]: 334,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C40 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "navigatorKey",
+        [_Location_column]: 19,
+        [_Location_line]: 335,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C41 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "navigatorObservers",
+        [_Location_column]: 19,
+        [_Location_line]: 336,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C42 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "pageRouteBuilder",
+        [_Location_column]: 19,
+        [_Location_line]: 337,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C43 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "home",
+        [_Location_column]: 19,
+        [_Location_line]: 339,
+        [_Location_file]: null
+      });
+    },
+    get C44() {
+      return C44 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "routes",
+        [_Location_column]: 19,
+        [_Location_line]: 340,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C45 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "initialRoute",
+        [_Location_column]: 19,
+        [_Location_line]: 341,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C46 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onGenerateRoute",
+        [_Location_column]: 19,
+        [_Location_line]: 342,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C47 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onGenerateInitialRoutes",
+        [_Location_column]: 19,
+        [_Location_line]: 343,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C48 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onUnknownRoute",
+        [_Location_column]: 19,
+        [_Location_line]: 344,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C49 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 19,
+        [_Location_line]: 345,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C50 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 19,
+        [_Location_line]: 346,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C51 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onGenerateTitle",
+        [_Location_column]: 19,
+        [_Location_line]: 347,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C52 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textStyle",
+        [_Location_column]: 19,
+        [_Location_line]: 348,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C53 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 19,
+        [_Location_line]: 349,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C54 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "locale",
+        [_Location_column]: 19,
+        [_Location_line]: 350,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C55 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "localizationsDelegates",
+        [_Location_column]: 19,
+        [_Location_line]: 351,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C56 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "localeResolutionCallback",
+        [_Location_column]: 19,
+        [_Location_line]: 352,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C57 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "localeListResolutionCallback",
+        [_Location_column]: 19,
+        [_Location_line]: 353,
+        [_Location_file]: null
+      });
+    },
+    get C58() {
+      return C58 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "supportedLocales",
+        [_Location_column]: 19,
+        [_Location_line]: 354,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C59 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "showPerformanceOverlay",
+        [_Location_column]: 19,
+        [_Location_line]: 355,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C60 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "checkerboardRasterCacheImages",
+        [_Location_column]: 19,
+        [_Location_line]: 356,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C61 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "checkerboardOffscreenLayers",
+        [_Location_column]: 19,
+        [_Location_line]: 357,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C62 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "showSemanticsDebugger",
+        [_Location_column]: 19,
+        [_Location_line]: 358,
+        [_Location_file]: null
+      });
+    },
+    get C63() {
+      return C63 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "debugShowCheckedModeBanner",
+        [_Location_column]: 19,
+        [_Location_line]: 359,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C64 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "inspectorSelectButtonBuilder",
+        [_Location_column]: 19,
+        [_Location_line]: 360,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C65 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "shortcuts",
+        [_Location_column]: 19,
+        [_Location_line]: 371,
+        [_Location_file]: null
+      });
+    },
+    get C66() {
+      return C66 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "actions",
+        [_Location_column]: 19,
+        [_Location_line]: 372,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C38 = dart.constList([C39 || CT.C39, C40 || CT.C40, C41 || CT.C41, C42 || CT.C42, C43 || CT.C43, C44 || CT.C44, C45 || CT.C45, C46 || CT.C46, C47 || CT.C47, C48 || CT.C48, C49 || CT.C49, C50 || CT.C50, C51 || CT.C51, C52 || CT.C52, C53 || CT.C53, C54 || CT.C54, C55 || CT.C55, C56 || CT.C56, C57 || CT.C57, C58 || CT.C58, C59 || CT.C59, C60 || CT.C60, C61 || CT.C61, C62 || CT.C62, C63 || CT.C63, C64 || CT.C64, C65 || CT.C65, C66 || CT.C66], _LocationL());
+    },
+    get C37() {
+      return C37 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C38 || CT.C38,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 333,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/cupertino/app.dart"
+      });
+    },
+    get C69() {
+      return C69 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 17,
+        [_Location_line]: 332,
+        [_Location_file]: null
+      });
+    },
+    get C70() {
+      return C70 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 333,
+        [_Location_file]: null
+      });
+    },
+    get C68() {
+      return C68 = dart.constList([C69 || CT.C69, C70 || CT.C70], _LocationL());
+    },
+    get C67() {
+      return C67 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C68 || CT.C68,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 331,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/cupertino/app.dart"
+      });
+    },
+    get C73() {
+      return C73 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 13,
+        [_Location_line]: 330,
+        [_Location_file]: null
+      });
+    },
+    get C72() {
+      return C72 = dart.constList([C73 || CT.C73], _LocationL());
+    },
+    get C71() {
+      return C71 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C72 || CT.C72,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 329,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/cupertino/app.dart"
+      });
+    },
+    get C76() {
+      return C76 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 11,
+        [_Location_line]: 328,
+        [_Location_file]: null
+      });
+    },
+    get C77() {
+      return C77 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 329,
+        [_Location_file]: null
+      });
+    },
+    get C75() {
+      return C75 = dart.constList([C76 || CT.C76, C77 || CT.C77], _LocationL());
+    },
+    get C74() {
+      return C74 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C75 || CT.C75,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 327,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/cupertino/app.dart"
+      });
+    },
+    get C80() {
+      return C80 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 9,
+        [_Location_line]: 326,
+        [_Location_file]: null
+      });
+    },
+    get C81() {
+      return C81 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 327,
+        [_Location_file]: null
+      });
+    },
+    get C79() {
+      return C79 = dart.constList([C80 || CT.C80, C81 || CT.C81], _LocationL());
+    },
+    get C78() {
+      return C78 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C79 || CT.C79,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 325,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/cupertino/app.dart"
+      });
+    },
+    get C84() {
+      return C84 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "behavior",
+        [_Location_column]: 7,
+        [_Location_line]: 324,
+        [_Location_file]: null
+      });
+    },
+    get C85() {
+      return C85 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 325,
+        [_Location_file]: null
+      });
+    },
+    get C83() {
+      return C83 = dart.constList([C84 || CT.C84, C85 || CT.C85], _LocationL());
+    },
+    get C82() {
+      return C82 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C83 || CT.C83,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 323,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/cupertino/app.dart"
+      });
+    }
+  }, false);
+  var C0;
+  var C1;
+  var Locale__countryCode = dart.privateName(ui, "Locale._countryCode");
+  var Locale_scriptCode = dart.privateName(ui, "Locale.scriptCode");
+  var Locale__languageCode = dart.privateName(ui, "Locale._languageCode");
+  var C3;
+  var C2;
+  var navigatorKey$ = dart.privateName(app$, "CupertinoApp.navigatorKey");
+  var home$ = dart.privateName(app$, "CupertinoApp.home");
+  var theme$ = dart.privateName(app$, "CupertinoApp.theme");
+  var routes$ = dart.privateName(app$, "CupertinoApp.routes");
+  var initialRoute$ = dart.privateName(app$, "CupertinoApp.initialRoute");
+  var onGenerateRoute$ = dart.privateName(app$, "CupertinoApp.onGenerateRoute");
+  var onGenerateInitialRoutes$ = dart.privateName(app$, "CupertinoApp.onGenerateInitialRoutes");
+  var onUnknownRoute$ = dart.privateName(app$, "CupertinoApp.onUnknownRoute");
+  var navigatorObservers$ = dart.privateName(app$, "CupertinoApp.navigatorObservers");
+  var builder$ = dart.privateName(app$, "CupertinoApp.builder");
+  var title$ = dart.privateName(app$, "CupertinoApp.title");
+  var onGenerateTitle$ = dart.privateName(app$, "CupertinoApp.onGenerateTitle");
+  var color$ = dart.privateName(app$, "CupertinoApp.color");
+  var locale$ = dart.privateName(app$, "CupertinoApp.locale");
+  var localizationsDelegates$ = dart.privateName(app$, "CupertinoApp.localizationsDelegates");
+  var localeListResolutionCallback$ = dart.privateName(app$, "CupertinoApp.localeListResolutionCallback");
+  var localeResolutionCallback$ = dart.privateName(app$, "CupertinoApp.localeResolutionCallback");
+  var supportedLocales$ = dart.privateName(app$, "CupertinoApp.supportedLocales");
+  var showPerformanceOverlay$ = dart.privateName(app$, "CupertinoApp.showPerformanceOverlay");
+  var checkerboardRasterCacheImages$ = dart.privateName(app$, "CupertinoApp.checkerboardRasterCacheImages");
+  var checkerboardOffscreenLayers$ = dart.privateName(app$, "CupertinoApp.checkerboardOffscreenLayers");
+  var showSemanticsDebugger$ = dart.privateName(app$, "CupertinoApp.showSemanticsDebugger");
+  var debugShowCheckedModeBanner$ = dart.privateName(app$, "CupertinoApp.debugShowCheckedModeBanner");
+  var shortcuts$ = dart.privateName(app$, "CupertinoApp.shortcuts");
+  var actions$ = dart.privateName(app$, "CupertinoApp.actions");
+  app$.CupertinoApp = class CupertinoApp extends framework.StatefulWidget {
+    get navigatorKey() {
+      return this[navigatorKey$];
+    }
+    set navigatorKey(value) {
+      super.navigatorKey = value;
+    }
+    get home() {
+      return this[home$];
+    }
+    set home(value) {
+      super.home = value;
+    }
+    get theme() {
+      return this[theme$];
+    }
+    set theme(value) {
+      super.theme = value;
+    }
+    get routes() {
+      return this[routes$];
+    }
+    set routes(value) {
+      super.routes = value;
+    }
+    get initialRoute() {
+      return this[initialRoute$];
+    }
+    set initialRoute(value) {
+      super.initialRoute = value;
+    }
+    get onGenerateRoute() {
+      return this[onGenerateRoute$];
+    }
+    set onGenerateRoute(value) {
+      super.onGenerateRoute = value;
+    }
+    get onGenerateInitialRoutes() {
+      return this[onGenerateInitialRoutes$];
+    }
+    set onGenerateInitialRoutes(value) {
+      super.onGenerateInitialRoutes = value;
+    }
+    get onUnknownRoute() {
+      return this[onUnknownRoute$];
+    }
+    set onUnknownRoute(value) {
+      super.onUnknownRoute = value;
+    }
+    get navigatorObservers() {
+      return this[navigatorObservers$];
+    }
+    set navigatorObservers(value) {
+      super.navigatorObservers = value;
+    }
+    get builder() {
+      return this[builder$];
+    }
+    set builder(value) {
+      super.builder = value;
+    }
+    get title() {
+      return this[title$];
+    }
+    set title(value) {
+      super.title = value;
+    }
+    get onGenerateTitle() {
+      return this[onGenerateTitle$];
+    }
+    set onGenerateTitle(value) {
+      super.onGenerateTitle = value;
+    }
+    get color() {
+      return this[color$];
+    }
+    set color(value) {
+      super.color = value;
+    }
+    get locale() {
+      return this[locale$];
+    }
+    set locale(value) {
+      super.locale = value;
+    }
+    get localizationsDelegates() {
+      return this[localizationsDelegates$];
+    }
+    set localizationsDelegates(value) {
+      super.localizationsDelegates = value;
+    }
+    get localeListResolutionCallback() {
+      return this[localeListResolutionCallback$];
+    }
+    set localeListResolutionCallback(value) {
+      super.localeListResolutionCallback = value;
+    }
+    get localeResolutionCallback() {
+      return this[localeResolutionCallback$];
+    }
+    set localeResolutionCallback(value) {
+      super.localeResolutionCallback = value;
+    }
+    get supportedLocales() {
+      return this[supportedLocales$];
+    }
+    set supportedLocales(value) {
+      super.supportedLocales = value;
+    }
+    get showPerformanceOverlay() {
+      return this[showPerformanceOverlay$];
+    }
+    set showPerformanceOverlay(value) {
+      super.showPerformanceOverlay = value;
+    }
+    get checkerboardRasterCacheImages() {
+      return this[checkerboardRasterCacheImages$];
+    }
+    set checkerboardRasterCacheImages(value) {
+      super.checkerboardRasterCacheImages = value;
+    }
+    get checkerboardOffscreenLayers() {
+      return this[checkerboardOffscreenLayers$];
+    }
+    set checkerboardOffscreenLayers(value) {
+      super.checkerboardOffscreenLayers = value;
+    }
+    get showSemanticsDebugger() {
+      return this[showSemanticsDebugger$];
+    }
+    set showSemanticsDebugger(value) {
+      super.showSemanticsDebugger = value;
+    }
+    get debugShowCheckedModeBanner() {
+      return this[debugShowCheckedModeBanner$];
+    }
+    set debugShowCheckedModeBanner(value) {
+      super.debugShowCheckedModeBanner = value;
+    }
+    get shortcuts() {
+      return this[shortcuts$];
+    }
+    set shortcuts(value) {
+      super.shortcuts = value;
+    }
+    get actions() {
+      return this[actions$];
+    }
+    set actions(value) {
+      super.actions = value;
+    }
+    createState() {
+      return new app$._CupertinoAppState.new();
+    }
+    static createCupertinoHeroController() {
+      return new heroes.HeroController.new();
+    }
+  };
+  (app$.CupertinoApp.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let navigatorKey = opts && 'navigatorKey' in opts ? opts.navigatorKey : null;
+    let home = opts && 'home' in opts ? opts.home : null;
+    let theme = opts && 'theme' in opts ? opts.theme : null;
+    let routes = opts && 'routes' in opts ? opts.routes : C0 || CT.C0;
+    let initialRoute = opts && 'initialRoute' in opts ? opts.initialRoute : null;
+    let onGenerateRoute = opts && 'onGenerateRoute' in opts ? opts.onGenerateRoute : null;
+    let onGenerateInitialRoutes = opts && 'onGenerateInitialRoutes' in opts ? opts.onGenerateInitialRoutes : null;
+    let onUnknownRoute = opts && 'onUnknownRoute' in opts ? opts.onUnknownRoute : null;
+    let navigatorObservers = opts && 'navigatorObservers' in opts ? opts.navigatorObservers : C1 || CT.C1;
+    let builder = opts && 'builder' in opts ? opts.builder : null;
+    let title = opts && 'title' in opts ? opts.title : "";
+    let onGenerateTitle = opts && 'onGenerateTitle' in opts ? opts.onGenerateTitle : null;
+    let color = opts && 'color' in opts ? opts.color : null;
+    let locale = opts && 'locale' in opts ? opts.locale : null;
+    let localizationsDelegates = opts && 'localizationsDelegates' in opts ? opts.localizationsDelegates : null;
+    let localeListResolutionCallback = opts && 'localeListResolutionCallback' in opts ? opts.localeListResolutionCallback : null;
+    let localeResolutionCallback = opts && 'localeResolutionCallback' in opts ? opts.localeResolutionCallback : null;
+    let supportedLocales = opts && 'supportedLocales' in opts ? opts.supportedLocales : C2 || CT.C2;
+    let showPerformanceOverlay = opts && 'showPerformanceOverlay' in opts ? opts.showPerformanceOverlay : false;
+    let checkerboardRasterCacheImages = opts && 'checkerboardRasterCacheImages' in opts ? opts.checkerboardRasterCacheImages : false;
+    let checkerboardOffscreenLayers = opts && 'checkerboardOffscreenLayers' in opts ? opts.checkerboardOffscreenLayers : false;
+    let showSemanticsDebugger = opts && 'showSemanticsDebugger' in opts ? opts.showSemanticsDebugger : false;
+    let debugShowCheckedModeBanner = opts && 'debugShowCheckedModeBanner' in opts ? opts.debugShowCheckedModeBanner : true;
+    let shortcuts = opts && 'shortcuts' in opts ? opts.shortcuts : null;
+    let actions = opts && 'actions' in opts ? opts.actions : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[navigatorKey$] = navigatorKey;
+    this[home$] = home;
+    this[theme$] = theme;
+    this[routes$] = routes;
+    this[initialRoute$] = initialRoute;
+    this[onGenerateRoute$] = onGenerateRoute;
+    this[onGenerateInitialRoutes$] = onGenerateInitialRoutes;
+    this[onUnknownRoute$] = onUnknownRoute;
+    this[navigatorObservers$] = navigatorObservers;
+    this[builder$] = builder;
+    this[title$] = title;
+    this[onGenerateTitle$] = onGenerateTitle;
+    this[color$] = color;
+    this[locale$] = locale;
+    this[localizationsDelegates$] = localizationsDelegates;
+    this[localeListResolutionCallback$] = localeListResolutionCallback;
+    this[localeResolutionCallback$] = localeResolutionCallback;
+    this[supportedLocales$] = supportedLocales;
+    this[showPerformanceOverlay$] = showPerformanceOverlay;
+    this[checkerboardRasterCacheImages$] = checkerboardRasterCacheImages;
+    this[checkerboardOffscreenLayers$] = checkerboardOffscreenLayers;
+    this[showSemanticsDebugger$] = showSemanticsDebugger;
+    this[debugShowCheckedModeBanner$] = debugShowCheckedModeBanner;
+    this[shortcuts$] = shortcuts;
+    this[actions$] = actions;
+    if (!(routes != null)) dart.assertFailed(null, L0, 99, 15, "routes != null");
+    if (!(navigatorObservers != null)) dart.assertFailed(null, L0, 100, 15, "navigatorObservers != null");
+    if (!(title != null)) dart.assertFailed(null, L0, 101, 15, "title != null");
+    if (!(showPerformanceOverlay != null)) dart.assertFailed(null, L0, 102, 15, "showPerformanceOverlay != null");
+    if (!(checkerboardRasterCacheImages != null)) dart.assertFailed(null, L0, 103, 15, "checkerboardRasterCacheImages != null");
+    if (!(checkerboardOffscreenLayers != null)) dart.assertFailed(null, L0, 104, 15, "checkerboardOffscreenLayers != null");
+    if (!(showSemanticsDebugger != null)) dart.assertFailed(null, L0, 105, 15, "showSemanticsDebugger != null");
+    if (!(debugShowCheckedModeBanner != null)) dart.assertFailed(null, L0, 106, 15, "debugShowCheckedModeBanner != null");
+    app$.CupertinoApp.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = app$.CupertinoApp.prototype;
+  dart.addTypeTests(app$.CupertinoApp);
+  dart.addTypeCaches(app$.CupertinoApp);
+  dart.setMethodSignature(app$.CupertinoApp, () => ({
+    __proto__: dart.getMethods(app$.CupertinoApp.__proto__),
+    createState: dart.fnType(dart.legacy(app$._CupertinoAppState), [])
+  }));
+  dart.setLibraryUri(app$.CupertinoApp, L1);
+  dart.setFieldSignature(app$.CupertinoApp, () => ({
+    __proto__: dart.getFields(app$.CupertinoApp.__proto__),
+    navigatorKey: dart.finalFieldType(dart.legacy(framework.GlobalKey$(dart.legacy(navigator.NavigatorState)))),
+    home: dart.finalFieldType(dart.legacy(framework.Widget)),
+    theme: dart.finalFieldType(dart.legacy(theme.CupertinoThemeData)),
+    routes: dart.finalFieldType(dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)]))))),
+    initialRoute: dart.finalFieldType(dart.legacy(core.String)),
+    onGenerateRoute: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(navigator.Route), [dart.legacy(navigator.RouteSettings)]))),
+    onGenerateInitialRoutes: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(core.List$(dart.legacy(navigator.Route))), [dart.legacy(core.String)]))),
+    onUnknownRoute: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(navigator.Route), [dart.legacy(navigator.RouteSettings)]))),
+    navigatorObservers: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(navigator.NavigatorObserver)))),
+    builder: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext), dart.legacy(framework.Widget)]))),
+    title: dart.finalFieldType(dart.legacy(core.String)),
+    onGenerateTitle: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(core.String), [dart.legacy(framework.BuildContext)]))),
+    color: dart.finalFieldType(dart.legacy(ui.Color)),
+    locale: dart.finalFieldType(dart.legacy(ui.Locale)),
+    localizationsDelegates: dart.finalFieldType(dart.legacy(core.Iterable$(dart.legacy(localizations.LocalizationsDelegate)))),
+    localeListResolutionCallback: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(ui.Locale), [dart.legacy(core.List$(dart.legacy(ui.Locale))), dart.legacy(core.Iterable$(dart.legacy(ui.Locale)))]))),
+    localeResolutionCallback: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(ui.Locale), [dart.legacy(ui.Locale), dart.legacy(core.Iterable$(dart.legacy(ui.Locale)))]))),
+    supportedLocales: dart.finalFieldType(dart.legacy(core.Iterable$(dart.legacy(ui.Locale)))),
+    showPerformanceOverlay: dart.finalFieldType(dart.legacy(core.bool)),
+    checkerboardRasterCacheImages: dart.finalFieldType(dart.legacy(core.bool)),
+    checkerboardOffscreenLayers: dart.finalFieldType(dart.legacy(core.bool)),
+    showSemanticsDebugger: dart.finalFieldType(dart.legacy(core.bool)),
+    debugShowCheckedModeBanner: dart.finalFieldType(dart.legacy(core.bool)),
+    shortcuts: dart.finalFieldType(dart.legacy(core.Map$(dart.legacy(shortcuts.LogicalKeySet), dart.legacy(actions.Intent)))),
+    actions: dart.finalFieldType(dart.legacy(core.Map$(dart.legacy(core.Type), dart.legacy(actions.Action$(dart.legacy(actions.Intent))))))
+  }));
+  var ScrollPhysics_parent = dart.privateName(scroll_physics, "ScrollPhysics.parent");
+  var C4;
+  app$._AlwaysCupertinoScrollBehavior = class _AlwaysCupertinoScrollBehavior extends scroll_configuration.ScrollBehavior {
+    buildViewportChrome(context, child, axisDirection) {
+      return child;
+    }
+    getScrollPhysics(context) {
+      return C4 || CT.C4;
+    }
+  };
+  (app$._AlwaysCupertinoScrollBehavior.new = function() {
+    app$._AlwaysCupertinoScrollBehavior.__proto__.new.call(this);
+    ;
+  }).prototype = app$._AlwaysCupertinoScrollBehavior.prototype;
+  dart.addTypeTests(app$._AlwaysCupertinoScrollBehavior);
+  dart.addTypeCaches(app$._AlwaysCupertinoScrollBehavior);
+  dart.setLibraryUri(app$._AlwaysCupertinoScrollBehavior, L1);
+  var _heroController = dart.privateName(app$, "_heroController");
+  var _localizationsDelegates = dart.privateName(app$, "_localizationsDelegates");
+  var CupertinoThemeData__scaffoldBackgroundColor = dart.privateName(theme, "CupertinoThemeData._scaffoldBackgroundColor");
+  var CupertinoThemeData__barBackgroundColor = dart.privateName(theme, "CupertinoThemeData._barBackgroundColor");
+  var CupertinoThemeData__textTheme = dart.privateName(theme, "CupertinoThemeData._textTheme");
+  var CupertinoThemeData__primaryContrastingColor = dart.privateName(theme, "CupertinoThemeData._primaryContrastingColor");
+  var CupertinoThemeData__primaryColor = dart.privateName(theme, "CupertinoThemeData._primaryColor");
+  var CupertinoThemeData_brightness = dart.privateName(theme, "CupertinoThemeData.brightness");
+  var Color_value = dart.privateName(ui, "Color.value");
+  var C9;
+  var CupertinoDynamicColor_darkHighContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastElevatedColor");
+  var C10;
+  var CupertinoDynamicColor_highContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastElevatedColor");
+  var CupertinoDynamicColor_darkElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkElevatedColor");
+  var CupertinoDynamicColor_elevatedColor = dart.privateName(colors, "CupertinoDynamicColor.elevatedColor");
+  var CupertinoDynamicColor_darkHighContrastColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastColor");
+  var CupertinoDynamicColor_highContrastColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastColor");
+  var CupertinoDynamicColor_darkColor = dart.privateName(colors, "CupertinoDynamicColor.darkColor");
+  var CupertinoDynamicColor_color = dart.privateName(colors, "CupertinoDynamicColor.color");
+  var CupertinoDynamicColor__debugResolveContext = dart.privateName(colors, "CupertinoDynamicColor._debugResolveContext");
+  var CupertinoDynamicColor__debugLabel = dart.privateName(colors, "CupertinoDynamicColor._debugLabel");
+  var CupertinoDynamicColor__effectiveColor = dart.privateName(colors, "CupertinoDynamicColor._effectiveColor");
+  var C8;
+  var _CupertinoTextThemeDefaults_inactiveGray = dart.privateName(theme, "_CupertinoTextThemeDefaults.inactiveGray");
+  var C12;
+  var C13;
+  var C11;
+  var _CupertinoTextThemeDefaults_labelColor = dart.privateName(theme, "_CupertinoTextThemeDefaults.labelColor");
+  var C7;
+  var _CupertinoThemeDefaults_textThemeDefaults = dart.privateName(theme, "_CupertinoThemeDefaults.textThemeDefaults");
+  var C15;
+  var C16;
+  var C14;
+  var _CupertinoThemeDefaults_scaffoldBackgroundColor = dart.privateName(theme, "_CupertinoThemeDefaults.scaffoldBackgroundColor");
+  var C18;
+  var C19;
+  var C17;
+  var _CupertinoThemeDefaults_barBackgroundColor = dart.privateName(theme, "_CupertinoThemeDefaults.barBackgroundColor");
+  var _CupertinoThemeDefaults_primaryContrastingColor = dart.privateName(theme, "_CupertinoThemeDefaults.primaryContrastingColor");
+  var C21;
+  var C22;
+  var C23;
+  var C24;
+  var C20;
+  var _CupertinoThemeDefaults_primaryColor = dart.privateName(theme, "_CupertinoThemeDefaults.primaryColor");
+  var _CupertinoThemeDefaults_brightness = dart.privateName(theme, "_CupertinoThemeDefaults.brightness");
+  var C6;
+  var CupertinoThemeData__defaults = dart.privateName(theme, "CupertinoThemeData._defaults");
+  var C5;
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var C28;
+  var C29;
+  var C30;
+  var C27;
+  var C26;
+  var Widget__location = dart.privateName(framework, "Widget._location");
+  var Widget_key = dart.privateName(framework, "Widget.key");
+  var Icon_textDirection = dart.privateName(icon, "Icon.textDirection");
+  var Icon_semanticLabel = dart.privateName(icon, "Icon.semanticLabel");
+  var Icon_color = dart.privateName(icon, "Icon.color");
+  var Icon_size = dart.privateName(icon, "Icon.size");
+  var IconData_matchTextDirection = dart.privateName(icon_data, "IconData.matchTextDirection");
+  var IconData_fontPackage = dart.privateName(icon_data, "IconData.fontPackage");
+  var IconData_fontFamily = dart.privateName(icon_data, "IconData.fontFamily");
+  var IconData_codePoint = dart.privateName(icon_data, "IconData.codePoint");
+  var C31;
+  var Icon_icon = dart.privateName(icon, "Icon.icon");
+  var C25;
+  var C34;
+  var C35;
+  var C36;
+  var C33;
+  var C32;
+  var C39;
+  var C40;
+  var C41;
+  var C42;
+  var C43;
+  var C44;
+  var C45;
+  var C46;
+  var C47;
+  var C48;
+  var C49;
+  var C50;
+  var C51;
+  var C52;
+  var C53;
+  var C54;
+  var C55;
+  var C56;
+  var C57;
+  var C58;
+  var C59;
+  var C60;
+  var C61;
+  var C62;
+  var C63;
+  var C64;
+  var C65;
+  var C66;
+  var C38;
+  var C37;
+  var C69;
+  var C70;
+  var C68;
+  var C67;
+  var C73;
+  var C72;
+  var C71;
+  var C76;
+  var C77;
+  var C75;
+  var C74;
+  var C80;
+  var C81;
+  var C79;
+  var C78;
+  var C84;
+  var C85;
+  var C83;
+  var C82;
+  app$._CupertinoAppState = class _CupertinoAppState extends framework.State$(dart.legacy(app$.CupertinoApp)) {
+    initState() {
+      super.initState();
+      this[_heroController] = app$.CupertinoApp.createCupertinoHeroController();
+    }
+    didUpdateWidget(oldWidget) {
+      CupertinoAppL().as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+      if (!dart.equals(this.widget.navigatorKey, oldWidget.navigatorKey)) {
+        this[_heroController] = app$.CupertinoApp.createCupertinoHeroController();
+      }
+    }
+    get [_localizationsDelegates]() {
+      return new (SyncIterableOfLocalizationsDelegateL()).new((function* _localizationsDelegates() {
+        if (this.widget.localizationsDelegates != null) yield* this.widget.localizationsDelegates;
+        yield localizations$.DefaultCupertinoLocalizations.delegate;
+      }).bind(this));
+    }
+    build(context) {
+      let t0;
+      let effectiveThemeData = (t0 = this.widget.theme, t0 == null ? C5 || CT.C5 : t0);
+      return new scroll_configuration.ScrollConfiguration.new({behavior: new app$._AlwaysCupertinoScrollBehavior.new(), child: new interface_level.CupertinoUserInterfaceLevel.new({data: interface_level.CupertinoUserInterfaceLevelData.base, child: new theme.CupertinoTheme.new({data: effectiveThemeData, child: new basic.Builder.new({builder: dart.fn(context => {
+                let t0;
+                return new navigator.HeroControllerScope.new({controller: this[_heroController], child: new app.WidgetsApp.new({key: new (GlobalObjectKeyOfStateLOfStatefulWidgetL()).new(this), navigatorKey: this.widget.navigatorKey, navigatorObservers: this.widget.navigatorObservers, pageRouteBuilder: dart.fn((T, settings, builder) => new (route.CupertinoPageRoute$(dart.legacy(T))).new({settings: settings, builder: builder}), RouteSettingsLAndFnToCupertinoPageRouteLOfTL()), home: this.widget.home, routes: this.widget.routes, initialRoute: this.widget.initialRoute, onGenerateRoute: this.widget.onGenerateRoute, onGenerateInitialRoutes: this.widget.onGenerateInitialRoutes, onUnknownRoute: this.widget.onUnknownRoute, builder: this.widget.builder, title: this.widget.title, onGenerateTitle: this.widget.onGenerateTitle, textStyle: theme.CupertinoTheme.of(context).textTheme.textStyle, color: colors.CupertinoDynamicColor.resolve((t0 = this.widget.color, t0 == null ? effectiveThemeData.primaryColor : t0), context), locale: this.widget.locale, localizationsDelegates: this[_localizationsDelegates], localeResolutionCallback: this.widget.localeResolutionCallback, localeListResolutionCallback: this.widget.localeListResolutionCallback, supportedLocales: this.widget.supportedLocales, showPerformanceOverlay: this.widget.showPerformanceOverlay, checkerboardRasterCacheImages: this.widget.checkerboardRasterCacheImages, checkerboardOffscreenLayers: this.widget.checkerboardOffscreenLayers, showSemanticsDebugger: this.widget.showSemanticsDebugger, debugShowCheckedModeBanner: this.widget.debugShowCheckedModeBanner, inspectorSelectButtonBuilder: dart.fn((context, onPressed) => new button.CupertinoButton.filled({child: C25 || CT.C25, padding: edge_insets.EdgeInsets.zero, onPressed: onPressed, $creationLocationd_0dea112b090073317d4: C32 || CT.C32}), BuildContextLAndFnToCupertinoButtonL()), shortcuts: this.widget.shortcuts, actions: this.widget.actions, $creationLocationd_0dea112b090073317d4: C37 || CT.C37}), $creationLocationd_0dea112b090073317d4: C67 || CT.C67});
+              }, BuildContextLToHeroControllerScopeL()), $creationLocationd_0dea112b090073317d4: C71 || CT.C71}), $creationLocationd_0dea112b090073317d4: C74 || CT.C74}), $creationLocationd_0dea112b090073317d4: C78 || CT.C78}), $creationLocationd_0dea112b090073317d4: C82 || CT.C82});
+    }
+  };
+  (app$._CupertinoAppState.new = function() {
+    this[_heroController] = null;
+    app$._CupertinoAppState.__proto__.new.call(this);
+    ;
+  }).prototype = app$._CupertinoAppState.prototype;
+  dart.addTypeTests(app$._CupertinoAppState);
+  dart.addTypeCaches(app$._CupertinoAppState);
+  dart.setMethodSignature(app$._CupertinoAppState, () => ({
+    __proto__: dart.getMethods(app$._CupertinoAppState.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setGetterSignature(app$._CupertinoAppState, () => ({
+    __proto__: dart.getGetters(app$._CupertinoAppState.__proto__),
+    [_localizationsDelegates]: dart.legacy(core.Iterable$(dart.legacy(localizations.LocalizationsDelegate)))
+  }));
+  dart.setLibraryUri(app$._CupertinoAppState, L1);
+  dart.setFieldSignature(app$._CupertinoAppState, () => ({
+    __proto__: dart.getFields(app$._CupertinoAppState.__proto__),
+    [_heroController]: dart.fieldType(dart.legacy(heroes.HeroController))
+  }));
+  dart.trackLibraries("packages/flutter/src/cupertino/app.dart", {
+    "package:flutter/src/cupertino/app.dart": app$
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["app.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/flutter/src/cupertino/app.dart.lib.js"}');
+  // Exports:
+  return {
+    src__cupertino__app: app$
+  };
+}));
+
+//# sourceMappingURL=app.dart.lib.js.map

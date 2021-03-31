@@ -1,0 +1,313 @@
+define(['dart_sdk', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/foundation/change_notifier.dart'], (function load__packages__flutter__src__rendering__custom_layout_dart(dart_sdk, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__foundation__object$46dart, packages__flutter__src__foundation__change_notifier$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const collection = dart_sdk.collection;
+  const _js_helper = dart_sdk._js_helper;
+  const ui = dart_sdk.ui;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const object$ = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  var custom_layout = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $_set = dartx._set;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $length = dartx.length;
+  var $map = dartx.map;
+  var $toList = dartx.toList;
+  var $toString = dartx.toString;
+  var $isFinite = dartx.isFinite;
+  var AssertionErrorL = () => (AssertionErrorL = dart.constFn(dart.legacy(core.AssertionError)))();
+  var DiagnosticsPropertyOfAssertionErrorL = () => (DiagnosticsPropertyOfAssertionErrorL = dart.constFn(diagnostics.DiagnosticsProperty$(AssertionErrorL())))();
+  var DiagnosticsNodeL = () => (DiagnosticsNodeL = dart.constFn(dart.legacy(diagnostics.DiagnosticsNode)))();
+  var JSArrayOfDiagnosticsNodeL = () => (JSArrayOfDiagnosticsNodeL = dart.constFn(_interceptors.JSArray$(DiagnosticsNodeL())))();
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
+  var VoidToboolL = () => (VoidToboolL = dart.constFn(dart.fnType(boolL(), [])))();
+  var MultiChildLayoutParentDataL = () => (MultiChildLayoutParentDataL = dart.constFn(dart.legacy(custom_layout.MultiChildLayoutParentData)))();
+  var RenderBoxL = () => (RenderBoxL = dart.constFn(dart.legacy(box.RenderBox)))();
+  var DiagnosticsPropertyOfRenderBoxL = () => (DiagnosticsPropertyOfRenderBoxL = dart.constFn(diagnostics.DiagnosticsProperty$(RenderBoxL())))();
+  var LinkedHashSetOfRenderBoxL = () => (LinkedHashSetOfRenderBoxL = dart.constFn(collection.LinkedHashSet$(RenderBoxL())))();
+  var ObjectL = () => (ObjectL = dart.constFn(dart.legacy(core.Object)))();
+  var LinkedMapOfObjectL$RenderBoxL = () => (LinkedMapOfObjectL$RenderBoxL = dart.constFn(_js_helper.LinkedMap$(ObjectL(), RenderBoxL())))();
+  var PipelineOwnerL = () => (PipelineOwnerL = dart.constFn(dart.legacy(object.PipelineOwner)))();
+  const CT = Object.create(null);
+  var L0 = "package:flutter/src/rendering/custom_layout.dart";
+  var L1 = "file:///C:/flutter/packages/flutter/lib/src/rendering/custom_layout.dart";
+  var id = dart.privateName(custom_layout, "MultiChildLayoutParentData.id");
+  custom_layout.MultiChildLayoutParentData = class MultiChildLayoutParentData extends box.ContainerBoxParentData$(dart.legacy(box.RenderBox)) {
+    get id() {
+      return this[id];
+    }
+    set id(value) {
+      this[id] = value;
+    }
+    toString() {
+      return dart.str(super.toString()) + "; id=" + dart.str(this.id);
+    }
+  };
+  (custom_layout.MultiChildLayoutParentData.new = function() {
+    this[id] = null;
+    custom_layout.MultiChildLayoutParentData.__proto__.new.call(this);
+    ;
+  }).prototype = custom_layout.MultiChildLayoutParentData.prototype;
+  dart.addTypeTests(custom_layout.MultiChildLayoutParentData);
+  dart.addTypeCaches(custom_layout.MultiChildLayoutParentData);
+  dart.setLibraryUri(custom_layout.MultiChildLayoutParentData, L0);
+  dart.setFieldSignature(custom_layout.MultiChildLayoutParentData, () => ({
+    __proto__: dart.getFields(custom_layout.MultiChildLayoutParentData.__proto__),
+    id: dart.fieldType(dart.legacy(core.Object))
+  }));
+  dart.defineExtensionMethods(custom_layout.MultiChildLayoutParentData, ['toString']);
+  var _idToChild = dart.privateName(custom_layout, "_idToChild");
+  var _debugChildrenNeedingLayout = dart.privateName(custom_layout, "_debugChildrenNeedingLayout");
+  var _relayout = dart.privateName(custom_layout, "_relayout");
+  var _debugDescribeChild = dart.privateName(custom_layout, "_debugDescribeChild");
+  var _callPerformLayout = dart.privateName(custom_layout, "_callPerformLayout");
+  custom_layout.MultiChildLayoutDelegate = class MultiChildLayoutDelegate extends core.Object {
+    hasChild(childId) {
+      return this[_idToChild][$_get](childId) != null;
+    }
+    layoutChild(childId, constraints) {
+      let child = this[_idToChild][$_get](childId);
+      if (!dart.test(dart.fn(() => {
+        if (child == null) {
+          dart.throw(assertions.FlutterError.new("The " + dart.str(this) + " custom multichild layout delegate tried to lay out a non-existent child.\n" + "There is no child with the id \"" + dart.str(childId) + "\"."));
+        }
+        if (!dart.test(this[_debugChildrenNeedingLayout].remove(child))) {
+          dart.throw(assertions.FlutterError.new("The " + dart.str(this) + " custom multichild layout delegate tried to lay out the child with id \"" + dart.str(childId) + "\" more than once.\n" + "Each child must be laid out exactly once."));
+        }
+        try {
+          if (!dart.test(constraints.debugAssertIsValid({isAppliedConstraint: true}))) dart.assertFailed(null, L1, 159, 16, "constraints.debugAssertIsValid(isAppliedConstraint: true)");
+        } catch (e) {
+          let exception = dart.getThrown(e);
+          if (AssertionErrorL().is(exception)) {
+            dart.throw(new assertions.FlutterError.fromParts(JSArrayOfDiagnosticsNodeL().of([new assertions.ErrorSummary.new("The " + dart.str(this) + " custom multichild layout delegate provided invalid box constraints for the child with id \"" + dart.str(childId) + "\"."), new (DiagnosticsPropertyOfAssertionErrorL()).new("Exception", exception, {showName: false}), new assertions.ErrorDescription.new("The minimum width and height must be greater than or equal to zero.\n" + "The maximum width must be greater than or equal to the minimum width.\n" + "The maximum height must be greater than or equal to the minimum height.")])));
+          } else
+            throw e;
+        }
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L1, 145, 12, "() {\r\n      if (child == null) {\r\n        throw FlutterError(\r\n          'The $this custom multichild layout delegate tried to lay out a non-existent child.\\n'\r\n          'There is no child with the id \"$childId\".'\r\n        );\r\n      }\r\n      if (!_debugChildrenNeedingLayout.remove(child)) {\r\n        throw FlutterError(\r\n          'The $this custom multichild layout delegate tried to lay out the child with id \"$childId\" more than once.\\n'\r\n          'Each child must be laid out exactly once.'\r\n        );\r\n      }\r\n      try {\r\n        assert(constraints.debugAssertIsValid(isAppliedConstraint: true));\r\n      } on AssertionError catch (exception) {\r\n        throw FlutterError.fromParts(<DiagnosticsNode>[\r\n          ErrorSummary('The $this custom multichild layout delegate provided invalid box constraints for the child with id \"$childId\".'),\r\n          DiagnosticsProperty<AssertionError>('Exception', exception, showName: false),\r\n          ErrorDescription(\r\n            'The minimum width and height must be greater than or equal to zero.\\n'\r\n            'The maximum width must be greater than or equal to the minimum width.\\n'\r\n            'The maximum height must be greater than or equal to the minimum height.'\r\n          )\r\n        ]);\r\n      }\r\n      return true;\r\n    }()");
+      child.layout(constraints, {parentUsesSize: true});
+      return child.size;
+    }
+    positionChild(childId, offset) {
+      let child = this[_idToChild][$_get](childId);
+      if (!dart.test(dart.fn(() => {
+        if (child == null) {
+          dart.throw(assertions.FlutterError.new("The " + dart.str(this) + " custom multichild layout delegate tried to position out a non-existent child:\n" + "There is no child with the id \"" + dart.str(childId) + "\"."));
+        }
+        if (offset == null) {
+          dart.throw(assertions.FlutterError.new("The " + dart.str(this) + " custom multichild layout delegate provided a null position for the child with id \"" + dart.str(childId) + "\"."));
+        }
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L1, 185, 12, "() {\r\n      if (child == null) {\r\n        throw FlutterError(\r\n          'The $this custom multichild layout delegate tried to position out a non-existent child:\\n'\r\n          'There is no child with the id \"$childId\".'\r\n        );\r\n      }\r\n      if (offset == null) {\r\n        throw FlutterError(\r\n          'The $this custom multichild layout delegate provided a null position for the child with id \"$childId\".'\r\n        );\r\n      }\r\n      return true;\r\n    }()");
+      let childParentData = MultiChildLayoutParentDataL().as(child.parentData);
+      childParentData.offset = offset;
+    }
+    [_debugDescribeChild](child) {
+      let childParentData = MultiChildLayoutParentDataL().as(child.parentData);
+      return new (DiagnosticsPropertyOfRenderBoxL()).new(dart.str(childParentData.id), child);
+    }
+    [_callPerformLayout](size, firstChild) {
+      let previousIdToChild = this[_idToChild];
+      let debugPreviousChildrenNeedingLayout = null;
+      if (!dart.test(dart.fn(() => {
+        debugPreviousChildrenNeedingLayout = this[_debugChildrenNeedingLayout];
+        this[_debugChildrenNeedingLayout] = LinkedHashSetOfRenderBoxL().new();
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L1, 215, 12, "() {\r\n      debugPreviousChildrenNeedingLayout = _debugChildrenNeedingLayout;\r\n      _debugChildrenNeedingLayout = <RenderBox>{};\r\n      return true;\r\n    }()");
+      try {
+        this[_idToChild] = new (LinkedMapOfObjectL$RenderBoxL()).new();
+        let child = firstChild;
+        while (child != null) {
+          let childParentData = MultiChildLayoutParentDataL().as(child.parentData);
+          if (!dart.test(dart.fn(() => {
+            if (childParentData.id == null) {
+              dart.throw(new assertions.FlutterError.fromParts(JSArrayOfDiagnosticsNodeL().of([new assertions.ErrorSummary.new("Every child of a RenderCustomMultiChildLayoutBox must have an ID in its parent data."), child.describeForError("The following child has no ID")])));
+            }
+            return true;
+          }, VoidToboolL())())) dart.assertFailed(null, L1, 226, 16, "() {\r\n          if (childParentData.id == null) {\r\n            throw FlutterError.fromParts(<DiagnosticsNode>[\r\n              ErrorSummary('Every child of a RenderCustomMultiChildLayoutBox must have an ID in its parent data.'),\r\n              child.describeForError('The following child has no ID'),\r\n            ]);\r\n          }\r\n          return true;\r\n        }()");
+          this[_idToChild][$_set](childParentData.id, child);
+          if (!dart.test(dart.fn(() => {
+            this[_debugChildrenNeedingLayout].add(child);
+            return true;
+          }, VoidToboolL())())) dart.assertFailed(null, L1, 236, 16, "() {\r\n          _debugChildrenNeedingLayout.add(child);\r\n          return true;\r\n        }()");
+          child = childParentData.nextSibling;
+        }
+        this.performLayout(size);
+        if (!dart.test(dart.fn(() => {
+          if (dart.test(this[_debugChildrenNeedingLayout][$isNotEmpty])) {
+            dart.throw(new assertions.FlutterError.fromParts(JSArrayOfDiagnosticsNodeL().of([new assertions.ErrorSummary.new("Each child must be laid out exactly once."), new diagnostics.DiagnosticsBlock.new({name: "The " + dart.str(this) + " custom multichild layout delegate forgot " + "to lay out the following " + (dart.notNull(this[_debugChildrenNeedingLayout][$length]) > 1 ? "children" : "child"), properties: this[_debugChildrenNeedingLayout][$map](DiagnosticsNodeL(), dart.bind(this, _debugDescribeChild))[$toList](), style: diagnostics.DiagnosticsTreeStyle.whitespace})])));
+          }
+          return true;
+        }, VoidToboolL())())) dart.assertFailed(null, L1, 243, 14, "() {\r\n        if (_debugChildrenNeedingLayout.isNotEmpty) {\r\n          throw FlutterError.fromParts(<DiagnosticsNode>[\r\n          ErrorSummary('Each child must be laid out exactly once.'),\r\n            DiagnosticsBlock(\r\n              name:\r\n                'The $this custom multichild layout delegate forgot '\r\n                'to lay out the following '\r\n                '${_debugChildrenNeedingLayout.length > 1 ? 'children' : 'child'}',\r\n              properties: _debugChildrenNeedingLayout.map<DiagnosticsNode>(_debugDescribeChild).toList(),\r\n              style: DiagnosticsTreeStyle.whitespace,\r\n            ),\r\n          ]);\r\n        }\r\n        return true;\r\n      }()");
+      } finally {
+        this[_idToChild] = previousIdToChild;
+        if (!dart.test(dart.fn(() => {
+          this[_debugChildrenNeedingLayout] = debugPreviousChildrenNeedingLayout;
+          return true;
+        }, VoidToboolL())())) dart.assertFailed(null, L1, 261, 14, "() {\r\n        _debugChildrenNeedingLayout = debugPreviousChildrenNeedingLayout;\r\n        return true;\r\n      }()");
+      }
+    }
+    getSize(constraints) {
+      return constraints.biggest;
+    }
+    toString() {
+      return object$.objectRuntimeType(this, "MultiChildLayoutDelegate");
+    }
+  };
+  (custom_layout.MultiChildLayoutDelegate.new = function(opts) {
+    let relayout = opts && 'relayout' in opts ? opts.relayout : null;
+    this[_idToChild] = null;
+    this[_debugChildrenNeedingLayout] = null;
+    this[_relayout] = relayout;
+    ;
+  }).prototype = custom_layout.MultiChildLayoutDelegate.prototype;
+  dart.addTypeTests(custom_layout.MultiChildLayoutDelegate);
+  dart.addTypeCaches(custom_layout.MultiChildLayoutDelegate);
+  dart.setMethodSignature(custom_layout.MultiChildLayoutDelegate, () => ({
+    __proto__: dart.getMethods(custom_layout.MultiChildLayoutDelegate.__proto__),
+    hasChild: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+    layoutChild: dart.fnType(dart.legacy(ui.Size), [dart.legacy(core.Object), dart.legacy(box.BoxConstraints)]),
+    positionChild: dart.fnType(dart.void, [dart.legacy(core.Object), dart.legacy(ui.Offset)]),
+    [_debugDescribeChild]: dart.fnType(dart.legacy(diagnostics.DiagnosticsNode), [dart.legacy(box.RenderBox)]),
+    [_callPerformLayout]: dart.fnType(dart.void, [dart.legacy(ui.Size), dart.legacy(box.RenderBox)]),
+    getSize: dart.fnType(dart.legacy(ui.Size), [dart.legacy(box.BoxConstraints)]),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(custom_layout.MultiChildLayoutDelegate, L0);
+  dart.setFieldSignature(custom_layout.MultiChildLayoutDelegate, () => ({
+    __proto__: dart.getFields(custom_layout.MultiChildLayoutDelegate.__proto__),
+    [_relayout]: dart.finalFieldType(dart.legacy(change_notifier.Listenable)),
+    [_idToChild]: dart.fieldType(dart.legacy(core.Map$(dart.legacy(core.Object), dart.legacy(box.RenderBox)))),
+    [_debugChildrenNeedingLayout]: dart.fieldType(dart.legacy(core.Set$(dart.legacy(box.RenderBox))))
+  }));
+  dart.defineExtensionMethods(custom_layout.MultiChildLayoutDelegate, ['toString']);
+  var _delegate = dart.privateName(custom_layout, "_delegate");
+  var _getSize = dart.privateName(custom_layout, "_getSize");
+  const RenderBox_ContainerRenderObjectMixin$36 = class RenderBox_ContainerRenderObjectMixin extends box.RenderBox {};
+  (RenderBox_ContainerRenderObjectMixin$36.new = function() {
+    object.ContainerRenderObjectMixin$(dart.legacy(box.RenderBox), dart.legacy(custom_layout.MultiChildLayoutParentData))[dart.mixinNew].call(this);
+    RenderBox_ContainerRenderObjectMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_ContainerRenderObjectMixin$36.prototype;
+  dart.applyMixin(RenderBox_ContainerRenderObjectMixin$36, object.ContainerRenderObjectMixin$(dart.legacy(box.RenderBox), dart.legacy(custom_layout.MultiChildLayoutParentData)));
+  const RenderBox_RenderBoxContainerDefaultsMixin$36 = class RenderBox_RenderBoxContainerDefaultsMixin extends RenderBox_ContainerRenderObjectMixin$36 {};
+  (RenderBox_RenderBoxContainerDefaultsMixin$36.new = function() {
+    RenderBox_RenderBoxContainerDefaultsMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_RenderBoxContainerDefaultsMixin$36.prototype;
+  dart.applyMixin(RenderBox_RenderBoxContainerDefaultsMixin$36, box.RenderBoxContainerDefaultsMixin$(dart.legacy(box.RenderBox), dart.legacy(custom_layout.MultiChildLayoutParentData)));
+  custom_layout.RenderCustomMultiChildLayoutBox = class RenderCustomMultiChildLayoutBox extends RenderBox_RenderBoxContainerDefaultsMixin$36 {
+    setupParentData(child) {
+      RenderBoxL().as(child);
+      if (!MultiChildLayoutParentDataL().is(child.parentData)) child.parentData = new custom_layout.MultiChildLayoutParentData.new();
+    }
+    get delegate() {
+      return this[_delegate];
+    }
+    set delegate(newDelegate) {
+      let t1, t1$, t1$0, t1$1;
+      if (!(newDelegate != null)) dart.assertFailed(null, L1, 332, 12, "newDelegate != null");
+      if (dart.equals(this[_delegate], newDelegate)) return;
+      let oldDelegate = this[_delegate];
+      if (!dart.equals(dart.runtimeType(newDelegate), dart.runtimeType(oldDelegate)) || dart.test(newDelegate.shouldRelayout(oldDelegate))) this.markNeedsLayout();
+      this[_delegate] = newDelegate;
+      if (dart.test(this.attached)) {
+        t1$ = (t1 = oldDelegate, t1 == null ? null : t1[_relayout]);
+        t1$ == null ? null : t1$.removeListener(dart.bind(this, 'markNeedsLayout'));
+        t1$1 = (t1$0 = newDelegate, t1$0 == null ? null : t1$0[_relayout]);
+        t1$1 == null ? null : t1$1.addListener(dart.bind(this, 'markNeedsLayout'));
+      }
+    }
+    attach(owner) {
+      let t1, t1$;
+      PipelineOwnerL().as(owner);
+      super.attach(owner);
+      t1$ = (t1 = this[_delegate], t1 == null ? null : t1[_relayout]);
+      t1$ == null ? null : t1$.addListener(dart.bind(this, 'markNeedsLayout'));
+    }
+    detach() {
+      let t1, t1$;
+      t1$ = (t1 = this[_delegate], t1 == null ? null : t1[_relayout]);
+      t1$ == null ? null : t1$.removeListener(dart.bind(this, 'markNeedsLayout'));
+      super.detach();
+    }
+    [_getSize](constraints) {
+      if (!dart.test(constraints.debugAssertIsValid())) dart.assertFailed(null, L1, 358, 12, "constraints.debugAssertIsValid()");
+      return constraints.constrain(this[_delegate].getSize(constraints));
+    }
+    computeMinIntrinsicWidth(height) {
+      let width = this[_getSize](new box.BoxConstraints.tightForFinite({height: height})).width;
+      if (width[$isFinite]) return width;
+      return 0.0;
+    }
+    computeMaxIntrinsicWidth(height) {
+      let width = this[_getSize](new box.BoxConstraints.tightForFinite({height: height})).width;
+      if (width[$isFinite]) return width;
+      return 0.0;
+    }
+    computeMinIntrinsicHeight(width) {
+      let height = this[_getSize](new box.BoxConstraints.tightForFinite({width: width})).height;
+      if (height[$isFinite]) return height;
+      return 0.0;
+    }
+    computeMaxIntrinsicHeight(width) {
+      let height = this[_getSize](new box.BoxConstraints.tightForFinite({width: width})).height;
+      if (height[$isFinite]) return height;
+      return 0.0;
+    }
+    performLayout() {
+      this.size = this[_getSize](this.constraints);
+      this.delegate[_callPerformLayout](this.size, this.firstChild);
+    }
+    paint(context, offset) {
+      this.defaultPaint(context, offset);
+    }
+    hitTestChildren(result, opts) {
+      let position = opts && 'position' in opts ? opts.position : null;
+      return this.defaultHitTestChildren(result, {position: position});
+    }
+  };
+  (custom_layout.RenderCustomMultiChildLayoutBox.new = function(opts) {
+    let children = opts && 'children' in opts ? opts.children : null;
+    let delegate = opts && 'delegate' in opts ? opts.delegate : null;
+    if (!(delegate != null)) dart.assertFailed(null, L1, 317, 15, "delegate != null");
+    this[_delegate] = delegate;
+    custom_layout.RenderCustomMultiChildLayoutBox.__proto__.new.call(this);
+    this.addAll(children);
+  }).prototype = custom_layout.RenderCustomMultiChildLayoutBox.prototype;
+  dart.addTypeTests(custom_layout.RenderCustomMultiChildLayoutBox);
+  dart.addTypeCaches(custom_layout.RenderCustomMultiChildLayoutBox);
+  dart.setMethodSignature(custom_layout.RenderCustomMultiChildLayoutBox, () => ({
+    __proto__: dart.getMethods(custom_layout.RenderCustomMultiChildLayoutBox.__proto__),
+    [_getSize]: dart.fnType(dart.legacy(ui.Size), [dart.legacy(box.BoxConstraints)])
+  }));
+  dart.setGetterSignature(custom_layout.RenderCustomMultiChildLayoutBox, () => ({
+    __proto__: dart.getGetters(custom_layout.RenderCustomMultiChildLayoutBox.__proto__),
+    delegate: dart.legacy(custom_layout.MultiChildLayoutDelegate)
+  }));
+  dart.setSetterSignature(custom_layout.RenderCustomMultiChildLayoutBox, () => ({
+    __proto__: dart.getSetters(custom_layout.RenderCustomMultiChildLayoutBox.__proto__),
+    delegate: dart.legacy(custom_layout.MultiChildLayoutDelegate)
+  }));
+  dart.setLibraryUri(custom_layout.RenderCustomMultiChildLayoutBox, L0);
+  dart.setFieldSignature(custom_layout.RenderCustomMultiChildLayoutBox, () => ({
+    __proto__: dart.getFields(custom_layout.RenderCustomMultiChildLayoutBox.__proto__),
+    [_delegate]: dart.fieldType(dart.legacy(custom_layout.MultiChildLayoutDelegate))
+  }));
+  dart.trackLibraries("packages/flutter/src/rendering/custom_layout.dart", {
+    "package:flutter/src/rendering/custom_layout.dart": custom_layout
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["custom_layout.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/flutter/src/rendering/custom_layout.dart.lib.js"}');
+  // Exports:
+  return {
+    src__rendering__custom_layout: custom_layout
+  };
+}));
+
+//# sourceMappingURL=custom_layout.dart.lib.js.map

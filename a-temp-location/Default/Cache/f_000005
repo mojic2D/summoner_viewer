@@ -1,0 +1,1715 @@
+define(['dart_sdk', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/foundation/serialization.dart', 'packages/flutter/src/foundation/licenses.dart', 'packages/flutter/src/scheduler/priority.dart', 'packages/flutter/src/foundation/_isolates_web.dart', 'packages/flutter/src/scheduler/binding.dart', 'packages/flutter/src/foundation/binding.dart', 'packages/flutter/src/foundation/consolidate_response.dart', 'packages/flutter/src/foundation/synchronous_future.dart'], (function load__packages__flutter__src__services__platform_channel_dart(dart_sdk, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__foundation__object$46dart, packages__flutter__src__foundation__serialization$46dart, packages__flutter__src__foundation__licenses$46dart, packages__flutter__src__scheduler__priority$46dart, packages__flutter__src__foundation___isolates_web$46dart, packages__flutter__src__scheduler__binding$46dart, packages__flutter__src__foundation__binding$46dart, packages__flutter__src__foundation__consolidate_response$46dart, packages__flutter__src__foundation__synchronous_future$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const typed_data = dart_sdk.typed_data;
+  const convert = dart_sdk.convert;
+  const _js_helper = dart_sdk._js_helper;
+  const _interceptors = dart_sdk._interceptors;
+  const ui = dart_sdk.ui;
+  const _http = dart_sdk._http;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  const serialization = packages__flutter__src__foundation__serialization$46dart.src__foundation__serialization;
+  const licenses$ = packages__flutter__src__foundation__licenses$46dart.src__foundation__licenses;
+  const priority = packages__flutter__src__scheduler__priority$46dart.src__scheduler__priority;
+  const isolates = packages__flutter__src__foundation___isolates_web$46dart.src__foundation__isolates;
+  const binding = packages__flutter__src__scheduler__binding$46dart.src__scheduler__binding;
+  const binding$ = packages__flutter__src__foundation__binding$46dart.src__foundation__binding;
+  const consolidate_response = packages__flutter__src__foundation__consolidate_response$46dart.src__foundation__consolidate_response;
+  const synchronous_future = packages__flutter__src__foundation__synchronous_future$46dart.src__foundation__synchronous_future;
+  var platform_channel = Object.create(dart.library);
+  var message_codec = Object.create(dart.library);
+  var message_codecs = Object.create(dart.library);
+  var system_channels = Object.create(dart.library);
+  var binding$0 = Object.create(dart.library);
+  var binary_messenger = Object.create(dart.library);
+  var asset_bundle = Object.create(dart.library);
+  var $cast = dartx.cast;
+  var $toString = dartx.toString;
+  var $buffer = dartx.buffer;
+  var $offsetInBytes = dartx.offsetInBytes;
+  var $lengthInBytes = dartx.lengthInBytes;
+  var $asUint8List = dartx.asUint8List;
+  var $asByteData = dartx.asByteData;
+  var $length = dartx.length;
+  var $forEach = dartx.forEach;
+  var $_get = dartx._get;
+  var $times = dartx['*'];
+  var $split = dartx.split;
+  var $indexOf = dartx.indexOf;
+  var $substring = dartx.substring;
+  var $add = dartx.add;
+  var $remove = dartx.remove;
+  var $_set = dartx._set;
+  var $putIfAbsent = dartx.putIfAbsent;
+  var $containsKey = dartx.containsKey;
+  var ByteDataL = () => (ByteDataL = dart.constFn(dart.legacy(typed_data.ByteData)))();
+  var FutureOfByteDataL = () => (FutureOfByteDataL = dart.constFn(async.Future$(ByteDataL())))();
+  var FutureLOfByteDataL = () => (FutureLOfByteDataL = dart.constFn(dart.legacy(FutureOfByteDataL())))();
+  var ByteDataLToFutureLOfByteDataL = () => (ByteDataLToFutureLOfByteDataL = dart.constFn(dart.fnType(FutureLOfByteDataL(), [ByteDataL()])))();
+  var ListL = () => (ListL = dart.constFn(dart.legacy(core.List)))();
+  var MapL = () => (MapL = dart.constFn(dart.legacy(core.Map)))();
+  var MissingPluginExceptionL = () => (MissingPluginExceptionL = dart.constFn(dart.legacy(message_codec.MissingPluginException)))();
+  var PlatformExceptionL = () => (PlatformExceptionL = dart.constFn(dart.legacy(message_codec.PlatformException)))();
+  var FutureOfNullN = () => (FutureOfNullN = dart.constFn(async.Future$(core.Null)))();
+  var FutureLOfNullN = () => (FutureLOfNullN = dart.constFn(dart.legacy(FutureOfNullN())))();
+  var ByteDataLToFutureLOfNullN = () => (ByteDataLToFutureLOfNullN = dart.constFn(dart.fnType(FutureLOfNullN(), [ByteDataL()])))();
+  var VoidToFutureLOfNullN = () => (VoidToFutureLOfNullN = dart.constFn(dart.fnType(FutureLOfNullN(), [])))();
+  var ObjectL = () => (ObjectL = dart.constFn(dart.legacy(core.Object)))();
+  var ExpandoOfObjectL = () => (ExpandoOfObjectL = dart.constFn(core.Expando$(ObjectL())))();
+  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
+  var IdentityMapOfStringL$dynamic = () => (IdentityMapOfStringL$dynamic = dart.constFn(_js_helper.IdentityMap$(StringL(), dart.dynamic)))();
+  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
+  var Uint8ListL = () => (Uint8ListL = dart.constFn(dart.legacy(typed_data.Uint8List)))();
+  var Int32ListL = () => (Int32ListL = dart.constFn(dart.legacy(typed_data.Int32List)))();
+  var Int64ListL = () => (Int64ListL = dart.constFn(dart.legacy(typed_data.Int64List)))();
+  var Float64ListL = () => (Float64ListL = dart.constFn(dart.legacy(typed_data.Float64List)))();
+  var dynamicAnddynamicToNullN = () => (dynamicAnddynamicToNullN = dart.constFn(dart.fnType(core.Null, [dart.dynamic, dart.dynamic])))();
+  var BasicMessageChannelOfStringL = () => (BasicMessageChannelOfStringL = dart.constFn(platform_channel.BasicMessageChannel$(StringL())))();
+  var MapOfStringL$dynamic = () => (MapOfStringL$dynamic = dart.constFn(core.Map$(StringL(), dart.dynamic)))();
+  var MapLOfStringL$dynamic = () => (MapLOfStringL$dynamic = dart.constFn(dart.legacy(MapOfStringL$dynamic())))();
+  var CompleterOfStringL = () => (CompleterOfStringL = dart.constFn(async.Completer$(StringL())))();
+  var LicenseEntryL = () => (LicenseEntryL = dart.constFn(dart.legacy(licenses$.LicenseEntry)))();
+  var ListOfLicenseEntryL = () => (ListOfLicenseEntryL = dart.constFn(core.List$(LicenseEntryL())))();
+  var ListLOfLicenseEntryL = () => (ListLOfLicenseEntryL = dart.constFn(dart.legacy(ListOfLicenseEntryL())))();
+  var CompleterOfListLOfLicenseEntryL = () => (CompleterOfListLOfLicenseEntryL = dart.constFn(async.Completer$(ListLOfLicenseEntryL())))();
+  var StringLToListLOfLicenseEntryL = () => (StringLToListLOfLicenseEntryL = dart.constFn(dart.fnType(ListLOfLicenseEntryL(), [StringL()])))();
+  var StreamOfLicenseEntryL = () => (StreamOfLicenseEntryL = dart.constFn(async.Stream$(LicenseEntryL())))();
+  var _AsyncStarImplOfLicenseEntryL = () => (_AsyncStarImplOfLicenseEntryL = dart.constFn(async._AsyncStarImpl$(LicenseEntryL())))();
+  var JSArrayOfLicenseEntryL = () => (JSArrayOfLicenseEntryL = dart.constFn(_interceptors.JSArray$(LicenseEntryL())))();
+  var FutureOfStringL = () => (FutureOfStringL = dart.constFn(async.Future$(StringL())))();
+  var FutureLOfStringL = () => (FutureLOfStringL = dart.constFn(dart.legacy(FutureOfStringL())))();
+  var VoidToFutureLOfStringL = () => (VoidToFutureLOfStringL = dart.constFn(dart.fnType(FutureLOfStringL(), [])))();
+  var StringLToFutureLOfNullN = () => (StringLToFutureLOfNullN = dart.constFn(dart.fnType(FutureLOfNullN(), [StringL()])))();
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
+  var VoidToboolL = () => (VoidToboolL = dart.constFn(dart.fnType(boolL(), [])))();
+  var CompleterOfByteDataL = () => (CompleterOfByteDataL = dart.constFn(async.Completer$(ByteDataL())))();
+  var ByteDataLToNullN = () => (ByteDataLToNullN = dart.constFn(dart.fnType(core.Null, [ByteDataL()])))();
+  var ByteDataN = () => (ByteDataN = dart.constFn(dart.nullable(typed_data.ByteData)))();
+  var ByteDataNTovoid = () => (ByteDataNTovoid = dart.constFn(dart.fnType(dart.void, [ByteDataN()])))();
+  var ByteDataNToLvoid = () => (ByteDataNToLvoid = dart.constFn(dart.legacy(ByteDataNTovoid())))();
+  var ByteDataLAndFnToFutureLOfNullN = () => (ByteDataLAndFnToFutureLOfNullN = dart.constFn(dart.fnType(FutureLOfNullN(), [ByteDataL(), ByteDataNToLvoid()])))();
+  var ByteDataLToLFutureLOfByteDataL = () => (ByteDataLToLFutureLOfByteDataL = dart.constFn(dart.legacy(ByteDataLToFutureLOfByteDataL())))();
+  var IdentityMapOfStringL$ByteDataLToLFutureLOfByteDataL = () => (IdentityMapOfStringL$ByteDataLToLFutureLOfByteDataL = dart.constFn(_js_helper.IdentityMap$(StringL(), ByteDataLToLFutureLOfByteDataL())))();
+  var ByteDataLToStringL = () => (ByteDataLToStringL = dart.constFn(dart.fnType(StringL(), [ByteDataL()])))();
+  var DiagnosticsNodeL = () => (DiagnosticsNodeL = dart.constFn(dart.legacy(diagnostics.DiagnosticsNode)))();
+  var JSArrayOfDiagnosticsNodeL = () => (JSArrayOfDiagnosticsNodeL = dart.constFn(_interceptors.JSArray$(DiagnosticsNodeL())))();
+  var IdentityMapOfStringL$FutureLOfStringL = () => (IdentityMapOfStringL$FutureLOfStringL = dart.constFn(_js_helper.IdentityMap$(StringL(), FutureLOfStringL())))();
+  var FutureL = () => (FutureL = dart.constFn(dart.legacy(async.Future)))();
+  var IdentityMapOfStringL$FutureL = () => (IdentityMapOfStringL$FutureL = dart.constFn(_js_helper.IdentityMap$(StringL(), FutureL())))();
+  const CT = Object.create(null);
+  var L2 = "package:flutter/src/services/message_codec.dart";
+  var L3 = "file:///C:/flutter/packages/flutter/lib/src/services/message_codec.dart";
+  var L8 = "package:flutter/src/services/binding.dart";
+  var L4 = "package:flutter/src/services/message_codecs.dart";
+  var L7 = "file:///C:/flutter/packages/flutter/lib/src/services/binding.dart";
+  var L9 = "package:flutter/src/services/binary_messenger.dart";
+  var L0 = "file:///C:/flutter/packages/flutter/lib/src/services/platform_channel.dart";
+  var L12 = "file:///C:/flutter/packages/flutter/lib/src/services/asset_bundle.dart";
+  var L5 = "file:///C:/flutter/packages/flutter/lib/src/services/message_codecs.dart";
+  var L11 = "package:flutter/src/services/asset_bundle.dart";
+  var L1 = "package:flutter/src/services/platform_channel.dart";
+  var L6 = "package:flutter/src/services/system_channels.dart";
+  var L10 = "file:///C:/flutter/packages/flutter/lib/src/services/binary_messenger.dart";
+  dart.defineLazy(CT, {
+    get C1() {
+      return C1 = dart.const({
+        __proto__: message_codecs.StandardMessageCodec.prototype
+      });
+    },
+    get C0() {
+      return C0 = dart.const({
+        __proto__: message_codecs.StandardMethodCodec.prototype,
+        [StandardMethodCodec_messageCodec]: C1 || CT.C1
+      });
+    },
+    get C2() {
+      return C2 = dart.const({
+        __proto__: message_codecs.StringCodec.prototype
+      });
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: message_codecs.JSONMessageCodec.prototype
+      });
+    },
+    get C4() {
+      return C4 = dart.const({
+        __proto__: core.FormatException.prototype,
+        [FormatException_offset]: null,
+        [FormatException_source]: null,
+        [FormatException_message]: "Message corrupted"
+      });
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: core.FormatException.prototype,
+        [FormatException_offset]: null,
+        [FormatException_source]: null,
+        [FormatException_message]: "Invalid method call"
+      });
+    },
+    get C6() {
+      return C6 = dart.const({
+        __proto__: core.FormatException.prototype,
+        [FormatException_offset]: null,
+        [FormatException_source]: null,
+        [FormatException_message]: "Expected envelope, got nothing"
+      });
+    },
+    get C7() {
+      return C7 = dart.const({
+        __proto__: core.FormatException.prototype,
+        [FormatException_offset]: null,
+        [FormatException_source]: null,
+        [FormatException_message]: "Invalid envelope"
+      });
+    },
+    get C9() {
+      return C9 = dart.const({
+        __proto__: message_codecs.JSONMethodCodec.prototype
+      });
+    },
+    get C8() {
+      return C8 = dart.const({
+        __proto__: platform_channel.MethodChannel.prototype,
+        [_binaryMessenger$0]: null,
+        [codec$0]: C9 || CT.C9,
+        [name$0]: "flutter/navigation"
+      });
+    },
+    get C10() {
+      return C10 = dart.const({
+        __proto__: platform_channel.OptionalMethodChannel.prototype,
+        [_binaryMessenger$0]: null,
+        [codec$0]: C9 || CT.C9,
+        [name$0]: "flutter/platform"
+      });
+    },
+    get C11() {
+      return C11 = dart.const({
+        __proto__: platform_channel.OptionalMethodChannel.prototype,
+        [_binaryMessenger$0]: null,
+        [codec$0]: C9 || CT.C9,
+        [name$0]: "flutter/textinput"
+      });
+    },
+    get C12() {
+      return C12 = dart.const({
+        __proto__: platform_channel.BasicMessageChannel.prototype,
+        [_binaryMessenger$]: null,
+        [codec$]: C3 || CT.C3,
+        [name$]: "flutter/keyevent"
+      });
+    },
+    get C13() {
+      return C13 = dart.const({
+        __proto__: BasicMessageChannelOfStringL().prototype,
+        [_binaryMessenger$]: null,
+        [codec$]: C2 || CT.C2,
+        [name$]: "flutter/lifecycle"
+      });
+    },
+    get C14() {
+      return C14 = dart.const({
+        __proto__: platform_channel.BasicMessageChannel.prototype,
+        [_binaryMessenger$]: null,
+        [codec$]: C3 || CT.C3,
+        [name$]: "flutter/system"
+      });
+    },
+    get C15() {
+      return C15 = dart.const({
+        __proto__: platform_channel.BasicMessageChannel.prototype,
+        [_binaryMessenger$]: null,
+        [codec$]: C1 || CT.C1,
+        [name$]: "flutter/accessibility"
+      });
+    },
+    get C16() {
+      return C16 = dart.const({
+        __proto__: platform_channel.MethodChannel.prototype,
+        [_binaryMessenger$0]: null,
+        [codec$0]: C0 || CT.C0,
+        [name$0]: "flutter/platform_views"
+      });
+    },
+    get C17() {
+      return C17 = dart.const({
+        __proto__: platform_channel.MethodChannel.prototype,
+        [_binaryMessenger$0]: null,
+        [codec$0]: C9 || CT.C9,
+        [name$0]: "flutter/skia"
+      });
+    },
+    get C18() {
+      return C18 = dart.const({
+        __proto__: platform_channel.OptionalMethodChannel.prototype,
+        [_binaryMessenger$0]: null,
+        [codec$0]: C0 || CT.C0,
+        [name$0]: "flutter/mousecursor"
+      });
+    },
+    get C19() {
+      return C19 = dart.const({
+        __proto__: binding$0._DefaultBinaryMessenger.prototype
+      });
+    },
+    get C20() {
+      return C20 = dart.fn(binding$0.ServicesBinding._parseLicenses, StringLToListLOfLicenseEntryL());
+    },
+    get C21() {
+      return C21 = dart.constList([], StringL());
+    },
+    get C22() {
+      return C22 = dart.fn(asset_bundle.AssetBundle._utf8decode, ByteDataLToStringL());
+    }
+  }, false);
+  var _binaryMessenger = dart.privateName(platform_channel, "_binaryMessenger");
+  const _is_BasicMessageChannel_default = Symbol('_is_BasicMessageChannel_default');
+  var name$ = dart.privateName(platform_channel, "BasicMessageChannel.name");
+  var codec$ = dart.privateName(platform_channel, "BasicMessageChannel.codec");
+  var _binaryMessenger$ = dart.privateName(platform_channel, "BasicMessageChannel._binaryMessenger");
+  platform_channel.BasicMessageChannel$ = dart.generic(T => {
+    var TL = () => (TL = dart.constFn(dart.legacy(T)))();
+    var FutureOfTL = () => (FutureOfTL = dart.constFn(async.Future$(TL())))();
+    var FutureLOfTL = () => (FutureLOfTL = dart.constFn(dart.legacy(FutureOfTL())))();
+    var TLToFutureLOfTL = () => (TLToFutureLOfTL = dart.constFn(dart.fnType(FutureLOfTL(), [TL()])))();
+    var TLToLFutureLOfTL = () => (TLToLFutureLOfTL = dart.constFn(dart.legacy(TLToFutureLOfTL())))();
+    class BasicMessageChannel extends core.Object {
+      get name() {
+        return this[name$];
+      }
+      set name(value) {
+        super.name = value;
+      }
+      get codec() {
+        return this[codec$];
+      }
+      set codec(value) {
+        super.codec = value;
+      }
+      get [_binaryMessenger]() {
+        return this[_binaryMessenger$];
+      }
+      set [_binaryMessenger](value) {
+        super[_binaryMessenger] = value;
+      }
+      get binaryMessenger() {
+        let t0;
+        t0 = this[_binaryMessenger];
+        return t0 == null ? binary_messenger.defaultBinaryMessenger : t0;
+      }
+      send(message) {
+        TL().as(message);
+        return async.async(TL(), (function* send() {
+          return this.codec.decodeMessage(yield this.binaryMessenger.send(this.name, this.codec.encodeMessage(message)));
+        }).bind(this));
+      }
+      setMessageHandler(handler) {
+        TLToLFutureLOfTL().as(handler);
+        if (handler == null) {
+          this.binaryMessenger.setMessageHandler(this.name, null);
+        } else {
+          this.binaryMessenger.setMessageHandler(this.name, dart.fn(message => async.async(ByteDataL(), (function*() {
+            return this.codec.encodeMessage(yield handler(this.codec.decodeMessage(message)));
+          }).bind(this)), ByteDataLToFutureLOfByteDataL()));
+        }
+      }
+      setMockMessageHandler(handler) {
+        TLToLFutureLOfTL().as(handler);
+        if (handler == null) {
+          this.binaryMessenger.setMockMessageHandler(this.name, null);
+        } else {
+          this.binaryMessenger.setMockMessageHandler(this.name, dart.fn(message => async.async(ByteDataL(), (function*() {
+            return this.codec.encodeMessage(yield handler(this.codec.decodeMessage(message)));
+          }).bind(this)), ByteDataLToFutureLOfByteDataL()));
+        }
+      }
+    }
+    (BasicMessageChannel.new = function(name, codec, opts) {
+      let binaryMessenger = opts && 'binaryMessenger' in opts ? opts.binaryMessenger : null;
+      this[name$] = name;
+      this[codec$] = codec;
+      if (!(name != null)) dart.assertFailed(null, L0, 40, 16, "name != null");
+      if (!(codec != null)) dart.assertFailed(null, L0, 41, 16, "codec != null");
+      this[_binaryMessenger$] = binaryMessenger;
+      ;
+    }).prototype = BasicMessageChannel.prototype;
+    dart.addTypeTests(BasicMessageChannel);
+    BasicMessageChannel.prototype[_is_BasicMessageChannel_default] = true;
+    dart.addTypeCaches(BasicMessageChannel);
+    dart.setMethodSignature(BasicMessageChannel, () => ({
+      __proto__: dart.getMethods(BasicMessageChannel.__proto__),
+      send: dart.fnType(dart.legacy(async.Future$(dart.legacy(T))), [dart.legacy(core.Object)]),
+      setMessageHandler: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      setMockMessageHandler: dart.fnType(dart.void, [dart.legacy(core.Object)])
+    }));
+    dart.setGetterSignature(BasicMessageChannel, () => ({
+      __proto__: dart.getGetters(BasicMessageChannel.__proto__),
+      binaryMessenger: dart.legacy(binary_messenger.BinaryMessenger)
+    }));
+    dart.setLibraryUri(BasicMessageChannel, L1);
+    dart.setFieldSignature(BasicMessageChannel, () => ({
+      __proto__: dart.getFields(BasicMessageChannel.__proto__),
+      name: dart.finalFieldType(dart.legacy(core.String)),
+      codec: dart.finalFieldType(dart.legacy(message_codec.MessageCodec$(dart.legacy(T)))),
+      [_binaryMessenger]: dart.finalFieldType(dart.legacy(binary_messenger.BinaryMessenger))
+    }));
+    return BasicMessageChannel;
+  });
+  platform_channel.BasicMessageChannel = platform_channel.BasicMessageChannel$();
+  dart.addTypeTests(platform_channel.BasicMessageChannel, _is_BasicMessageChannel_default);
+  var C1;
+  var StandardMethodCodec_messageCodec = dart.privateName(message_codecs, "StandardMethodCodec.messageCodec");
+  var C0;
+  var _invokeMethod = dart.privateName(platform_channel, "_invokeMethod");
+  var _handleAsMethodCall = dart.privateName(platform_channel, "_handleAsMethodCall");
+  var name$0 = dart.privateName(platform_channel, "MethodChannel.name");
+  var codec$0 = dart.privateName(platform_channel, "MethodChannel.codec");
+  var _binaryMessenger$0 = dart.privateName(platform_channel, "MethodChannel._binaryMessenger");
+  platform_channel.MethodChannel = class MethodChannel extends core.Object {
+    get name() {
+      return this[name$0];
+    }
+    set name(value) {
+      super.name = value;
+    }
+    get codec() {
+      return this[codec$0];
+    }
+    set codec(value) {
+      super.codec = value;
+    }
+    get [_binaryMessenger]() {
+      return this[_binaryMessenger$0];
+    }
+    set [_binaryMessenger](value) {
+      super[_binaryMessenger] = value;
+    }
+    get binaryMessenger() {
+      let t0;
+      t0 = this[_binaryMessenger];
+      return t0 == null ? binary_messenger.defaultBinaryMessenger : t0;
+    }
+    [_invokeMethod](T, method, opts) {
+      let missingOk = opts && 'missingOk' in opts ? opts.missingOk : null;
+      let $arguments = opts && 'arguments' in opts ? opts.arguments : null;
+      return async.async(dart.legacy(T), (function* _invokeMethod() {
+        if (!(method != null)) dart.assertFailed(null, L0, 150, 12, "method != null");
+        let result = (yield this.binaryMessenger.send(this.name, this.codec.encodeMethodCall(new message_codec.MethodCall.new(method, $arguments))));
+        if (result == null) {
+          if (dart.test(missingOk)) {
+            return null;
+          }
+          dart.throw(new message_codec.MissingPluginException.new("No implementation found for method " + dart.str(method) + " on channel " + dart.str(this.name)));
+        }
+        return dart.legacy(T).as(this.codec.decodeEnvelope(result));
+      }).bind(this));
+    }
+    invokeMethod(T, method, $arguments = null) {
+      return this[_invokeMethod](dart.legacy(T), method, {missingOk: false, arguments: $arguments});
+    }
+    invokeListMethod(T, method, $arguments = null) {
+      return async.async(dart.legacy(core.List$(dart.legacy(T))), (function* invokeListMethod() {
+        let t0;
+        let result = (yield this.invokeMethod(ListL(), method, $arguments));
+        t0 = result;
+        return t0 == null ? null : t0[$cast](dart.legacy(T));
+      }).bind(this));
+    }
+    invokeMapMethod(K, V, method, $arguments = null) {
+      return async.async(dart.legacy(core.Map$(dart.legacy(K), dart.legacy(V))), (function* invokeMapMethod() {
+        let t0;
+        let result = (yield this.invokeMethod(MapL(), method, $arguments));
+        t0 = result;
+        return t0 == null ? null : t0[$cast](dart.legacy(K), dart.legacy(V));
+      }).bind(this));
+    }
+    setMethodCallHandler(handler) {
+      platform_channel._methodChannelHandlers._set(this, handler);
+      this.binaryMessenger.setMessageHandler(this.name, handler == null ? null : dart.fn(message => this[_handleAsMethodCall](message, handler), ByteDataLToFutureLOfByteDataL()));
+    }
+    checkMethodCallHandler(handler) {
+      return dart.equals(platform_channel._methodChannelHandlers._get(this), handler);
+    }
+    setMockMethodCallHandler(handler) {
+      platform_channel._methodChannelMockHandlers._set(this, handler);
+      this.binaryMessenger.setMockMessageHandler(this.name, handler == null ? null : dart.fn(message => this[_handleAsMethodCall](message, handler), ByteDataLToFutureLOfByteDataL()));
+    }
+    checkMockMethodCallHandler(handler) {
+      return dart.equals(platform_channel._methodChannelMockHandlers._get(this), handler);
+    }
+    [_handleAsMethodCall](message, handler) {
+      return async.async(ByteDataL(), (function* _handleAsMethodCall() {
+        let call = this.codec.decodeMethodCall(message);
+        try {
+          return this.codec.encodeSuccessEnvelope(yield handler(call));
+        } catch (e$) {
+          let ex = dart.getThrown(e$);
+          if (PlatformExceptionL().is(ex)) {
+            let e = ex;
+            return this.codec.encodeErrorEnvelope({code: e.code, message: e.message, details: e.details});
+          } else if (MissingPluginExceptionL().is(ex)) {
+            return null;
+          } else {
+            let e = ex;
+            return this.codec.encodeErrorEnvelope({code: "error", message: dart.toString(e), details: null});
+          }
+        }
+      }).bind(this));
+    }
+  };
+  (platform_channel.MethodChannel.new = function(name, codec = C0 || CT.C0, binaryMessenger = null) {
+    this[name$0] = name;
+    this[codec$0] = codec;
+    if (!(name != null)) dart.assertFailed(null, L0, 132, 16, "name != null");
+    if (!(codec != null)) dart.assertFailed(null, L0, 133, 16, "codec != null");
+    this[_binaryMessenger$0] = binaryMessenger;
+    ;
+  }).prototype = platform_channel.MethodChannel.prototype;
+  dart.addTypeTests(platform_channel.MethodChannel);
+  dart.addTypeCaches(platform_channel.MethodChannel);
+  dart.setMethodSignature(platform_channel.MethodChannel, () => ({
+    __proto__: dart.getMethods(platform_channel.MethodChannel.__proto__),
+    [_invokeMethod]: dart.gFnType(T => [dart.legacy(async.Future$(dart.legacy(T))), [dart.legacy(core.String)], {arguments: dart.dynamic, missingOk: dart.legacy(core.bool)}, {}]),
+    invokeMethod: dart.gFnType(T => [dart.legacy(async.Future$(dart.legacy(T))), [dart.legacy(core.String)], [dart.dynamic]]),
+    invokeListMethod: dart.gFnType(T => [dart.legacy(async.Future$(dart.legacy(core.List$(dart.legacy(T))))), [dart.legacy(core.String)], [dart.dynamic]]),
+    invokeMapMethod: dart.gFnType((K, V) => [dart.legacy(async.Future$(dart.legacy(core.Map$(dart.legacy(K), dart.legacy(V))))), [dart.legacy(core.String)], [dart.dynamic]]),
+    setMethodCallHandler: dart.fnType(dart.void, [dart.legacy(dart.fnType(dart.legacy(async.Future), [dart.legacy(message_codec.MethodCall)]))]),
+    checkMethodCallHandler: dart.fnType(dart.legacy(core.bool), [dart.legacy(dart.fnType(dart.legacy(async.Future), [dart.legacy(message_codec.MethodCall)]))]),
+    setMockMethodCallHandler: dart.fnType(dart.void, [dart.legacy(dart.fnType(dart.legacy(async.Future), [dart.legacy(message_codec.MethodCall)]))]),
+    checkMockMethodCallHandler: dart.fnType(dart.legacy(core.bool), [dart.legacy(dart.fnType(dart.legacy(async.Future), [dart.legacy(message_codec.MethodCall)]))]),
+    [_handleAsMethodCall]: dart.fnType(dart.legacy(async.Future$(dart.legacy(typed_data.ByteData))), [dart.legacy(typed_data.ByteData), dart.legacy(dart.fnType(dart.legacy(async.Future), [dart.legacy(message_codec.MethodCall)]))])
+  }));
+  dart.setGetterSignature(platform_channel.MethodChannel, () => ({
+    __proto__: dart.getGetters(platform_channel.MethodChannel.__proto__),
+    binaryMessenger: dart.legacy(binary_messenger.BinaryMessenger)
+  }));
+  dart.setLibraryUri(platform_channel.MethodChannel, L1);
+  dart.setFieldSignature(platform_channel.MethodChannel, () => ({
+    __proto__: dart.getFields(platform_channel.MethodChannel.__proto__),
+    name: dart.finalFieldType(dart.legacy(core.String)),
+    codec: dart.finalFieldType(dart.legacy(message_codec.MethodCodec)),
+    [_binaryMessenger]: dart.finalFieldType(dart.legacy(binary_messenger.BinaryMessenger))
+  }));
+  const _invokeMethod$ = Symbol("_invokeMethod");
+  platform_channel.OptionalMethodChannel = class OptionalMethodChannel extends platform_channel.MethodChannel {
+    invokeMethod(T, method, $arguments = null) {
+      return async.async(dart.legacy(T), (function* invokeMethod() {
+        return this[_invokeMethod$](dart.legacy(T), method, {missingOk: true, arguments: $arguments});
+      }).bind(this));
+    }
+    invokeListMethod(T, method, $arguments = null) {
+      return async.async(dart.legacy(core.List$(dart.legacy(T))), (function* invokeListMethod() {
+        let result = (yield this.invokeMethod(ListL(), method, $arguments));
+        return result[$cast](dart.legacy(T));
+      }).bind(this));
+    }
+    invokeMapMethod(K, V, method, $arguments = null) {
+      return async.async(dart.legacy(core.Map$(dart.legacy(K), dart.legacy(V))), (function* invokeMapMethod() {
+        let result = (yield this.invokeMethod(MapL(), method, $arguments));
+        return result[$cast](dart.legacy(K), dart.legacy(V));
+      }).bind(this));
+    }
+    [_invokeMethod$](T, method, opts) {
+      return super[_invokeMethod](T, method, opts);
+    }
+  };
+  (platform_channel.OptionalMethodChannel.new = function(name, codec = C0 || CT.C0) {
+    platform_channel.OptionalMethodChannel.__proto__.new.call(this, name, codec);
+    ;
+  }).prototype = platform_channel.OptionalMethodChannel.prototype;
+  dart.addTypeTests(platform_channel.OptionalMethodChannel);
+  dart.addTypeCaches(platform_channel.OptionalMethodChannel);
+  dart.setMethodSignature(platform_channel.OptionalMethodChannel, () => ({
+    __proto__: dart.getMethods(platform_channel.OptionalMethodChannel.__proto__),
+    invokeMethod: dart.gFnType(T => [dart.legacy(async.Future$(dart.legacy(T))), [dart.legacy(core.String)], [dart.dynamic]]),
+    invokeListMethod: dart.gFnType(T => [dart.legacy(async.Future$(dart.legacy(core.List$(dart.legacy(T))))), [dart.legacy(core.String)], [dart.dynamic]]),
+    invokeMapMethod: dart.gFnType((K, V) => [dart.legacy(async.Future$(dart.legacy(core.Map$(dart.legacy(K), dart.legacy(V))))), [dart.legacy(core.String)], [dart.dynamic]])
+  }));
+  dart.setLibraryUri(platform_channel.OptionalMethodChannel, L1);
+  var name$1 = dart.privateName(platform_channel, "EventChannel.name");
+  var codec$1 = dart.privateName(platform_channel, "EventChannel.codec");
+  var _binaryMessenger$1 = dart.privateName(platform_channel, "EventChannel._binaryMessenger");
+  platform_channel.EventChannel = class EventChannel extends core.Object {
+    get name() {
+      return this[name$1];
+    }
+    set name(value) {
+      super.name = value;
+    }
+    get codec() {
+      return this[codec$1];
+    }
+    set codec(value) {
+      super.codec = value;
+    }
+    get [_binaryMessenger]() {
+      return this[_binaryMessenger$1];
+    }
+    set [_binaryMessenger](value) {
+      super[_binaryMessenger] = value;
+    }
+    get binaryMessenger() {
+      let t2;
+      t2 = this[_binaryMessenger];
+      return t2 == null ? binary_messenger.defaultBinaryMessenger : t2;
+    }
+    receiveBroadcastStream($arguments = null) {
+      let methodChannel = new platform_channel.MethodChannel.new(this.name, this.codec);
+      let controller = null;
+      controller = async.StreamController.broadcast({onListen: dart.fn(() => async.async(core.Null, (function*() {
+          this.binaryMessenger.setMessageHandler(this.name, dart.fn(reply => async.async(core.Null, (function*() {
+            if (reply == null) {
+              controller.close();
+            } else {
+              try {
+                controller.add(this.codec.decodeEnvelope(reply));
+              } catch (e$) {
+                let e = dart.getThrown(e$);
+                if (PlatformExceptionL().is(e)) {
+                  controller.addError(e);
+                } else
+                  throw e$;
+              }
+            }
+            return null;
+          }).bind(this)), ByteDataLToFutureLOfNullN()));
+          try {
+            yield methodChannel.invokeMethod(dart.void, "listen", $arguments);
+          } catch (e) {
+            let exception = dart.getThrown(e);
+            let stack = dart.stackTrace(e);
+            assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: exception, stack: stack, library: "services library", context: new assertions.ErrorDescription.new("while activating platform stream on channel " + dart.str(this.name))}));
+          }
+        }).bind(this)), VoidToFutureLOfNullN()), onCancel: dart.fn(() => async.async(core.Null, (function*() {
+          this.binaryMessenger.setMessageHandler(this.name, null);
+          try {
+            yield methodChannel.invokeMethod(dart.void, "cancel", $arguments);
+          } catch (e) {
+            let exception = dart.getThrown(e);
+            let stack = dart.stackTrace(e);
+            assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: exception, stack: stack, library: "services library", context: new assertions.ErrorDescription.new("while de-activating platform stream on channel " + dart.str(this.name))}));
+          }
+        }).bind(this)), VoidToFutureLOfNullN())});
+      return controller.stream;
+    }
+  };
+  (platform_channel.EventChannel.new = function(name, codec = C0 || CT.C0, binaryMessenger = null) {
+    this[name$1] = name;
+    this[codec$1] = codec;
+    if (!(name != null)) dart.assertFailed(null, L0, 498, 16, "name != null");
+    if (!(codec != null)) dart.assertFailed(null, L0, 499, 16, "codec != null");
+    this[_binaryMessenger$1] = binaryMessenger;
+    ;
+  }).prototype = platform_channel.EventChannel.prototype;
+  dart.addTypeTests(platform_channel.EventChannel);
+  dart.addTypeCaches(platform_channel.EventChannel);
+  dart.setMethodSignature(platform_channel.EventChannel, () => ({
+    __proto__: dart.getMethods(platform_channel.EventChannel.__proto__),
+    receiveBroadcastStream: dart.fnType(dart.legacy(async.Stream), [], [dart.dynamic])
+  }));
+  dart.setGetterSignature(platform_channel.EventChannel, () => ({
+    __proto__: dart.getGetters(platform_channel.EventChannel.__proto__),
+    binaryMessenger: dart.legacy(binary_messenger.BinaryMessenger)
+  }));
+  dart.setLibraryUri(platform_channel.EventChannel, L1);
+  dart.setFieldSignature(platform_channel.EventChannel, () => ({
+    __proto__: dart.getFields(platform_channel.EventChannel.__proto__),
+    name: dart.finalFieldType(dart.legacy(core.String)),
+    codec: dart.finalFieldType(dart.legacy(message_codec.MethodCodec)),
+    [_binaryMessenger]: dart.finalFieldType(dart.legacy(binary_messenger.BinaryMessenger))
+  }));
+  dart.defineLazy(platform_channel, {
+    /*platform_channel._methodChannelHandlers*/get _methodChannelHandlers() {
+      return new (ExpandoOfObjectL()).new();
+    },
+    set _methodChannelHandlers(_) {},
+    /*platform_channel._methodChannelMockHandlers*/get _methodChannelMockHandlers() {
+      return new (ExpandoOfObjectL()).new();
+    },
+    set _methodChannelMockHandlers(_) {}
+  }, true);
+  const _is_MessageCodec_default = Symbol('_is_MessageCodec_default');
+  message_codec.MessageCodec$ = dart.generic(T => {
+    class MessageCodec extends core.Object {}
+    (MessageCodec.new = function() {
+      ;
+    }).prototype = MessageCodec.prototype;
+    dart.addTypeTests(MessageCodec);
+    MessageCodec.prototype[_is_MessageCodec_default] = true;
+    dart.addTypeCaches(MessageCodec);
+    dart.setLibraryUri(MessageCodec, L2);
+    return MessageCodec;
+  });
+  message_codec.MessageCodec = message_codec.MessageCodec$();
+  dart.addTypeTests(message_codec.MessageCodec, _is_MessageCodec_default);
+  var method$ = dart.privateName(message_codec, "MethodCall.method");
+  var arguments$ = dart.privateName(message_codec, "MethodCall.arguments");
+  message_codec.MethodCall = class MethodCall extends core.Object {
+    get method() {
+      return this[method$];
+    }
+    set method(value) {
+      super.method = value;
+    }
+    get arguments() {
+      return this[arguments$];
+    }
+    set arguments(value) {
+      super.arguments = value;
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "MethodCall")) + "(" + dart.str(this.method) + ", " + dart.str(this.arguments) + ")";
+    }
+  };
+  (message_codec.MethodCall.new = function(method, $arguments = null) {
+    this[method$] = method;
+    this[arguments$] = $arguments;
+    if (!(method != null)) dart.assertFailed(null, L3, 42, 14, "method != null");
+    ;
+  }).prototype = message_codec.MethodCall.prototype;
+  dart.addTypeTests(message_codec.MethodCall);
+  dart.addTypeCaches(message_codec.MethodCall);
+  dart.setMethodSignature(message_codec.MethodCall, () => ({
+    __proto__: dart.getMethods(message_codec.MethodCall.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(message_codec.MethodCall, L2);
+  dart.setFieldSignature(message_codec.MethodCall, () => ({
+    __proto__: dart.getFields(message_codec.MethodCall.__proto__),
+    method: dart.finalFieldType(dart.legacy(core.String)),
+    arguments: dart.finalFieldType(dart.dynamic)
+  }));
+  dart.defineExtensionMethods(message_codec.MethodCall, ['toString']);
+  message_codec.MethodCodec = class MethodCodec extends core.Object {};
+  (message_codec.MethodCodec.new = function() {
+    ;
+  }).prototype = message_codec.MethodCodec.prototype;
+  dart.addTypeTests(message_codec.MethodCodec);
+  dart.addTypeCaches(message_codec.MethodCodec);
+  dart.setLibraryUri(message_codec.MethodCodec, L2);
+  var code$ = dart.privateName(message_codec, "PlatformException.code");
+  var message$ = dart.privateName(message_codec, "PlatformException.message");
+  var details$ = dart.privateName(message_codec, "PlatformException.details");
+  message_codec.PlatformException = class PlatformException extends core.Object {
+    get code() {
+      return this[code$];
+    }
+    set code(value) {
+      super.code = value;
+    }
+    get message() {
+      return this[message$];
+    }
+    set message(value) {
+      super.message = value;
+    }
+    get details() {
+      return this[details$];
+    }
+    set details(value) {
+      super.details = value;
+    }
+    toString() {
+      return "PlatformException(" + dart.str(this.code) + ", " + dart.str(this.message) + ", " + dart.str(this.details) + ")";
+    }
+  };
+  (message_codec.PlatformException.new = function(opts) {
+    let code = opts && 'code' in opts ? opts.code : null;
+    let message = opts && 'message' in opts ? opts.message : null;
+    let details = opts && 'details' in opts ? opts.details : null;
+    this[code$] = code;
+    this[message$] = message;
+    this[details$] = details;
+    if (!(code != null)) dart.assertFailed(null, L3, 111, 15, "code != null");
+    ;
+  }).prototype = message_codec.PlatformException.prototype;
+  dart.addTypeTests(message_codec.PlatformException);
+  dart.addTypeCaches(message_codec.PlatformException);
+  message_codec.PlatformException[dart.implements] = () => [core.Exception];
+  dart.setMethodSignature(message_codec.PlatformException, () => ({
+    __proto__: dart.getMethods(message_codec.PlatformException.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(message_codec.PlatformException, L2);
+  dart.setFieldSignature(message_codec.PlatformException, () => ({
+    __proto__: dart.getFields(message_codec.PlatformException.__proto__),
+    code: dart.finalFieldType(dart.legacy(core.String)),
+    message: dart.finalFieldType(dart.legacy(core.String)),
+    details: dart.finalFieldType(dart.dynamic)
+  }));
+  dart.defineExtensionMethods(message_codec.PlatformException, ['toString']);
+  var message$0 = dart.privateName(message_codec, "MissingPluginException.message");
+  message_codec.MissingPluginException = class MissingPluginException extends core.Object {
+    get message() {
+      return this[message$0];
+    }
+    set message(value) {
+      super.message = value;
+    }
+    toString() {
+      return "MissingPluginException(" + dart.str(this.message) + ")";
+    }
+  };
+  (message_codec.MissingPluginException.new = function(message = null) {
+    this[message$0] = message;
+    ;
+  }).prototype = message_codec.MissingPluginException.prototype;
+  dart.addTypeTests(message_codec.MissingPluginException);
+  dart.addTypeCaches(message_codec.MissingPluginException);
+  message_codec.MissingPluginException[dart.implements] = () => [core.Exception];
+  dart.setMethodSignature(message_codec.MissingPluginException, () => ({
+    __proto__: dart.getMethods(message_codec.MissingPluginException.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(message_codec.MissingPluginException, L2);
+  dart.setFieldSignature(message_codec.MissingPluginException, () => ({
+    __proto__: dart.getFields(message_codec.MissingPluginException.__proto__),
+    message: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.defineExtensionMethods(message_codec.MissingPluginException, ['toString']);
+  message_codecs.BinaryCodec = class BinaryCodec extends core.Object {
+    decodeMessage(message) {
+      return message;
+    }
+    encodeMessage(message) {
+      ByteDataL().as(message);
+      return message;
+    }
+  };
+  (message_codecs.BinaryCodec.new = function() {
+    ;
+  }).prototype = message_codecs.BinaryCodec.prototype;
+  dart.addTypeTests(message_codecs.BinaryCodec);
+  dart.addTypeCaches(message_codecs.BinaryCodec);
+  message_codecs.BinaryCodec[dart.implements] = () => [message_codec.MessageCodec$(dart.legacy(typed_data.ByteData))];
+  dart.setMethodSignature(message_codecs.BinaryCodec, () => ({
+    __proto__: dart.getMethods(message_codecs.BinaryCodec.__proto__),
+    decodeMessage: dart.fnType(dart.legacy(typed_data.ByteData), [dart.legacy(typed_data.ByteData)]),
+    encodeMessage: dart.fnType(dart.legacy(typed_data.ByteData), [dart.legacy(core.Object)])
+  }));
+  dart.setLibraryUri(message_codecs.BinaryCodec, L4);
+  message_codecs.StringCodec = class StringCodec extends core.Object {
+    decodeMessage(message) {
+      if (message == null) return null;
+      return convert.utf8.decoder.convert(message[$buffer][$asUint8List](message[$offsetInBytes], message[$lengthInBytes]));
+    }
+    encodeMessage(message) {
+      StringL().as(message);
+      if (message == null) return null;
+      let encoded = convert.utf8.encoder.convert(message);
+      return encoded[$buffer][$asByteData]();
+    }
+  };
+  (message_codecs.StringCodec.new = function() {
+    ;
+  }).prototype = message_codecs.StringCodec.prototype;
+  dart.addTypeTests(message_codecs.StringCodec);
+  dart.addTypeCaches(message_codecs.StringCodec);
+  message_codecs.StringCodec[dart.implements] = () => [message_codec.MessageCodec$(dart.legacy(core.String))];
+  dart.setMethodSignature(message_codecs.StringCodec, () => ({
+    __proto__: dart.getMethods(message_codecs.StringCodec.__proto__),
+    decodeMessage: dart.fnType(dart.legacy(core.String), [dart.legacy(typed_data.ByteData)]),
+    encodeMessage: dart.fnType(dart.legacy(typed_data.ByteData), [dart.legacy(core.Object)])
+  }));
+  dart.setLibraryUri(message_codecs.StringCodec, L4);
+  var C2;
+  message_codecs.JSONMessageCodec = class JSONMessageCodec extends core.Object {
+    encodeMessage(message) {
+      if (message == null) return null;
+      return (C2 || CT.C2).encodeMessage(convert.json.encode(message));
+    }
+    decodeMessage(message) {
+      if (message == null) return message;
+      return convert.json.decode((C2 || CT.C2).decodeMessage(message));
+    }
+  };
+  (message_codecs.JSONMessageCodec.new = function() {
+    ;
+  }).prototype = message_codecs.JSONMessageCodec.prototype;
+  dart.addTypeTests(message_codecs.JSONMessageCodec);
+  dart.addTypeCaches(message_codecs.JSONMessageCodec);
+  message_codecs.JSONMessageCodec[dart.implements] = () => [message_codec.MessageCodec];
+  dart.setMethodSignature(message_codecs.JSONMessageCodec, () => ({
+    __proto__: dart.getMethods(message_codecs.JSONMessageCodec.__proto__),
+    encodeMessage: dart.fnType(dart.legacy(typed_data.ByteData), [dart.legacy(core.Object)]),
+    decodeMessage: dart.fnType(dart.dynamic, [dart.legacy(typed_data.ByteData)])
+  }));
+  dart.setLibraryUri(message_codecs.JSONMessageCodec, L4);
+  var C3;
+  message_codecs.JSONMethodCodec = class JSONMethodCodec extends core.Object {
+    encodeMethodCall(call) {
+      return (C3 || CT.C3).encodeMessage(new (IdentityMapOfStringL$dynamic()).from(["method", call.method, "args", call.arguments]));
+    }
+    decodeMethodCall(methodCall) {
+      let decoded = (C3 || CT.C3).decodeMessage(methodCall);
+      if (!MapL().is(decoded)) dart.throw(new core.FormatException.new("Expected method call Map, got " + dart.str(decoded)));
+      let method = dart.dsend(decoded, '_get', ["method"]);
+      let $arguments = dart.dsend(decoded, '_get', ["args"]);
+      if (typeof method == 'string') return new message_codec.MethodCall.new(method, $arguments);
+      dart.throw(new core.FormatException.new("Invalid method call: " + dart.str(decoded)));
+    }
+    decodeEnvelope(envelope) {
+      let decoded = (C3 || CT.C3).decodeMessage(envelope);
+      if (!ListL().is(decoded)) dart.throw(new core.FormatException.new("Expected envelope List, got " + dart.str(decoded)));
+      if (dart.equals(dart.dload(decoded, 'length'), 1)) return dart.dsend(decoded, '_get', [0]);
+      if (dart.equals(dart.dload(decoded, 'length'), 3) && typeof dart.dsend(decoded, '_get', [0]) == 'string' && (dart.dsend(decoded, '_get', [1]) == null || typeof dart.dsend(decoded, '_get', [1]) == 'string')) dart.throw(new message_codec.PlatformException.new({code: StringL().as(dart.dsend(decoded, '_get', [0])), message: StringL().as(dart.dsend(decoded, '_get', [1])), details: dart.dsend(decoded, '_get', [2])}));
+      dart.throw(new core.FormatException.new("Invalid envelope: " + dart.str(decoded)));
+    }
+    encodeSuccessEnvelope(result) {
+      return (C3 || CT.C3).encodeMessage([result]);
+    }
+    encodeErrorEnvelope(opts) {
+      let code = opts && 'code' in opts ? opts.code : null;
+      let message = opts && 'message' in opts ? opts.message : null;
+      let details = opts && 'details' in opts ? opts.details : null;
+      if (!(code != null)) dart.assertFailed(null, L5, 166, 12, "code != null");
+      return (C3 || CT.C3).encodeMessage([code, message, details]);
+    }
+  };
+  (message_codecs.JSONMethodCodec.new = function() {
+    ;
+  }).prototype = message_codecs.JSONMethodCodec.prototype;
+  dart.addTypeTests(message_codecs.JSONMethodCodec);
+  dart.addTypeCaches(message_codecs.JSONMethodCodec);
+  message_codecs.JSONMethodCodec[dart.implements] = () => [message_codec.MethodCodec];
+  dart.setMethodSignature(message_codecs.JSONMethodCodec, () => ({
+    __proto__: dart.getMethods(message_codecs.JSONMethodCodec.__proto__),
+    encodeMethodCall: dart.fnType(dart.legacy(typed_data.ByteData), [dart.legacy(message_codec.MethodCall)]),
+    decodeMethodCall: dart.fnType(dart.legacy(message_codec.MethodCall), [dart.legacy(typed_data.ByteData)]),
+    decodeEnvelope: dart.fnType(dart.dynamic, [dart.legacy(typed_data.ByteData)]),
+    encodeSuccessEnvelope: dart.fnType(dart.legacy(typed_data.ByteData), [dart.dynamic]),
+    encodeErrorEnvelope: dart.fnType(dart.legacy(typed_data.ByteData), [], {code: dart.legacy(core.String), details: dart.dynamic, message: dart.legacy(core.String)}, {})
+  }));
+  dart.setLibraryUri(message_codecs.JSONMethodCodec, L4);
+  var FormatException_offset = dart.privateName(core, "FormatException.offset");
+  var FormatException_source = dart.privateName(core, "FormatException.source");
+  var FormatException_message = dart.privateName(core, "FormatException.message");
+  var C4;
+  message_codecs.StandardMessageCodec = class StandardMessageCodec extends core.Object {
+    encodeMessage(message) {
+      if (message == null) return null;
+      let buffer = new serialization.WriteBuffer.new();
+      this.writeValue(buffer, message);
+      return buffer.done();
+    }
+    decodeMessage(message) {
+      if (message == null) return null;
+      let buffer = new serialization.ReadBuffer.new(message);
+      let result = this.readValue(buffer);
+      if (dart.test(buffer.hasRemaining)) dart.throw(C4 || CT.C4);
+      return result;
+    }
+    writeValue(buffer, value) {
+      if (value == null) {
+        buffer.putUint8(0);
+      } else if (typeof value == 'boolean') {
+        buffer.putUint8(dart.test(value) ? 1 : 2);
+      } else if (typeof value == 'number') {
+        buffer.putUint8(6);
+        buffer.putFloat64(value);
+      } else if (intL().is(value)) {
+        if (-2147483647 - 1 <= dart.notNull(value) && dart.notNull(value) <= 2147483647) {
+          buffer.putUint8(3);
+          buffer.putInt32(value);
+        } else {
+          buffer.putUint8(4);
+          buffer.putInt64(value);
+        }
+      } else if (typeof value == 'string') {
+        buffer.putUint8(7);
+        let bytes = convert.utf8.encoder.convert(value);
+        this.writeSize(buffer, bytes[$length]);
+        buffer.putUint8List(bytes);
+      } else if (Uint8ListL().is(value)) {
+        buffer.putUint8(8);
+        this.writeSize(buffer, value[$length]);
+        buffer.putUint8List(value);
+      } else if (Int32ListL().is(value)) {
+        buffer.putUint8(9);
+        this.writeSize(buffer, value[$length]);
+        buffer.putInt32List(value);
+      } else if (Int64ListL().is(value)) {
+        buffer.putUint8(10);
+        this.writeSize(buffer, value[$length]);
+        buffer.putInt64List(value);
+      } else if (Float64ListL().is(value)) {
+        buffer.putUint8(11);
+        this.writeSize(buffer, value[$length]);
+        buffer.putFloat64List(value);
+      } else if (ListL().is(value)) {
+        buffer.putUint8(12);
+        this.writeSize(buffer, value[$length]);
+        for (let item of value) {
+          this.writeValue(buffer, item);
+        }
+      } else if (MapL().is(value)) {
+        buffer.putUint8(13);
+        this.writeSize(buffer, value[$length]);
+        value[$forEach](dart.fn((key, value) => {
+          this.writeValue(buffer, key);
+          this.writeValue(buffer, value);
+        }, dynamicAnddynamicToNullN()));
+      } else {
+        dart.throw(new core.ArgumentError.value(value));
+      }
+    }
+    readValue(buffer) {
+      if (!dart.test(buffer.hasRemaining)) dart.throw(C4 || CT.C4);
+      let type = buffer.getUint8();
+      return this.readValueOfType(type, buffer);
+    }
+    readValueOfType(type, buffer) {
+      switch (type) {
+        case 0:
+        {
+          return null;
+        }
+        case 1:
+        {
+          return true;
+        }
+        case 2:
+        {
+          return false;
+        }
+        case 3:
+        {
+          return buffer.getInt32();
+        }
+        case 4:
+        {
+          return buffer.getInt64();
+        }
+        case 6:
+        {
+          return buffer.getFloat64();
+        }
+        case 5:
+        case 7:
+        {
+          let length = this.readSize(buffer);
+          return convert.utf8.decoder.convert(buffer.getUint8List(length));
+        }
+        case 8:
+        {
+          let length = this.readSize(buffer);
+          return buffer.getUint8List(length);
+        }
+        case 9:
+        {
+          let length = this.readSize(buffer);
+          return buffer.getInt32List(length);
+        }
+        case 10:
+        {
+          let length = this.readSize(buffer);
+          return buffer.getInt64List(length);
+        }
+        case 11:
+        {
+          let length = this.readSize(buffer);
+          return buffer.getFloat64List(length);
+        }
+        case 12:
+        {
+          let length = this.readSize(buffer);
+          let result = core.List.new(length);
+          for (let i = 0; i < dart.notNull(length); i = i + 1)
+            dart.dsend(result, '_set', [i, this.readValue(buffer)]);
+          return result;
+        }
+        case 13:
+        {
+          let length = this.readSize(buffer);
+          let result = new _js_helper.LinkedMap.new();
+          for (let i = 0; i < dart.notNull(length); i = i + 1)
+            dart.dsend(result, '_set', [this.readValue(buffer), this.readValue(buffer)]);
+          return result;
+        }
+        default:
+        {
+          dart.throw(C4 || CT.C4);
+        }
+      }
+    }
+    writeSize(buffer, value) {
+      if (!(0 <= dart.notNull(value) && dart.notNull(value) <= 4294967295)) dart.assertFailed(null, L5, 467, 12, "0 <= value && value <= 0xffffffff");
+      if (dart.notNull(value) < 254) {
+        buffer.putUint8(value);
+      } else if (dart.notNull(value) <= 65535) {
+        buffer.putUint8(254);
+        buffer.putUint16(value);
+      } else {
+        buffer.putUint8(255);
+        buffer.putUint32(value);
+      }
+    }
+    readSize(buffer) {
+      let value = buffer.getUint8();
+      switch (value) {
+        case 254:
+        {
+          return buffer.getUint16();
+        }
+        case 255:
+        {
+          return buffer.getUint32();
+        }
+        default:
+        {
+          return value;
+        }
+      }
+    }
+  };
+  (message_codecs.StandardMessageCodec.new = function() {
+    ;
+  }).prototype = message_codecs.StandardMessageCodec.prototype;
+  dart.addTypeTests(message_codecs.StandardMessageCodec);
+  dart.addTypeCaches(message_codecs.StandardMessageCodec);
+  message_codecs.StandardMessageCodec[dart.implements] = () => [message_codec.MessageCodec];
+  dart.setMethodSignature(message_codecs.StandardMessageCodec, () => ({
+    __proto__: dart.getMethods(message_codecs.StandardMessageCodec.__proto__),
+    encodeMessage: dart.fnType(dart.legacy(typed_data.ByteData), [dart.legacy(core.Object)]),
+    decodeMessage: dart.fnType(dart.dynamic, [dart.legacy(typed_data.ByteData)]),
+    writeValue: dart.fnType(dart.void, [dart.legacy(serialization.WriteBuffer), dart.dynamic]),
+    readValue: dart.fnType(dart.dynamic, [dart.legacy(serialization.ReadBuffer)]),
+    readValueOfType: dart.fnType(dart.dynamic, [dart.legacy(core.int), dart.legacy(serialization.ReadBuffer)]),
+    writeSize: dart.fnType(dart.void, [dart.legacy(serialization.WriteBuffer), dart.legacy(core.int)]),
+    readSize: dart.fnType(dart.legacy(core.int), [dart.legacy(serialization.ReadBuffer)])
+  }));
+  dart.setLibraryUri(message_codecs.StandardMessageCodec, L4);
+  dart.defineLazy(message_codecs.StandardMessageCodec, {
+    /*message_codecs.StandardMessageCodec._valueNull*/get _valueNull() {
+      return 0;
+    },
+    /*message_codecs.StandardMessageCodec._valueTrue*/get _valueTrue() {
+      return 1;
+    },
+    /*message_codecs.StandardMessageCodec._valueFalse*/get _valueFalse() {
+      return 2;
+    },
+    /*message_codecs.StandardMessageCodec._valueInt32*/get _valueInt32() {
+      return 3;
+    },
+    /*message_codecs.StandardMessageCodec._valueInt64*/get _valueInt64() {
+      return 4;
+    },
+    /*message_codecs.StandardMessageCodec._valueLargeInt*/get _valueLargeInt() {
+      return 5;
+    },
+    /*message_codecs.StandardMessageCodec._valueFloat64*/get _valueFloat64() {
+      return 6;
+    },
+    /*message_codecs.StandardMessageCodec._valueString*/get _valueString() {
+      return 7;
+    },
+    /*message_codecs.StandardMessageCodec._valueUint8List*/get _valueUint8List() {
+      return 8;
+    },
+    /*message_codecs.StandardMessageCodec._valueInt32List*/get _valueInt32List() {
+      return 9;
+    },
+    /*message_codecs.StandardMessageCodec._valueInt64List*/get _valueInt64List() {
+      return 10;
+    },
+    /*message_codecs.StandardMessageCodec._valueFloat64List*/get _valueFloat64List() {
+      return 11;
+    },
+    /*message_codecs.StandardMessageCodec._valueList*/get _valueList() {
+      return 12;
+    },
+    /*message_codecs.StandardMessageCodec._valueMap*/get _valueMap() {
+      return 13;
+    }
+  }, true);
+  var C5;
+  var C6;
+  var C7;
+  message_codecs.StandardMethodCodec = class StandardMethodCodec extends core.Object {
+    get messageCodec() {
+      return this[messageCodec$];
+    }
+    set messageCodec(value) {
+      super.messageCodec = value;
+    }
+    encodeMethodCall(call) {
+      let buffer = new serialization.WriteBuffer.new();
+      this.messageCodec.writeValue(buffer, call.method);
+      this.messageCodec.writeValue(buffer, call.arguments);
+      return buffer.done();
+    }
+    decodeMethodCall(methodCall) {
+      let buffer = new serialization.ReadBuffer.new(methodCall);
+      let method = this.messageCodec.readValue(buffer);
+      let $arguments = this.messageCodec.readValue(buffer);
+      if (typeof method == 'string' && !dart.test(buffer.hasRemaining))
+        return new message_codec.MethodCall.new(method, $arguments);
+      else
+        dart.throw(C5 || CT.C5);
+    }
+    encodeSuccessEnvelope(result) {
+      let buffer = new serialization.WriteBuffer.new();
+      buffer.putUint8(0);
+      this.messageCodec.writeValue(buffer, result);
+      return buffer.done();
+    }
+    encodeErrorEnvelope(opts) {
+      let code = opts && 'code' in opts ? opts.code : null;
+      let message = opts && 'message' in opts ? opts.message : null;
+      let details = opts && 'details' in opts ? opts.details : null;
+      let buffer = new serialization.WriteBuffer.new();
+      buffer.putUint8(1);
+      this.messageCodec.writeValue(buffer, code);
+      this.messageCodec.writeValue(buffer, message);
+      this.messageCodec.writeValue(buffer, details);
+      return buffer.done();
+    }
+    decodeEnvelope(envelope) {
+      if (envelope[$lengthInBytes] === 0) dart.throw(C6 || CT.C6);
+      let buffer = new serialization.ReadBuffer.new(envelope);
+      if (buffer.getUint8() === 0) return this.messageCodec.readValue(buffer);
+      let errorCode = this.messageCodec.readValue(buffer);
+      let errorMessage = this.messageCodec.readValue(buffer);
+      let errorDetails = this.messageCodec.readValue(buffer);
+      if (typeof errorCode == 'string' && (errorMessage == null || typeof errorMessage == 'string') && !dart.test(buffer.hasRemaining))
+        dart.throw(new message_codec.PlatformException.new({code: errorCode, message: StringL().as(errorMessage), details: errorDetails}));
+      else
+        dart.throw(C7 || CT.C7);
+    }
+  };
+  (message_codecs.StandardMethodCodec.new = function(messageCodec = C1 || CT.C1) {
+    this[messageCodec$] = messageCodec;
+    ;
+  }).prototype = message_codecs.StandardMethodCodec.prototype;
+  dart.addTypeTests(message_codecs.StandardMethodCodec);
+  dart.addTypeCaches(message_codecs.StandardMethodCodec);
+  const messageCodec$ = StandardMethodCodec_messageCodec;
+  message_codecs.StandardMethodCodec[dart.implements] = () => [message_codec.MethodCodec];
+  dart.setMethodSignature(message_codecs.StandardMethodCodec, () => ({
+    __proto__: dart.getMethods(message_codecs.StandardMethodCodec.__proto__),
+    encodeMethodCall: dart.fnType(dart.legacy(typed_data.ByteData), [dart.legacy(message_codec.MethodCall)]),
+    decodeMethodCall: dart.fnType(dart.legacy(message_codec.MethodCall), [dart.legacy(typed_data.ByteData)]),
+    encodeSuccessEnvelope: dart.fnType(dart.legacy(typed_data.ByteData), [dart.dynamic]),
+    encodeErrorEnvelope: dart.fnType(dart.legacy(typed_data.ByteData), [], {code: dart.legacy(core.String), details: dart.dynamic, message: dart.legacy(core.String)}, {}),
+    decodeEnvelope: dart.fnType(dart.dynamic, [dart.legacy(typed_data.ByteData)])
+  }));
+  dart.setLibraryUri(message_codecs.StandardMethodCodec, L4);
+  dart.setFieldSignature(message_codecs.StandardMethodCodec, () => ({
+    __proto__: dart.getFields(message_codecs.StandardMethodCodec.__proto__),
+    messageCodec: dart.finalFieldType(dart.legacy(message_codecs.StandardMessageCodec))
+  }));
+  var C9;
+  var C8;
+  var C10;
+  var C11;
+  var C12;
+  var C13;
+  var C14;
+  var C15;
+  var C16;
+  var C17;
+  var C18;
+  system_channels.SystemChannels = class SystemChannels extends core.Object {};
+  (system_channels.SystemChannels.__ = function() {
+    ;
+  }).prototype = system_channels.SystemChannels.prototype;
+  dart.addTypeTests(system_channels.SystemChannels);
+  dart.addTypeCaches(system_channels.SystemChannels);
+  dart.setLibraryUri(system_channels.SystemChannels, L6);
+  dart.defineLazy(system_channels.SystemChannels, {
+    /*system_channels.SystemChannels.navigation*/get navigation() {
+      return C8 || CT.C8;
+    },
+    /*system_channels.SystemChannels.platform*/get platform() {
+      return C10 || CT.C10;
+    },
+    /*system_channels.SystemChannels.textInput*/get textInput() {
+      return C11 || CT.C11;
+    },
+    /*system_channels.SystemChannels.keyEvent*/get keyEvent() {
+      return C12 || CT.C12;
+    },
+    /*system_channels.SystemChannels.lifecycle*/get lifecycle() {
+      return C13 || CT.C13;
+    },
+    /*system_channels.SystemChannels.system*/get system() {
+      return C14 || CT.C14;
+    },
+    /*system_channels.SystemChannels.accessibility*/get accessibility() {
+      return C15 || CT.C15;
+    },
+    /*system_channels.SystemChannels.platform_views*/get platform_views() {
+      return C16 || CT.C16;
+    },
+    /*system_channels.SystemChannels.skia*/get skia() {
+      return C17 || CT.C17;
+    },
+    /*system_channels.SystemChannels.mouseCursor*/get mouseCursor() {
+      return C18 || CT.C18;
+    }
+  }, true);
+  var _defaultBinaryMessenger = dart.privateName(binding$0, "_defaultBinaryMessenger");
+  var _handleLifecycleMessage = dart.privateName(binding$0, "_handleLifecycleMessage");
+  var C19;
+  var _addLicenses = dart.privateName(binding$0, "_addLicenses");
+  var C20;
+  var C21;
+  binding$0.ServicesBinding = class ServicesBinding extends core.Object {
+    static get instance() {
+      return binding$0.ServicesBinding._instance;
+    }
+    static _parseLicenses(rawLicenses) {
+      let _licenseSeparator = "\n" + "-"[$times](80) + "\n";
+      let result = JSArrayOfLicenseEntryL().of([]);
+      let licenses = rawLicenses[$split](_licenseSeparator);
+      for (let license of licenses) {
+        let split = license[$indexOf]("\n\n");
+        if (split >= 0) {
+          result[$add](new licenses$.LicenseEntryWithLineBreaks.new(license[$substring](0, split)[$split]("\n"), license[$substring](split + 2)));
+        } else {
+          result[$add](new licenses$.LicenseEntryWithLineBreaks.new(C21 || CT.C21, license));
+        }
+      }
+      return result;
+    }
+    static _parseAppLifecycleMessage(message) {
+      switch (message) {
+        case "AppLifecycleState.paused":
+        {
+          return ui.AppLifecycleState.paused;
+        }
+        case "AppLifecycleState.resumed":
+        {
+          return ui.AppLifecycleState.resumed;
+        }
+        case "AppLifecycleState.inactive":
+        {
+          return ui.AppLifecycleState.inactive;
+        }
+        case "AppLifecycleState.detached":
+        {
+          return ui.AppLifecycleState.detached;
+        }
+      }
+      return null;
+    }
+  };
+  binding$0.ServicesBinding[dart.mixinOn] = _ServicesBinding$36BindingBase$36SchedulerBinding => class ServicesBinding extends _ServicesBinding$36BindingBase$36SchedulerBinding {
+    initInstances() {
+      super.initInstances();
+      binding$0.ServicesBinding._instance = this;
+      this[_defaultBinaryMessenger] = this.createBinaryMessenger();
+      this.window.onPlatformMessage = dart.bind(this.defaultBinaryMessenger, 'handlePlatformMessage');
+      this.initLicenses();
+      system_channels.SystemChannels.system.setMessageHandler(dart.bind(this, 'handleSystemMessage'));
+      system_channels.SystemChannels.lifecycle.setMessageHandler(dart.bind(this, _handleLifecycleMessage));
+      this.readInitialLifecycleStateFromNativeWindow();
+    }
+    get defaultBinaryMessenger() {
+      return this[_defaultBinaryMessenger];
+    }
+    createBinaryMessenger() {
+      return C19 || CT.C19;
+    }
+    handleMemoryPressure() {
+    }
+    handleSystemMessage(systemMessage) {
+      return async.async(dart.void, (function* handleSystemMessage() {
+        let message = MapLOfStringL$dynamic().as(systemMessage);
+        let type = StringL().as(message[$_get]("type"));
+        switch (type) {
+          case "memoryPressure":
+          {
+            this.handleMemoryPressure();
+            break;
+          }
+        }
+        return;
+      }).bind(this));
+    }
+    initLicenses() {
+      licenses$.LicenseRegistry.addLicense(dart.bind(this, _addLicenses));
+    }
+    [_addLicenses]() {
+      return new (_AsyncStarImplOfLicenseEntryL()).new((function* _addLicenses(stream) {
+        let rawLicenses = CompleterOfStringL().new();
+        this.scheduleTask(FutureLOfNullN(), dart.fn(() => async.async(core.Null, function*() {
+          rawLicenses.complete(yield asset_bundle.rootBundle.loadString("NOTICES", {cache: false}));
+        }), VoidToFutureLOfNullN()), priority.Priority.animation);
+        yield rawLicenses.future;
+        let parsedLicenses = CompleterOfListLOfLicenseEntryL().new();
+        this.scheduleTask(FutureLOfNullN(), dart.fn(() => async.async(core.Null, function*() {
+          parsedLicenses.complete(isolates.compute(StringL(), ListLOfLicenseEntryL(), C20 || CT.C20, yield rawLicenses.future, {debugLabel: "parseLicenses"}));
+        }), VoidToFutureLOfNullN()), priority.Priority.animation);
+        yield parsedLicenses.future;
+        if (stream.addStream(StreamOfLicenseEntryL().fromIterable(yield parsedLicenses.future))) return;
+        yield;
+      }).bind(this)).stream;
+    }
+    initServiceExtensions() {
+      super.initServiceExtensions();
+      if (!dart.test(dart.fn(() => {
+        this.registerStringServiceExtension({name: "evict", getter: dart.fn(() => async.async(StringL(), function*() {
+            return "";
+          }), VoidToFutureLOfStringL()), setter: dart.fn(value => async.async(core.Null, (function*() {
+            this.evict(value);
+          }).bind(this)), StringLToFutureLOfNullN())});
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L7, 140, 12, "() {\r\n      registerStringServiceExtension(\r\n        // ext.flutter.evict value=foo.png will cause foo.png to be evicted from\r\n        // the rootBundle cache and cause the entire image cache to be cleared.\r\n        // This is used by hot reload mode to clear out the cache of resources\r\n        // that have changed.\r\n        name: 'evict',\r\n        getter: () async => '',\r\n        setter: (String value) async {\r\n          evict(value);\r\n        },\r\n      );\r\n      return true;\r\n    }()");
+    }
+    evict(asset) {
+      asset_bundle.rootBundle.evict(asset);
+    }
+    readInitialLifecycleStateFromNativeWindow() {
+      if (this.lifecycleState != null) {
+        return;
+      }
+      let state = binding$0.ServicesBinding._parseAppLifecycleMessage(this.window.initialLifecycleState);
+      if (state != null) {
+        this.handleAppLifecycleStateChanged(state);
+      }
+    }
+    [_handleLifecycleMessage](message) {
+      return async.async(StringL(), (function* _handleLifecycleMessage() {
+        this.handleAppLifecycleStateChanged(binding$0.ServicesBinding._parseAppLifecycleMessage(message));
+        return null;
+      }).bind(this));
+    }
+  };
+  (binding$0.ServicesBinding[dart.mixinNew] = function() {
+    this[_defaultBinaryMessenger] = null;
+  }).prototype = binding$0.ServicesBinding.prototype;
+  dart.addTypeTests(binding$0.ServicesBinding);
+  dart.addTypeCaches(binding$0.ServicesBinding);
+  binding$0.ServicesBinding[dart.implements] = () => [binding.SchedulerBinding, binding$.BindingBase];
+  dart.setMethodSignature(binding$0.ServicesBinding, () => ({
+    __proto__: dart.getMethods(binding$0.ServicesBinding.__proto__),
+    initInstances: dart.fnType(dart.void, []),
+    createBinaryMessenger: dart.fnType(dart.legacy(binary_messenger.BinaryMessenger), []),
+    handleMemoryPressure: dart.fnType(dart.void, []),
+    handleSystemMessage: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.Object)]),
+    initLicenses: dart.fnType(dart.void, []),
+    [_addLicenses]: dart.fnType(dart.legacy(async.Stream$(dart.legacy(licenses$.LicenseEntry))), []),
+    initServiceExtensions: dart.fnType(dart.void, []),
+    evict: dart.fnType(dart.void, [dart.legacy(core.String)]),
+    readInitialLifecycleStateFromNativeWindow: dart.fnType(dart.void, []),
+    [_handleLifecycleMessage]: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.String))), [dart.legacy(core.String)])
+  }));
+  dart.setGetterSignature(binding$0.ServicesBinding, () => ({
+    __proto__: dart.getGetters(binding$0.ServicesBinding.__proto__),
+    defaultBinaryMessenger: dart.legacy(binary_messenger.BinaryMessenger)
+  }));
+  dart.setLibraryUri(binding$0.ServicesBinding, L8);
+  dart.setFieldSignature(binding$0.ServicesBinding, () => ({
+    __proto__: dart.getFields(binding$0.ServicesBinding.__proto__),
+    [_defaultBinaryMessenger]: dart.fieldType(dart.legacy(binary_messenger.BinaryMessenger))
+  }));
+  dart.defineLazy(binding$0.ServicesBinding, {
+    /*binding$0.ServicesBinding._instance*/get _instance() {
+      return null;
+    },
+    set _instance(_) {}
+  }, true);
+  var _sendPlatformMessage = dart.privateName(binding$0, "_sendPlatformMessage");
+  binary_messenger.BinaryMessenger = class BinaryMessenger extends core.Object {};
+  (binary_messenger.BinaryMessenger.new = function() {
+    ;
+  }).prototype = binary_messenger.BinaryMessenger.prototype;
+  dart.addTypeTests(binary_messenger.BinaryMessenger);
+  dart.addTypeCaches(binary_messenger.BinaryMessenger);
+  dart.setLibraryUri(binary_messenger.BinaryMessenger, L9);
+  binding$0._DefaultBinaryMessenger = class _DefaultBinaryMessenger extends binary_messenger.BinaryMessenger {
+    [_sendPlatformMessage](channel, message) {
+      let completer = CompleterOfByteDataL().new();
+      ui.window.sendPlatformMessage(channel, message, dart.fn(reply => {
+        try {
+          completer.complete(reply);
+        } catch (e) {
+          let exception = dart.getThrown(e);
+          let stack = dart.stackTrace(e);
+          assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: exception, stack: stack, library: "services library", context: new assertions.ErrorDescription.new("during a platform message response callback")}));
+        }
+      }, ByteDataLToNullN()));
+      return completer.future;
+    }
+    handlePlatformMessage(channel, data, callback) {
+      return async.async(dart.void, function* handlePlatformMessage() {
+        let response = null;
+        try {
+          let handler = binding$0._DefaultBinaryMessenger._handlers[$_get](channel);
+          if (handler != null) {
+            response = (yield handler(data));
+          } else {
+            ui.channelBuffers.push(channel, data, callback);
+            callback = null;
+          }
+        } catch (e) {
+          let exception = dart.getThrown(e);
+          let stack = dart.stackTrace(e);
+          assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: exception, stack: stack, library: "services library", context: new assertions.ErrorDescription.new("during a platform message callback")}));
+        } finally {
+          if (callback != null) {
+            callback(response);
+          }
+        }
+      });
+    }
+    send(channel, message) {
+      let handler = binding$0._DefaultBinaryMessenger._mockHandlers[$_get](channel);
+      if (handler != null) return handler(message);
+      return this[_sendPlatformMessage](channel, message);
+    }
+    setMessageHandler(channel, handler) {
+      if (handler == null)
+        binding$0._DefaultBinaryMessenger._handlers[$remove](channel);
+      else
+        binding$0._DefaultBinaryMessenger._handlers[$_set](channel, handler);
+      ui.channelBuffers.drain(channel, dart.fn((data, callback) => async.async(core.Null, (function*() {
+        yield this.handlePlatformMessage(channel, data, callback);
+      }).bind(this)), ByteDataLAndFnToFutureLOfNullN()));
+    }
+    checkMessageHandler(channel, handler) {
+      return dart.equals(binding$0._DefaultBinaryMessenger._handlers[$_get](channel), handler);
+    }
+    setMockMessageHandler(channel, handler) {
+      if (handler == null)
+        binding$0._DefaultBinaryMessenger._mockHandlers[$remove](channel);
+      else
+        binding$0._DefaultBinaryMessenger._mockHandlers[$_set](channel, handler);
+    }
+    checkMockMessageHandler(channel, handler) {
+      return dart.equals(binding$0._DefaultBinaryMessenger._mockHandlers[$_get](channel), handler);
+    }
+  };
+  (binding$0._DefaultBinaryMessenger.__ = function() {
+    binding$0._DefaultBinaryMessenger.__proto__.new.call(this);
+    ;
+  }).prototype = binding$0._DefaultBinaryMessenger.prototype;
+  dart.addTypeTests(binding$0._DefaultBinaryMessenger);
+  dart.addTypeCaches(binding$0._DefaultBinaryMessenger);
+  dart.setMethodSignature(binding$0._DefaultBinaryMessenger, () => ({
+    __proto__: dart.getMethods(binding$0._DefaultBinaryMessenger.__proto__),
+    [_sendPlatformMessage]: dart.fnType(dart.legacy(async.Future$(dart.legacy(typed_data.ByteData))), [dart.legacy(core.String), dart.legacy(typed_data.ByteData)]),
+    handlePlatformMessage: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.String), dart.legacy(typed_data.ByteData), dart.legacy(dart.fnType(dart.void, [dart.nullable(typed_data.ByteData)]))]),
+    send: dart.fnType(dart.legacy(async.Future$(dart.legacy(typed_data.ByteData))), [dart.legacy(core.String), dart.legacy(typed_data.ByteData)]),
+    setMessageHandler: dart.fnType(dart.void, [dart.legacy(core.String), dart.legacy(dart.fnType(dart.legacy(async.Future$(dart.legacy(typed_data.ByteData))), [dart.legacy(typed_data.ByteData)]))]),
+    checkMessageHandler: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.String), dart.legacy(dart.fnType(dart.legacy(async.Future$(dart.legacy(typed_data.ByteData))), [dart.legacy(typed_data.ByteData)]))]),
+    setMockMessageHandler: dart.fnType(dart.void, [dart.legacy(core.String), dart.legacy(dart.fnType(dart.legacy(async.Future$(dart.legacy(typed_data.ByteData))), [dart.legacy(typed_data.ByteData)]))]),
+    checkMockMessageHandler: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.String), dart.legacy(dart.fnType(dart.legacy(async.Future$(dart.legacy(typed_data.ByteData))), [dart.legacy(typed_data.ByteData)]))])
+  }));
+  dart.setLibraryUri(binding$0._DefaultBinaryMessenger, L8);
+  dart.defineLazy(binding$0._DefaultBinaryMessenger, {
+    /*binding$0._DefaultBinaryMessenger._handlers*/get _handlers() {
+      return new (IdentityMapOfStringL$ByteDataLToLFutureLOfByteDataL()).new();
+    },
+    /*binding$0._DefaultBinaryMessenger._mockHandlers*/get _mockHandlers() {
+      return new (IdentityMapOfStringL$ByteDataLToLFutureLOfByteDataL()).new();
+    }
+  }, true);
+  dart.copyProperties(binary_messenger, {
+    get defaultBinaryMessenger() {
+      if (!dart.test(dart.fn(() => {
+        if (binding$0.ServicesBinding.instance == null) {
+          dart.throw(assertions.FlutterError.new("ServicesBinding.defaultBinaryMessenger was accessed before the " + "binding was initialized.\n" + "If you're running an application and need to access the binary " + "messenger before `runApp()` has been called (for example, during " + "plugin initialization), then you need to explicitly call the " + "`WidgetsFlutterBinding.ensureInitialized()` first.\n" + "If you're running a test, you can call the " + "`TestWidgetsFlutterBinding.ensureInitialized()` as the first line in " + "your test's `main()` method to initialize the binding."));
+        }
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L10, 91, 10, "() {\r\n    if (ServicesBinding.instance == null) {\r\n      throw FlutterError(\r\n        'ServicesBinding.defaultBinaryMessenger was accessed before the '\r\n        'binding was initialized.\\n'\r\n        \"If you're running an application and need to access the binary \"\r\n        'messenger before `runApp()` has been called (for example, during '\r\n        'plugin initialization), then you need to explicitly call the '\r\n        '`WidgetsFlutterBinding.ensureInitialized()` first.\\n'\r\n        \"If you're running a test, you can call the \"\r\n        '`TestWidgetsFlutterBinding.ensureInitialized()` as the first line in '\r\n        \"your test's `main()` method to initialize the binding.\"\r\n      );\r\n    }\r\n    return true;\r\n  }()");
+      return binding$0.ServicesBinding.instance.defaultBinaryMessenger;
+    }
+  });
+  var C22;
+  asset_bundle.AssetBundle = class AssetBundle extends core.Object {
+    loadString(key, opts) {
+      let cache = opts && 'cache' in opts ? opts.cache : true;
+      return async.async(StringL(), (function* loadString() {
+        let data = (yield this.load(key));
+        if (data == null) dart.throw(assertions.FlutterError.new("Unable to load asset: " + dart.str(key)));
+        if (dart.notNull(data[$lengthInBytes]) < 10 * 1024) {
+          return convert.utf8.decode(data[$buffer][$asUint8List]());
+        }
+        return isolates.compute(ByteDataL(), StringL(), C22 || CT.C22, data, {debugLabel: "UTF8 decode for \"" + dart.str(key) + "\""});
+      }).bind(this));
+    }
+    static _utf8decode(data) {
+      return convert.utf8.decode(data[$buffer][$asUint8List]());
+    }
+    evict(key) {
+    }
+    toString() {
+      return dart.str(diagnostics.describeIdentity(this)) + "()";
+    }
+  };
+  (asset_bundle.AssetBundle.new = function() {
+    ;
+  }).prototype = asset_bundle.AssetBundle.prototype;
+  dart.addTypeTests(asset_bundle.AssetBundle);
+  dart.addTypeCaches(asset_bundle.AssetBundle);
+  dart.setMethodSignature(asset_bundle.AssetBundle, () => ({
+    __proto__: dart.getMethods(asset_bundle.AssetBundle.__proto__),
+    loadString: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.String))), [dart.legacy(core.String)], {cache: dart.legacy(core.bool)}, {}),
+    evict: dart.fnType(dart.void, [dart.legacy(core.String)]),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(asset_bundle.AssetBundle, L11);
+  dart.defineExtensionMethods(asset_bundle.AssetBundle, ['toString']);
+  var _baseUrl = dart.privateName(asset_bundle, "_baseUrl");
+  var _httpClient = dart.privateName(asset_bundle, "_httpClient");
+  var _urlFromKey = dart.privateName(asset_bundle, "_urlFromKey");
+  asset_bundle.NetworkAssetBundle = class NetworkAssetBundle extends asset_bundle.AssetBundle {
+    [_urlFromKey](key) {
+      return this[_baseUrl].resolve(key);
+    }
+    load(key) {
+      return async.async(ByteDataL(), (function* load() {
+        let request = (yield this[_httpClient].getUrl(this[_urlFromKey](key)));
+        let response = (yield request.close());
+        if (response.statusCode !== 200) dart.throw(new assertions.FlutterError.fromParts(JSArrayOfDiagnosticsNodeL().of([new assertions.ErrorSummary.new("Unable to load asset: " + dart.str(key)), new diagnostics.IntProperty.new("HTTP status code", response.statusCode)])));
+        let bytes = (yield consolidate_response.consolidateHttpClientResponseBytes(response));
+        return bytes[$buffer][$asByteData]();
+      }).bind(this));
+    }
+    loadStructuredData(T, key, parser) {
+      return async.async(dart.legacy(T), (function* loadStructuredData() {
+        if (!(key != null)) dart.assertFailed(null, L12, 136, 12, "key != null");
+        if (!(parser != null)) dart.assertFailed(null, L12, 137, 12, "parser != null");
+        return parser(yield this.loadString(key));
+      }).bind(this));
+    }
+    toString() {
+      return dart.str(diagnostics.describeIdentity(this)) + "(" + dart.str(this[_baseUrl]) + ")";
+    }
+  };
+  (asset_bundle.NetworkAssetBundle.new = function(baseUrl) {
+    this[_baseUrl] = baseUrl;
+    this[_httpClient] = _http.HttpClient.new();
+    ;
+  }).prototype = asset_bundle.NetworkAssetBundle.prototype;
+  dart.addTypeTests(asset_bundle.NetworkAssetBundle);
+  dart.addTypeCaches(asset_bundle.NetworkAssetBundle);
+  dart.setMethodSignature(asset_bundle.NetworkAssetBundle, () => ({
+    __proto__: dart.getMethods(asset_bundle.NetworkAssetBundle.__proto__),
+    [_urlFromKey]: dart.fnType(dart.legacy(core.Uri), [dart.legacy(core.String)]),
+    load: dart.fnType(dart.legacy(async.Future$(dart.legacy(typed_data.ByteData))), [dart.legacy(core.String)]),
+    loadStructuredData: dart.gFnType(T => [dart.legacy(async.Future$(dart.legacy(T))), [dart.legacy(core.String), dart.legacy(dart.fnType(dart.legacy(async.Future$(dart.legacy(T))), [dart.legacy(core.String)]))]])
+  }));
+  dart.setLibraryUri(asset_bundle.NetworkAssetBundle, L11);
+  dart.setFieldSignature(asset_bundle.NetworkAssetBundle, () => ({
+    __proto__: dart.getFields(asset_bundle.NetworkAssetBundle.__proto__),
+    [_baseUrl]: dart.finalFieldType(dart.legacy(core.Uri)),
+    [_httpClient]: dart.finalFieldType(dart.legacy(_http.HttpClient))
+  }));
+  dart.defineExtensionMethods(asset_bundle.NetworkAssetBundle, ['toString']);
+  var _stringCache = dart.privateName(asset_bundle, "_stringCache");
+  var _structuredDataCache = dart.privateName(asset_bundle, "_structuredDataCache");
+  asset_bundle.CachingAssetBundle = class CachingAssetBundle extends asset_bundle.AssetBundle {
+    loadString(key, opts) {
+      let cache = opts && 'cache' in opts ? opts.cache : true;
+      if (dart.test(cache)) return this[_stringCache][$putIfAbsent](key, dart.fn(() => super.loadString(key), VoidToFutureLOfStringL()));
+      return super.loadString(key);
+    }
+    loadStructuredData(T, key, parser) {
+      if (!(key != null)) dart.assertFailed(null, L12, 180, 12, "key != null");
+      if (!(parser != null)) dart.assertFailed(null, L12, 181, 12, "parser != null");
+      if (dart.test(this[_structuredDataCache][$containsKey](key))) return dart.legacy(async.Future$(dart.legacy(T))).as(this[_structuredDataCache][$_get](key));
+      let completer = null;
+      let result = null;
+      this.loadString(key, {cache: false}).then(dart.legacy(T), parser).then(dart.void, dart.fn(value => {
+        result = new (synchronous_future.SynchronousFuture$(dart.legacy(T))).new(value);
+        this[_structuredDataCache][$_set](key, result);
+        if (completer != null) {
+          completer.complete(value);
+        }
+      }, dart.fnType(core.Null, [dart.legacy(T)])));
+      if (result != null) {
+        return result;
+      }
+      completer = async.Completer$(dart.legacy(T)).new();
+      this[_structuredDataCache][$_set](key, completer.future);
+      return completer.future;
+    }
+    evict(key) {
+      this[_stringCache][$remove](key);
+      this[_structuredDataCache][$remove](key);
+    }
+  };
+  (asset_bundle.CachingAssetBundle.new = function() {
+    this[_stringCache] = new (IdentityMapOfStringL$FutureLOfStringL()).new();
+    this[_structuredDataCache] = new (IdentityMapOfStringL$FutureL()).new();
+    ;
+  }).prototype = asset_bundle.CachingAssetBundle.prototype;
+  dart.addTypeTests(asset_bundle.CachingAssetBundle);
+  dart.addTypeCaches(asset_bundle.CachingAssetBundle);
+  dart.setMethodSignature(asset_bundle.CachingAssetBundle, () => ({
+    __proto__: dart.getMethods(asset_bundle.CachingAssetBundle.__proto__),
+    loadStructuredData: dart.gFnType(T => [dart.legacy(async.Future$(dart.legacy(T))), [dart.legacy(core.String), dart.legacy(dart.fnType(dart.legacy(async.Future$(dart.legacy(T))), [dart.legacy(core.String)]))]])
+  }));
+  dart.setLibraryUri(asset_bundle.CachingAssetBundle, L11);
+  dart.setFieldSignature(asset_bundle.CachingAssetBundle, () => ({
+    __proto__: dart.getFields(asset_bundle.CachingAssetBundle.__proto__),
+    [_stringCache]: dart.finalFieldType(dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(async.Future$(dart.legacy(core.String)))))),
+    [_structuredDataCache]: dart.finalFieldType(dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(async.Future))))
+  }));
+  asset_bundle.PlatformAssetBundle = class PlatformAssetBundle extends asset_bundle.CachingAssetBundle {
+    load(key) {
+      return async.async(ByteDataL(), function* load() {
+        let encoded = convert.utf8.encoder.convert(core._Uri.new({path: core.Uri.encodeFull(key)}).path);
+        let asset = (yield binary_messenger.defaultBinaryMessenger.send("flutter/assets", encoded[$buffer][$asByteData]()));
+        if (asset == null) dart.throw(assertions.FlutterError.new("Unable to load asset: " + dart.str(key)));
+        return asset;
+      });
+    }
+  };
+  (asset_bundle.PlatformAssetBundle.new = function() {
+    asset_bundle.PlatformAssetBundle.__proto__.new.call(this);
+    ;
+  }).prototype = asset_bundle.PlatformAssetBundle.prototype;
+  dart.addTypeTests(asset_bundle.PlatformAssetBundle);
+  dart.addTypeCaches(asset_bundle.PlatformAssetBundle);
+  dart.setMethodSignature(asset_bundle.PlatformAssetBundle, () => ({
+    __proto__: dart.getMethods(asset_bundle.PlatformAssetBundle.__proto__),
+    load: dart.fnType(dart.legacy(async.Future$(dart.legacy(typed_data.ByteData))), [dart.legacy(core.String)])
+  }));
+  dart.setLibraryUri(asset_bundle.PlatformAssetBundle, L11);
+  asset_bundle._initRootBundle = function _initRootBundle() {
+    return new asset_bundle.PlatformAssetBundle.new();
+  };
+  dart.defineLazy(asset_bundle, {
+    /*asset_bundle.rootBundle*/get rootBundle() {
+      return asset_bundle._initRootBundle();
+    }
+  }, true);
+  dart.trackLibraries("packages/flutter/src/services/platform_channel.dart", {
+    "package:flutter/src/services/platform_channel.dart": platform_channel,
+    "package:flutter/src/services/message_codec.dart": message_codec,
+    "package:flutter/src/services/message_codecs.dart": message_codecs,
+    "package:flutter/src/services/system_channels.dart": system_channels,
+    "package:flutter/src/services/binding.dart": binding$0,
+    "package:flutter/src/services/binary_messenger.dart": binary_messenger,
+    "package:flutter/src/services/asset_bundle.dart": asset_bundle
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["platform_channel.dart","message_codec.dart","message_codecs.dart","system_channels.dart","binding.dart","binary_messenger.dart","asset_bundle.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/flutter/src/services/platform_channel.dart.lib.js"}');
+  // Exports:
+  return {
+    src__services__platform_channel: platform_channel,
+    src__services__message_codec: message_codec,
+    src__services__message_codecs: message_codecs,
+    src__services__system_channels: system_channels,
+    src__services__binding: binding$0,
+    src__services__binary_messenger: binary_messenger,
+    src__services__asset_bundle: asset_bundle
+  };
+}));
+
+//# sourceMappingURL=platform_channel.dart.lib.js.map

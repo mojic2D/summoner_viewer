@@ -1,0 +1,437 @@
+define(['dart_sdk', 'packages/flutter/src/gestures/constants.dart', 'packages/flutter/src/gestures/recognizer.dart', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/gestures/arena.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__gestures__tap_dart(dart_sdk, packages__flutter__src__gestures__constants$46dart, packages__flutter__src__gestures__recognizer$46dart, packages__flutter__src__gestures__events$46dart, packages__flutter__src__gestures__arena$46dart, packages__flutter__src__foundation__debug$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const constants = packages__flutter__src__gestures__constants$46dart.src__gestures__constants;
+  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const arena = packages__flutter__src__gestures__arena$46dart.src__gestures__arena;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  var tap = Object.create(dart.library);
+  var PointerUpEventL = () => (PointerUpEventL = dart.constFn(dart.legacy(events.PointerUpEvent)))();
+  var PointerCancelEventL = () => (PointerCancelEventL = dart.constFn(dart.legacy(events.PointerCancelEvent)))();
+  var OffsetL = () => (OffsetL = dart.constFn(dart.legacy(ui.Offset)))();
+  var DiagnosticsPropertyOfOffsetL = () => (DiagnosticsPropertyOfOffsetL = dart.constFn(diagnostics.DiagnosticsProperty$(OffsetL())))();
+  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
+  var DiagnosticsPropertyOfintL = () => (DiagnosticsPropertyOfintL = dart.constFn(diagnostics.DiagnosticsProperty$(intL())))();
+  var VoidTovoid = () => (VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))();
+  const CT = Object.create(null);
+  var L0 = "file:///C:/flutter/packages/flutter/lib/src/gestures/tap.dart";
+  var L1 = "package:flutter/src/gestures/tap.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 0,
+        [OffsetBase__dx]: 0
+      });
+    }
+  }, false);
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  var C0;
+  var globalPosition$ = dart.privateName(tap, "TapDownDetails.globalPosition");
+  var kind$ = dart.privateName(tap, "TapDownDetails.kind");
+  var localPosition$ = dart.privateName(tap, "TapDownDetails.localPosition");
+  tap.TapDownDetails = class TapDownDetails extends core.Object {
+    get globalPosition() {
+      return this[globalPosition$];
+    }
+    set globalPosition(value) {
+      super.globalPosition = value;
+    }
+    get kind() {
+      return this[kind$];
+    }
+    set kind(value) {
+      super.kind = value;
+    }
+    get localPosition() {
+      return this[localPosition$];
+    }
+    set localPosition(value) {
+      super.localPosition = value;
+    }
+  };
+  (tap.TapDownDetails.new = function(opts) {
+    let t0;
+    let globalPosition = opts && 'globalPosition' in opts ? opts.globalPosition : C0 || CT.C0;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let kind = opts && 'kind' in opts ? opts.kind : null;
+    this[globalPosition$] = globalPosition;
+    this[kind$] = kind;
+    if (!(globalPosition != null)) dart.assertFailed(null, L0, 29, 15, "globalPosition != null");
+    this[localPosition$] = (t0 = localPosition, t0 == null ? globalPosition : t0);
+    ;
+  }).prototype = tap.TapDownDetails.prototype;
+  dart.addTypeTests(tap.TapDownDetails);
+  dart.addTypeCaches(tap.TapDownDetails);
+  dart.setLibraryUri(tap.TapDownDetails, L1);
+  dart.setFieldSignature(tap.TapDownDetails, () => ({
+    __proto__: dart.getFields(tap.TapDownDetails.__proto__),
+    globalPosition: dart.finalFieldType(dart.legacy(ui.Offset)),
+    kind: dart.finalFieldType(dart.legacy(ui.PointerDeviceKind)),
+    localPosition: dart.finalFieldType(dart.legacy(ui.Offset))
+  }));
+  var globalPosition$0 = dart.privateName(tap, "TapUpDetails.globalPosition");
+  var localPosition$0 = dart.privateName(tap, "TapUpDetails.localPosition");
+  tap.TapUpDetails = class TapUpDetails extends core.Object {
+    get globalPosition() {
+      return this[globalPosition$0];
+    }
+    set globalPosition(value) {
+      super.globalPosition = value;
+    }
+    get localPosition() {
+      return this[localPosition$0];
+    }
+    set localPosition(value) {
+      super.localPosition = value;
+    }
+  };
+  (tap.TapUpDetails.new = function(opts) {
+    let t0;
+    let globalPosition = opts && 'globalPosition' in opts ? opts.globalPosition : C0 || CT.C0;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    this[globalPosition$0] = globalPosition;
+    if (!(globalPosition != null)) dart.assertFailed(null, L0, 65, 15, "globalPosition != null");
+    this[localPosition$0] = (t0 = localPosition, t0 == null ? globalPosition : t0);
+    ;
+  }).prototype = tap.TapUpDetails.prototype;
+  dart.addTypeTests(tap.TapUpDetails);
+  dart.addTypeCaches(tap.TapUpDetails);
+  dart.setLibraryUri(tap.TapUpDetails, L1);
+  dart.setFieldSignature(tap.TapUpDetails, () => ({
+    __proto__: dart.getFields(tap.TapUpDetails.__proto__),
+    globalPosition: dart.finalFieldType(dart.legacy(ui.Offset)),
+    localPosition: dart.finalFieldType(dart.legacy(ui.Offset))
+  }));
+  var _sentTapDown = dart.privateName(tap, "_sentTapDown");
+  var _wonArenaForPrimaryPointer = dart.privateName(tap, "_wonArenaForPrimaryPointer");
+  var _down = dart.privateName(tap, "_down");
+  var _up = dart.privateName(tap, "_up");
+  var _checkUp = dart.privateName(tap, "_checkUp");
+  var _checkCancel = dart.privateName(tap, "_checkCancel");
+  var _reset = dart.privateName(tap, "_reset");
+  var _checkDown = dart.privateName(tap, "_checkDown");
+  tap.BaseTapGestureRecognizer = class BaseTapGestureRecognizer extends recognizer.PrimaryPointerGestureRecognizer {
+    addAllowedPointer(event) {
+      if (!(event != null)) dart.assertFailed(null, L0, 189, 12, "event != null");
+      if (this.state == recognizer.GestureRecognizerState.ready) {
+        this[_down] = event;
+      }
+      if (this[_down] != null) {
+        super.addAllowedPointer(event);
+      }
+    }
+    startTrackingPointer(pointer, transform = null) {
+      if (!(this[_down] != null)) dart.assertFailed(null, L0, 211, 12, "_down != null");
+      super.startTrackingPointer(pointer, transform);
+    }
+    handlePrimaryPointer(event) {
+      if (PointerUpEventL().is(event)) {
+        this[_up] = event;
+        this[_checkUp]();
+      } else if (PointerCancelEventL().is(event)) {
+        this.resolve(arena.GestureDisposition.rejected);
+        if (dart.test(this[_sentTapDown])) {
+          this[_checkCancel](event, "");
+        }
+        this[_reset]();
+      } else if (event.buttons != this[_down].buttons) {
+        this.resolve(arena.GestureDisposition.rejected);
+        this.stopTrackingPointer(this.primaryPointer);
+      }
+    }
+    resolve(disposition) {
+      if (dart.test(this[_wonArenaForPrimaryPointer]) && disposition == arena.GestureDisposition.rejected) {
+        if (!dart.test(this[_sentTapDown])) dart.assertFailed(null, L0, 238, 14, "_sentTapDown");
+        this[_checkCancel](null, "spontaneous");
+        this[_reset]();
+      }
+      super.resolve(disposition);
+    }
+    didExceedDeadline() {
+      this[_checkDown]();
+    }
+    acceptGesture(pointer) {
+      super.acceptGesture(pointer);
+      if (pointer == this.primaryPointer) {
+        this[_checkDown]();
+        this[_wonArenaForPrimaryPointer] = true;
+        this[_checkUp]();
+      }
+    }
+    rejectGesture(pointer) {
+      super.rejectGesture(pointer);
+      if (pointer == this.primaryPointer) {
+        if (!(this.state != recognizer.GestureRecognizerState.possible)) dart.assertFailed(null, L0, 265, 14, "state != GestureRecognizerState.possible");
+        if (dart.test(this[_sentTapDown])) this[_checkCancel](null, "forced");
+        this[_reset]();
+      }
+    }
+    [_checkDown]() {
+      if (dart.test(this[_sentTapDown])) {
+        return;
+      }
+      this.handleTapDown({down: this[_down]});
+      this[_sentTapDown] = true;
+    }
+    [_checkUp]() {
+      if (!dart.test(this[_wonArenaForPrimaryPointer]) || this[_up] == null) {
+        return;
+      }
+      this.handleTapUp({down: this[_down], up: this[_up]});
+      this[_reset]();
+    }
+    [_checkCancel](event, note) {
+      this.handleTapCancel({down: this[_down], cancel: event, reason: note});
+    }
+    [_reset]() {
+      this[_sentTapDown] = false;
+      this[_wonArenaForPrimaryPointer] = false;
+      this[_up] = null;
+      this[_down] = null;
+    }
+    get debugDescription() {
+      return "base tap";
+    }
+    debugFillProperties(properties) {
+      let t0, t0$, t0$0, t0$1;
+      super.debugFillProperties(properties);
+      properties.add(new diagnostics.FlagProperty.new("wonArenaForPrimaryPointer", {value: this[_wonArenaForPrimaryPointer], ifTrue: "won arena"}));
+      properties.add(new (DiagnosticsPropertyOfOffsetL()).new("finalPosition", (t0 = this[_up], t0 == null ? null : t0.position), {defaultValue: null}));
+      properties.add(new (DiagnosticsPropertyOfOffsetL()).new("finalLocalPosition", (t0$ = this[_up], t0$ == null ? null : t0$.localPosition), {defaultValue: (t0$0 = this[_up], t0$0 == null ? null : t0$0.position)}));
+      properties.add(new (DiagnosticsPropertyOfintL()).new("button", (t0$1 = this[_down], t0$1 == null ? null : t0$1.buttons), {defaultValue: null}));
+      properties.add(new diagnostics.FlagProperty.new("sentTapDown", {value: this[_sentTapDown], ifTrue: "sent tap down"}));
+    }
+  };
+  (tap.BaseTapGestureRecognizer.new = function(opts) {
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    this[_sentTapDown] = false;
+    this[_wonArenaForPrimaryPointer] = false;
+    this[_down] = null;
+    this[_up] = null;
+    tap.BaseTapGestureRecognizer.__proto__.new.call(this, {deadline: constants.kPressTimeout, debugOwner: debugOwner});
+    ;
+  }).prototype = tap.BaseTapGestureRecognizer.prototype;
+  dart.addTypeTests(tap.BaseTapGestureRecognizer);
+  dart.addTypeCaches(tap.BaseTapGestureRecognizer);
+  dart.setMethodSignature(tap.BaseTapGestureRecognizer, () => ({
+    __proto__: dart.getMethods(tap.BaseTapGestureRecognizer.__proto__),
+    handlePrimaryPointer: dart.fnType(dart.void, [dart.legacy(events.PointerEvent)]),
+    [_checkDown]: dart.fnType(dart.void, []),
+    [_checkUp]: dart.fnType(dart.void, []),
+    [_checkCancel]: dart.fnType(dart.void, [dart.legacy(events.PointerCancelEvent), dart.legacy(core.String)]),
+    [_reset]: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(tap.BaseTapGestureRecognizer, () => ({
+    __proto__: dart.getGetters(tap.BaseTapGestureRecognizer.__proto__),
+    debugDescription: dart.legacy(core.String)
+  }));
+  dart.setLibraryUri(tap.BaseTapGestureRecognizer, L1);
+  dart.setFieldSignature(tap.BaseTapGestureRecognizer, () => ({
+    __proto__: dart.getFields(tap.BaseTapGestureRecognizer.__proto__),
+    [_sentTapDown]: dart.fieldType(dart.legacy(core.bool)),
+    [_wonArenaForPrimaryPointer]: dart.fieldType(dart.legacy(core.bool)),
+    [_down]: dart.fieldType(dart.legacy(events.PointerDownEvent)),
+    [_up]: dart.fieldType(dart.legacy(events.PointerUpEvent))
+  }));
+  var onTapDown = dart.privateName(tap, "TapGestureRecognizer.onTapDown");
+  var onTapUp = dart.privateName(tap, "TapGestureRecognizer.onTapUp");
+  var onTap = dart.privateName(tap, "TapGestureRecognizer.onTap");
+  var onTapCancel = dart.privateName(tap, "TapGestureRecognizer.onTapCancel");
+  var onSecondaryTap = dart.privateName(tap, "TapGestureRecognizer.onSecondaryTap");
+  var onSecondaryTapDown = dart.privateName(tap, "TapGestureRecognizer.onSecondaryTapDown");
+  var onSecondaryTapUp = dart.privateName(tap, "TapGestureRecognizer.onSecondaryTapUp");
+  var onSecondaryTapCancel = dart.privateName(tap, "TapGestureRecognizer.onSecondaryTapCancel");
+  tap.TapGestureRecognizer = class TapGestureRecognizer extends tap.BaseTapGestureRecognizer {
+    get onTapDown() {
+      return this[onTapDown];
+    }
+    set onTapDown(value) {
+      this[onTapDown] = value;
+    }
+    get onTapUp() {
+      return this[onTapUp];
+    }
+    set onTapUp(value) {
+      this[onTapUp] = value;
+    }
+    get onTap() {
+      return this[onTap];
+    }
+    set onTap(value) {
+      this[onTap] = value;
+    }
+    get onTapCancel() {
+      return this[onTapCancel];
+    }
+    set onTapCancel(value) {
+      this[onTapCancel] = value;
+    }
+    get onSecondaryTap() {
+      return this[onSecondaryTap];
+    }
+    set onSecondaryTap(value) {
+      this[onSecondaryTap] = value;
+    }
+    get onSecondaryTapDown() {
+      return this[onSecondaryTapDown];
+    }
+    set onSecondaryTapDown(value) {
+      this[onSecondaryTapDown] = value;
+    }
+    get onSecondaryTapUp() {
+      return this[onSecondaryTapUp];
+    }
+    set onSecondaryTapUp(value) {
+      this[onSecondaryTapUp] = value;
+    }
+    get onSecondaryTapCancel() {
+      return this[onSecondaryTapCancel];
+    }
+    set onSecondaryTapCancel(value) {
+      this[onSecondaryTapCancel] = value;
+    }
+    isPointerAllowed(event) {
+      switch (event.buttons) {
+        case 1:
+        {
+          if (this.onTapDown == null && this.onTap == null && this.onTapUp == null && this.onTapCancel == null) return false;
+          break;
+        }
+        case 2:
+        {
+          if (this.onSecondaryTap == null && this.onSecondaryTapDown == null && this.onSecondaryTapUp == null && this.onSecondaryTapCancel == null) return false;
+          break;
+        }
+        default:
+        {
+          return false;
+        }
+      }
+      return super.isPointerAllowed(event);
+    }
+    handleTapDown(opts) {
+      let down = opts && 'down' in opts ? opts.down : null;
+      let details = new tap.TapDownDetails.new({globalPosition: down.position, localPosition: down.localPosition, kind: this.getKindForPointer(down.pointer)});
+      switch (down.buttons) {
+        case 1:
+        {
+          if (this.onTapDown != null) this.invokeCallback(dart.void, "onTapDown", dart.fn(() => {
+            let t0;
+            t0 = details;
+            return this.onTapDown(t0);
+          }, VoidTovoid()));
+          break;
+        }
+        case 2:
+        {
+          if (this.onSecondaryTapDown != null) this.invokeCallback(dart.void, "onSecondaryTapDown", dart.fn(() => {
+            let t0;
+            t0 = details;
+            return this.onSecondaryTapDown(t0);
+          }, VoidTovoid()));
+          break;
+        }
+        default:
+      }
+    }
+    handleTapUp(opts) {
+      let down = opts && 'down' in opts ? opts.down : null;
+      let up = opts && 'up' in opts ? opts.up : null;
+      let details = new tap.TapUpDetails.new({globalPosition: up.position, localPosition: up.localPosition});
+      switch (down.buttons) {
+        case 1:
+        {
+          if (this.onTapUp != null) this.invokeCallback(dart.void, "onTapUp", dart.fn(() => {
+            let t0;
+            t0 = details;
+            return this.onTapUp(t0);
+          }, VoidTovoid()));
+          if (this.onTap != null) this.invokeCallback(dart.void, "onTap", this.onTap);
+          break;
+        }
+        case 2:
+        {
+          if (this.onSecondaryTapUp != null) this.invokeCallback(dart.void, "onSecondaryTapUp", dart.fn(() => {
+            let t0;
+            t0 = details;
+            return this.onSecondaryTapUp(t0);
+          }, VoidTovoid()));
+          if (this.onSecondaryTap != null) this.invokeCallback(dart.void, "onSecondaryTap", dart.fn(() => this.onSecondaryTap(), VoidTovoid()));
+          break;
+        }
+        default:
+      }
+    }
+    handleTapCancel(opts) {
+      let down = opts && 'down' in opts ? opts.down : null;
+      let cancel = opts && 'cancel' in opts ? opts.cancel : null;
+      let reason = opts && 'reason' in opts ? opts.reason : null;
+      let note = reason === "" ? reason : dart.str(reason) + " ";
+      switch (down.buttons) {
+        case 1:
+        {
+          if (this.onTapCancel != null) this.invokeCallback(dart.void, dart.str(note) + "onTapCancel", this.onTapCancel);
+          break;
+        }
+        case 2:
+        {
+          if (this.onSecondaryTapCancel != null) this.invokeCallback(dart.void, dart.str(note) + "onSecondaryTapCancel", this.onSecondaryTapCancel);
+          break;
+        }
+        default:
+      }
+    }
+    get debugDescription() {
+      return "tap";
+    }
+  };
+  (tap.TapGestureRecognizer.new = function(opts) {
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    this[onTapDown] = null;
+    this[onTapUp] = null;
+    this[onTap] = null;
+    this[onTapCancel] = null;
+    this[onSecondaryTap] = null;
+    this[onSecondaryTapDown] = null;
+    this[onSecondaryTapUp] = null;
+    this[onSecondaryTapCancel] = null;
+    tap.TapGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner});
+    ;
+  }).prototype = tap.TapGestureRecognizer.prototype;
+  dart.addTypeTests(tap.TapGestureRecognizer);
+  dart.addTypeCaches(tap.TapGestureRecognizer);
+  dart.setMethodSignature(tap.TapGestureRecognizer, () => ({
+    __proto__: dart.getMethods(tap.TapGestureRecognizer.__proto__),
+    handleTapDown: dart.fnType(dart.void, [], {down: dart.legacy(events.PointerDownEvent)}, {}),
+    handleTapUp: dart.fnType(dart.void, [], {down: dart.legacy(events.PointerDownEvent), up: dart.legacy(events.PointerUpEvent)}, {}),
+    handleTapCancel: dart.fnType(dart.void, [], {cancel: dart.legacy(events.PointerCancelEvent), down: dart.legacy(events.PointerDownEvent), reason: dart.legacy(core.String)}, {})
+  }));
+  dart.setLibraryUri(tap.TapGestureRecognizer, L1);
+  dart.setFieldSignature(tap.TapGestureRecognizer, () => ({
+    __proto__: dart.getFields(tap.TapGestureRecognizer.__proto__),
+    onTapDown: dart.fieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(tap.TapDownDetails)]))),
+    onTapUp: dart.fieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(tap.TapUpDetails)]))),
+    onTap: dart.fieldType(dart.legacy(dart.fnType(dart.void, []))),
+    onTapCancel: dart.fieldType(dart.legacy(dart.fnType(dart.void, []))),
+    onSecondaryTap: dart.fieldType(dart.legacy(dart.fnType(dart.void, []))),
+    onSecondaryTapDown: dart.fieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(tap.TapDownDetails)]))),
+    onSecondaryTapUp: dart.fieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(tap.TapUpDetails)]))),
+    onSecondaryTapCancel: dart.fieldType(dart.legacy(dart.fnType(dart.void, [])))
+  }));
+  dart.trackLibraries("packages/flutter/src/gestures/tap.dart", {
+    "package:flutter/src/gestures/tap.dart": tap
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["tap.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/flutter/src/gestures/tap.dart.lib.js"}');
+  // Exports:
+  return {
+    src__gestures__tap: tap
+  };
+}));
+
+//# sourceMappingURL=tap.dart.lib.js.map

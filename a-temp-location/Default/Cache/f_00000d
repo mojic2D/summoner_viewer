@@ -1,0 +1,876 @@
+define(['dart_sdk', 'packages/flutter/src/foundation/debug.dart', 'packages/collection/src/priority_queue.dart', 'packages/flutter/src/foundation/print.dart', 'packages/flutter/src/scheduler/debug.dart', 'packages/flutter/src/foundation/binding.dart', 'packages/flutter/src/scheduler/priority.dart'], (function load__packages__flutter__src__scheduler__binding_dart(dart_sdk, packages__flutter__src__foundation__debug$46dart, packages__collection__src__priority_queue$46dart, packages__flutter__src__foundation__print$46dart, packages__flutter__src__scheduler__debug$46dart, packages__flutter__src__foundation__binding$46dart, packages__flutter__src__scheduler__priority$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const developer = dart_sdk.developer;
+  const _interceptors = dart_sdk._interceptors;
+  const ui = dart_sdk.ui;
+  const _js_helper = dart_sdk._js_helper;
+  const collection = dart_sdk.collection;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const debug = packages__flutter__src__foundation__debug$46dart.src__foundation__debug;
+  const priority_queue = packages__collection__src__priority_queue$46dart.src__priority_queue;
+  const print = packages__flutter__src__foundation__print$46dart.src__foundation__print;
+  const debug$ = packages__flutter__src__scheduler__debug$46dart.src__scheduler__debug;
+  const binding = packages__flutter__src__foundation__binding$46dart.src__foundation__binding;
+  const priority$ = packages__flutter__src__scheduler__priority$46dart.src__scheduler__priority;
+  var binding$ = Object.create(dart.library);
+  var $toString = dartx.toString;
+  var $add = dartx.add;
+  var $length = dartx.length;
+  var $contains = dartx.contains;
+  var $remove = dartx.remove;
+  var $isEmpty = dartx.isEmpty;
+  var $compareTo = dartx.compareTo;
+  var $_set = dartx._set;
+  var $keys = dartx.keys;
+  var $_get = dartx._get;
+  var $trimRight = dartx.trimRight;
+  var $split = dartx.split;
+  var $join = dartx.join;
+  var $round = dartx.round;
+  var $padRight = dartx.padRight;
+  var $padLeft = dartx.padLeft;
+  var $forEach = dartx.forEach;
+  var $clear = dartx.clear;
+  var $times = dartx['*'];
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
+  var VoidToboolL = () => (VoidToboolL = dart.constFn(dart.fnType(boolL(), [])))();
+  var VoidToNullN = () => (VoidToNullN = dart.constFn(dart.fnType(core.Null, [])))();
+  var DiagnosticsNodeL = () => (DiagnosticsNodeL = dart.constFn(dart.legacy(diagnostics.DiagnosticsNode)))();
+  var JSArrayOfDiagnosticsNodeL = () => (JSArrayOfDiagnosticsNodeL = dart.constFn(_interceptors.JSArray$(DiagnosticsNodeL())))();
+  var SchedulerPhaseL = () => (SchedulerPhaseL = dart.constFn(dart.legacy(binding$.SchedulerPhase)))();
+  var ListOfFrameTiming = () => (ListOfFrameTiming = dart.constFn(core.List$(ui.FrameTiming)))();
+  var ListOfFrameTimingTovoid = () => (ListOfFrameTimingTovoid = dart.constFn(dart.fnType(dart.void, [ListOfFrameTiming()])))();
+  var ListOfFrameTimingToLvoid = () => (ListOfFrameTimingToLvoid = dart.constFn(dart.legacy(ListOfFrameTimingTovoid())))();
+  var JSArrayOfListOfFrameTimingToLvoid = () => (JSArrayOfListOfFrameTimingToLvoid = dart.constFn(_interceptors.JSArray$(ListOfFrameTimingToLvoid())))();
+  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
+  var SchedulerBindingL = () => (SchedulerBindingL = dart.constFn(dart.legacy(binding$.SchedulerBinding)))();
+  var __ToboolL = () => (__ToboolL = dart.constFn(dart.fnType(boolL(), [], {priority: intL(), scheduler: SchedulerBindingL()}, {})))();
+  var _TaskEntryL = () => (_TaskEntryL = dart.constFn(dart.legacy(binding$._TaskEntry)))();
+  var HeapPriorityQueueOf_TaskEntryL = () => (HeapPriorityQueueOf_TaskEntryL = dart.constFn(priority_queue.HeapPriorityQueue$(_TaskEntryL())))();
+  var _TaskEntryLAnd_TaskEntryLTointL = () => (_TaskEntryLAnd_TaskEntryLTointL = dart.constFn(dart.fnType(intL(), [_TaskEntryL(), _TaskEntryL()])))();
+  var _FrameCallbackEntryL = () => (_FrameCallbackEntryL = dart.constFn(dart.legacy(binding$._FrameCallbackEntry)))();
+  var IdentityMapOfintL$_FrameCallbackEntryL = () => (IdentityMapOfintL$_FrameCallbackEntryL = dart.constFn(_js_helper.IdentityMap$(intL(), _FrameCallbackEntryL())))();
+  var _IdentityHashSetOfintL = () => (_IdentityHashSetOfintL = dart.constFn(collection._IdentityHashSet$(intL())))();
+  var DurationL = () => (DurationL = dart.constFn(dart.legacy(core.Duration)))();
+  var DurationLTovoid = () => (DurationLTovoid = dart.constFn(dart.fnType(dart.void, [DurationL()])))();
+  var DurationLToLvoid = () => (DurationLToLvoid = dart.constFn(dart.legacy(DurationLTovoid())))();
+  var JSArrayOfDurationLToLvoid = () => (JSArrayOfDurationLToLvoid = dart.constFn(_interceptors.JSArray$(DurationLToLvoid())))();
+  var FrameTimingL = () => (FrameTimingL = dart.constFn(dart.legacy(ui.FrameTiming)))();
+  var ListOfFrameTimingL = () => (ListOfFrameTimingL = dart.constFn(core.List$(FrameTimingL())))();
+  var ListLOfFrameTimingL = () => (ListLOfFrameTimingL = dart.constFn(dart.legacy(ListOfFrameTimingL())))();
+  var ListLOfFrameTimingLToNullN = () => (ListLOfFrameTimingLToNullN = dart.constFn(dart.fnType(core.Null, [ListLOfFrameTimingL()])))();
+  var ListOfListOfFrameTimingToLvoid = () => (ListOfListOfFrameTimingToLvoid = dart.constFn(core.List$(ListOfFrameTimingToLvoid())))();
+  var DiagnosticsPropertyOfListOfFrameTimingToLvoid = () => (DiagnosticsPropertyOfListOfFrameTimingToLvoid = dart.constFn(diagnostics.DiagnosticsProperty$(ListOfFrameTimingToLvoid())))();
+  var SyncIterableOfDiagnosticsNodeL = () => (SyncIterableOfDiagnosticsNodeL = dart.constFn(_js_helper.SyncIterable$(DiagnosticsNodeL())))();
+  var IterableOfDiagnosticsNodeL = () => (IterableOfDiagnosticsNodeL = dart.constFn(core.Iterable$(DiagnosticsNodeL())))();
+  var IterableLOfDiagnosticsNodeL = () => (IterableLOfDiagnosticsNodeL = dart.constFn(dart.legacy(IterableOfDiagnosticsNodeL())))();
+  var VoidToIterableLOfDiagnosticsNodeL = () => (VoidToIterableLOfDiagnosticsNodeL = dart.constFn(dart.fnType(IterableLOfDiagnosticsNodeL(), [])))();
+  var doubleL = () => (doubleL = dart.constFn(dart.legacy(core.double)))();
+  var FutureOfdoubleL = () => (FutureOfdoubleL = dart.constFn(async.Future$(doubleL())))();
+  var FutureLOfdoubleL = () => (FutureLOfdoubleL = dart.constFn(dart.legacy(FutureOfdoubleL())))();
+  var VoidToFutureLOfdoubleL = () => (VoidToFutureLOfdoubleL = dart.constFn(dart.fnType(FutureLOfdoubleL(), [])))();
+  var FutureOfNullN = () => (FutureOfNullN = dart.constFn(async.Future$(core.Null)))();
+  var FutureLOfNullN = () => (FutureLOfNullN = dart.constFn(dart.legacy(FutureOfNullN())))();
+  var doubleLToFutureLOfNullN = () => (doubleLToFutureLOfNullN = dart.constFn(dart.fnType(FutureLOfNullN(), [doubleL()])))();
+  var LinkedHashMapOfintL$_FrameCallbackEntryL = () => (LinkedHashMapOfintL$_FrameCallbackEntryL = dart.constFn(collection.LinkedHashMap$(intL(), _FrameCallbackEntryL())))();
+  var CompleterOfvoid = () => (CompleterOfvoid = dart.constFn(async.Completer$(dart.void)))();
+  var DurationLToNullN = () => (DurationLToNullN = dart.constFn(dart.fnType(core.Null, [DurationL()])))();
+  var VoidToFutureLOfNullN = () => (VoidToFutureLOfNullN = dart.constFn(dart.fnType(FutureLOfNullN(), [])))();
+  var intLAnd_FrameCallbackEntryLToNullN = () => (intLAnd_FrameCallbackEntryLToNullN = dart.constFn(dart.fnType(core.Null, [intL(), _FrameCallbackEntryL()])))();
+  var ListOfDurationLToLvoid = () => (ListOfDurationLToLvoid = dart.constFn(core.List$(DurationLToLvoid())))();
+  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
+  var IdentityMapOfStringL$dynamic = () => (IdentityMapOfStringL$dynamic = dart.constFn(_js_helper.IdentityMap$(StringL(), dart.dynamic)))();
+  const CT = Object.create(null);
+  var L1 = "package:flutter/src/scheduler/binding.dart";
+  var L0 = "file:///C:/flutter/packages/flutter/lib/src/scheduler/binding.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: binding$.SchedulerPhase.prototype,
+        [_name$]: "SchedulerPhase.idle",
+        index: 0
+      });
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: binding$.SchedulerPhase.prototype,
+        [_name$]: "SchedulerPhase.transientCallbacks",
+        index: 1
+      });
+    },
+    get C2() {
+      return C2 = dart.const({
+        __proto__: binding$.SchedulerPhase.prototype,
+        [_name$]: "SchedulerPhase.midFrameMicrotasks",
+        index: 2
+      });
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: binding$.SchedulerPhase.prototype,
+        [_name$]: "SchedulerPhase.persistentCallbacks",
+        index: 3
+      });
+    },
+    get C4() {
+      return C4 = dart.const({
+        __proto__: binding$.SchedulerPhase.prototype,
+        [_name$]: "SchedulerPhase.postFrameCallbacks",
+        index: 4
+      });
+    },
+    get C5() {
+      return C5 = dart.constList([C0 || CT.C0, C1 || CT.C1, C2 || CT.C2, C3 || CT.C3, C4 || CT.C4], SchedulerPhaseL());
+    },
+    get C6() {
+      return C6 = dart.fn(binding$.defaultSchedulingStrategy, __ToboolL());
+    },
+    get C7() {
+      return C7 = dart.fn(binding$.SchedulerBinding._taskSorter, _TaskEntryLAnd_TaskEntryLTointL());
+    },
+    get C8() {
+      return C8 = dart.const({
+        __proto__: ui.AppLifecycleState.prototype,
+        [_name]: "AppLifecycleState.resumed",
+        index: 0
+      });
+    },
+    get C9() {
+      return C9 = dart.const({
+        __proto__: ui.AppLifecycleState.prototype,
+        [_name]: "AppLifecycleState.inactive",
+        index: 1
+      });
+    },
+    get C10() {
+      return C10 = dart.const({
+        __proto__: ui.AppLifecycleState.prototype,
+        [_name]: "AppLifecycleState.paused",
+        index: 2
+      });
+    },
+    get C11() {
+      return C11 = dart.const({
+        __proto__: ui.AppLifecycleState.prototype,
+        [_name]: "AppLifecycleState.detached",
+        index: 3
+      });
+    }
+  }, false);
+  const _is__TaskEntry_default = Symbol('_is__TaskEntry_default');
+  var completer = dart.privateName(binding$, "_TaskEntry.completer");
+  binding$._TaskEntry$ = dart.generic(T => {
+    var TL = () => (TL = dart.constFn(dart.legacy(T)))();
+    var CompleterOfTL = () => (CompleterOfTL = dart.constFn(async.Completer$(TL())))();
+    var CompleterLOfTL = () => (CompleterLOfTL = dart.constFn(dart.legacy(CompleterOfTL())))();
+    class _TaskEntry extends core.Object {
+      get completer() {
+        return this[completer];
+      }
+      set completer(value) {
+        this[completer] = CompleterLOfTL().as(value);
+      }
+      run() {
+        let t0;
+        if (!false) {
+          developer.Timeline.timeSync(core.Null, (t0 = this.debugLabel, t0 == null ? "Scheduled Task" : t0), dart.fn(() => {
+            this.completer.complete(this.task());
+          }, VoidToNullN()), {flow: this.flow != null ? developer.Flow.step(this.flow.id) : null});
+        } else {
+          this.completer.complete(this.task());
+        }
+      }
+    }
+    (_TaskEntry.new = function(task, priority, debugLabel, flow) {
+      this.debugStack = null;
+      this[completer] = null;
+      this.task = task;
+      this.priority = priority;
+      this.debugLabel = debugLabel;
+      this.flow = flow;
+      if (!dart.test(dart.fn(() => {
+        this.debugStack = core.StackTrace.current;
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L0, 64, 12, "() {\r\n      debugStack = StackTrace.current;\r\n      return true;\r\n    }()");
+      this.completer = CompleterOfTL().new();
+    }).prototype = _TaskEntry.prototype;
+    dart.addTypeTests(_TaskEntry);
+    _TaskEntry.prototype[_is__TaskEntry_default] = true;
+    dart.addTypeCaches(_TaskEntry);
+    dart.setMethodSignature(_TaskEntry, () => ({
+      __proto__: dart.getMethods(_TaskEntry.__proto__),
+      run: dart.fnType(dart.void, [])
+    }));
+    dart.setLibraryUri(_TaskEntry, L1);
+    dart.setFieldSignature(_TaskEntry, () => ({
+      __proto__: dart.getFields(_TaskEntry.__proto__),
+      task: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(T), []))),
+      priority: dart.finalFieldType(dart.legacy(core.int)),
+      debugLabel: dart.finalFieldType(dart.legacy(core.String)),
+      flow: dart.finalFieldType(dart.legacy(developer.Flow)),
+      debugStack: dart.fieldType(dart.legacy(core.StackTrace)),
+      completer: dart.fieldType(dart.legacy(async.Completer$(dart.legacy(T))))
+    }));
+    return _TaskEntry;
+  });
+  binding$._TaskEntry = binding$._TaskEntry$();
+  dart.addTypeTests(binding$._TaskEntry, _is__TaskEntry_default);
+  binding$._FrameCallbackEntry = class _FrameCallbackEntry extends core.Object {};
+  (binding$._FrameCallbackEntry.new = function(callback, opts) {
+    let rescheduling = opts && 'rescheduling' in opts ? opts.rescheduling : false;
+    this.debugStack = null;
+    this.callback = callback;
+    if (!dart.test(dart.fn(() => {
+      if (dart.test(rescheduling)) {
+        if (!dart.test(dart.fn(() => {
+          if (binding$._FrameCallbackEntry.debugCurrentCallbackStack == null) {
+            dart.throw(new assertions.FlutterError.fromParts(JSArrayOfDiagnosticsNodeL().of([new assertions.ErrorSummary.new("scheduleFrameCallback called with rescheduling true, but no callback is in scope."), new assertions.ErrorDescription.new("The \"rescheduling\" argument should only be set to true if the " + "callback is being reregistered from within the callback itself, " + "and only then if the callback itself is entirely synchronous."), new assertions.ErrorHint.new("If this is the initial registration of the callback, or if the " + "callback is asynchronous, then do not use the \"rescheduling\" " + "argument.")])));
+          }
+          return true;
+        }, VoidToboolL())())) dart.assertFailed(null, L0, 97, 16, "() {\r\n          if (debugCurrentCallbackStack == null) {\r\n            throw FlutterError.fromParts(<DiagnosticsNode>[\r\n              ErrorSummary('scheduleFrameCallback called with rescheduling true, but no callback is in scope.'),\r\n              ErrorDescription(\r\n                'The \"rescheduling\" argument should only be set to true if the '\r\n                'callback is being reregistered from within the callback itself, '\r\n                'and only then if the callback itself is entirely synchronous.'\r\n              ),\r\n              ErrorHint(\r\n                'If this is the initial registration of the callback, or if the '\r\n                'callback is asynchronous, then do not use the \"rescheduling\" '\r\n                'argument.'\r\n              )\r\n            ]);\r\n          }\r\n          return true;\r\n        }()");
+        this.debugStack = binding$._FrameCallbackEntry.debugCurrentCallbackStack;
+      } else {
+        this.debugStack = core.StackTrace.current;
+      }
+      return true;
+    }, VoidToboolL())())) dart.assertFailed(null, L0, 95, 12, "() {\r\n      if (rescheduling) {\r\n        assert(() {\r\n          if (debugCurrentCallbackStack == null) {\r\n            throw FlutterError.fromParts(<DiagnosticsNode>[\r\n              ErrorSummary('scheduleFrameCallback called with rescheduling true, but no callback is in scope.'),\r\n              ErrorDescription(\r\n                'The \"rescheduling\" argument should only be set to true if the '\r\n                'callback is being reregistered from within the callback itself, '\r\n                'and only then if the callback itself is entirely synchronous.'\r\n              ),\r\n              ErrorHint(\r\n                'If this is the initial registration of the callback, or if the '\r\n                'callback is asynchronous, then do not use the \"rescheduling\" '\r\n                'argument.'\r\n              )\r\n            ]);\r\n          }\r\n          return true;\r\n        }());\r\n        debugStack = debugCurrentCallbackStack;\r\n      } else {\r\n        // TODO(ianh): trim the frames from this library, so that the call to scheduleFrameCallback is the top one\r\n        debugStack = StackTrace.current;\r\n      }\r\n      return true;\r\n    }()");
+  }).prototype = binding$._FrameCallbackEntry.prototype;
+  dart.addTypeTests(binding$._FrameCallbackEntry);
+  dart.addTypeCaches(binding$._FrameCallbackEntry);
+  dart.setLibraryUri(binding$._FrameCallbackEntry, L1);
+  dart.setFieldSignature(binding$._FrameCallbackEntry, () => ({
+    __proto__: dart.getFields(binding$._FrameCallbackEntry.__proto__),
+    callback: dart.finalFieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(core.Duration)]))),
+    debugStack: dart.fieldType(dart.legacy(core.StackTrace))
+  }));
+  dart.defineLazy(binding$._FrameCallbackEntry, {
+    /*binding$._FrameCallbackEntry.debugCurrentCallbackStack*/get debugCurrentCallbackStack() {
+      return null;
+    },
+    set debugCurrentCallbackStack(_) {}
+  }, true);
+  var _name$ = dart.privateName(binding$, "_name");
+  var C0;
+  var C1;
+  var C2;
+  var C3;
+  var C4;
+  var C5;
+  binding$.SchedulerPhase = class SchedulerPhase extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (binding$.SchedulerPhase.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = binding$.SchedulerPhase.prototype;
+  dart.addTypeTests(binding$.SchedulerPhase);
+  dart.addTypeCaches(binding$.SchedulerPhase);
+  dart.setMethodSignature(binding$.SchedulerPhase, () => ({
+    __proto__: dart.getMethods(binding$.SchedulerPhase.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(binding$.SchedulerPhase, L1);
+  dart.setFieldSignature(binding$.SchedulerPhase, () => ({
+    __proto__: dart.getFields(binding$.SchedulerPhase.__proto__),
+    index: dart.finalFieldType(dart.legacy(core.int)),
+    [_name$]: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.defineExtensionMethods(binding$.SchedulerPhase, ['toString']);
+  binding$.SchedulerPhase.idle = C0 || CT.C0;
+  binding$.SchedulerPhase.transientCallbacks = C1 || CT.C1;
+  binding$.SchedulerPhase.midFrameMicrotasks = C2 || CT.C2;
+  binding$.SchedulerPhase.persistentCallbacks = C3 || CT.C3;
+  binding$.SchedulerPhase.postFrameCallbacks = C4 || CT.C4;
+  binding$.SchedulerPhase.values = C5 || CT.C5;
+  var _timingsCallbacks = dart.privateName(binding$, "_timingsCallbacks");
+  var _lifecycleState = dart.privateName(binding$, "_lifecycleState");
+  var C6;
+  var _taskQueue = dart.privateName(binding$, "_taskQueue");
+  var C7;
+  var _hasRequestedAnEventLoopCallback = dart.privateName(binding$, "_hasRequestedAnEventLoopCallback");
+  var _nextFrameCallbackId = dart.privateName(binding$, "_nextFrameCallbackId");
+  var _transientCallbacks = dart.privateName(binding$, "_transientCallbacks");
+  var _removedIds = dart.privateName(binding$, "_removedIds");
+  var _persistentCallbacks = dart.privateName(binding$, "_persistentCallbacks");
+  var _postFrameCallbacks = dart.privateName(binding$, "_postFrameCallbacks");
+  var _nextFrameCompleter = dart.privateName(binding$, "_nextFrameCompleter");
+  var _hasScheduledFrame = dart.privateName(binding$, "_hasScheduledFrame");
+  var _schedulerPhase = dart.privateName(binding$, "_schedulerPhase");
+  var _framesEnabled = dart.privateName(binding$, "_framesEnabled");
+  var _warmUpFrame = dart.privateName(binding$, "_warmUpFrame");
+  var _firstRawTimeStampInEpoch = dart.privateName(binding$, "_firstRawTimeStampInEpoch");
+  var _epochStart = dart.privateName(binding$, "_epochStart");
+  var _lastRawTimeStamp = dart.privateName(binding$, "_lastRawTimeStamp");
+  var _currentFrameTimeStamp = dart.privateName(binding$, "_currentFrameTimeStamp");
+  var _debugFrameNumber = dart.privateName(binding$, "_debugFrameNumber");
+  var _debugBanner = dart.privateName(binding$, "_debugBanner");
+  var _ignoreNextEngineDrawFrame = dart.privateName(binding$, "_ignoreNextEngineDrawFrame");
+  var _profileFramePostEvent = dart.privateName(binding$, "_profileFramePostEvent");
+  var _executeTimingsCallbacks = dart.privateName(binding$, "_executeTimingsCallbacks");
+  var _setFramesEnabledState = dart.privateName(binding$, "_setFramesEnabledState");
+  var _name = dart.privateName(ui, "_name");
+  var C8;
+  var C9;
+  var C10;
+  var C11;
+  var _ensureEventLoopCallback = dart.privateName(binding$, "_ensureEventLoopCallback");
+  var _runTasks = dart.privateName(binding$, "_runTasks");
+  var _handleBeginFrame = dart.privateName(binding$, "_handleBeginFrame");
+  var _handleDrawFrame = dart.privateName(binding$, "_handleDrawFrame");
+  var _adjustForEpoch = dart.privateName(binding$, "_adjustForEpoch");
+  var _invokeFrameCallback = dart.privateName(binding$, "_invokeFrameCallback");
+  var schedulingStrategy = dart.privateName(binding$, "SchedulerBinding.schedulingStrategy");
+  binding$.SchedulerBinding = class SchedulerBinding extends binding.BindingBase {
+    static get instance() {
+      return binding$.SchedulerBinding._instance;
+    }
+    static _taskSorter(e1, e2) {
+      return -e1.priority[$compareTo](e2.priority);
+    }
+    static debugPrintTransientCallbackRegistrationStack() {
+      if (!dart.test(dart.fn(() => {
+        if (binding$._FrameCallbackEntry.debugCurrentCallbackStack != null) {
+          print.debugPrint("When the current transient callback was registered, this was the stack:");
+          print.debugPrint(assertions.FlutterError.defaultStackFilter(dart.toString(assertions.FlutterError.demangleStackTrace(binding$._FrameCallbackEntry.debugCurrentCallbackStack))[$trimRight]()[$split]("\n"))[$join]("\n"));
+        } else {
+          print.debugPrint("No transient callback is currently executing.");
+        }
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L0, 619, 12, "() {\r\n      if (_FrameCallbackEntry.debugCurrentCallbackStack != null) {\r\n        debugPrint('When the current transient callback was registered, this was the stack:');\r\n        debugPrint(\r\n          FlutterError.defaultStackFilter(\r\n            FlutterError.demangleStackTrace(\r\n              _FrameCallbackEntry.debugCurrentCallbackStack,\r\n            ).toString().trimRight().split('\\n')\r\n          ).join('\\n')\r\n        );\r\n      } else {\r\n        debugPrint('No transient callback is currently executing.');\r\n      }\r\n      return true;\r\n    }()");
+    }
+    static _debugDescribeTimeStamp(timeStamp, buffer) {
+      if (dart.notNull(timeStamp.inDays) > 0) buffer.write(dart.str(timeStamp.inDays) + "d ");
+      if (dart.notNull(timeStamp.inHours) > 0) buffer.write(dart.str(dart.notNull(timeStamp.inHours) - dart.notNull(timeStamp.inDays) * 24) + "h ");
+      if (dart.notNull(timeStamp.inMinutes) > 0) buffer.write(dart.str(dart.notNull(timeStamp.inMinutes) - dart.notNull(timeStamp.inHours) * 60) + "m ");
+      if (dart.notNull(timeStamp.inSeconds) > 0) buffer.write(dart.str(dart.notNull(timeStamp.inSeconds) - dart.notNull(timeStamp.inMinutes) * 60) + "s ");
+      buffer.write(dart.str(dart.notNull(timeStamp.inMilliseconds) - dart.notNull(timeStamp.inSeconds) * 1000));
+      let microseconds = dart.notNull(timeStamp.inMicroseconds) - dart.notNull(timeStamp.inMilliseconds) * 1000;
+      if (microseconds > 0) buffer.write("." + dart.str(microseconds[$toString]()[$padLeft](3, "0")));
+      buffer.write("ms");
+    }
+  };
+  binding$.SchedulerBinding[dart.mixinOn] = BindingBase => class SchedulerBinding extends BindingBase {
+    get schedulingStrategy() {
+      return this[schedulingStrategy];
+    }
+    set schedulingStrategy(value) {
+      this[schedulingStrategy] = value;
+    }
+    initInstances() {
+      super.initInstances();
+      binding$.SchedulerBinding._instance = this;
+      if (!false) {
+        let frameNumber = 0;
+        this.addTimingsCallback(dart.fn(timings => {
+          for (let frameTiming of timings) {
+            frameNumber = frameNumber + 1;
+            this[_profileFramePostEvent](frameNumber, frameTiming);
+          }
+        }, ListLOfFrameTimingLToNullN()));
+      }
+    }
+    addTimingsCallback(callback) {
+      this[_timingsCallbacks][$add](callback);
+      if (this[_timingsCallbacks][$length] === 1) {
+        if (!(this.window.onReportTimings == null)) dart.assertFailed(null, L0, 271, 14, "window.onReportTimings == null");
+        this.window.onReportTimings = dart.bind(this, _executeTimingsCallbacks);
+      }
+      if (!dart.equals(this.window.onReportTimings, dart.bind(this, _executeTimingsCallbacks))) dart.assertFailed(null, L0, 274, 12, "window.onReportTimings == _executeTimingsCallbacks");
+    }
+    removeTimingsCallback(callback) {
+      if (!dart.test(this[_timingsCallbacks][$contains](callback))) dart.assertFailed(null, L0, 279, 12, "_timingsCallbacks.contains(callback)");
+      this[_timingsCallbacks][$remove](callback);
+      if (dart.test(this[_timingsCallbacks][$isEmpty])) {
+        this.window.onReportTimings = null;
+      }
+    }
+    [_executeTimingsCallbacks](timings) {
+      let clonedCallbacks = ListOfListOfFrameTimingToLvoid().from(this[_timingsCallbacks]);
+      for (let callback of clonedCallbacks) {
+        try {
+          if (dart.test(this[_timingsCallbacks][$contains](callback))) {
+            callback(timings);
+          }
+        } catch (e) {
+          let exception = dart.getThrown(e);
+          let stack = dart.stackTrace(e);
+          let collector = null;
+          if (!dart.test(dart.fn(() => {
+            collector = dart.fn(() => new (SyncIterableOfDiagnosticsNodeL()).new(function*() {
+              yield new (DiagnosticsPropertyOfListOfFrameTimingToLvoid()).new("The TimingsCallback that gets executed was", callback, {style: diagnostics.DiagnosticsTreeStyle.errorProperty});
+            }), VoidToIterableLOfDiagnosticsNodeL());
+            return true;
+          }, VoidToboolL())())) dart.assertFailed(null, L0, 296, 16, "() {\r\n          collector = () sync* {\r\n            yield DiagnosticsProperty<TimingsCallback>(\r\n              'The TimingsCallback that gets executed was',\r\n              callback,\r\n              style: DiagnosticsTreeStyle.errorProperty,\r\n            );\r\n          };\r\n          return true;\r\n        }()");
+          assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: exception, stack: stack, context: new assertions.ErrorDescription.new("while executing callbacks for FrameTiming"), informationCollector: collector}));
+        }
+      }
+    }
+    initServiceExtensions() {
+      super.initServiceExtensions();
+      if (!false) {
+        this.registerNumericServiceExtension({name: "timeDilation", getter: dart.fn(() => async.async(doubleL(), function*() {
+            return binding$.timeDilation;
+          }), VoidToFutureLOfdoubleL()), setter: dart.fn(value => async.async(core.Null, function*() {
+            binding$.timeDilation = value;
+          }), doubleLToFutureLOfNullN())});
+      }
+    }
+    get lifecycleState() {
+      return this[_lifecycleState];
+    }
+    handleAppLifecycleStateChanged(state) {
+      if (!(state != null)) dart.assertFailed(null, L0, 355, 12, "state != null");
+      this[_lifecycleState] = state;
+      switch (state) {
+        case C8 || CT.C8:
+        case C9 || CT.C9:
+        {
+          this[_setFramesEnabledState](true);
+          break;
+        }
+        case C10 || CT.C10:
+        case C11 || CT.C11:
+        {
+          this[_setFramesEnabledState](false);
+          break;
+        }
+      }
+    }
+    scheduleTask(T, task, priority, opts) {
+      let debugLabel = opts && 'debugLabel' in opts ? opts.debugLabel : null;
+      let flow = opts && 'flow' in opts ? opts.flow : null;
+      let isFirstTask = this[_taskQueue].isEmpty;
+      let entry = new (binding$._TaskEntry$(dart.legacy(T))).new(task, priority.value, debugLabel, flow);
+      this[_taskQueue].add(entry);
+      if (dart.test(isFirstTask) && !dart.test(this.locked)) this[_ensureEventLoopCallback]();
+      return entry.completer.future;
+    }
+    unlocked() {
+      super.unlocked();
+      if (dart.test(this[_taskQueue].isNotEmpty)) this[_ensureEventLoopCallback]();
+    }
+    [_ensureEventLoopCallback]() {
+      if (!!dart.test(this.locked)) dart.assertFailed(null, L0, 430, 12, "!locked");
+      if (!dart.test(this[_taskQueue].isNotEmpty)) dart.assertFailed(null, L0, 431, 12, "_taskQueue.isNotEmpty");
+      if (dart.test(this[_hasRequestedAnEventLoopCallback])) return;
+      this[_hasRequestedAnEventLoopCallback] = true;
+      async.Timer.run(dart.bind(this, _runTasks));
+    }
+    [_runTasks]() {
+      this[_hasRequestedAnEventLoopCallback] = false;
+      if (dart.test(this.handleEventLoopCallback())) this[_ensureEventLoopCallback]();
+    }
+    handleEventLoopCallback() {
+      let t1;
+      if (dart.test(this[_taskQueue].isEmpty) || dart.test(this.locked)) return false;
+      let entry = this[_taskQueue].first;
+      if (dart.test((t1 = entry.priority, this.schedulingStrategy({priority: t1, scheduler: this})))) {
+        try {
+          this[_taskQueue].removeFirst();
+          entry.run();
+        } catch (e) {
+          let exception = dart.getThrown(e);
+          let exceptionStack = dart.stackTrace(e);
+          let callbackStack = null;
+          if (!dart.test(dart.fn(() => {
+            callbackStack = entry.debugStack;
+            return true;
+          }, VoidToboolL())())) dart.assertFailed(null, L0, 466, 16, "() {\r\n          callbackStack = entry.debugStack;\r\n          return true;\r\n        }()");
+          assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: exception, stack: exceptionStack, library: "scheduler library", context: new assertions.ErrorDescription.new("during a task callback"), informationCollector: callbackStack == null ? null : dart.fn(() => new (SyncIterableOfDiagnosticsNodeL()).new(function*() {
+              yield new assertions.DiagnosticsStackTrace.new("\nThis exception was thrown in the context of a scheduler callback. " + "When the scheduler callback was _registered_ (as opposed to when the " + "exception was thrown), this was the stack", callbackStack);
+            }), VoidToIterableLOfDiagnosticsNodeL())}));
+        }
+        return this[_taskQueue].isNotEmpty;
+      }
+      return false;
+    }
+    get transientCallbackCount() {
+      return this[_transientCallbacks][$length];
+    }
+    scheduleFrameCallback(callback, opts) {
+      let rescheduling = opts && 'rescheduling' in opts ? opts.rescheduling : false;
+      this.scheduleFrame();
+      this[_nextFrameCallbackId] = dart.notNull(this[_nextFrameCallbackId]) + 1;
+      this[_transientCallbacks][$_set](this[_nextFrameCallbackId], new binding$._FrameCallbackEntry.new(callback, {rescheduling: rescheduling}));
+      return this[_nextFrameCallbackId];
+    }
+    cancelFrameCallbackWithId(id) {
+      if (!(dart.notNull(id) > 0)) dart.assertFailed(null, L0, 538, 12, "id > 0");
+      this[_transientCallbacks][$remove](id);
+      this[_removedIds].add(id);
+    }
+    debugAssertNoTransientCallbacks(reason) {
+      if (!dart.test(dart.fn(() => {
+        if (dart.notNull(this.transientCallbackCount) > 0) {
+          let count = this.transientCallbackCount;
+          let callbacks = LinkedHashMapOfintL$_FrameCallbackEntryL().from(this[_transientCallbacks]);
+          assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: reason, library: "scheduler library", informationCollector: dart.fn(() => new (SyncIterableOfDiagnosticsNodeL()).new(function*() {
+              if (count === 1) {
+                yield new assertions.ErrorDescription.new("There was one transient callback left. " + "The stack trace for when it was registered is as follows:");
+              } else {
+                yield new assertions.ErrorDescription.new("There were " + dart.str(count) + " transient callbacks left. " + "The stack traces for when they were registered are as follows:");
+              }
+              for (let id of callbacks[$keys]) {
+                let entry = callbacks[$_get](id);
+                yield new assertions.DiagnosticsStackTrace.new("── callback " + dart.str(id) + " ──", entry.debugStack, {showSeparator: false});
+              }
+            }), VoidToIterableLOfDiagnosticsNodeL())}));
+        }
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L0, 564, 12, "() {\r\n      if (transientCallbackCount > 0) {\r\n        // We cache the values so that we can produce them later\r\n        // even if the information collector is called after\r\n        // the problem has been resolved.\r\n        final int count = transientCallbackCount;\r\n        final Map<int, _FrameCallbackEntry> callbacks = Map<int, _FrameCallbackEntry>.from(_transientCallbacks);\r\n        FlutterError.reportError(FlutterErrorDetails(\r\n          exception: reason,\r\n          library: 'scheduler library',\r\n          informationCollector: () sync* {\r\n            if (count == 1) {\r\n              // TODO(jacobr): I have added an extra line break in this case.\r\n              yield ErrorDescription(\r\n                'There was one transient callback left. '\r\n                'The stack trace for when it was registered is as follows:'\r\n              );\r\n            } else {\r\n              yield ErrorDescription(\r\n                'There were $count transient callbacks left. '\r\n                'The stack traces for when they were registered are as follows:'\r\n              );\r\n            }\r\n            for (final int id in callbacks.keys) {\r\n              final _FrameCallbackEntry entry = callbacks[id];\r\n              yield DiagnosticsStackTrace('── callback $id ──', entry.debugStack, showSeparator: false);\r\n            }\r\n          },\r\n        ));\r\n      }\r\n      return true;\r\n    }()");
+      return true;
+    }
+    addPersistentFrameCallback(callback) {
+      this[_persistentCallbacks][$add](callback);
+    }
+    addPostFrameCallback(callback) {
+      this[_postFrameCallbacks][$add](callback);
+    }
+    get endOfFrame() {
+      if (this[_nextFrameCompleter] == null) {
+        if (this.schedulerPhase == binding$.SchedulerPhase.idle) this.scheduleFrame();
+        this[_nextFrameCompleter] = CompleterOfvoid().new();
+        this.addPostFrameCallback(dart.fn(timeStamp => {
+          this[_nextFrameCompleter].complete();
+          this[_nextFrameCompleter] = null;
+        }, DurationLToNullN()));
+      }
+      return this[_nextFrameCompleter].future;
+    }
+    get hasScheduledFrame() {
+      return this[_hasScheduledFrame];
+    }
+    get schedulerPhase() {
+      return this[_schedulerPhase];
+    }
+    get framesEnabled() {
+      return this[_framesEnabled];
+    }
+    [_setFramesEnabledState](enabled) {
+      if (dart.equals(this[_framesEnabled], enabled)) return;
+      this[_framesEnabled] = enabled;
+      if (dart.test(enabled)) this.scheduleFrame();
+    }
+    ensureFrameCallbacksRegistered() {
+      let t2, t2$;
+      t2 = this.window;
+      t2.onBeginFrame == null ? t2.onBeginFrame = dart.bind(this, _handleBeginFrame) : null;
+      t2$ = this.window;
+      t2$.onDrawFrame == null ? t2$.onDrawFrame = dart.bind(this, _handleDrawFrame) : null;
+    }
+    ensureVisualUpdate() {
+      switch (this.schedulerPhase) {
+        case C0 || CT.C0:
+        case C4 || CT.C4:
+        {
+          this.scheduleFrame();
+          return;
+        }
+        case C1 || CT.C1:
+        case C2 || CT.C2:
+        case C3 || CT.C3:
+        {
+          return;
+        }
+      }
+    }
+    scheduleFrame() {
+      if (dart.test(this[_hasScheduledFrame]) || !dart.test(this.framesEnabled)) return;
+      if (!dart.test(dart.fn(() => {
+        if (dart.test(debug$.debugPrintScheduleFrameStacks)) assertions.debugPrintStack({label: "scheduleFrame() called. Current phase is " + dart.str(this.schedulerPhase) + "."});
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L0, 788, 12, "() {\r\n      if (debugPrintScheduleFrameStacks)\r\n        debugPrintStack(label: 'scheduleFrame() called. Current phase is $schedulerPhase.');\r\n      return true;\r\n    }()");
+      this.ensureFrameCallbacksRegistered();
+      this.window.scheduleFrame();
+      this[_hasScheduledFrame] = true;
+    }
+    scheduleForcedFrame() {
+      if (!dart.test(this.framesEnabled)) return;
+      if (dart.test(this[_hasScheduledFrame])) return;
+      if (!dart.test(dart.fn(() => {
+        if (dart.test(debug$.debugPrintScheduleFrameStacks)) assertions.debugPrintStack({label: "scheduleForcedFrame() called. Current phase is " + dart.str(this.schedulerPhase) + "."});
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L0, 825, 12, "() {\r\n      if (debugPrintScheduleFrameStacks)\r\n        debugPrintStack(label: 'scheduleForcedFrame() called. Current phase is $schedulerPhase.');\r\n      return true;\r\n    }()");
+      this.window.scheduleFrame();
+      this[_hasScheduledFrame] = true;
+    }
+    scheduleWarmUpFrame() {
+      if (dart.test(this[_warmUpFrame]) || this.schedulerPhase != binding$.SchedulerPhase.idle) return;
+      this[_warmUpFrame] = true;
+      developer.Timeline.startSync("Warm-up frame");
+      let hadScheduledFrame = this[_hasScheduledFrame];
+      async.Timer.run(dart.fn(() => {
+        if (!dart.test(this[_warmUpFrame])) dart.assertFailed(null, L0, 860, 14, "_warmUpFrame");
+        this.handleBeginFrame(null);
+      }, VoidToNullN()));
+      async.Timer.run(dart.fn(() => {
+        if (!dart.test(this[_warmUpFrame])) dart.assertFailed(null, L0, 864, 14, "_warmUpFrame");
+        this.handleDrawFrame();
+        this.resetEpoch();
+        this[_warmUpFrame] = false;
+        if (dart.test(hadScheduledFrame)) this.scheduleFrame();
+      }, VoidToNullN()));
+      this.lockEvents(dart.fn(() => async.async(core.Null, (function*() {
+        yield this.endOfFrame;
+        developer.Timeline.finishSync();
+      }).bind(this)), VoidToFutureLOfNullN()));
+    }
+    resetEpoch() {
+      this[_epochStart] = this[_adjustForEpoch](this[_lastRawTimeStamp]);
+      this[_firstRawTimeStampInEpoch] = null;
+    }
+    [_adjustForEpoch](rawTimeStamp) {
+      let rawDurationSinceEpoch = this[_firstRawTimeStampInEpoch] == null ? core.Duration.zero : rawTimeStamp['-'](this[_firstRawTimeStampInEpoch]);
+      return new core.Duration.new({microseconds: (dart.notNull(rawDurationSinceEpoch.inMicroseconds) / dart.notNull(binding$.timeDilation))[$round]() + dart.notNull(this[_epochStart].inMicroseconds)});
+    }
+    get currentFrameTimeStamp() {
+      if (!(this[_currentFrameTimeStamp] != null)) dart.assertFailed(null, L0, 933, 12, "_currentFrameTimeStamp != null");
+      return this[_currentFrameTimeStamp];
+    }
+    get currentSystemFrameTimeStamp() {
+      if (!(this[_lastRawTimeStamp] != null)) dart.assertFailed(null, L0, 950, 12, "_lastRawTimeStamp != null");
+      return this[_lastRawTimeStamp];
+    }
+    [_handleBeginFrame](rawTimeStamp) {
+      if (dart.test(this[_warmUpFrame])) {
+        if (!!dart.test(this[_ignoreNextEngineDrawFrame])) dart.assertFailed(null, L0, 960, 14, "!_ignoreNextEngineDrawFrame");
+        this[_ignoreNextEngineDrawFrame] = true;
+        return;
+      }
+      this.handleBeginFrame(rawTimeStamp);
+    }
+    [_handleDrawFrame]() {
+      if (dart.test(this[_ignoreNextEngineDrawFrame])) {
+        this[_ignoreNextEngineDrawFrame] = false;
+        return;
+      }
+      this.handleDrawFrame();
+    }
+    handleBeginFrame(rawTimeStamp) {
+      let t2;
+      developer.Timeline.startSync("Frame", {arguments: debug.timelineArgumentsIndicatingLandmarkEvent});
+      this[_firstRawTimeStampInEpoch] == null ? this[_firstRawTimeStampInEpoch] = rawTimeStamp : null;
+      this[_currentFrameTimeStamp] = this[_adjustForEpoch]((t2 = rawTimeStamp, t2 == null ? this[_lastRawTimeStamp] : t2));
+      if (rawTimeStamp != null) this[_lastRawTimeStamp] = rawTimeStamp;
+      if (!dart.test(dart.fn(() => {
+        this[_debugFrameNumber] = dart.notNull(this[_debugFrameNumber]) + 1;
+        if (dart.test(debug$.debugPrintBeginFrameBanner) || dart.test(debug$.debugPrintEndFrameBanner)) {
+          let frameTimeStampDescription = new core.StringBuffer.new();
+          if (rawTimeStamp != null) {
+            binding$.SchedulerBinding._debugDescribeTimeStamp(this[_currentFrameTimeStamp], frameTimeStampDescription);
+          } else {
+            frameTimeStampDescription.write("(warm-up frame)");
+          }
+          this[_debugBanner] = "▄▄▄▄▄▄▄▄ Frame " + dart.str(dart.toString(this[_debugFrameNumber])[$padRight](7)) + "   " + dart.str(frameTimeStampDescription.toString()[$padLeft](18)) + " ▄▄▄▄▄▄▄▄";
+          if (dart.test(debug$.debugPrintBeginFrameBanner)) print.debugPrint(this[_debugBanner]);
+        }
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L0, 1005, 12, "() {\r\n      _debugFrameNumber += 1;\r\n\r\n      if (debugPrintBeginFrameBanner || debugPrintEndFrameBanner) {\r\n        final StringBuffer frameTimeStampDescription = StringBuffer();\r\n        if (rawTimeStamp != null) {\r\n          _debugDescribeTimeStamp(_currentFrameTimeStamp, frameTimeStampDescription);\r\n        } else {\r\n          frameTimeStampDescription.write('(warm-up frame)');\r\n        }\r\n        _debugBanner = '▄▄▄▄▄▄▄▄ Frame ${_debugFrameNumber.toString().padRight(7)}   ${frameTimeStampDescription.toString().padLeft(18)} ▄▄▄▄▄▄▄▄';\r\n        if (debugPrintBeginFrameBanner)\r\n          debugPrint(_debugBanner);\r\n      }\r\n      return true;\r\n    }()");
+      if (!(this.schedulerPhase == binding$.SchedulerPhase.idle)) dart.assertFailed(null, L0, 1022, 12, "schedulerPhase == SchedulerPhase.idle");
+      this[_hasScheduledFrame] = false;
+      try {
+        developer.Timeline.startSync("Animate", {arguments: debug.timelineArgumentsIndicatingLandmarkEvent});
+        this[_schedulerPhase] = binding$.SchedulerPhase.transientCallbacks;
+        let callbacks = this[_transientCallbacks];
+        this[_transientCallbacks] = new (IdentityMapOfintL$_FrameCallbackEntryL()).new();
+        callbacks[$forEach](dart.fn((id, callbackEntry) => {
+          if (!dart.test(this[_removedIds].contains(id))) this[_invokeFrameCallback](callbackEntry.callback, this[_currentFrameTimeStamp], callbackEntry.debugStack);
+        }, intLAnd_FrameCallbackEntryLToNullN()));
+        this[_removedIds].clear();
+      } finally {
+        this[_schedulerPhase] = binding$.SchedulerPhase.midFrameMicrotasks;
+      }
+    }
+    handleDrawFrame() {
+      if (!(this[_schedulerPhase] == binding$.SchedulerPhase.midFrameMicrotasks)) dart.assertFailed(null, L0, 1050, 12, "_schedulerPhase == SchedulerPhase.midFrameMicrotasks");
+      developer.Timeline.finishSync();
+      try {
+        this[_schedulerPhase] = binding$.SchedulerPhase.persistentCallbacks;
+        for (let callback of this[_persistentCallbacks])
+          this[_invokeFrameCallback](callback, this[_currentFrameTimeStamp]);
+        this[_schedulerPhase] = binding$.SchedulerPhase.postFrameCallbacks;
+        let localPostFrameCallbacks = ListOfDurationLToLvoid().from(this[_postFrameCallbacks]);
+        this[_postFrameCallbacks][$clear]();
+        for (let callback of localPostFrameCallbacks)
+          this[_invokeFrameCallback](callback, this[_currentFrameTimeStamp]);
+      } finally {
+        this[_schedulerPhase] = binding$.SchedulerPhase.idle;
+        developer.Timeline.finishSync();
+        if (!dart.test(dart.fn(() => {
+          if (dart.test(debug$.debugPrintEndFrameBanner)) print.debugPrint("▀"[$times](this[_debugBanner].length));
+          this[_debugBanner] = null;
+          return true;
+        }, VoidToboolL())())) dart.assertFailed(null, L0, 1068, 14, "() {\r\n        if (debugPrintEndFrameBanner)\r\n          debugPrint('▀' * _debugBanner.length);\r\n        _debugBanner = null;\r\n        return true;\r\n      }()");
+        this[_currentFrameTimeStamp] = null;
+      }
+    }
+    [_profileFramePostEvent](frameNumber, frameTiming) {
+      this.postEvent("Flutter.Frame", new (IdentityMapOfStringL$dynamic()).from(["number", frameNumber, "startTime", frameTiming.timestampInMicroseconds(ui.FramePhase.buildStart), "elapsed", frameTiming.totalSpan.inMicroseconds, "build", frameTiming.buildDuration.inMicroseconds, "raster", frameTiming.rasterDuration.inMicroseconds]));
+    }
+    [_invokeFrameCallback](callback, timeStamp, callbackStack = null) {
+      if (!(callback != null)) dart.assertFailed(null, L0, 1110, 12, "callback != null");
+      if (!(binding$._FrameCallbackEntry.debugCurrentCallbackStack == null)) dart.assertFailed(null, L0, 1111, 12, "_FrameCallbackEntry.debugCurrentCallbackStack == null");
+      if (!dart.test(dart.fn(() => {
+        binding$._FrameCallbackEntry.debugCurrentCallbackStack = callbackStack;
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L0, 1112, 12, "() {\r\n      _FrameCallbackEntry.debugCurrentCallbackStack = callbackStack;\r\n      return true;\r\n    }()");
+      try {
+        callback(timeStamp);
+      } catch (e) {
+        let exception = dart.getThrown(e);
+        let exceptionStack = dart.stackTrace(e);
+        assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: exception, stack: exceptionStack, library: "scheduler library", context: new assertions.ErrorDescription.new("during a scheduler callback"), informationCollector: callbackStack == null ? null : dart.fn(() => new (SyncIterableOfDiagnosticsNodeL()).new(function*() {
+            yield new assertions.DiagnosticsStackTrace.new("\nThis exception was thrown in the context of a scheduler callback. " + "When the scheduler callback was _registered_ (as opposed to when the " + "exception was thrown), this was the stack", callbackStack);
+          }), VoidToIterableLOfDiagnosticsNodeL())}));
+      }
+      if (!dart.test(dart.fn(() => {
+        binding$._FrameCallbackEntry.debugCurrentCallbackStack = null;
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L0, 1134, 12, "() {\r\n      _FrameCallbackEntry.debugCurrentCallbackStack = null;\r\n      return true;\r\n    }()");
+    }
+  };
+  (binding$.SchedulerBinding[dart.mixinNew] = function() {
+    this[_timingsCallbacks] = JSArrayOfListOfFrameTimingToLvoid().of([]);
+    this[_lifecycleState] = null;
+    this[schedulingStrategy] = C6 || CT.C6;
+    this[_taskQueue] = new (HeapPriorityQueueOf_TaskEntryL()).new(C7 || CT.C7);
+    this[_hasRequestedAnEventLoopCallback] = false;
+    this[_nextFrameCallbackId] = 0;
+    this[_transientCallbacks] = new (IdentityMapOfintL$_FrameCallbackEntryL()).new();
+    this[_removedIds] = new (_IdentityHashSetOfintL()).new();
+    this[_persistentCallbacks] = JSArrayOfDurationLToLvoid().of([]);
+    this[_postFrameCallbacks] = JSArrayOfDurationLToLvoid().of([]);
+    this[_nextFrameCompleter] = null;
+    this[_hasScheduledFrame] = false;
+    this[_schedulerPhase] = binding$.SchedulerPhase.idle;
+    this[_framesEnabled] = true;
+    this[_warmUpFrame] = false;
+    this[_firstRawTimeStampInEpoch] = null;
+    this[_epochStart] = core.Duration.zero;
+    this[_lastRawTimeStamp] = core.Duration.zero;
+    this[_currentFrameTimeStamp] = null;
+    this[_debugFrameNumber] = 0;
+    this[_debugBanner] = null;
+    this[_ignoreNextEngineDrawFrame] = false;
+  }).prototype = binding$.SchedulerBinding.prototype;
+  dart.addTypeTests(binding$.SchedulerBinding);
+  dart.addTypeCaches(binding$.SchedulerBinding);
+  binding$.SchedulerBinding[dart.implements] = () => [binding.BindingBase];
+  dart.setMethodSignature(binding$.SchedulerBinding, () => ({
+    __proto__: dart.getMethods(binding$.SchedulerBinding.__proto__),
+    addTimingsCallback: dart.fnType(dart.void, [dart.legacy(dart.fnType(dart.void, [core.List$(ui.FrameTiming)]))]),
+    removeTimingsCallback: dart.fnType(dart.void, [dart.legacy(dart.fnType(dart.void, [core.List$(ui.FrameTiming)]))]),
+    [_executeTimingsCallbacks]: dart.fnType(dart.void, [dart.legacy(core.List$(dart.legacy(ui.FrameTiming)))]),
+    handleAppLifecycleStateChanged: dart.fnType(dart.void, [dart.legacy(ui.AppLifecycleState)]),
+    scheduleTask: dart.gFnType(T => [dart.legacy(async.Future$(dart.legacy(T))), [dart.legacy(dart.fnType(dart.legacy(T), [])), dart.legacy(priority$.Priority)], {debugLabel: dart.legacy(core.String), flow: dart.legacy(developer.Flow)}, {}]),
+    [_ensureEventLoopCallback]: dart.fnType(dart.void, []),
+    [_runTasks]: dart.fnType(dart.void, []),
+    handleEventLoopCallback: dart.fnType(dart.legacy(core.bool), []),
+    scheduleFrameCallback: dart.fnType(dart.legacy(core.int), [dart.legacy(dart.fnType(dart.void, [dart.legacy(core.Duration)]))], {rescheduling: dart.legacy(core.bool)}, {}),
+    cancelFrameCallbackWithId: dart.fnType(dart.void, [dart.legacy(core.int)]),
+    debugAssertNoTransientCallbacks: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.String)]),
+    addPersistentFrameCallback: dart.fnType(dart.void, [dart.legacy(dart.fnType(dart.void, [dart.legacy(core.Duration)]))]),
+    addPostFrameCallback: dart.fnType(dart.void, [dart.legacy(dart.fnType(dart.void, [dart.legacy(core.Duration)]))]),
+    [_setFramesEnabledState]: dart.fnType(dart.void, [dart.legacy(core.bool)]),
+    ensureFrameCallbacksRegistered: dart.fnType(dart.void, []),
+    ensureVisualUpdate: dart.fnType(dart.void, []),
+    scheduleFrame: dart.fnType(dart.void, []),
+    scheduleForcedFrame: dart.fnType(dart.void, []),
+    scheduleWarmUpFrame: dart.fnType(dart.void, []),
+    resetEpoch: dart.fnType(dart.void, []),
+    [_adjustForEpoch]: dart.fnType(dart.legacy(core.Duration), [dart.legacy(core.Duration)]),
+    [_handleBeginFrame]: dart.fnType(dart.void, [dart.legacy(core.Duration)]),
+    [_handleDrawFrame]: dart.fnType(dart.void, []),
+    handleBeginFrame: dart.fnType(dart.void, [dart.legacy(core.Duration)]),
+    handleDrawFrame: dart.fnType(dart.void, []),
+    [_profileFramePostEvent]: dart.fnType(dart.void, [dart.legacy(core.int), dart.legacy(ui.FrameTiming)]),
+    [_invokeFrameCallback]: dart.fnType(dart.void, [dart.legacy(dart.fnType(dart.void, [dart.legacy(core.Duration)])), dart.legacy(core.Duration)], [dart.legacy(core.StackTrace)])
+  }));
+  dart.setGetterSignature(binding$.SchedulerBinding, () => ({
+    __proto__: dart.getGetters(binding$.SchedulerBinding.__proto__),
+    lifecycleState: dart.legacy(ui.AppLifecycleState),
+    transientCallbackCount: dart.legacy(core.int),
+    endOfFrame: dart.legacy(async.Future$(dart.void)),
+    hasScheduledFrame: dart.legacy(core.bool),
+    schedulerPhase: dart.legacy(binding$.SchedulerPhase),
+    framesEnabled: dart.legacy(core.bool),
+    currentFrameTimeStamp: dart.legacy(core.Duration),
+    currentSystemFrameTimeStamp: dart.legacy(core.Duration)
+  }));
+  dart.setLibraryUri(binding$.SchedulerBinding, L1);
+  dart.setFieldSignature(binding$.SchedulerBinding, () => ({
+    __proto__: dart.getFields(binding$.SchedulerBinding.__proto__),
+    [_timingsCallbacks]: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(dart.fnType(dart.void, [core.List$(ui.FrameTiming)]))))),
+    [_lifecycleState]: dart.fieldType(dart.legacy(ui.AppLifecycleState)),
+    schedulingStrategy: dart.fieldType(dart.legacy(dart.fnType(dart.legacy(core.bool), [], {priority: dart.legacy(core.int), scheduler: dart.legacy(binding$.SchedulerBinding)}, {}))),
+    [_taskQueue]: dart.finalFieldType(dart.legacy(priority_queue.PriorityQueue$(dart.legacy(binding$._TaskEntry)))),
+    [_hasRequestedAnEventLoopCallback]: dart.fieldType(dart.legacy(core.bool)),
+    [_nextFrameCallbackId]: dart.fieldType(dart.legacy(core.int)),
+    [_transientCallbacks]: dart.fieldType(dart.legacy(core.Map$(dart.legacy(core.int), dart.legacy(binding$._FrameCallbackEntry)))),
+    [_removedIds]: dart.finalFieldType(dart.legacy(core.Set$(dart.legacy(core.int)))),
+    [_persistentCallbacks]: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(dart.fnType(dart.void, [dart.legacy(core.Duration)]))))),
+    [_postFrameCallbacks]: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(dart.fnType(dart.void, [dart.legacy(core.Duration)]))))),
+    [_nextFrameCompleter]: dart.fieldType(dart.legacy(async.Completer$(dart.void))),
+    [_hasScheduledFrame]: dart.fieldType(dart.legacy(core.bool)),
+    [_schedulerPhase]: dart.fieldType(dart.legacy(binding$.SchedulerPhase)),
+    [_framesEnabled]: dart.fieldType(dart.legacy(core.bool)),
+    [_warmUpFrame]: dart.fieldType(dart.legacy(core.bool)),
+    [_firstRawTimeStampInEpoch]: dart.fieldType(dart.legacy(core.Duration)),
+    [_epochStart]: dart.fieldType(dart.legacy(core.Duration)),
+    [_lastRawTimeStamp]: dart.fieldType(dart.legacy(core.Duration)),
+    [_currentFrameTimeStamp]: dart.fieldType(dart.legacy(core.Duration)),
+    [_debugFrameNumber]: dart.fieldType(dart.legacy(core.int)),
+    [_debugBanner]: dart.fieldType(dart.legacy(core.String)),
+    [_ignoreNextEngineDrawFrame]: dart.fieldType(dart.legacy(core.bool))
+  }));
+  dart.defineLazy(binding$.SchedulerBinding, {
+    /*binding$.SchedulerBinding._instance*/get _instance() {
+      return null;
+    },
+    set _instance(_) {}
+  }, true);
+  binding$.defaultSchedulingStrategy = function defaultSchedulingStrategy(opts) {
+    let priority = opts && 'priority' in opts ? opts.priority : null;
+    let scheduler = opts && 'scheduler' in opts ? opts.scheduler : null;
+    if (dart.notNull(scheduler.transientCallbackCount) > 0) return dart.notNull(priority) >= dart.notNull(priority$.Priority.animation.value);
+    return true;
+  };
+  dart.copyProperties(binding$, {
+    get timeDilation() {
+      return binding$._timeDilation;
+    },
+    set timeDilation(value) {
+      let t3;
+      if (!(dart.notNull(value) > 0.0)) dart.assertFailed(null, L0, 27, 10, "value > 0.0");
+      if (binding$._timeDilation == value) return;
+      t3 = binding$.SchedulerBinding.instance;
+      t3 == null ? null : t3.resetEpoch();
+      binding$._timeDilation = value;
+    }
+  });
+  dart.defineLazy(binding$, {
+    /*binding$._timeDilation*/get _timeDilation() {
+      return 1.0;
+    },
+    set _timeDilation(_) {}
+  }, true);
+  dart.trackLibraries("packages/flutter/src/scheduler/binding.dart", {
+    "package:flutter/src/scheduler/binding.dart": binding$
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["binding.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/flutter/src/scheduler/binding.dart.lib.js"}');
+  // Exports:
+  return {
+    src__scheduler__binding: binding$
+  };
+}));
+
+//# sourceMappingURL=binding.dart.lib.js.map

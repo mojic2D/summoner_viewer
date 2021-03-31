@@ -4,7 +4,7 @@ import 'package:summoner_viewer/rito_api/rito_api_calls.dart';
 
 class ChallengerLadder extends StatefulWidget {
   RitoApiCalls post =
-      new RitoApiCalls(apiKey: 'RGAPI-c6742059-7b67-4998-a247-c67ff1ebeddd');
+      new RitoApiCalls(apiKey: 'RGAPI-50ec2981-8ad9-4fb3-8812-7c3678ace5e5');
 
   @override
   _ChallengerLadderState createState() => _ChallengerLadderState();
@@ -26,7 +26,7 @@ class _ChallengerLadderState extends State<ChallengerLadder> {
           ),
           child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             Image.asset(
-              'assets/ranked-emblems/Emblem_Challenger.png',
+              'assets/ranked-emblems/Emblem_Challenjour.png',
               height: 50,
               width: 50,
             ),

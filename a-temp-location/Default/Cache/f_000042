@@ -1,0 +1,960 @@
+define(['dart_sdk', 'packages/flutter/src/foundation/debug.dart', 'packages/vector_math/vector_math_64.dart'], (function load__packages__flutter__src__gestures__events_dart(dart_sdk, packages__flutter__src__foundation__debug$46dart, packages__vector_math__vector_math_64$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
+  var events = Object.create(dart.library);
+  var $leftShift = dartx['<<'];
+  var OffsetL = () => (OffsetL = dart.constFn(dart.legacy(ui.Offset)))();
+  var DiagnosticsPropertyOfOffsetL = () => (DiagnosticsPropertyOfOffsetL = dart.constFn(diagnostics.DiagnosticsProperty$(OffsetL())))();
+  var DurationL = () => (DurationL = dart.constFn(dart.legacy(core.Duration)))();
+  var DiagnosticsPropertyOfDurationL = () => (DiagnosticsPropertyOfDurationL = dart.constFn(diagnostics.DiagnosticsProperty$(DurationL())))();
+  var PointerDeviceKindL = () => (PointerDeviceKindL = dart.constFn(dart.legacy(ui.PointerDeviceKind)))();
+  var EnumPropertyOfPointerDeviceKindL = () => (EnumPropertyOfPointerDeviceKindL = dart.constFn(diagnostics.EnumProperty$(PointerDeviceKindL())))();
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
+  var DiagnosticsPropertyOfboolL = () => (DiagnosticsPropertyOfboolL = dart.constFn(diagnostics.DiagnosticsProperty$(boolL())))();
+  var PointerAddedEventL = () => (PointerAddedEventL = dart.constFn(dart.legacy(events.PointerAddedEvent)))();
+  var PointerRemovedEventL = () => (PointerRemovedEventL = dart.constFn(dart.legacy(events.PointerRemovedEvent)))();
+  var PointerHoverEventL = () => (PointerHoverEventL = dart.constFn(dart.legacy(events.PointerHoverEvent)))();
+  var PointerEnterEventL = () => (PointerEnterEventL = dart.constFn(dart.legacy(events.PointerEnterEvent)))();
+  var PointerExitEventL = () => (PointerExitEventL = dart.constFn(dart.legacy(events.PointerExitEvent)))();
+  var PointerDownEventL = () => (PointerDownEventL = dart.constFn(dart.legacy(events.PointerDownEvent)))();
+  var PointerMoveEventL = () => (PointerMoveEventL = dart.constFn(dart.legacy(events.PointerMoveEvent)))();
+  var PointerUpEventL = () => (PointerUpEventL = dart.constFn(dart.legacy(events.PointerUpEvent)))();
+  var PointerScrollEventL = () => (PointerScrollEventL = dart.constFn(dart.legacy(events.PointerScrollEvent)))();
+  var PointerCancelEventL = () => (PointerCancelEventL = dart.constFn(dart.legacy(events.PointerCancelEvent)))();
+  const CT = Object.create(null);
+  var L0 = "package:flutter/src/gestures/events.dart";
+  var L1 = "file:///C:/flutter/packages/flutter/lib/src/gestures/events.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 0
+      });
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: ui.PointerDeviceKind.prototype,
+        [_name]: "PointerDeviceKind.touch",
+        index: 0
+      });
+    },
+    get C2() {
+      return C2 = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 0,
+        [OffsetBase__dx]: 0
+      });
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: ui.PointerDeviceKind.prototype,
+        [_name]: "PointerDeviceKind.mouse",
+        index: 1
+      });
+    }
+  }, false);
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var C0;
+  var _name = dart.privateName(ui, "_name");
+  var C1;
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  var C2;
+  var embedderId$ = dart.privateName(events, "PointerEvent.embedderId");
+  var timeStamp$ = dart.privateName(events, "PointerEvent.timeStamp");
+  var pointer$ = dart.privateName(events, "PointerEvent.pointer");
+  var kind$ = dart.privateName(events, "PointerEvent.kind");
+  var device$ = dart.privateName(events, "PointerEvent.device");
+  var position$ = dart.privateName(events, "PointerEvent.position");
+  var localPosition$ = dart.privateName(events, "PointerEvent.localPosition");
+  var delta$ = dart.privateName(events, "PointerEvent.delta");
+  var localDelta$ = dart.privateName(events, "PointerEvent.localDelta");
+  var buttons$ = dart.privateName(events, "PointerEvent.buttons");
+  var down$ = dart.privateName(events, "PointerEvent.down");
+  var obscured$ = dart.privateName(events, "PointerEvent.obscured");
+  var pressure$ = dart.privateName(events, "PointerEvent.pressure");
+  var pressureMin$ = dart.privateName(events, "PointerEvent.pressureMin");
+  var pressureMax$ = dart.privateName(events, "PointerEvent.pressureMax");
+  var distance$ = dart.privateName(events, "PointerEvent.distance");
+  var distanceMax$ = dart.privateName(events, "PointerEvent.distanceMax");
+  var size$ = dart.privateName(events, "PointerEvent.size");
+  var radiusMajor$ = dart.privateName(events, "PointerEvent.radiusMajor");
+  var radiusMinor$ = dart.privateName(events, "PointerEvent.radiusMinor");
+  var radiusMin$ = dart.privateName(events, "PointerEvent.radiusMin");
+  var radiusMax$ = dart.privateName(events, "PointerEvent.radiusMax");
+  var orientation$ = dart.privateName(events, "PointerEvent.orientation");
+  var tilt$ = dart.privateName(events, "PointerEvent.tilt");
+  var platformData$ = dart.privateName(events, "PointerEvent.platformData");
+  var synthesized$ = dart.privateName(events, "PointerEvent.synthesized");
+  var transform$ = dart.privateName(events, "PointerEvent.transform");
+  var original$ = dart.privateName(events, "PointerEvent.original");
+  const Object_Diagnosticable$36 = class Object_Diagnosticable extends core.Object {};
+  (Object_Diagnosticable$36.new = function() {
+  }).prototype = Object_Diagnosticable$36.prototype;
+  dart.applyMixin(Object_Diagnosticable$36, diagnostics.Diagnosticable);
+  events.PointerEvent = class PointerEvent extends Object_Diagnosticable$36 {
+    get embedderId() {
+      return this[embedderId$];
+    }
+    set embedderId(value) {
+      super.embedderId = value;
+    }
+    get timeStamp() {
+      return this[timeStamp$];
+    }
+    set timeStamp(value) {
+      super.timeStamp = value;
+    }
+    get pointer() {
+      return this[pointer$];
+    }
+    set pointer(value) {
+      super.pointer = value;
+    }
+    get kind() {
+      return this[kind$];
+    }
+    set kind(value) {
+      super.kind = value;
+    }
+    get device() {
+      return this[device$];
+    }
+    set device(value) {
+      super.device = value;
+    }
+    get position() {
+      return this[position$];
+    }
+    set position(value) {
+      super.position = value;
+    }
+    get localPosition() {
+      return this[localPosition$];
+    }
+    set localPosition(value) {
+      super.localPosition = value;
+    }
+    get delta() {
+      return this[delta$];
+    }
+    set delta(value) {
+      super.delta = value;
+    }
+    get localDelta() {
+      return this[localDelta$];
+    }
+    set localDelta(value) {
+      super.localDelta = value;
+    }
+    get buttons() {
+      return this[buttons$];
+    }
+    set buttons(value) {
+      super.buttons = value;
+    }
+    get down() {
+      return this[down$];
+    }
+    set down(value) {
+      super.down = value;
+    }
+    get obscured() {
+      return this[obscured$];
+    }
+    set obscured(value) {
+      super.obscured = value;
+    }
+    get pressure() {
+      return this[pressure$];
+    }
+    set pressure(value) {
+      super.pressure = value;
+    }
+    get pressureMin() {
+      return this[pressureMin$];
+    }
+    set pressureMin(value) {
+      super.pressureMin = value;
+    }
+    get pressureMax() {
+      return this[pressureMax$];
+    }
+    set pressureMax(value) {
+      super.pressureMax = value;
+    }
+    get distance() {
+      return this[distance$];
+    }
+    set distance(value) {
+      super.distance = value;
+    }
+    get distanceMax() {
+      return this[distanceMax$];
+    }
+    set distanceMax(value) {
+      super.distanceMax = value;
+    }
+    get size() {
+      return this[size$];
+    }
+    set size(value) {
+      super.size = value;
+    }
+    get radiusMajor() {
+      return this[radiusMajor$];
+    }
+    set radiusMajor(value) {
+      super.radiusMajor = value;
+    }
+    get radiusMinor() {
+      return this[radiusMinor$];
+    }
+    set radiusMinor(value) {
+      super.radiusMinor = value;
+    }
+    get radiusMin() {
+      return this[radiusMin$];
+    }
+    set radiusMin(value) {
+      super.radiusMin = value;
+    }
+    get radiusMax() {
+      return this[radiusMax$];
+    }
+    set radiusMax(value) {
+      super.radiusMax = value;
+    }
+    get orientation() {
+      return this[orientation$];
+    }
+    set orientation(value) {
+      super.orientation = value;
+    }
+    get tilt() {
+      return this[tilt$];
+    }
+    set tilt(value) {
+      super.tilt = value;
+    }
+    get platformData() {
+      return this[platformData$];
+    }
+    set platformData(value) {
+      super.platformData = value;
+    }
+    get synthesized() {
+      return this[synthesized$];
+    }
+    set synthesized(value) {
+      super.synthesized = value;
+    }
+    get transform() {
+      return this[transform$];
+    }
+    set transform(value) {
+      super.transform = value;
+    }
+    get original() {
+      return this[original$];
+    }
+    set original(value) {
+      super.original = value;
+    }
+    get distanceMin() {
+      return 0.0;
+    }
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(new (DiagnosticsPropertyOfOffsetL()).new("position", this.position));
+      properties.add(new (DiagnosticsPropertyOfOffsetL()).new("localPosition", this.localPosition, {defaultValue: this.position, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new (DiagnosticsPropertyOfOffsetL()).new("delta", this.delta, {defaultValue: ui.Offset.zero, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new (DiagnosticsPropertyOfOffsetL()).new("localDelta", this.localDelta, {defaultValue: this.delta, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new (DiagnosticsPropertyOfDurationL()).new("timeStamp", this.timeStamp, {defaultValue: core.Duration.zero, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.IntProperty.new("pointer", this.pointer, {level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new (EnumPropertyOfPointerDeviceKindL()).new("kind", this.kind, {level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.IntProperty.new("device", this.device, {defaultValue: 0, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.IntProperty.new("buttons", this.buttons, {defaultValue: 0, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new (DiagnosticsPropertyOfboolL()).new("down", this.down, {level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.DoubleProperty.new("pressure", this.pressure, {defaultValue: 1.0, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.DoubleProperty.new("pressureMin", this.pressureMin, {defaultValue: 1.0, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.DoubleProperty.new("pressureMax", this.pressureMax, {defaultValue: 1.0, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.DoubleProperty.new("distance", this.distance, {defaultValue: 0.0, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.DoubleProperty.new("distanceMin", this.distanceMin, {defaultValue: 0.0, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.DoubleProperty.new("distanceMax", this.distanceMax, {defaultValue: 0.0, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.DoubleProperty.new("size", this.size, {defaultValue: 0.0, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.DoubleProperty.new("radiusMajor", this.radiusMajor, {defaultValue: 0.0, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.DoubleProperty.new("radiusMinor", this.radiusMinor, {defaultValue: 0.0, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.DoubleProperty.new("radiusMin", this.radiusMin, {defaultValue: 0.0, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.DoubleProperty.new("radiusMax", this.radiusMax, {defaultValue: 0.0, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.DoubleProperty.new("orientation", this.orientation, {defaultValue: 0.0, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.DoubleProperty.new("tilt", this.tilt, {defaultValue: 0.0, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.IntProperty.new("platformData", this.platformData, {defaultValue: 0, level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.FlagProperty.new("obscured", {value: this.obscured, ifTrue: "obscured", level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.FlagProperty.new("synthesized", {value: this.synthesized, ifTrue: "synthesized", level: diagnostics.DiagnosticLevel.debug}));
+      properties.add(new diagnostics.IntProperty.new("embedderId", this.embedderId, {defaultValue: 0, level: diagnostics.DiagnosticLevel.debug}));
+    }
+    toStringFull() {
+      return this.toString({minLevel: diagnostics.DiagnosticLevel.fine});
+    }
+    static transformPosition(transform, position) {
+      if (transform == null) {
+        return position;
+      }
+      let position3 = vector_math_64.Vector3.new(position.dx, position.dy, 0.0);
+      let transformed3 = transform.perspectiveTransform(position3);
+      return new ui.Offset.new(transformed3.x, transformed3.y);
+    }
+    static transformDeltaViaPositions(opts) {
+      let untransformedEndPosition = opts && 'untransformedEndPosition' in opts ? opts.untransformedEndPosition : null;
+      let transformedEndPosition = opts && 'transformedEndPosition' in opts ? opts.transformedEndPosition : null;
+      let untransformedDelta = opts && 'untransformedDelta' in opts ? opts.untransformedDelta : null;
+      let transform = opts && 'transform' in opts ? opts.transform : null;
+      if (transform == null) {
+        return untransformedDelta;
+      }
+      transformedEndPosition == null ? transformedEndPosition = events.PointerEvent.transformPosition(transform, untransformedEndPosition) : null;
+      let transformedStartPosition = events.PointerEvent.transformPosition(transform, untransformedEndPosition['-'](untransformedDelta));
+      return transformedEndPosition['-'](transformedStartPosition);
+    }
+    static removePerspectiveTransform(transform) {
+      let t0;
+      let vector = vector_math_64.Vector4.new(0.0, 0.0, 1.0, 0.0);
+      t0 = transform.clone();
+      return (() => {
+        t0.setColumn(2, vector);
+        t0.setRow(2, vector);
+        return t0;
+      })();
+    }
+  };
+  (events.PointerEvent.new = function(opts) {
+    let t0, t0$;
+    let embedderId = opts && 'embedderId' in opts ? opts.embedderId : 0;
+    let timeStamp = opts && 'timeStamp' in opts ? opts.timeStamp : C0 || CT.C0;
+    let pointer = opts && 'pointer' in opts ? opts.pointer : 0;
+    let kind = opts && 'kind' in opts ? opts.kind : C1 || CT.C1;
+    let device = opts && 'device' in opts ? opts.device : 0;
+    let position = opts && 'position' in opts ? opts.position : C2 || CT.C2;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let delta = opts && 'delta' in opts ? opts.delta : C2 || CT.C2;
+    let localDelta = opts && 'localDelta' in opts ? opts.localDelta : null;
+    let buttons = opts && 'buttons' in opts ? opts.buttons : 0;
+    let down = opts && 'down' in opts ? opts.down : false;
+    let obscured = opts && 'obscured' in opts ? opts.obscured : false;
+    let pressure = opts && 'pressure' in opts ? opts.pressure : 1;
+    let pressureMin = opts && 'pressureMin' in opts ? opts.pressureMin : 1;
+    let pressureMax = opts && 'pressureMax' in opts ? opts.pressureMax : 1;
+    let distance = opts && 'distance' in opts ? opts.distance : 0;
+    let distanceMax = opts && 'distanceMax' in opts ? opts.distanceMax : 0;
+    let size = opts && 'size' in opts ? opts.size : 0;
+    let radiusMajor = opts && 'radiusMajor' in opts ? opts.radiusMajor : 0;
+    let radiusMinor = opts && 'radiusMinor' in opts ? opts.radiusMinor : 0;
+    let radiusMin = opts && 'radiusMin' in opts ? opts.radiusMin : 0;
+    let radiusMax = opts && 'radiusMax' in opts ? opts.radiusMax : 0;
+    let orientation = opts && 'orientation' in opts ? opts.orientation : 0;
+    let tilt = opts && 'tilt' in opts ? opts.tilt : 0;
+    let platformData = opts && 'platformData' in opts ? opts.platformData : 0;
+    let synthesized = opts && 'synthesized' in opts ? opts.synthesized : false;
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    let original = opts && 'original' in opts ? opts.original : null;
+    this[embedderId$] = embedderId;
+    this[timeStamp$] = timeStamp;
+    this[pointer$] = pointer;
+    this[kind$] = kind;
+    this[device$] = device;
+    this[position$] = position;
+    this[delta$] = delta;
+    this[buttons$] = buttons;
+    this[down$] = down;
+    this[obscured$] = obscured;
+    this[pressure$] = pressure;
+    this[pressureMin$] = pressureMin;
+    this[pressureMax$] = pressureMax;
+    this[distance$] = distance;
+    this[distanceMax$] = distanceMax;
+    this[size$] = size;
+    this[radiusMajor$] = radiusMajor;
+    this[radiusMinor$] = radiusMinor;
+    this[radiusMin$] = radiusMin;
+    this[radiusMax$] = radiusMax;
+    this[orientation$] = orientation;
+    this[tilt$] = tilt;
+    this[platformData$] = platformData;
+    this[synthesized$] = synthesized;
+    this[transform$] = transform;
+    this[original$] = original;
+    this[localPosition$] = (t0 = localPosition, t0 == null ? position : t0);
+    this[localDelta$] = (t0$ = localDelta, t0$ == null ? delta : t0$);
+    ;
+  }).prototype = events.PointerEvent.prototype;
+  dart.addTypeTests(events.PointerEvent);
+  dart.addTypeCaches(events.PointerEvent);
+  dart.setMethodSignature(events.PointerEvent, () => ({
+    __proto__: dart.getMethods(events.PointerEvent.__proto__),
+    debugFillProperties: dart.fnType(dart.void, [dart.legacy(diagnostics.DiagnosticPropertiesBuilder)]),
+    toStringFull: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setGetterSignature(events.PointerEvent, () => ({
+    __proto__: dart.getGetters(events.PointerEvent.__proto__),
+    distanceMin: dart.legacy(core.double)
+  }));
+  dart.setLibraryUri(events.PointerEvent, L0);
+  dart.setFieldSignature(events.PointerEvent, () => ({
+    __proto__: dart.getFields(events.PointerEvent.__proto__),
+    embedderId: dart.finalFieldType(dart.legacy(core.int)),
+    timeStamp: dart.finalFieldType(dart.legacy(core.Duration)),
+    pointer: dart.finalFieldType(dart.legacy(core.int)),
+    kind: dart.finalFieldType(dart.legacy(ui.PointerDeviceKind)),
+    device: dart.finalFieldType(dart.legacy(core.int)),
+    position: dart.finalFieldType(dart.legacy(ui.Offset)),
+    localPosition: dart.finalFieldType(dart.legacy(ui.Offset)),
+    delta: dart.finalFieldType(dart.legacy(ui.Offset)),
+    localDelta: dart.finalFieldType(dart.legacy(ui.Offset)),
+    buttons: dart.finalFieldType(dart.legacy(core.int)),
+    down: dart.finalFieldType(dart.legacy(core.bool)),
+    obscured: dart.finalFieldType(dart.legacy(core.bool)),
+    pressure: dart.finalFieldType(dart.legacy(core.double)),
+    pressureMin: dart.finalFieldType(dart.legacy(core.double)),
+    pressureMax: dart.finalFieldType(dart.legacy(core.double)),
+    distance: dart.finalFieldType(dart.legacy(core.double)),
+    distanceMax: dart.finalFieldType(dart.legacy(core.double)),
+    size: dart.finalFieldType(dart.legacy(core.double)),
+    radiusMajor: dart.finalFieldType(dart.legacy(core.double)),
+    radiusMinor: dart.finalFieldType(dart.legacy(core.double)),
+    radiusMin: dart.finalFieldType(dart.legacy(core.double)),
+    radiusMax: dart.finalFieldType(dart.legacy(core.double)),
+    orientation: dart.finalFieldType(dart.legacy(core.double)),
+    tilt: dart.finalFieldType(dart.legacy(core.double)),
+    platformData: dart.finalFieldType(dart.legacy(core.int)),
+    synthesized: dart.finalFieldType(dart.legacy(core.bool)),
+    transform: dart.finalFieldType(dart.legacy(vector_math_64.Matrix4)),
+    original: dart.finalFieldType(dart.legacy(events.PointerEvent))
+  }));
+  events.PointerAddedEvent = class PointerAddedEvent extends events.PointerEvent {
+    transformed(transform) {
+      let t0;
+      if (transform == null || dart.equals(transform, this.transform)) {
+        return this;
+      }
+      return new events.PointerAddedEvent.new({timeStamp: this.timeStamp, kind: this.kind, device: this.device, position: this.position, localPosition: events.PointerEvent.transformPosition(transform, this.position), obscured: this.obscured, pressureMin: this.pressureMin, pressureMax: this.pressureMax, distance: this.distance, distanceMax: this.distanceMax, radiusMin: this.radiusMin, radiusMax: this.radiusMax, orientation: this.orientation, tilt: this.tilt, transform: transform, original: (t0 = PointerAddedEventL().as(this.original), t0 == null ? this : t0), embedderId: this.embedderId});
+    }
+  };
+  (events.PointerAddedEvent.new = function(opts) {
+    let timeStamp = opts && 'timeStamp' in opts ? opts.timeStamp : C0 || CT.C0;
+    let kind = opts && 'kind' in opts ? opts.kind : C1 || CT.C1;
+    let device = opts && 'device' in opts ? opts.device : 0;
+    let position = opts && 'position' in opts ? opts.position : C2 || CT.C2;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let obscured = opts && 'obscured' in opts ? opts.obscured : false;
+    let pressureMin = opts && 'pressureMin' in opts ? opts.pressureMin : 1;
+    let pressureMax = opts && 'pressureMax' in opts ? opts.pressureMax : 1;
+    let distance = opts && 'distance' in opts ? opts.distance : 0;
+    let distanceMax = opts && 'distanceMax' in opts ? opts.distanceMax : 0;
+    let radiusMin = opts && 'radiusMin' in opts ? opts.radiusMin : 0;
+    let radiusMax = opts && 'radiusMax' in opts ? opts.radiusMax : 0;
+    let orientation = opts && 'orientation' in opts ? opts.orientation : 0;
+    let tilt = opts && 'tilt' in opts ? opts.tilt : 0;
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    let original = opts && 'original' in opts ? opts.original : null;
+    let embedderId = opts && 'embedderId' in opts ? opts.embedderId : 0;
+    events.PointerAddedEvent.__proto__.new.call(this, {timeStamp: timeStamp, kind: kind, device: device, position: position, localPosition: localPosition, obscured: obscured, pressure: 0.0, pressureMin: pressureMin, pressureMax: pressureMax, distance: distance, distanceMax: distanceMax, radiusMin: radiusMin, radiusMax: radiusMax, orientation: orientation, tilt: tilt, transform: transform, original: original, embedderId: embedderId});
+    ;
+  }).prototype = events.PointerAddedEvent.prototype;
+  dart.addTypeTests(events.PointerAddedEvent);
+  dart.addTypeCaches(events.PointerAddedEvent);
+  dart.setMethodSignature(events.PointerAddedEvent, () => ({
+    __proto__: dart.getMethods(events.PointerAddedEvent.__proto__),
+    transformed: dart.fnType(dart.legacy(events.PointerAddedEvent), [dart.legacy(vector_math_64.Matrix4)])
+  }));
+  dart.setLibraryUri(events.PointerAddedEvent, L0);
+  events.PointerRemovedEvent = class PointerRemovedEvent extends events.PointerEvent {
+    transformed(transform) {
+      let t0;
+      if (transform == null || dart.equals(transform, this.transform)) {
+        return this;
+      }
+      return new events.PointerRemovedEvent.new({timeStamp: this.timeStamp, kind: this.kind, device: this.device, position: this.position, localPosition: events.PointerEvent.transformPosition(transform, this.position), obscured: this.obscured, pressureMin: this.pressureMin, pressureMax: this.pressureMax, distanceMax: this.distanceMax, radiusMin: this.radiusMin, radiusMax: this.radiusMax, transform: transform, original: (t0 = PointerRemovedEventL().as(this.original), t0 == null ? this : t0), embedderId: this.embedderId});
+    }
+  };
+  (events.PointerRemovedEvent.new = function(opts) {
+    let timeStamp = opts && 'timeStamp' in opts ? opts.timeStamp : C0 || CT.C0;
+    let kind = opts && 'kind' in opts ? opts.kind : C1 || CT.C1;
+    let device = opts && 'device' in opts ? opts.device : 0;
+    let position = opts && 'position' in opts ? opts.position : C2 || CT.C2;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let obscured = opts && 'obscured' in opts ? opts.obscured : false;
+    let pressureMin = opts && 'pressureMin' in opts ? opts.pressureMin : 1;
+    let pressureMax = opts && 'pressureMax' in opts ? opts.pressureMax : 1;
+    let distanceMax = opts && 'distanceMax' in opts ? opts.distanceMax : 0;
+    let radiusMin = opts && 'radiusMin' in opts ? opts.radiusMin : 0;
+    let radiusMax = opts && 'radiusMax' in opts ? opts.radiusMax : 0;
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    let original = opts && 'original' in opts ? opts.original : null;
+    let embedderId = opts && 'embedderId' in opts ? opts.embedderId : 0;
+    events.PointerRemovedEvent.__proto__.new.call(this, {timeStamp: timeStamp, kind: kind, device: device, position: position, localPosition: localPosition, obscured: obscured, pressure: 0.0, pressureMin: pressureMin, pressureMax: pressureMax, distanceMax: distanceMax, radiusMin: radiusMin, radiusMax: radiusMax, transform: transform, original: original, embedderId: embedderId});
+    ;
+  }).prototype = events.PointerRemovedEvent.prototype;
+  dart.addTypeTests(events.PointerRemovedEvent);
+  dart.addTypeCaches(events.PointerRemovedEvent);
+  dart.setMethodSignature(events.PointerRemovedEvent, () => ({
+    __proto__: dart.getMethods(events.PointerRemovedEvent.__proto__),
+    transformed: dart.fnType(dart.legacy(events.PointerRemovedEvent), [dart.legacy(vector_math_64.Matrix4)])
+  }));
+  dart.setLibraryUri(events.PointerRemovedEvent, L0);
+  events.PointerHoverEvent = class PointerHoverEvent extends events.PointerEvent {
+    transformed(transform) {
+      let t0;
+      if (transform == null || dart.equals(transform, this.transform)) {
+        return this;
+      }
+      let transformedPosition = events.PointerEvent.transformPosition(transform, this.position);
+      return new events.PointerHoverEvent.new({timeStamp: this.timeStamp, kind: this.kind, device: this.device, position: this.position, localPosition: transformedPosition, delta: this.delta, localDelta: events.PointerEvent.transformDeltaViaPositions({transform: transform, untransformedDelta: this.delta, untransformedEndPosition: this.position, transformedEndPosition: transformedPosition}), buttons: this.buttons, obscured: this.obscured, pressureMin: this.pressureMin, pressureMax: this.pressureMax, distance: this.distance, distanceMax: this.distanceMax, size: this.size, radiusMajor: this.radiusMajor, radiusMinor: this.radiusMinor, radiusMin: this.radiusMin, radiusMax: this.radiusMax, orientation: this.orientation, tilt: this.tilt, synthesized: this.synthesized, transform: transform, original: (t0 = PointerHoverEventL().as(this.original), t0 == null ? this : t0), embedderId: this.embedderId});
+    }
+  };
+  (events.PointerHoverEvent.new = function(opts) {
+    let timeStamp = opts && 'timeStamp' in opts ? opts.timeStamp : C0 || CT.C0;
+    let kind = opts && 'kind' in opts ? opts.kind : C1 || CT.C1;
+    let device = opts && 'device' in opts ? opts.device : 0;
+    let position = opts && 'position' in opts ? opts.position : C2 || CT.C2;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let delta = opts && 'delta' in opts ? opts.delta : C2 || CT.C2;
+    let localDelta = opts && 'localDelta' in opts ? opts.localDelta : null;
+    let buttons = opts && 'buttons' in opts ? opts.buttons : 0;
+    let obscured = opts && 'obscured' in opts ? opts.obscured : false;
+    let pressureMin = opts && 'pressureMin' in opts ? opts.pressureMin : 1;
+    let pressureMax = opts && 'pressureMax' in opts ? opts.pressureMax : 1;
+    let distance = opts && 'distance' in opts ? opts.distance : 0;
+    let distanceMax = opts && 'distanceMax' in opts ? opts.distanceMax : 0;
+    let size = opts && 'size' in opts ? opts.size : 0;
+    let radiusMajor = opts && 'radiusMajor' in opts ? opts.radiusMajor : 0;
+    let radiusMinor = opts && 'radiusMinor' in opts ? opts.radiusMinor : 0;
+    let radiusMin = opts && 'radiusMin' in opts ? opts.radiusMin : 0;
+    let radiusMax = opts && 'radiusMax' in opts ? opts.radiusMax : 0;
+    let orientation = opts && 'orientation' in opts ? opts.orientation : 0;
+    let tilt = opts && 'tilt' in opts ? opts.tilt : 0;
+    let synthesized = opts && 'synthesized' in opts ? opts.synthesized : false;
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    let original = opts && 'original' in opts ? opts.original : null;
+    let embedderId = opts && 'embedderId' in opts ? opts.embedderId : 0;
+    events.PointerHoverEvent.__proto__.new.call(this, {timeStamp: timeStamp, kind: kind, device: device, position: position, localPosition: localPosition, delta: delta, localDelta: localDelta, buttons: buttons, down: false, obscured: obscured, pressure: 0.0, pressureMin: pressureMin, pressureMax: pressureMax, distance: distance, distanceMax: distanceMax, size: size, radiusMajor: radiusMajor, radiusMinor: radiusMinor, radiusMin: radiusMin, radiusMax: radiusMax, orientation: orientation, tilt: tilt, synthesized: synthesized, transform: transform, original: original, embedderId: embedderId});
+    ;
+  }).prototype = events.PointerHoverEvent.prototype;
+  dart.addTypeTests(events.PointerHoverEvent);
+  dart.addTypeCaches(events.PointerHoverEvent);
+  dart.setMethodSignature(events.PointerHoverEvent, () => ({
+    __proto__: dart.getMethods(events.PointerHoverEvent.__proto__),
+    transformed: dart.fnType(dart.legacy(events.PointerHoverEvent), [dart.legacy(vector_math_64.Matrix4)])
+  }));
+  dart.setLibraryUri(events.PointerHoverEvent, L0);
+  events.PointerEnterEvent = class PointerEnterEvent extends events.PointerEvent {
+    transformed(transform) {
+      let t0;
+      if (transform == null || dart.equals(transform, this.transform)) {
+        return this;
+      }
+      let transformedPosition = events.PointerEvent.transformPosition(transform, this.position);
+      return new events.PointerEnterEvent.new({timeStamp: this.timeStamp, kind: this.kind, device: this.device, position: this.position, localPosition: transformedPosition, delta: this.delta, localDelta: events.PointerEvent.transformDeltaViaPositions({transform: transform, untransformedDelta: this.delta, untransformedEndPosition: this.position, transformedEndPosition: transformedPosition}), buttons: this.buttons, obscured: this.obscured, pressureMin: this.pressureMin, pressureMax: this.pressureMax, distance: this.distance, distanceMax: this.distanceMax, size: this.size, radiusMajor: this.radiusMajor, radiusMinor: this.radiusMinor, radiusMin: this.radiusMin, radiusMax: this.radiusMax, orientation: this.orientation, tilt: this.tilt, down: this.down, synthesized: this.synthesized, transform: transform, original: (t0 = PointerEnterEventL().as(this.original), t0 == null ? this : t0), embedderId: this.embedderId});
+    }
+  };
+  (events.PointerEnterEvent.new = function(opts) {
+    let timeStamp = opts && 'timeStamp' in opts ? opts.timeStamp : C0 || CT.C0;
+    let kind = opts && 'kind' in opts ? opts.kind : C1 || CT.C1;
+    let device = opts && 'device' in opts ? opts.device : 0;
+    let position = opts && 'position' in opts ? opts.position : C2 || CT.C2;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let delta = opts && 'delta' in opts ? opts.delta : C2 || CT.C2;
+    let localDelta = opts && 'localDelta' in opts ? opts.localDelta : null;
+    let buttons = opts && 'buttons' in opts ? opts.buttons : 0;
+    let obscured = opts && 'obscured' in opts ? opts.obscured : false;
+    let pressureMin = opts && 'pressureMin' in opts ? opts.pressureMin : 1;
+    let pressureMax = opts && 'pressureMax' in opts ? opts.pressureMax : 1;
+    let distance = opts && 'distance' in opts ? opts.distance : 0;
+    let distanceMax = opts && 'distanceMax' in opts ? opts.distanceMax : 0;
+    let size = opts && 'size' in opts ? opts.size : 0;
+    let radiusMajor = opts && 'radiusMajor' in opts ? opts.radiusMajor : 0;
+    let radiusMinor = opts && 'radiusMinor' in opts ? opts.radiusMinor : 0;
+    let radiusMin = opts && 'radiusMin' in opts ? opts.radiusMin : 0;
+    let radiusMax = opts && 'radiusMax' in opts ? opts.radiusMax : 0;
+    let orientation = opts && 'orientation' in opts ? opts.orientation : 0;
+    let tilt = opts && 'tilt' in opts ? opts.tilt : 0;
+    let down = opts && 'down' in opts ? opts.down : false;
+    let synthesized = opts && 'synthesized' in opts ? opts.synthesized : false;
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    let original = opts && 'original' in opts ? opts.original : null;
+    let embedderId = opts && 'embedderId' in opts ? opts.embedderId : 0;
+    events.PointerEnterEvent.__proto__.new.call(this, {timeStamp: timeStamp, kind: kind, device: device, position: position, localPosition: localPosition, delta: delta, localDelta: localDelta, buttons: buttons, down: down, obscured: obscured, pressure: 0.0, pressureMin: pressureMin, pressureMax: pressureMax, distance: distance, distanceMax: distanceMax, size: size, radiusMajor: radiusMajor, radiusMinor: radiusMinor, radiusMin: radiusMin, radiusMax: radiusMax, orientation: orientation, tilt: tilt, synthesized: synthesized, transform: transform, original: original, embedderId: embedderId});
+    ;
+  }).prototype = events.PointerEnterEvent.prototype;
+  (events.PointerEnterEvent.fromHoverEvent = function(event) {
+    events.PointerEnterEvent.fromMouseEvent.call(this, event);
+  }).prototype = events.PointerEnterEvent.prototype;
+  (events.PointerEnterEvent.fromMouseEvent = function(event) {
+    let t0, t0$, t0$0, t0$1, t0$2, t0$3, t0$4, t0$5, t0$6, t0$7, t0$8, t0$9, t0$10, t0$11, t0$12, t0$13, t0$14, t0$15, t0$16, t0$17, t0$18, t0$19, t0$20;
+    events.PointerEnterEvent.new.call(this, {timeStamp: (t0 = event, t0 == null ? null : t0.timeStamp), kind: (t0$ = event, t0$ == null ? null : t0$.kind), device: (t0$0 = event, t0$0 == null ? null : t0$0.device), position: (t0$1 = event, t0$1 == null ? null : t0$1.position), localPosition: (t0$2 = event, t0$2 == null ? null : t0$2.localPosition), delta: (t0$3 = event, t0$3 == null ? null : t0$3.delta), localDelta: (t0$4 = event, t0$4 == null ? null : t0$4.localDelta), buttons: (t0$5 = event, t0$5 == null ? null : t0$5.buttons), obscured: (t0$6 = event, t0$6 == null ? null : t0$6.obscured), pressureMin: (t0$7 = event, t0$7 == null ? null : t0$7.pressureMin), pressureMax: (t0$8 = event, t0$8 == null ? null : t0$8.pressureMax), distance: (t0$9 = event, t0$9 == null ? null : t0$9.distance), distanceMax: (t0$10 = event, t0$10 == null ? null : t0$10.distanceMax), size: (t0$11 = event, t0$11 == null ? null : t0$11.size), radiusMajor: (t0$12 = event, t0$12 == null ? null : t0$12.radiusMajor), radiusMinor: (t0$13 = event, t0$13 == null ? null : t0$13.radiusMinor), radiusMin: (t0$14 = event, t0$14 == null ? null : t0$14.radiusMin), radiusMax: (t0$15 = event, t0$15 == null ? null : t0$15.radiusMax), orientation: (t0$16 = event, t0$16 == null ? null : t0$16.orientation), tilt: (t0$17 = event, t0$17 == null ? null : t0$17.tilt), down: (t0$18 = event, t0$18 == null ? null : t0$18.down), synthesized: (t0$19 = event, t0$19 == null ? null : t0$19.synthesized), transform: (t0$20 = event, t0$20 == null ? null : t0$20.transform), original: null});
+  }).prototype = events.PointerEnterEvent.prototype;
+  dart.addTypeTests(events.PointerEnterEvent);
+  dart.addTypeCaches(events.PointerEnterEvent);
+  dart.setMethodSignature(events.PointerEnterEvent, () => ({
+    __proto__: dart.getMethods(events.PointerEnterEvent.__proto__),
+    transformed: dart.fnType(dart.legacy(events.PointerEnterEvent), [dart.legacy(vector_math_64.Matrix4)])
+  }));
+  dart.setLibraryUri(events.PointerEnterEvent, L0);
+  events.PointerExitEvent = class PointerExitEvent extends events.PointerEvent {
+    transformed(transform) {
+      let t0;
+      if (transform == null || dart.equals(transform, this.transform)) {
+        return this;
+      }
+      let transformedPosition = events.PointerEvent.transformPosition(transform, this.position);
+      return new events.PointerExitEvent.new({timeStamp: this.timeStamp, kind: this.kind, device: this.device, position: this.position, localPosition: transformedPosition, delta: this.delta, localDelta: events.PointerEvent.transformDeltaViaPositions({transform: transform, untransformedDelta: this.delta, untransformedEndPosition: this.position, transformedEndPosition: transformedPosition}), buttons: this.buttons, obscured: this.obscured, pressureMin: this.pressureMin, pressureMax: this.pressureMax, distance: this.distance, distanceMax: this.distanceMax, size: this.size, radiusMajor: this.radiusMajor, radiusMinor: this.radiusMinor, radiusMin: this.radiusMin, radiusMax: this.radiusMax, orientation: this.orientation, tilt: this.tilt, down: this.down, synthesized: this.synthesized, transform: transform, original: (t0 = PointerExitEventL().as(this.original), t0 == null ? this : t0), embedderId: this.embedderId});
+    }
+  };
+  (events.PointerExitEvent.new = function(opts) {
+    let timeStamp = opts && 'timeStamp' in opts ? opts.timeStamp : C0 || CT.C0;
+    let kind = opts && 'kind' in opts ? opts.kind : C1 || CT.C1;
+    let device = opts && 'device' in opts ? opts.device : 0;
+    let position = opts && 'position' in opts ? opts.position : C2 || CT.C2;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let delta = opts && 'delta' in opts ? opts.delta : C2 || CT.C2;
+    let localDelta = opts && 'localDelta' in opts ? opts.localDelta : null;
+    let buttons = opts && 'buttons' in opts ? opts.buttons : 0;
+    let obscured = opts && 'obscured' in opts ? opts.obscured : false;
+    let pressureMin = opts && 'pressureMin' in opts ? opts.pressureMin : 1;
+    let pressureMax = opts && 'pressureMax' in opts ? opts.pressureMax : 1;
+    let distance = opts && 'distance' in opts ? opts.distance : 0;
+    let distanceMax = opts && 'distanceMax' in opts ? opts.distanceMax : 0;
+    let size = opts && 'size' in opts ? opts.size : 0;
+    let radiusMajor = opts && 'radiusMajor' in opts ? opts.radiusMajor : 0;
+    let radiusMinor = opts && 'radiusMinor' in opts ? opts.radiusMinor : 0;
+    let radiusMin = opts && 'radiusMin' in opts ? opts.radiusMin : 0;
+    let radiusMax = opts && 'radiusMax' in opts ? opts.radiusMax : 0;
+    let orientation = opts && 'orientation' in opts ? opts.orientation : 0;
+    let tilt = opts && 'tilt' in opts ? opts.tilt : 0;
+    let down = opts && 'down' in opts ? opts.down : false;
+    let synthesized = opts && 'synthesized' in opts ? opts.synthesized : false;
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    let original = opts && 'original' in opts ? opts.original : null;
+    let embedderId = opts && 'embedderId' in opts ? opts.embedderId : 0;
+    events.PointerExitEvent.__proto__.new.call(this, {timeStamp: timeStamp, kind: kind, device: device, position: position, localPosition: localPosition, delta: delta, localDelta: localDelta, buttons: buttons, down: down, obscured: obscured, pressure: 0.0, pressureMin: pressureMin, pressureMax: pressureMax, distance: distance, distanceMax: distanceMax, size: size, radiusMajor: radiusMajor, radiusMinor: radiusMinor, radiusMin: radiusMin, radiusMax: radiusMax, orientation: orientation, tilt: tilt, synthesized: synthesized, transform: transform, original: original, embedderId: embedderId});
+    ;
+  }).prototype = events.PointerExitEvent.prototype;
+  (events.PointerExitEvent.fromHoverEvent = function(event) {
+    events.PointerExitEvent.fromMouseEvent.call(this, event);
+  }).prototype = events.PointerExitEvent.prototype;
+  (events.PointerExitEvent.fromMouseEvent = function(event) {
+    let t0, t0$, t0$0, t0$1, t0$2, t0$3, t0$4, t0$5, t0$6, t0$7, t0$8, t0$9, t0$10, t0$11, t0$12, t0$13, t0$14, t0$15, t0$16, t0$17, t0$18, t0$19, t0$20;
+    events.PointerExitEvent.new.call(this, {timeStamp: (t0 = event, t0 == null ? null : t0.timeStamp), kind: (t0$ = event, t0$ == null ? null : t0$.kind), device: (t0$0 = event, t0$0 == null ? null : t0$0.device), position: (t0$1 = event, t0$1 == null ? null : t0$1.position), localPosition: (t0$2 = event, t0$2 == null ? null : t0$2.localPosition), delta: (t0$3 = event, t0$3 == null ? null : t0$3.delta), localDelta: (t0$4 = event, t0$4 == null ? null : t0$4.localDelta), buttons: (t0$5 = event, t0$5 == null ? null : t0$5.buttons), obscured: (t0$6 = event, t0$6 == null ? null : t0$6.obscured), pressureMin: (t0$7 = event, t0$7 == null ? null : t0$7.pressureMin), pressureMax: (t0$8 = event, t0$8 == null ? null : t0$8.pressureMax), distance: (t0$9 = event, t0$9 == null ? null : t0$9.distance), distanceMax: (t0$10 = event, t0$10 == null ? null : t0$10.distanceMax), size: (t0$11 = event, t0$11 == null ? null : t0$11.size), radiusMajor: (t0$12 = event, t0$12 == null ? null : t0$12.radiusMajor), radiusMinor: (t0$13 = event, t0$13 == null ? null : t0$13.radiusMinor), radiusMin: (t0$14 = event, t0$14 == null ? null : t0$14.radiusMin), radiusMax: (t0$15 = event, t0$15 == null ? null : t0$15.radiusMax), orientation: (t0$16 = event, t0$16 == null ? null : t0$16.orientation), tilt: (t0$17 = event, t0$17 == null ? null : t0$17.tilt), down: (t0$18 = event, t0$18 == null ? null : t0$18.down), synthesized: (t0$19 = event, t0$19 == null ? null : t0$19.synthesized), transform: (t0$20 = event, t0$20 == null ? null : t0$20.transform), original: null});
+  }).prototype = events.PointerExitEvent.prototype;
+  dart.addTypeTests(events.PointerExitEvent);
+  dart.addTypeCaches(events.PointerExitEvent);
+  dart.setMethodSignature(events.PointerExitEvent, () => ({
+    __proto__: dart.getMethods(events.PointerExitEvent.__proto__),
+    transformed: dart.fnType(dart.legacy(events.PointerExitEvent), [dart.legacy(vector_math_64.Matrix4)])
+  }));
+  dart.setLibraryUri(events.PointerExitEvent, L0);
+  events.PointerDownEvent = class PointerDownEvent extends events.PointerEvent {
+    transformed(transform) {
+      let t0;
+      if (transform == null || dart.equals(transform, this.transform)) {
+        return this;
+      }
+      return new events.PointerDownEvent.new({timeStamp: this.timeStamp, pointer: this.pointer, kind: this.kind, device: this.device, position: this.position, localPosition: events.PointerEvent.transformPosition(transform, this.position), buttons: this.buttons, obscured: this.obscured, pressure: this.pressure, pressureMin: this.pressureMin, pressureMax: this.pressureMax, distanceMax: this.distanceMax, size: this.size, radiusMajor: this.radiusMajor, radiusMinor: this.radiusMinor, radiusMin: this.radiusMin, radiusMax: this.radiusMax, orientation: this.orientation, tilt: this.tilt, transform: transform, original: (t0 = PointerDownEventL().as(this.original), t0 == null ? this : t0), embedderId: this.embedderId});
+    }
+  };
+  (events.PointerDownEvent.new = function(opts) {
+    let timeStamp = opts && 'timeStamp' in opts ? opts.timeStamp : C0 || CT.C0;
+    let pointer = opts && 'pointer' in opts ? opts.pointer : 0;
+    let kind = opts && 'kind' in opts ? opts.kind : C1 || CT.C1;
+    let device = opts && 'device' in opts ? opts.device : 0;
+    let position = opts && 'position' in opts ? opts.position : C2 || CT.C2;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let buttons = opts && 'buttons' in opts ? opts.buttons : 1;
+    let obscured = opts && 'obscured' in opts ? opts.obscured : false;
+    let pressure = opts && 'pressure' in opts ? opts.pressure : 1;
+    let pressureMin = opts && 'pressureMin' in opts ? opts.pressureMin : 1;
+    let pressureMax = opts && 'pressureMax' in opts ? opts.pressureMax : 1;
+    let distanceMax = opts && 'distanceMax' in opts ? opts.distanceMax : 0;
+    let size = opts && 'size' in opts ? opts.size : 0;
+    let radiusMajor = opts && 'radiusMajor' in opts ? opts.radiusMajor : 0;
+    let radiusMinor = opts && 'radiusMinor' in opts ? opts.radiusMinor : 0;
+    let radiusMin = opts && 'radiusMin' in opts ? opts.radiusMin : 0;
+    let radiusMax = opts && 'radiusMax' in opts ? opts.radiusMax : 0;
+    let orientation = opts && 'orientation' in opts ? opts.orientation : 0;
+    let tilt = opts && 'tilt' in opts ? opts.tilt : 0;
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    let original = opts && 'original' in opts ? opts.original : null;
+    let embedderId = opts && 'embedderId' in opts ? opts.embedderId : 0;
+    events.PointerDownEvent.__proto__.new.call(this, {timeStamp: timeStamp, pointer: pointer, kind: kind, device: device, position: position, localPosition: localPosition, buttons: buttons, down: true, obscured: obscured, pressure: pressure, pressureMin: pressureMin, pressureMax: pressureMax, distance: 0.0, distanceMax: distanceMax, size: size, radiusMajor: radiusMajor, radiusMinor: radiusMinor, radiusMin: radiusMin, radiusMax: radiusMax, orientation: orientation, tilt: tilt, transform: transform, original: original, embedderId: embedderId});
+    ;
+  }).prototype = events.PointerDownEvent.prototype;
+  dart.addTypeTests(events.PointerDownEvent);
+  dart.addTypeCaches(events.PointerDownEvent);
+  dart.setMethodSignature(events.PointerDownEvent, () => ({
+    __proto__: dart.getMethods(events.PointerDownEvent.__proto__),
+    transformed: dart.fnType(dart.legacy(events.PointerDownEvent), [dart.legacy(vector_math_64.Matrix4)])
+  }));
+  dart.setLibraryUri(events.PointerDownEvent, L0);
+  events.PointerMoveEvent = class PointerMoveEvent extends events.PointerEvent {
+    transformed(transform) {
+      let t0;
+      if (transform == null || dart.equals(transform, this.transform)) {
+        return this;
+      }
+      let transformedPosition = events.PointerEvent.transformPosition(transform, this.position);
+      return new events.PointerMoveEvent.new({timeStamp: this.timeStamp, pointer: this.pointer, kind: this.kind, device: this.device, position: this.position, localPosition: transformedPosition, delta: this.delta, localDelta: events.PointerEvent.transformDeltaViaPositions({transform: transform, untransformedDelta: this.delta, untransformedEndPosition: this.position, transformedEndPosition: transformedPosition}), buttons: this.buttons, obscured: this.obscured, pressure: this.pressure, pressureMin: this.pressureMin, pressureMax: this.pressureMax, distanceMax: this.distanceMax, size: this.size, radiusMajor: this.radiusMajor, radiusMinor: this.radiusMinor, radiusMin: this.radiusMin, radiusMax: this.radiusMax, orientation: this.orientation, tilt: this.tilt, platformData: this.platformData, synthesized: this.synthesized, transform: transform, original: (t0 = PointerMoveEventL().as(this.original), t0 == null ? this : t0), embedderId: this.embedderId});
+    }
+  };
+  (events.PointerMoveEvent.new = function(opts) {
+    let timeStamp = opts && 'timeStamp' in opts ? opts.timeStamp : C0 || CT.C0;
+    let pointer = opts && 'pointer' in opts ? opts.pointer : 0;
+    let kind = opts && 'kind' in opts ? opts.kind : C1 || CT.C1;
+    let device = opts && 'device' in opts ? opts.device : 0;
+    let position = opts && 'position' in opts ? opts.position : C2 || CT.C2;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let delta = opts && 'delta' in opts ? opts.delta : C2 || CT.C2;
+    let localDelta = opts && 'localDelta' in opts ? opts.localDelta : null;
+    let buttons = opts && 'buttons' in opts ? opts.buttons : 1;
+    let obscured = opts && 'obscured' in opts ? opts.obscured : false;
+    let pressure = opts && 'pressure' in opts ? opts.pressure : 1;
+    let pressureMin = opts && 'pressureMin' in opts ? opts.pressureMin : 1;
+    let pressureMax = opts && 'pressureMax' in opts ? opts.pressureMax : 1;
+    let distanceMax = opts && 'distanceMax' in opts ? opts.distanceMax : 0;
+    let size = opts && 'size' in opts ? opts.size : 0;
+    let radiusMajor = opts && 'radiusMajor' in opts ? opts.radiusMajor : 0;
+    let radiusMinor = opts && 'radiusMinor' in opts ? opts.radiusMinor : 0;
+    let radiusMin = opts && 'radiusMin' in opts ? opts.radiusMin : 0;
+    let radiusMax = opts && 'radiusMax' in opts ? opts.radiusMax : 0;
+    let orientation = opts && 'orientation' in opts ? opts.orientation : 0;
+    let tilt = opts && 'tilt' in opts ? opts.tilt : 0;
+    let platformData = opts && 'platformData' in opts ? opts.platformData : 0;
+    let synthesized = opts && 'synthesized' in opts ? opts.synthesized : false;
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    let original = opts && 'original' in opts ? opts.original : null;
+    let embedderId = opts && 'embedderId' in opts ? opts.embedderId : 0;
+    events.PointerMoveEvent.__proto__.new.call(this, {timeStamp: timeStamp, pointer: pointer, kind: kind, device: device, position: position, localPosition: localPosition, delta: delta, localDelta: localDelta, buttons: buttons, down: true, obscured: obscured, pressure: pressure, pressureMin: pressureMin, pressureMax: pressureMax, distance: 0.0, distanceMax: distanceMax, size: size, radiusMajor: radiusMajor, radiusMinor: radiusMinor, radiusMin: radiusMin, radiusMax: radiusMax, orientation: orientation, tilt: tilt, platformData: platformData, synthesized: synthesized, transform: transform, original: original, embedderId: embedderId});
+    ;
+  }).prototype = events.PointerMoveEvent.prototype;
+  dart.addTypeTests(events.PointerMoveEvent);
+  dart.addTypeCaches(events.PointerMoveEvent);
+  dart.setMethodSignature(events.PointerMoveEvent, () => ({
+    __proto__: dart.getMethods(events.PointerMoveEvent.__proto__),
+    transformed: dart.fnType(dart.legacy(events.PointerMoveEvent), [dart.legacy(vector_math_64.Matrix4)])
+  }));
+  dart.setLibraryUri(events.PointerMoveEvent, L0);
+  events.PointerUpEvent = class PointerUpEvent extends events.PointerEvent {
+    transformed(transform) {
+      let t0;
+      if (transform == null || dart.equals(transform, this.transform)) {
+        return this;
+      }
+      return new events.PointerUpEvent.new({timeStamp: this.timeStamp, pointer: this.pointer, kind: this.kind, device: this.device, position: this.position, localPosition: events.PointerEvent.transformPosition(transform, this.position), buttons: this.buttons, obscured: this.obscured, pressure: this.pressure, pressureMin: this.pressureMin, pressureMax: this.pressureMax, distance: this.distance, distanceMax: this.distanceMax, size: this.size, radiusMajor: this.radiusMajor, radiusMinor: this.radiusMinor, radiusMin: this.radiusMin, radiusMax: this.radiusMax, orientation: this.orientation, tilt: this.tilt, transform: transform, original: (t0 = PointerUpEventL().as(this.original), t0 == null ? this : t0), embedderId: this.embedderId});
+    }
+  };
+  (events.PointerUpEvent.new = function(opts) {
+    let timeStamp = opts && 'timeStamp' in opts ? opts.timeStamp : C0 || CT.C0;
+    let pointer = opts && 'pointer' in opts ? opts.pointer : 0;
+    let kind = opts && 'kind' in opts ? opts.kind : C1 || CT.C1;
+    let device = opts && 'device' in opts ? opts.device : 0;
+    let position = opts && 'position' in opts ? opts.position : C2 || CT.C2;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let buttons = opts && 'buttons' in opts ? opts.buttons : 0;
+    let obscured = opts && 'obscured' in opts ? opts.obscured : false;
+    let pressure = opts && 'pressure' in opts ? opts.pressure : 0;
+    let pressureMin = opts && 'pressureMin' in opts ? opts.pressureMin : 1;
+    let pressureMax = opts && 'pressureMax' in opts ? opts.pressureMax : 1;
+    let distance = opts && 'distance' in opts ? opts.distance : 0;
+    let distanceMax = opts && 'distanceMax' in opts ? opts.distanceMax : 0;
+    let size = opts && 'size' in opts ? opts.size : 0;
+    let radiusMajor = opts && 'radiusMajor' in opts ? opts.radiusMajor : 0;
+    let radiusMinor = opts && 'radiusMinor' in opts ? opts.radiusMinor : 0;
+    let radiusMin = opts && 'radiusMin' in opts ? opts.radiusMin : 0;
+    let radiusMax = opts && 'radiusMax' in opts ? opts.radiusMax : 0;
+    let orientation = opts && 'orientation' in opts ? opts.orientation : 0;
+    let tilt = opts && 'tilt' in opts ? opts.tilt : 0;
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    let original = opts && 'original' in opts ? opts.original : null;
+    let embedderId = opts && 'embedderId' in opts ? opts.embedderId : 0;
+    events.PointerUpEvent.__proto__.new.call(this, {timeStamp: timeStamp, pointer: pointer, kind: kind, device: device, position: position, localPosition: localPosition, buttons: buttons, down: false, obscured: obscured, pressure: pressure, pressureMin: pressureMin, pressureMax: pressureMax, distance: distance, distanceMax: distanceMax, size: size, radiusMajor: radiusMajor, radiusMinor: radiusMinor, radiusMin: radiusMin, radiusMax: radiusMax, orientation: orientation, tilt: tilt, transform: transform, original: original, embedderId: embedderId});
+    ;
+  }).prototype = events.PointerUpEvent.prototype;
+  dart.addTypeTests(events.PointerUpEvent);
+  dart.addTypeCaches(events.PointerUpEvent);
+  dart.setMethodSignature(events.PointerUpEvent, () => ({
+    __proto__: dart.getMethods(events.PointerUpEvent.__proto__),
+    transformed: dart.fnType(dart.legacy(events.PointerUpEvent), [dart.legacy(vector_math_64.Matrix4)])
+  }));
+  dart.setLibraryUri(events.PointerUpEvent, L0);
+  var C3;
+  events.PointerSignalEvent = class PointerSignalEvent extends events.PointerEvent {};
+  (events.PointerSignalEvent.new = function(opts) {
+    let timeStamp = opts && 'timeStamp' in opts ? opts.timeStamp : C0 || CT.C0;
+    let pointer = opts && 'pointer' in opts ? opts.pointer : 0;
+    let kind = opts && 'kind' in opts ? opts.kind : C3 || CT.C3;
+    let device = opts && 'device' in opts ? opts.device : 0;
+    let position = opts && 'position' in opts ? opts.position : C2 || CT.C2;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    let original = opts && 'original' in opts ? opts.original : null;
+    let embedderId = opts && 'embedderId' in opts ? opts.embedderId : 0;
+    events.PointerSignalEvent.__proto__.new.call(this, {timeStamp: timeStamp, pointer: pointer, kind: kind, device: device, position: position, localPosition: localPosition, transform: transform, original: original, embedderId: embedderId});
+    ;
+  }).prototype = events.PointerSignalEvent.prototype;
+  dart.addTypeTests(events.PointerSignalEvent);
+  dart.addTypeCaches(events.PointerSignalEvent);
+  dart.setLibraryUri(events.PointerSignalEvent, L0);
+  var scrollDelta$ = dart.privateName(events, "PointerScrollEvent.scrollDelta");
+  events.PointerScrollEvent = class PointerScrollEvent extends events.PointerSignalEvent {
+    get scrollDelta() {
+      return this[scrollDelta$];
+    }
+    set scrollDelta(value) {
+      super.scrollDelta = value;
+    }
+    transformed(transform) {
+      let t0;
+      if (transform == null || dart.equals(transform, this.transform)) {
+        return this;
+      }
+      return new events.PointerScrollEvent.new({timeStamp: this.timeStamp, kind: this.kind, device: this.device, position: this.position, localPosition: events.PointerEvent.transformPosition(transform, this.position), scrollDelta: this.scrollDelta, transform: transform, original: (t0 = PointerScrollEventL().as(this.original), t0 == null ? this : t0), embedderId: this.embedderId});
+    }
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(new (DiagnosticsPropertyOfOffsetL()).new("scrollDelta", this.scrollDelta));
+    }
+  };
+  (events.PointerScrollEvent.new = function(opts) {
+    let timeStamp = opts && 'timeStamp' in opts ? opts.timeStamp : C0 || CT.C0;
+    let kind = opts && 'kind' in opts ? opts.kind : C3 || CT.C3;
+    let device = opts && 'device' in opts ? opts.device : 0;
+    let position = opts && 'position' in opts ? opts.position : C2 || CT.C2;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let scrollDelta = opts && 'scrollDelta' in opts ? opts.scrollDelta : C2 || CT.C2;
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    let original = opts && 'original' in opts ? opts.original : null;
+    let embedderId = opts && 'embedderId' in opts ? opts.embedderId : 0;
+    this[scrollDelta$] = scrollDelta;
+    if (!(timeStamp != null)) dart.assertFailed(null, L1, 1494, 15, "timeStamp != null");
+    if (!(kind != null)) dart.assertFailed(null, L1, 1495, 15, "kind != null");
+    if (!(device != null)) dart.assertFailed(null, L1, 1496, 15, "device != null");
+    if (!(position != null)) dart.assertFailed(null, L1, 1497, 15, "position != null");
+    if (!(scrollDelta != null)) dart.assertFailed(null, L1, 1498, 15, "scrollDelta != null");
+    events.PointerScrollEvent.__proto__.new.call(this, {timeStamp: timeStamp, kind: kind, device: device, position: position, localPosition: localPosition, transform: transform, original: original, embedderId: embedderId});
+    ;
+  }).prototype = events.PointerScrollEvent.prototype;
+  dart.addTypeTests(events.PointerScrollEvent);
+  dart.addTypeCaches(events.PointerScrollEvent);
+  dart.setMethodSignature(events.PointerScrollEvent, () => ({
+    __proto__: dart.getMethods(events.PointerScrollEvent.__proto__),
+    transformed: dart.fnType(dart.legacy(events.PointerScrollEvent), [dart.legacy(vector_math_64.Matrix4)])
+  }));
+  dart.setLibraryUri(events.PointerScrollEvent, L0);
+  dart.setFieldSignature(events.PointerScrollEvent, () => ({
+    __proto__: dart.getFields(events.PointerScrollEvent.__proto__),
+    scrollDelta: dart.finalFieldType(dart.legacy(ui.Offset))
+  }));
+  events.PointerCancelEvent = class PointerCancelEvent extends events.PointerEvent {
+    transformed(transform) {
+      let t0;
+      if (transform == null || dart.equals(transform, this.transform)) {
+        return this;
+      }
+      return new events.PointerCancelEvent.new({timeStamp: this.timeStamp, pointer: this.pointer, kind: this.kind, device: this.device, position: this.position, localPosition: events.PointerEvent.transformPosition(transform, this.position), buttons: this.buttons, obscured: this.obscured, pressureMin: this.pressureMin, pressureMax: this.pressureMax, distance: this.distance, distanceMax: this.distanceMax, size: this.size, radiusMajor: this.radiusMajor, radiusMinor: this.radiusMinor, radiusMin: this.radiusMin, radiusMax: this.radiusMax, orientation: this.orientation, tilt: this.tilt, transform: transform, original: (t0 = PointerCancelEventL().as(this.original), t0 == null ? this : t0), embedderId: this.embedderId});
+    }
+  };
+  (events.PointerCancelEvent.new = function(opts) {
+    let timeStamp = opts && 'timeStamp' in opts ? opts.timeStamp : C0 || CT.C0;
+    let pointer = opts && 'pointer' in opts ? opts.pointer : 0;
+    let kind = opts && 'kind' in opts ? opts.kind : C1 || CT.C1;
+    let device = opts && 'device' in opts ? opts.device : 0;
+    let position = opts && 'position' in opts ? opts.position : C2 || CT.C2;
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let buttons = opts && 'buttons' in opts ? opts.buttons : 0;
+    let obscured = opts && 'obscured' in opts ? opts.obscured : false;
+    let pressureMin = opts && 'pressureMin' in opts ? opts.pressureMin : 1;
+    let pressureMax = opts && 'pressureMax' in opts ? opts.pressureMax : 1;
+    let distance = opts && 'distance' in opts ? opts.distance : 0;
+    let distanceMax = opts && 'distanceMax' in opts ? opts.distanceMax : 0;
+    let size = opts && 'size' in opts ? opts.size : 0;
+    let radiusMajor = opts && 'radiusMajor' in opts ? opts.radiusMajor : 0;
+    let radiusMinor = opts && 'radiusMinor' in opts ? opts.radiusMinor : 0;
+    let radiusMin = opts && 'radiusMin' in opts ? opts.radiusMin : 0;
+    let radiusMax = opts && 'radiusMax' in opts ? opts.radiusMax : 0;
+    let orientation = opts && 'orientation' in opts ? opts.orientation : 0;
+    let tilt = opts && 'tilt' in opts ? opts.tilt : 0;
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    let original = opts && 'original' in opts ? opts.original : null;
+    let embedderId = opts && 'embedderId' in opts ? opts.embedderId : 0;
+    events.PointerCancelEvent.__proto__.new.call(this, {timeStamp: timeStamp, pointer: pointer, kind: kind, device: device, position: position, localPosition: localPosition, buttons: buttons, down: false, obscured: obscured, pressure: 0.0, pressureMin: pressureMin, pressureMax: pressureMax, distance: distance, distanceMax: distanceMax, size: size, radiusMajor: radiusMajor, radiusMinor: radiusMinor, radiusMin: radiusMin, radiusMax: radiusMax, orientation: orientation, tilt: tilt, transform: transform, original: original, embedderId: embedderId});
+    ;
+  }).prototype = events.PointerCancelEvent.prototype;
+  dart.addTypeTests(events.PointerCancelEvent);
+  dart.addTypeCaches(events.PointerCancelEvent);
+  dart.setMethodSignature(events.PointerCancelEvent, () => ({
+    __proto__: dart.getMethods(events.PointerCancelEvent.__proto__),
+    transformed: dart.fnType(dart.legacy(events.PointerCancelEvent), [dart.legacy(vector_math_64.Matrix4)])
+  }));
+  dart.setLibraryUri(events.PointerCancelEvent, L0);
+  events.nthMouseButton = function nthMouseButton(number) {
+    return ((1)[$leftShift](dart.notNull(number) - 1) & -1) >>> 0;
+  };
+  events.nthStylusButton = function nthStylusButton(number) {
+    return ((2)[$leftShift](dart.notNull(number) - 1) & -1) >>> 0;
+  };
+  events.smallestButton = function smallestButton(buttons) {
+    return (dart.notNull(buttons) & -dart.notNull(buttons)) >>> 0;
+  };
+  events.isSingleButton = function isSingleButton(buttons) {
+    return buttons !== 0 && events.smallestButton(buttons) == buttons;
+  };
+  dart.defineLazy(events, {
+    /*events.kPrimaryButton*/get kPrimaryButton() {
+      return 1;
+    },
+    /*events.kSecondaryButton*/get kSecondaryButton() {
+      return 2;
+    },
+    /*events.kPrimaryMouseButton*/get kPrimaryMouseButton() {
+      return 1;
+    },
+    /*events.kSecondaryMouseButton*/get kSecondaryMouseButton() {
+      return 2;
+    },
+    /*events.kStylusContact*/get kStylusContact() {
+      return 1;
+    },
+    /*events.kPrimaryStylusButton*/get kPrimaryStylusButton() {
+      return 2;
+    },
+    /*events.kMiddleMouseButton*/get kMiddleMouseButton() {
+      return 4;
+    },
+    /*events.kSecondaryStylusButton*/get kSecondaryStylusButton() {
+      return 4;
+    },
+    /*events.kBackMouseButton*/get kBackMouseButton() {
+      return 8;
+    },
+    /*events.kForwardMouseButton*/get kForwardMouseButton() {
+      return 16;
+    },
+    /*events.kTouchContact*/get kTouchContact() {
+      return 1;
+    }
+  }, true);
+  dart.trackLibraries("packages/flutter/src/gestures/events.dart", {
+    "package:flutter/src/gestures/events.dart": events
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["events.dart"],"names":[],"mappings":"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A;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;IA3BA;IACA;IACA;IACA;IACA;IACA;IAEA;IAEA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACY,wBAAgB,KAAd,aAAa,QAAb,OAAiB,QAAQ;IAC9B,qBAAa,MAAX,UAAU,SAAV,OAAc,KAAK;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;gBA0YC;;AACpC,UAAI,AAAU,SAAD,IAAI,QAAkB,YAAV,SAAS,EAAS;AACzC,cAAO;;AAET,YAAO,8CACM,sBACL,mBACE,uBACE,8BACkB,sCAAkB,SAAS,EAAE,0BAC/C,4BACG,+BACA,4BACH,4BACG,6BACF,2BACA,6BACE,wBACP,sBACK,SAAS,aACoB,KAArB,wBAAT,sBAAS,OAAwB,wBAC/B;IAEhB;;;QA9DW;QACS;QACd;QACG;QACA;QACF;QACE;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACC;QACU;QACd;AACD,kEACa,SAAS,QACd,IAAI,UACF,MAAM,YACJ,QAAQ,iBACH,aAAa,YAClB,QAAQ,YACR,kBACG,WAAW,eACX,WAAW,YACd,QAAQ,eACL,WAAW,aACb,SAAS,aACT,SAAS,eACP,WAAW,QAClB,IAAI,aACC,SAAS,YACV,QAAQ,cACN,UAAU;;EACvB;;;;;;;;;gBAuEkC;;AACtC,UAAI,AAAU,SAAD,IAAI,QAAkB,YAAV,SAAS,EAAS;AACzC,cAAO;;AAET,YAAO,gDACM,sBACL,mBACE,uBACE,8BACkB,sCAAkB,SAAS,EAAE,0BAC/C,4BACG,+BACA,+BACA,6BACF,2BACA,2BACA,SAAS,aACsB,KAAvB,0BAAT,sBAAS,OAA0B,wBACjC;IAEhB;;;QArDW;QACS;QACd;QACG;QACA;QACF;QACE;QACA;QACA;QACA;QACA;QACC;QACY;QAChB;AACD,oEACa,SAAS,QACd,IAAI,UACF,MAAM,YACJ,QAAQ,iBACH,aAAa,YAClB,QAAQ,YACR,kBACG,WAAW,eACX,WAAW,eACX,WAAW,aACb,SAAS,aACT,SAAS,aACT,SAAS,YACV,QAAQ,cACN,UAAU;;EACvB;;;;;;;;;gBAiGgC;;AACpC,UAAI,AAAU,SAAD,IAAI,QAAkB,YAAV,SAAS,EAAS;AACzC,cAAO;;AAEI,gCAAmC,sCAAkB,SAAS,EAAE;AAC7E,YAAO,8CACM,sBACL,mBACE,uBACE,8BACK,mBAAmB,SAC3B,wBACkB,2DACZ,SAAS,sBACA,sCACM,uCACF,mBAAmB,aAEpC,wBACC,4BACG,+BACA,4BACH,4BACG,wBACP,wBACO,+BACA,6BACF,2BACA,6BACE,wBACP,wBACO,6BACF,SAAS,aACoB,KAArB,wBAAT,sBAAS,OAAwB,wBAC/B;IAEhB;;;QA1FW;QACS;QACd;QACG;QACA;QACA;QACA;QACH;QACC;QACE;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACF;QACG;QACU;QACd;AACD,kEACa,SAAS,QACd,IAAI,UACF,MAAM,YACJ,QAAQ,iBACH,aAAa,SACrB,KAAK,cACA,UAAU,WACb,OAAO,QACV,iBACI,QAAQ,YACR,kBACG,WAAW,eACX,WAAW,YACd,QAAQ,eACL,WAAW,QAClB,IAAI,eACG,WAAW,eACX,WAAW,aACb,SAAS,aACT,SAAS,eACP,WAAW,QAClB,IAAI,eACG,WAAW,aACb,SAAS,YACV,QAAQ,cACN,UAAU;;EACvB;;;;;;;;;gBAyJgC;;AACpC,UAAI,AAAU,SAAD,IAAI,QAAkB,YAAV,SAAS,EAAS;AACzC,cAAO;;AAEI,gCAAmC,sCAAkB,SAAS,EAAE;AAC7E,YAAO,8CACM,sBACL,mBACE,uBACE,8BACK,mBAAmB,SAC3B,wBACkB,2DACZ,SAAS,sBACA,sCACM,uCACF,mBAAmB,aAEpC,wBACC,4BACG,+BACA,4BACH,4BACG,wBACP,wBACO,+BACA,6BACF,2BACA,6BACE,wBACP,iBACA,wBACO,6BACF,SAAS,aACoB,KAArB,wBAAT,sBAAS,OAAwB,wBAC/B;IAEhB;;;QAnIW;QACS;Q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CA,+BACA,wBACP,wBACO,+BACA,6BACF,2BACA,6BACE,wBACP,sBACK,SAAS,aACmB,KAApB,uBAAT,sBAAS,OAAuB,wBAC9B;IAEhB;;;QA9EW;QACL;QACc;QACd;QACG;QACA;QACH;QACC;QACE;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACC;QACS;QACb;AACD,iEACa,SAAS,WACX,OAAO,QACV,IAAI,UACF,MAAM,YACJ,QAAQ,iBACH,aAAa,WACnB,OAAO,QACV,gBACI,QAAQ,YACR,QAAQ,eACL,WAAW,eACX,WAAW,YACd,kBACG,WAAW,QAClB,IAAI,eACG,WAAW,eACX,WAAW,aACb,SAAS,aACT,SAAS,eACP,WAAW,QAClB,IAAI,aACC,SAAS,YACV,QAAQ,cACN,UAAU;;EACvB;;;;;;;;;gBA0G+B;;AACnC,UAAI,AAAU,SAAD,IAAI,QAAkB,YAAV,SAAS,EAAS;AACzC,cAAO;;AAEI,gCAAmC,sCAAkB,SAAS,EAAE;AAE7E,YAAO,6CACM,yBACF,oBACH,mBACE,uBACE,8BACK,mBAAmB,SAC3B,wBACkB,2DACZ,SAAS,sBACA,sCACM,uCACF,mBAAmB,aAEpC,wBACC,yBACA,4BACG,+BACA,+BACA,wBACP,wBACO,+BACA,6BACF,2BACA,6BACE,wBACP,yBACQ,gCACD,6BACF,SAAS,aACmB,KAApB,uBAAT,sBAAS,OAAuB,wBAC9B;IAEhB;;;QAjGW;QACL;QACc;QACd;QACG;QACA;QACA;QACA;QACH;QACC;QACE;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACH;QACC;QACG;QACS;QACb;AACD,iEACa,SAAS,WACX,OAAO,QACV,IAAI,UACF,MAAM,YACJ,QAAQ,iBACH,aAAa,SACrB,KAAK,cACA,UAAU,WACb,OAAO,QACV,gBACI,QAAQ,YACR,QAAQ,eACL,WAAW,eACX,WAAW,YACd,kBACG,WAAW,QAClB,IAAI,eACG,WAAW,eACX,WAAW,aACb,SAAS,aACT,SAAS,eACP,WAAW,QAClB,IAAI,gBACI,YAAY,eACb,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","file":"../../../../../../packages/flutter/src/gestures/events.dart.lib.js"}');
+  // Exports:
+  return {
+    src__gestures__events: events
+  };
+}));
+
+//# sourceMappingURL=events.dart.lib.js.map

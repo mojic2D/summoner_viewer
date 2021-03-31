@@ -1,0 +1,740 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/widgets/primary_scroll_controller.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/cupertino/text_theme.dart', 'packages/flutter/src/widgets/scrollbar.dart', 'packages/flutter/src/gestures/drag_details.dart', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/services/haptic_feedback.dart', 'packages/flutter/src/gestures/velocity_tracker.dart', 'packages/flutter/src/gestures/recognizer.dart', 'packages/flutter/src/gestures/long_press.dart', 'packages/flutter/src/gestures/drag.dart', 'packages/flutter/src/rendering/layer.dart'], (function load__packages__flutter__src__cupertino__scrollbar_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__widgets__primary_scroll_controller$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__animation__curves$46dart, packages__flutter__src__cupertino__text_theme$46dart, packages__flutter__src__widgets__scrollbar$46dart, packages__flutter__src__gestures__drag_details$46dart, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__services__haptic_feedback$46dart, packages__flutter__src__gestures__velocity_tracker$46dart, packages__flutter__src__gestures__recognizer$46dart, packages__flutter__src__gestures__long_press$46dart, packages__flutter__src__gestures__drag$46dart, packages__flutter__src__rendering__layer$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const async = dart_sdk.async;
+  const _js_helper = dart_sdk._js_helper;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const scroll_controller = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_controller;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const binding = packages__flutter__src__widgets__widget_span$46dart.src__widgets__binding;
+  const scroll_notification = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_notification;
+  const gesture_detector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__gesture_detector;
+  const notification_listener = packages__flutter__src__widgets__widget_span$46dart.src__widgets__notification_listener;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const primary_scroll_controller = packages__flutter__src__widgets__primary_scroll_controller$46dart.src__widgets__primary_scroll_controller;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const animations = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animations;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const colors = packages__flutter__src__cupertino__text_theme$46dart.src__cupertino__colors;
+  const scrollbar = packages__flutter__src__widgets__scrollbar$46dart.src__widgets__scrollbar;
+  const drag_details = packages__flutter__src__gestures__drag_details$46dart.src__gestures__drag_details;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  const haptic_feedback = packages__flutter__src__services__haptic_feedback$46dart.src__services__haptic_feedback;
+  const velocity_tracker = packages__flutter__src__gestures__velocity_tracker$46dart.src__gestures__velocity_tracker;
+  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
+  const long_press = packages__flutter__src__gestures__long_press$46dart.src__gestures__long_press;
+  const drag = packages__flutter__src__gestures__drag$46dart.src__gestures__drag;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  var scrollbar$ = Object.create(dart.library);
+  var $abs = dartx.abs;
+  var $_set = dartx._set;
+  var StatefulWidgetL = () => (StatefulWidgetL = dart.constFn(dart.legacy(framework.StatefulWidget)))();
+  var StateOfStatefulWidgetL = () => (StateOfStatefulWidgetL = dart.constFn(framework.State$(StatefulWidgetL())))();
+  var StateLOfStatefulWidgetL = () => (StateLOfStatefulWidgetL = dart.constFn(dart.legacy(StateOfStatefulWidgetL())))();
+  var GlobalKeyOfStateLOfStatefulWidgetL = () => (GlobalKeyOfStateLOfStatefulWidgetL = dart.constFn(framework.GlobalKey$(StateLOfStatefulWidgetL())))();
+  var VoidToNullN = () => (VoidToNullN = dart.constFn(dart.fnType(core.Null, [])))();
+  var CupertinoScrollbarL = () => (CupertinoScrollbarL = dart.constFn(dart.legacy(scrollbar$.CupertinoScrollbar)))();
+  var DurationL = () => (DurationL = dart.constFn(dart.legacy(core.Duration)))();
+  var DurationLToNullN = () => (DurationLToNullN = dart.constFn(dart.fnType(core.Null, [DurationL()])))();
+  var FutureOfvoid = () => (FutureOfvoid = dart.constFn(async.Future$(dart.void)))();
+  var FutureLOfvoid = () => (FutureLOfvoid = dart.constFn(dart.legacy(FutureOfvoid())))();
+  var voidToFutureLOfvoid = () => (voidToFutureLOfvoid = dart.constFn(dart.fnType(FutureLOfvoid(), [dart.void])))();
+  var ScrollUpdateNotificationL = () => (ScrollUpdateNotificationL = dart.constFn(dart.legacy(scroll_notification.ScrollUpdateNotification)))();
+  var OverscrollNotificationL = () => (OverscrollNotificationL = dart.constFn(dart.legacy(scroll_notification.OverscrollNotification)))();
+  var ScrollEndNotificationL = () => (ScrollEndNotificationL = dart.constFn(dart.legacy(scroll_notification.ScrollEndNotification)))();
+  var TypeL = () => (TypeL = dart.constFn(dart.legacy(core.Type)))();
+  var GestureRecognizerL = () => (GestureRecognizerL = dart.constFn(dart.legacy(recognizer.GestureRecognizer)))();
+  var GestureRecognizerFactoryOfGestureRecognizerL = () => (GestureRecognizerFactoryOfGestureRecognizerL = dart.constFn(gesture_detector.GestureRecognizerFactory$(GestureRecognizerL())))();
+  var GestureRecognizerFactoryLOfGestureRecognizerL = () => (GestureRecognizerFactoryLOfGestureRecognizerL = dart.constFn(dart.legacy(GestureRecognizerFactoryOfGestureRecognizerL())))();
+  var LinkedMapOfTypeL$GestureRecognizerFactoryLOfGestureRecognizerL = () => (LinkedMapOfTypeL$GestureRecognizerFactoryLOfGestureRecognizerL = dart.constFn(_js_helper.LinkedMap$(TypeL(), GestureRecognizerFactoryLOfGestureRecognizerL())))();
+  var _ThumbPressGestureRecognizerL = () => (_ThumbPressGestureRecognizerL = dart.constFn(dart.legacy(scrollbar$._ThumbPressGestureRecognizer)))();
+  var GestureRecognizerFactoryWithHandlersOf_ThumbPressGestureRecognizerL = () => (GestureRecognizerFactoryWithHandlersOf_ThumbPressGestureRecognizerL = dart.constFn(gesture_detector.GestureRecognizerFactoryWithHandlers$(_ThumbPressGestureRecognizerL())))();
+  var VoidTo_ThumbPressGestureRecognizerL = () => (VoidTo_ThumbPressGestureRecognizerL = dart.constFn(dart.fnType(_ThumbPressGestureRecognizerL(), [])))();
+  var _ThumbPressGestureRecognizerLToNullN = () => (_ThumbPressGestureRecognizerLToNullN = dart.constFn(dart.fnType(core.Null, [_ThumbPressGestureRecognizerL()])))();
+  var ScrollNotificationL = () => (ScrollNotificationL = dart.constFn(dart.legacy(scroll_notification.ScrollNotification)))();
+  var NotificationListenerOfScrollNotificationL = () => (NotificationListenerOfScrollNotificationL = dart.constFn(notification_listener.NotificationListener$(ScrollNotificationL())))();
+  var _LocationL = () => (_LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))();
+  var CustomPaintL = () => (CustomPaintL = dart.constFn(dart.legacy(basic.CustomPaint)))();
+  var ScrollbarPainterL = () => (ScrollbarPainterL = dart.constFn(dart.legacy(scrollbar.ScrollbarPainter)))();
+  var RenderBoxL = () => (RenderBoxL = dart.constFn(dart.legacy(box.RenderBox)))();
+  const CT = Object.create(null);
+  var L0 = "file:///C:/flutter/packages/flutter/lib/src/cupertino/scrollbar.dart";
+  var L1 = "package:flutter/src/cupertino/scrollbar.dart";
+  dart.defineLazy(CT, {
+    get C2() {
+      return C2 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 36,
+        [_Location_line]: 463,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C1 = dart.constList([C2 || CT.C2], _LocationL());
+    },
+    get C0() {
+      return C0 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C1 || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 463,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/cupertino/scrollbar.dart"
+      });
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 13,
+        [_Location_line]: 461,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C6 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "foregroundPainter",
+        [_Location_column]: 13,
+        [_Location_line]: 462,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C7 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 463,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C4 = dart.constList([C5 || CT.C5, C6 || CT.C6, C7 || CT.C7], _LocationL());
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C4 || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 460,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/cupertino/scrollbar.dart"
+      });
+    },
+    get C10() {
+      return C10 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "gestures",
+        [_Location_column]: 11,
+        [_Location_line]: 459,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C11 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 460,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C9 = dart.constList([C10 || CT.C10, C11 || CT.C11], _LocationL());
+    },
+    get C8() {
+      return C8 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C9 || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 458,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/cupertino/scrollbar.dart"
+      });
+    },
+    get C14() {
+      return C14 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 458,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C13 = dart.constList([C14 || CT.C14], _LocationL());
+    },
+    get C12() {
+      return C12 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C13 || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 457,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/cupertino/scrollbar.dart"
+      });
+    },
+    get C17() {
+      return C17 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onNotification",
+        [_Location_column]: 7,
+        [_Location_line]: 456,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C18 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 457,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C16 = dart.constList([C17 || CT.C17, C18 || CT.C18], _LocationL());
+    },
+    get C15() {
+      return C15 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C16 || CT.C16,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 455,
+        [_Location_file]: "file:///C:/flutter/packages/flutter/lib/src/cupertino/scrollbar.dart"
+      });
+    },
+    get C19() {
+      return C19 = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 100000
+      });
+    },
+    get C20() {
+      return C20 = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 1200000
+      });
+    },
+    get C21() {
+      return C21 = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 250000
+      });
+    },
+    get C23() {
+      return C23 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 2164260863.0
+      });
+    },
+    get C24() {
+      return C24 = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 1493172224
+      });
+    },
+    get C22() {
+      return C22 = dart.const({
+        __proto__: colors.CupertinoDynamicColor.prototype,
+        [Color_value]: 0,
+        [CupertinoDynamicColor_darkHighContrastElevatedColor]: C23 || CT.C23,
+        [CupertinoDynamicColor_highContrastElevatedColor]: C24 || CT.C24,
+        [CupertinoDynamicColor_darkElevatedColor]: C23 || CT.C23,
+        [CupertinoDynamicColor_elevatedColor]: C24 || CT.C24,
+        [CupertinoDynamicColor_darkHighContrastColor]: C23 || CT.C23,
+        [CupertinoDynamicColor_highContrastColor]: C24 || CT.C24,
+        [CupertinoDynamicColor_darkColor]: C23 || CT.C23,
+        [CupertinoDynamicColor_color]: C24 || CT.C24,
+        [CupertinoDynamicColor__debugResolveContext]: null,
+        [CupertinoDynamicColor__debugLabel]: null,
+        [CupertinoDynamicColor__effectiveColor]: C24 || CT.C24
+      });
+    },
+    get C25() {
+      return C25 = dart.const({
+        __proto__: ui.Radius.prototype,
+        [Radius_y]: 1.5,
+        [Radius_x]: 1.5
+      });
+    },
+    get C26() {
+      return C26 = dart.const({
+        __proto__: ui.Radius.prototype,
+        [Radius_y]: 4,
+        [Radius_x]: 4
+      });
+    }
+  }, false);
+  var child$ = dart.privateName(scrollbar$, "CupertinoScrollbar.child");
+  var controller$ = dart.privateName(scrollbar$, "CupertinoScrollbar.controller");
+  var isAlwaysShown$ = dart.privateName(scrollbar$, "CupertinoScrollbar.isAlwaysShown");
+  scrollbar$.CupertinoScrollbar = class CupertinoScrollbar extends framework.StatefulWidget {
+    get child() {
+      return this[child$];
+    }
+    set child(value) {
+      super.child = value;
+    }
+    get controller() {
+      return this[controller$];
+    }
+    set controller(value) {
+      super.controller = value;
+    }
+    get isAlwaysShown() {
+      return this[isAlwaysShown$];
+    }
+    set isAlwaysShown(value) {
+      super.isAlwaysShown = value;
+    }
+    createState() {
+      return new scrollbar$._CupertinoScrollbarState.new();
+    }
+  };
+  (scrollbar$.CupertinoScrollbar.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let isAlwaysShown = opts && 'isAlwaysShown' in opts ? opts.isAlwaysShown : false;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[controller$] = controller;
+    this[isAlwaysShown$] = isAlwaysShown;
+    this[child$] = child;
+    if (!(!dart.test(isAlwaysShown) || controller != null)) dart.assertFailed("When isAlwaysShown is true, must pass a controller that is attached to a scroll view", L0, 67, 15, "!isAlwaysShown || controller != null");
+    scrollbar$.CupertinoScrollbar.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = scrollbar$.CupertinoScrollbar.prototype;
+  dart.addTypeTests(scrollbar$.CupertinoScrollbar);
+  dart.addTypeCaches(scrollbar$.CupertinoScrollbar);
+  dart.setMethodSignature(scrollbar$.CupertinoScrollbar, () => ({
+    __proto__: dart.getMethods(scrollbar$.CupertinoScrollbar.__proto__),
+    createState: dart.fnType(dart.legacy(scrollbar$._CupertinoScrollbarState), [])
+  }));
+  dart.setLibraryUri(scrollbar$.CupertinoScrollbar, L1);
+  dart.setFieldSignature(scrollbar$.CupertinoScrollbar, () => ({
+    __proto__: dart.getFields(scrollbar$.CupertinoScrollbar.__proto__),
+    child: dart.finalFieldType(dart.legacy(framework.Widget)),
+    controller: dart.finalFieldType(dart.legacy(scroll_controller.ScrollController)),
+    isAlwaysShown: dart.finalFieldType(dart.legacy(core.bool))
+  }));
+  var _customPaintKey = dart.privateName(scrollbar$, "_customPaintKey");
+  var _painter = dart.privateName(scrollbar$, "_painter");
+  var _fadeoutAnimationController = dart.privateName(scrollbar$, "_fadeoutAnimationController");
+  var _fadeoutOpacityAnimation = dart.privateName(scrollbar$, "_fadeoutOpacityAnimation");
+  var _thicknessAnimationController = dart.privateName(scrollbar$, "_thicknessAnimationController");
+  var _fadeoutTimer = dart.privateName(scrollbar$, "_fadeoutTimer");
+  var _dragScrollbarPositionY = dart.privateName(scrollbar$, "_dragScrollbarPositionY");
+  var _drag = dart.privateName(scrollbar$, "_drag");
+  var _currentController = dart.privateName(scrollbar$, "_currentController");
+  var _pressStartY = dart.privateName(scrollbar$, "_pressStartY");
+  var _thickness = dart.privateName(scrollbar$, "_thickness");
+  var _radius = dart.privateName(scrollbar$, "_radius");
+  var _controller = dart.privateName(scrollbar$, "_controller");
+  var _buildCupertinoScrollbarPainter = dart.privateName(scrollbar$, "_buildCupertinoScrollbarPainter");
+  var _triggerScrollbar = dart.privateName(scrollbar$, "_triggerScrollbar");
+  var _dragScrollbar = dart.privateName(scrollbar$, "_dragScrollbar");
+  var _startFadeoutTimer = dart.privateName(scrollbar$, "_startFadeoutTimer");
+  var _checkVertical = dart.privateName(scrollbar$, "_checkVertical");
+  var _handleLongPressStart = dart.privateName(scrollbar$, "_handleLongPressStart");
+  var _handleLongPress = dart.privateName(scrollbar$, "_handleLongPress");
+  var _handleLongPressMoveUpdate = dart.privateName(scrollbar$, "_handleLongPressMoveUpdate");
+  var _handleDragScrollEnd = dart.privateName(scrollbar$, "_handleDragScrollEnd");
+  var _handleLongPressEnd = dart.privateName(scrollbar$, "_handleLongPressEnd");
+  var _handleScrollNotification = dart.privateName(scrollbar$, "_handleScrollNotification");
+  var _gestures = dart.privateName(scrollbar$, "_gestures");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var C2;
+  var C1;
+  var C0;
+  var C5;
+  var C6;
+  var C7;
+  var C4;
+  var C3;
+  var C10;
+  var C11;
+  var C9;
+  var C8;
+  var C14;
+  var C13;
+  var C12;
+  var C17;
+  var C18;
+  var C16;
+  var C15;
+  const State_TickerProviderStateMixin$36 = class State_TickerProviderStateMixin extends framework.State$(dart.legacy(scrollbar$.CupertinoScrollbar)) {};
+  (State_TickerProviderStateMixin$36.new = function() {
+    ticker_provider.TickerProviderStateMixin$(dart.legacy(scrollbar$.CupertinoScrollbar))[dart.mixinNew].call(this);
+    State_TickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_TickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_TickerProviderStateMixin$36, ticker_provider.TickerProviderStateMixin$(dart.legacy(scrollbar$.CupertinoScrollbar)));
+  scrollbar$._CupertinoScrollbarState = class _CupertinoScrollbarState extends State_TickerProviderStateMixin$36 {
+    get [_thickness]() {
+      return 3 + dart.notNull(this[_thicknessAnimationController].value) * (8 - 3);
+    }
+    get [_radius]() {
+      return ui.Radius.lerp(scrollbar$._kScrollbarRadius, scrollbar$._kScrollbarRadiusDragging, this[_thicknessAnimationController].value);
+    }
+    get [_controller]() {
+      let t0;
+      t0 = this.widget.controller;
+      return t0 == null ? primary_scroll_controller.PrimaryScrollController.of(this.context) : t0;
+    }
+    initState() {
+      super.initState();
+      this[_fadeoutAnimationController] = new animation_controller.AnimationController.new({vsync: this, duration: scrollbar$._kScrollbarFadeDuration});
+      this[_fadeoutOpacityAnimation] = new animations.CurvedAnimation.new({parent: this[_fadeoutAnimationController], curve: curves.Curves.fastOutSlowIn});
+      this[_thicknessAnimationController] = new animation_controller.AnimationController.new({vsync: this, duration: scrollbar$._kScrollbarResizeDuration});
+      this[_thicknessAnimationController].addListener(dart.fn(() => {
+        this[_painter].updateThickness(this[_thickness], this[_radius]);
+      }, VoidToNullN()));
+    }
+    didChangeDependencies() {
+      let t0;
+      super.didChangeDependencies();
+      if (this[_painter] == null) {
+        this[_painter] = this[_buildCupertinoScrollbarPainter](this.context);
+      } else {
+        t0 = this[_painter];
+        (() => {
+          t0.textDirection = basic.Directionality.of(this.context);
+          t0.color = colors.CupertinoDynamicColor.resolve(scrollbar$._kScrollbarColor, this.context);
+          t0.padding = media_query.MediaQuery.of(this.context).padding;
+          return t0;
+        })();
+      }
+      this[_triggerScrollbar]();
+    }
+    didUpdateWidget(oldWidget) {
+      CupertinoScrollbarL().as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+      if (!dart.equals(this.widget.isAlwaysShown, oldWidget.isAlwaysShown)) {
+        if (dart.equals(this.widget.isAlwaysShown, true)) {
+          this[_triggerScrollbar]();
+          this[_fadeoutAnimationController].animateTo(1.0);
+        } else {
+          this[_fadeoutAnimationController].reverse();
+        }
+      }
+    }
+    [_buildCupertinoScrollbarPainter](context) {
+      return new scrollbar.ScrollbarPainter.new({color: colors.CupertinoDynamicColor.resolve(scrollbar$._kScrollbarColor, context), textDirection: basic.Directionality.of(context), thickness: this[_thickness], fadeoutOpacityAnimation: this[_fadeoutOpacityAnimation], mainAxisMargin: 3, crossAxisMargin: 3, radius: this[_radius], padding: media_query.MediaQuery.of(context).padding, minLength: 36, minOverscrollLength: 8});
+    }
+    [_triggerScrollbar]() {
+      binding.WidgetsBinding.instance.addPostFrameCallback(dart.fn(duration => {
+        let t0;
+        if (dart.test(this.widget.isAlwaysShown)) {
+          t0 = this[_fadeoutTimer];
+          t0 == null ? null : t0.cancel();
+          this.widget.controller.position.didUpdateScrollPositionBy(0.0);
+        }
+      }, DurationLToNullN()));
+    }
+    [_dragScrollbar](primaryDelta) {
+      if (!(this[_currentController] != null)) dart.assertFailed(null, L0, 290, 12, "_currentController != null");
+      let scrollOffsetLocal = this[_painter].getTrackToScroll(primaryDelta);
+      let scrollOffsetGlobal = dart.notNull(scrollOffsetLocal) + dart.notNull(this[_currentController].position.pixels);
+      if (this[_drag] == null) {
+        this[_drag] = this[_currentController].position.drag(new drag_details.DragStartDetails.new({globalPosition: new ui.Offset.new(0.0, scrollOffsetGlobal)}), dart.fn(() => {
+        }, VoidToNullN()));
+      } else {
+        this[_drag].update(new drag_details.DragUpdateDetails.new({globalPosition: new ui.Offset.new(0.0, scrollOffsetGlobal), delta: new ui.Offset.new(0.0, -dart.notNull(scrollOffsetLocal)), primaryDelta: -dart.notNull(scrollOffsetLocal)}));
+      }
+    }
+    [_startFadeoutTimer]() {
+      let t0;
+      if (!dart.test(this.widget.isAlwaysShown)) {
+        t0 = this[_fadeoutTimer];
+        t0 == null ? null : t0.cancel();
+        this[_fadeoutTimer] = async.Timer.new(scrollbar$._kScrollbarTimeToFade, dart.fn(() => {
+          this[_fadeoutAnimationController].reverse();
+          this[_fadeoutTimer] = null;
+        }, VoidToNullN()));
+      }
+    }
+    [_checkVertical]() {
+      try {
+        return this[_currentController].position.axis == basic_types.Axis.vertical;
+      } catch (e) {
+        let _ = dart.getThrown(e);
+        return false;
+      }
+    }
+    [_handleLongPressStart](details) {
+      let t1;
+      this[_currentController] = this[_controller];
+      if (!dart.test(this[_checkVertical]())) {
+        return;
+      }
+      this[_pressStartY] = details.localPosition.dy;
+      t1 = this[_fadeoutTimer];
+      t1 == null ? null : t1.cancel();
+      this[_fadeoutAnimationController].forward();
+      this[_dragScrollbar](details.localPosition.dy);
+      this[_dragScrollbarPositionY] = details.localPosition.dy;
+    }
+    [_handleLongPress]() {
+      let t1;
+      if (!dart.test(this[_checkVertical]())) {
+        return;
+      }
+      t1 = this[_fadeoutTimer];
+      t1 == null ? null : t1.cancel();
+      this[_thicknessAnimationController].forward().then(dart.void, dart.fn(_ => haptic_feedback.HapticFeedback.mediumImpact(), voidToFutureLOfvoid()));
+    }
+    [_handleLongPressMoveUpdate](details) {
+      if (!dart.test(this[_checkVertical]())) {
+        return;
+      }
+      this[_dragScrollbar](dart.notNull(details.localPosition.dy) - dart.notNull(this[_dragScrollbarPositionY]));
+      this[_dragScrollbarPositionY] = details.localPosition.dy;
+    }
+    [_handleLongPressEnd](details) {
+      if (!dart.test(this[_checkVertical]())) {
+        return;
+      }
+      this[_handleDragScrollEnd](details.velocity.pixelsPerSecond.dy);
+      if (details.velocity.pixelsPerSecond.dy[$abs]() < 10 && (dart.notNull(details.localPosition.dy) - dart.notNull(this[_pressStartY]))[$abs]() > 0) {
+        haptic_feedback.HapticFeedback.mediumImpact();
+      }
+      this[_currentController] = null;
+    }
+    [_handleDragScrollEnd](trackVelocityY) {
+      let t1;
+      this[_startFadeoutTimer]();
+      this[_thicknessAnimationController].reverse();
+      this[_dragScrollbarPositionY] = null;
+      let scrollVelocityY = this[_painter].getTrackToScroll(trackVelocityY);
+      t1 = this[_drag];
+      t1 == null ? null : t1.end(new drag_details.DragEndDetails.new({primaryVelocity: -dart.notNull(scrollVelocityY), velocity: new velocity_tracker.Velocity.new({pixelsPerSecond: new ui.Offset.new(0.0, -dart.notNull(scrollVelocityY))})}));
+      this[_drag] = null;
+    }
+    [_handleScrollNotification](notification) {
+      let t1;
+      let metrics = notification.metrics;
+      if (dart.notNull(metrics.maxScrollExtent) <= dart.notNull(metrics.minScrollExtent)) {
+        return false;
+      }
+      if (ScrollUpdateNotificationL().is(notification) || OverscrollNotificationL().is(notification)) {
+        if (this[_fadeoutAnimationController].status != animation.AnimationStatus.forward) {
+          this[_fadeoutAnimationController].forward();
+        }
+        t1 = this[_fadeoutTimer];
+        t1 == null ? null : t1.cancel();
+        this[_painter].update(notification.metrics, notification.metrics.axisDirection);
+      } else if (ScrollEndNotificationL().is(notification)) {
+        if (this[_dragScrollbarPositionY] == null) {
+          this[_startFadeoutTimer]();
+        }
+      }
+      return false;
+    }
+    get [_gestures]() {
+      let gestures = new (LinkedMapOfTypeL$GestureRecognizerFactoryLOfGestureRecognizerL()).new();
+      gestures[$_set](dart.wrapType(_ThumbPressGestureRecognizerL()), new (GestureRecognizerFactoryWithHandlersOf_ThumbPressGestureRecognizerL()).new(dart.fn(() => new scrollbar$._ThumbPressGestureRecognizer.new({debugOwner: this, customPaintKey: this[_customPaintKey]}), VoidTo_ThumbPressGestureRecognizerL()), dart.fn(instance => {
+        let t1;
+        t1 = instance;
+        (() => {
+          t1.onLongPressStart = dart.bind(this, _handleLongPressStart);
+          t1.onLongPress = dart.bind(this, _handleLongPress);
+          t1.onLongPressMoveUpdate = dart.bind(this, _handleLongPressMoveUpdate);
+          t1.onLongPressEnd = dart.bind(this, _handleLongPressEnd);
+          return t1;
+        })();
+      }, _ThumbPressGestureRecognizerLToNullN())));
+      return gestures;
+    }
+    dispose() {
+      let t1;
+      this[_fadeoutAnimationController].dispose();
+      this[_thicknessAnimationController].dispose();
+      t1 = this[_fadeoutTimer];
+      t1 == null ? null : t1.cancel();
+      this[_painter].dispose();
+      super.dispose();
+    }
+    build(context) {
+      return new (NotificationListenerOfScrollNotificationL()).new({onNotification: dart.bind(this, _handleScrollNotification), child: new basic.RepaintBoundary.new({child: new gesture_detector.RawGestureDetector.new({gestures: this[_gestures], child: new basic.CustomPaint.new({key: this[_customPaintKey], foregroundPainter: this[_painter], child: new basic.RepaintBoundary.new({child: this.widget.child, $creationLocationd_0dea112b090073317d4: C0 || CT.C0}), $creationLocationd_0dea112b090073317d4: C3 || CT.C3}), $creationLocationd_0dea112b090073317d4: C8 || CT.C8}), $creationLocationd_0dea112b090073317d4: C12 || CT.C12}), $creationLocationd_0dea112b090073317d4: C15 || CT.C15});
+    }
+  };
+  (scrollbar$._CupertinoScrollbarState.new = function() {
+    this[_customPaintKey] = GlobalKeyOfStateLOfStatefulWidgetL().new();
+    this[_painter] = null;
+    this[_fadeoutAnimationController] = null;
+    this[_fadeoutOpacityAnimation] = null;
+    this[_thicknessAnimationController] = null;
+    this[_fadeoutTimer] = null;
+    this[_dragScrollbarPositionY] = null;
+    this[_drag] = null;
+    this[_currentController] = null;
+    this[_pressStartY] = 0.0;
+    scrollbar$._CupertinoScrollbarState.__proto__.new.call(this);
+    ;
+  }).prototype = scrollbar$._CupertinoScrollbarState.prototype;
+  dart.addTypeTests(scrollbar$._CupertinoScrollbarState);
+  dart.addTypeCaches(scrollbar$._CupertinoScrollbarState);
+  dart.setMethodSignature(scrollbar$._CupertinoScrollbarState, () => ({
+    __proto__: dart.getMethods(scrollbar$._CupertinoScrollbarState.__proto__),
+    [_buildCupertinoScrollbarPainter]: dart.fnType(dart.legacy(scrollbar.ScrollbarPainter), [dart.legacy(framework.BuildContext)]),
+    [_triggerScrollbar]: dart.fnType(dart.void, []),
+    [_dragScrollbar]: dart.fnType(dart.void, [dart.legacy(core.double)]),
+    [_startFadeoutTimer]: dart.fnType(dart.void, []),
+    [_checkVertical]: dart.fnType(dart.legacy(core.bool), []),
+    [_handleLongPressStart]: dart.fnType(dart.void, [dart.legacy(long_press.LongPressStartDetails)]),
+    [_handleLongPress]: dart.fnType(dart.void, []),
+    [_handleLongPressMoveUpdate]: dart.fnType(dart.void, [dart.legacy(long_press.LongPressMoveUpdateDetails)]),
+    [_handleLongPressEnd]: dart.fnType(dart.void, [dart.legacy(long_press.LongPressEndDetails)]),
+    [_handleDragScrollEnd]: dart.fnType(dart.void, [dart.legacy(core.double)]),
+    [_handleScrollNotification]: dart.fnType(dart.legacy(core.bool), [dart.legacy(scroll_notification.ScrollNotification)]),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setGetterSignature(scrollbar$._CupertinoScrollbarState, () => ({
+    __proto__: dart.getGetters(scrollbar$._CupertinoScrollbarState.__proto__),
+    [_thickness]: dart.legacy(core.double),
+    [_radius]: dart.legacy(ui.Radius),
+    [_controller]: dart.legacy(scroll_controller.ScrollController),
+    [_gestures]: dart.legacy(core.Map$(dart.legacy(core.Type), dart.legacy(gesture_detector.GestureRecognizerFactory$(dart.legacy(recognizer.GestureRecognizer)))))
+  }));
+  dart.setLibraryUri(scrollbar$._CupertinoScrollbarState, L1);
+  dart.setFieldSignature(scrollbar$._CupertinoScrollbarState, () => ({
+    __proto__: dart.getFields(scrollbar$._CupertinoScrollbarState.__proto__),
+    [_customPaintKey]: dart.finalFieldType(dart.legacy(framework.GlobalKey$(dart.legacy(framework.State$(dart.legacy(framework.StatefulWidget)))))),
+    [_painter]: dart.fieldType(dart.legacy(scrollbar.ScrollbarPainter)),
+    [_fadeoutAnimationController]: dart.fieldType(dart.legacy(animation_controller.AnimationController)),
+    [_fadeoutOpacityAnimation]: dart.fieldType(dart.legacy(animation.Animation$(dart.legacy(core.double)))),
+    [_thicknessAnimationController]: dart.fieldType(dart.legacy(animation_controller.AnimationController)),
+    [_fadeoutTimer]: dart.fieldType(dart.legacy(async.Timer)),
+    [_dragScrollbarPositionY]: dart.fieldType(dart.legacy(core.double)),
+    [_drag]: dart.fieldType(dart.legacy(drag.Drag)),
+    [_currentController]: dart.fieldType(dart.legacy(scroll_controller.ScrollController)),
+    [_pressStartY]: dart.fieldType(dart.legacy(core.double))
+  }));
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var C19;
+  scrollbar$._ThumbPressGestureRecognizer = class _ThumbPressGestureRecognizer extends long_press.LongPressGestureRecognizer {
+    isPointerAllowed(event) {
+      if (!dart.test(scrollbar$._hitTestInteractive(this[_customPaintKey], event.position))) {
+        return false;
+      }
+      return super.isPointerAllowed(event);
+    }
+  };
+  (scrollbar$._ThumbPressGestureRecognizer.new = function(opts) {
+    let postAcceptSlopTolerance = opts && 'postAcceptSlopTolerance' in opts ? opts.postAcceptSlopTolerance : null;
+    let kind = opts && 'kind' in opts ? opts.kind : null;
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    let customPaintKey = opts && 'customPaintKey' in opts ? opts.customPaintKey : null;
+    this[_customPaintKey] = customPaintKey;
+    scrollbar$._ThumbPressGestureRecognizer.__proto__.new.call(this, {postAcceptSlopTolerance: postAcceptSlopTolerance, kind: kind, debugOwner: debugOwner, duration: C19 || CT.C19});
+    ;
+  }).prototype = scrollbar$._ThumbPressGestureRecognizer.prototype;
+  dart.addTypeTests(scrollbar$._ThumbPressGestureRecognizer);
+  dart.addTypeCaches(scrollbar$._ThumbPressGestureRecognizer);
+  dart.setLibraryUri(scrollbar$._ThumbPressGestureRecognizer, L1);
+  dart.setFieldSignature(scrollbar$._ThumbPressGestureRecognizer, () => ({
+    __proto__: dart.getFields(scrollbar$._ThumbPressGestureRecognizer.__proto__),
+    [_customPaintKey]: dart.finalFieldType(dart.legacy(framework.GlobalKey$(dart.legacy(framework.State$(dart.legacy(framework.StatefulWidget))))))
+  }));
+  scrollbar$._hitTestInteractive = function _hitTestInteractive(customPaintKey, offset) {
+    if (customPaintKey.currentContext == null) {
+      return false;
+    }
+    let customPaint = CustomPaintL().as(customPaintKey.currentContext.widget);
+    let painter = ScrollbarPainterL().as(customPaint.foregroundPainter);
+    let renderBox = RenderBoxL().as(customPaintKey.currentContext.findRenderObject());
+    let localOffset = renderBox.globalToLocal(offset);
+    return painter.hitTestInteractive(localOffset);
+  };
+  var C20;
+  var C21;
+  var Color_value = dart.privateName(ui, "Color.value");
+  var C23;
+  var CupertinoDynamicColor_darkHighContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastElevatedColor");
+  var C24;
+  var CupertinoDynamicColor_highContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastElevatedColor");
+  var CupertinoDynamicColor_darkElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkElevatedColor");
+  var CupertinoDynamicColor_elevatedColor = dart.privateName(colors, "CupertinoDynamicColor.elevatedColor");
+  var CupertinoDynamicColor_darkHighContrastColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastColor");
+  var CupertinoDynamicColor_highContrastColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastColor");
+  var CupertinoDynamicColor_darkColor = dart.privateName(colors, "CupertinoDynamicColor.darkColor");
+  var CupertinoDynamicColor_color = dart.privateName(colors, "CupertinoDynamicColor.color");
+  var CupertinoDynamicColor__debugResolveContext = dart.privateName(colors, "CupertinoDynamicColor._debugResolveContext");
+  var CupertinoDynamicColor__debugLabel = dart.privateName(colors, "CupertinoDynamicColor._debugLabel");
+  var CupertinoDynamicColor__effectiveColor = dart.privateName(colors, "CupertinoDynamicColor._effectiveColor");
+  var C22;
+  var Radius_y = dart.privateName(ui, "Radius.y");
+  var Radius_x = dart.privateName(ui, "Radius.x");
+  var C25;
+  var C26;
+  dart.defineLazy(scrollbar$, {
+    /*scrollbar$._kScrollbarMinLength*/get _kScrollbarMinLength() {
+      return 36;
+    },
+    /*scrollbar$._kScrollbarMinOverscrollLength*/get _kScrollbarMinOverscrollLength() {
+      return 8;
+    },
+    /*scrollbar$._kScrollbarTimeToFade*/get _kScrollbarTimeToFade() {
+      return C20 || CT.C20;
+    },
+    /*scrollbar$._kScrollbarFadeDuration*/get _kScrollbarFadeDuration() {
+      return C21 || CT.C21;
+    },
+    /*scrollbar$._kScrollbarResizeDuration*/get _kScrollbarResizeDuration() {
+      return C19 || CT.C19;
+    },
+    /*scrollbar$._kScrollbarColor*/get _kScrollbarColor() {
+      return C22 || CT.C22;
+    },
+    /*scrollbar$._kScrollbarThickness*/get _kScrollbarThickness() {
+      return 3;
+    },
+    /*scrollbar$._kScrollbarThicknessDragging*/get _kScrollbarThicknessDragging() {
+      return 8;
+    },
+    /*scrollbar$._kScrollbarRadius*/get _kScrollbarRadius() {
+      return C25 || CT.C25;
+    },
+    /*scrollbar$._kScrollbarRadiusDragging*/get _kScrollbarRadiusDragging() {
+      return C26 || CT.C26;
+    },
+    /*scrollbar$._kScrollbarMainAxisMargin*/get _kScrollbarMainAxisMargin() {
+      return 3;
+    },
+    /*scrollbar$._kScrollbarCrossAxisMargin*/get _kScrollbarCrossAxisMargin() {
+      return 3;
+    }
+  }, true);
+  dart.trackLibraries("packages/flutter/src/cupertino/scrollbar.dart", {
+    "package:flutter/src/cupertino/scrollbar.dart": scrollbar$
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["scrollbar.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/flutter/src/cupertino/scrollbar.dart.lib.js"}');
+  // Exports:
+  return {
+    src__cupertino__scrollbar: scrollbar$
+  };
+}));
+
+//# sourceMappingURL=scrollbar.dart.lib.js.map

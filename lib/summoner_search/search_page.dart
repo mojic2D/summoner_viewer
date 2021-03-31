@@ -14,7 +14,7 @@ class SearchPage extends StatelessWidget {
   final SearchPageBloc bloc;
 
   static Widget create(BuildContext context) {
-    final RitoApiCalls post = RitoApiCalls(apiKey:'RGAPI-c6742059-7b67-4998-a247-c67ff1ebeddd');
+    final RitoApiCalls post = RitoApiCalls(apiKey:'RGAPI-50ec2981-8ad9-4fb3-8812-7c3678ace5e5');
     return Provider<SearchPageBloc>(
       create: (context) => SearchPageBloc(post: post),
       child: Consumer<SearchPageBloc>(

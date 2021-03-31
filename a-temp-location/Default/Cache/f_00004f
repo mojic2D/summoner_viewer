@@ -1,0 +1,394 @@
+define(['dart_sdk', 'packages/flutter/src/scheduler/binding.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/foundation/object.dart'], (function load__packages__flutter__src__scheduler__ticker_dart(dart_sdk, packages__flutter__src__scheduler__binding$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__foundation__object$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const binding = packages__flutter__src__scheduler__binding$46dart.src__scheduler__binding;
+  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  var ticker$ = Object.create(dart.library);
+  var $_equals = dartx._equals;
+  var $trimRight = dartx.trimRight;
+  var $split = dartx.split;
+  var $forEach = dartx.forEach;
+  var $toString = dartx.toString;
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
+  var VoidToboolL = () => (VoidToboolL = dart.constFn(dart.fnType(boolL(), [])))();
+  var DiagnosticsNodeL = () => (DiagnosticsNodeL = dart.constFn(dart.legacy(diagnostics.DiagnosticsNode)))();
+  var JSArrayOfDiagnosticsNodeL = () => (JSArrayOfDiagnosticsNodeL = dart.constFn(_interceptors.JSArray$(DiagnosticsNodeL())))();
+  var TickerL = () => (TickerL = dart.constFn(dart.legacy(ticker$.Ticker)))();
+  var DiagnosticsPropertyOfTickerL = () => (DiagnosticsPropertyOfTickerL = dart.constFn(diagnostics.DiagnosticsProperty$(TickerL())))();
+  var CompleterOfvoid = () => (CompleterOfvoid = dart.constFn(async.Completer$(dart.void)))();
+  var dynamicTovoid = () => (dynamicTovoid = dart.constFn(dart.fnType(dart.void, [dart.dynamic])))();
+  var VoidTodynamic = () => (VoidTodynamic = dart.constFn(dart.fnType(dart.dynamic, [])))();
+  var VoidToLdynamic = () => (VoidToLdynamic = dart.constFn(dart.legacy(VoidTodynamic())))();
+  const CT = Object.create(null);
+  var L1 = "file:///C:/flutter/packages/flutter/lib/src/scheduler/ticker.dart";
+  var L0 = "package:flutter/src/scheduler/ticker.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: ticker$.TickerCanceled.prototype,
+        [TickerCanceled_ticker]: null
+      });
+    }
+  }, false);
+  ticker$.TickerProvider = class TickerProvider extends core.Object {};
+  (ticker$.TickerProvider.new = function() {
+    ;
+  }).prototype = ticker$.TickerProvider.prototype;
+  dart.addTypeTests(ticker$.TickerProvider);
+  dart.addTypeCaches(ticker$.TickerProvider);
+  dart.setLibraryUri(ticker$.TickerProvider, L0);
+  var _future = dart.privateName(ticker$, "_future");
+  var _muted = dart.privateName(ticker$, "_muted");
+  var _startTime = dart.privateName(ticker$, "_startTime");
+  var _animationId = dart.privateName(ticker$, "_animationId");
+  var _debugCreationStack = dart.privateName(ticker$, "_debugCreationStack");
+  var _onTick$ = dart.privateName(ticker$, "_onTick");
+  var _cancel = dart.privateName(ticker$, "_cancel");
+  var _complete = dart.privateName(ticker$, "_complete");
+  var _tick = dart.privateName(ticker$, "_tick");
+  var debugLabel$ = dart.privateName(ticker$, "Ticker.debugLabel");
+  ticker$.Ticker = class Ticker extends core.Object {
+    get debugLabel() {
+      return this[debugLabel$];
+    }
+    set debugLabel(value) {
+      super.debugLabel = value;
+    }
+    get muted() {
+      return this[_muted];
+    }
+    set muted(value) {
+      if (dart.equals(value, this.muted)) return;
+      this[_muted] = value;
+      if (dart.test(value)) {
+        this.unscheduleTick();
+      } else if (dart.test(this.shouldScheduleTick)) {
+        this.scheduleTick();
+      }
+    }
+    get isTicking() {
+      if (this[_future] == null) return false;
+      if (dart.test(this.muted)) return false;
+      if (dart.test(binding.SchedulerBinding.instance.framesEnabled)) return true;
+      if (binding.SchedulerBinding.instance.schedulerPhase != binding.SchedulerPhase.idle) return true;
+      return false;
+    }
+    get isActive() {
+      return this[_future] != null;
+    }
+    start() {
+      if (!dart.test(dart.fn(() => {
+        if (dart.test(this.isActive)) {
+          dart.throw(new assertions.FlutterError.fromParts(JSArrayOfDiagnosticsNodeL().of([new assertions.ErrorSummary.new("A ticker was started twice."), new assertions.ErrorDescription.new("A ticker that is already active cannot be started again without first stopping it."), this.describeForError("The affected ticker was")])));
+        }
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L1, 151, 12, "() {\r\n      if (isActive) {\r\n        throw FlutterError.fromParts(<DiagnosticsNode>[\r\n          ErrorSummary('A ticker was started twice.'),\r\n          ErrorDescription('A ticker that is already active cannot be started again without first stopping it.'),\r\n          describeForError('The affected ticker was'),\r\n        ]);\r\n      }\r\n      return true;\r\n    }()");
+      if (!(this[_startTime] == null)) dart.assertFailed(null, L1, 161, 12, "_startTime == null");
+      this[_future] = new ticker$.TickerFuture.__();
+      if (dart.test(this.shouldScheduleTick)) {
+        this.scheduleTick();
+      }
+      if (dart.notNull(binding.SchedulerBinding.instance.schedulerPhase.index) > dart.notNull(binding.SchedulerPhase.idle.index) && dart.notNull(binding.SchedulerBinding.instance.schedulerPhase.index) < dart.notNull(binding.SchedulerPhase.postFrameCallbacks.index)) this[_startTime] = binding.SchedulerBinding.instance.currentFrameTimeStamp;
+      return this[_future];
+    }
+    describeForError(name) {
+      return new (DiagnosticsPropertyOfTickerL()).new(name, this, {description: this.toString({debugIncludeStack: true})});
+    }
+    stop(opts) {
+      let canceled = opts && 'canceled' in opts ? opts.canceled : false;
+      if (!dart.test(this.isActive)) return;
+      let localFuture = this[_future];
+      this[_future] = null;
+      this[_startTime] = null;
+      if (!!dart.test(this.isActive)) dart.assertFailed(null, L1, 203, 12, "!isActive");
+      this.unscheduleTick();
+      if (dart.test(canceled)) {
+        localFuture[_cancel](this);
+      } else {
+        localFuture[_complete]();
+      }
+    }
+    get scheduled() {
+      return this[_animationId] != null;
+    }
+    get shouldScheduleTick() {
+      return !dart.test(this.muted) && dart.test(this.isActive) && !dart.test(this.scheduled);
+    }
+    [_tick](timeStamp) {
+      let t0;
+      if (!dart.test(this.isTicking)) dart.assertFailed(null, L1, 235, 12, "isTicking");
+      if (!dart.test(this.scheduled)) dart.assertFailed(null, L1, 236, 12, "scheduled");
+      this[_animationId] = null;
+      this[_startTime] == null ? this[_startTime] = timeStamp : null;
+      t0 = timeStamp['-'](this[_startTime]);
+      this[_onTick$](t0);
+      if (dart.test(this.shouldScheduleTick)) this.scheduleTick({rescheduling: true});
+    }
+    scheduleTick(opts) {
+      let rescheduling = opts && 'rescheduling' in opts ? opts.rescheduling : false;
+      if (!!dart.test(this.scheduled)) dart.assertFailed(null, L1, 253, 12, "!scheduled");
+      if (!dart.test(this.shouldScheduleTick)) dart.assertFailed(null, L1, 254, 12, "shouldScheduleTick");
+      this[_animationId] = binding.SchedulerBinding.instance.scheduleFrameCallback(dart.bind(this, _tick), {rescheduling: rescheduling});
+    }
+    unscheduleTick() {
+      if (dart.test(this.scheduled)) {
+        binding.SchedulerBinding.instance.cancelFrameCallbackWithId(this[_animationId]);
+        this[_animationId] = null;
+      }
+      if (!!dart.test(this.shouldScheduleTick)) dart.assertFailed(null, L1, 270, 12, "!shouldScheduleTick");
+    }
+    absorbTicker(originalTicker) {
+      if (!!dart.test(this.isActive)) dart.assertFailed(null, L1, 283, 12, "!isActive");
+      if (!(this[_future] == null)) dart.assertFailed(null, L1, 284, 12, "_future == null");
+      if (!(this[_startTime] == null)) dart.assertFailed(null, L1, 285, 12, "_startTime == null");
+      if (!(this[_animationId] == null)) dart.assertFailed(null, L1, 286, 12, "_animationId == null");
+      if (!(originalTicker[_future] == null)[$_equals](originalTicker[_startTime] == null)) dart.assertFailed("Cannot absorb Ticker after it has been disposed.", L1, 287, 12, "(originalTicker._future == null) == (originalTicker._startTime == null)");
+      if (originalTicker[_future] != null) {
+        this[_future] = originalTicker[_future];
+        this[_startTime] = originalTicker[_startTime];
+        if (dart.test(this.shouldScheduleTick)) this.scheduleTick();
+        originalTicker[_future] = null;
+        originalTicker.unscheduleTick();
+      }
+      originalTicker.dispose();
+    }
+    dispose() {
+      if (this[_future] != null) {
+        let localFuture = this[_future];
+        this[_future] = null;
+        if (!!dart.test(this.isActive)) dart.assertFailed(null, L1, 306, 14, "!isActive");
+        this.unscheduleTick();
+        localFuture[_cancel](this);
+      }
+      if (!dart.test(dart.fn(() => {
+        this[_startTime] = core.Duration.zero;
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L1, 310, 12, "() {\r\n      // We intentionally don't null out _startTime. This means that if start()\r\n      // was ever called, the object is now in a bogus state. This weakly helps\r\n      // catch cases of use-after-dispose.\r\n      _startTime = Duration.zero;\r\n      return true;\r\n    }()");
+    }
+    toString(opts) {
+      let debugIncludeStack = opts && 'debugIncludeStack' in opts ? opts.debugIncludeStack : false;
+      let buffer = new core.StringBuffer.new();
+      buffer.write(dart.str(object.objectRuntimeType(this, "Ticker")) + "(");
+      if (!dart.test(dart.fn(() => {
+        let t0;
+        buffer.write((t0 = this.debugLabel, t0 == null ? "" : t0));
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L1, 329, 12, "() {\r\n      buffer.write(debugLabel ?? '');\r\n      return true;\r\n    }()");
+      buffer.write(")");
+      if (!dart.test(dart.fn(() => {
+        if (dart.test(debugIncludeStack)) {
+          buffer.writeln();
+          buffer.writeln("The stack trace when the " + dart.str(this.runtimeType) + " was actually created was:");
+          assertions.FlutterError.defaultStackFilter(dart.toString(this[_debugCreationStack])[$trimRight]()[$split]("\n"))[$forEach](dart.bind(buffer, 'writeln'));
+        }
+        return true;
+      }, VoidToboolL())())) dart.assertFailed(null, L1, 334, 12, "() {\r\n      if (debugIncludeStack) {\r\n        buffer.writeln();\r\n        buffer.writeln('The stack trace when the $runtimeType was actually created was:');\r\n        FlutterError.defaultStackFilter(_debugCreationStack.toString().trimRight().split('\\n')).forEach(buffer.writeln);\r\n      }\r\n      return true;\r\n    }()");
+      return buffer.toString();
+    }
+  };
+  (ticker$.Ticker.new = function(_onTick, opts) {
+    let debugLabel = opts && 'debugLabel' in opts ? opts.debugLabel : null;
+    this[_future] = null;
+    this[_muted] = false;
+    this[_startTime] = null;
+    this[_animationId] = null;
+    this[_debugCreationStack] = null;
+    this[_onTick$] = _onTick;
+    this[debugLabel$] = debugLabel;
+    if (!dart.test(dart.fn(() => {
+      this[_debugCreationStack] = core.StackTrace.current;
+      return true;
+    }, VoidToboolL())())) dart.assertFailed(null, L1, 68, 12, "() {\r\n      _debugCreationStack = StackTrace.current;\r\n      return true;\r\n    }()");
+  }).prototype = ticker$.Ticker.prototype;
+  dart.addTypeTests(ticker$.Ticker);
+  dart.addTypeCaches(ticker$.Ticker);
+  dart.setMethodSignature(ticker$.Ticker, () => ({
+    __proto__: dart.getMethods(ticker$.Ticker.__proto__),
+    start: dart.fnType(dart.legacy(ticker$.TickerFuture), []),
+    describeForError: dart.fnType(dart.legacy(diagnostics.DiagnosticsNode), [dart.legacy(core.String)]),
+    stop: dart.fnType(dart.void, [], {canceled: dart.legacy(core.bool)}, {}),
+    [_tick]: dart.fnType(dart.void, [dart.legacy(core.Duration)]),
+    scheduleTick: dart.fnType(dart.void, [], {rescheduling: dart.legacy(core.bool)}, {}),
+    unscheduleTick: dart.fnType(dart.void, []),
+    absorbTicker: dart.fnType(dart.void, [dart.legacy(ticker$.Ticker)]),
+    dispose: dart.fnType(dart.void, []),
+    toString: dart.fnType(dart.legacy(core.String), [], {debugIncludeStack: dart.legacy(core.bool)}, {}),
+    [$toString]: dart.fnType(dart.legacy(core.String), [], {debugIncludeStack: dart.legacy(core.bool)}, {})
+  }));
+  dart.setGetterSignature(ticker$.Ticker, () => ({
+    __proto__: dart.getGetters(ticker$.Ticker.__proto__),
+    muted: dart.legacy(core.bool),
+    isTicking: dart.legacy(core.bool),
+    isActive: dart.legacy(core.bool),
+    scheduled: dart.legacy(core.bool),
+    shouldScheduleTick: dart.legacy(core.bool)
+  }));
+  dart.setSetterSignature(ticker$.Ticker, () => ({
+    __proto__: dart.getSetters(ticker$.Ticker.__proto__),
+    muted: dart.legacy(core.bool)
+  }));
+  dart.setLibraryUri(ticker$.Ticker, L0);
+  dart.setFieldSignature(ticker$.Ticker, () => ({
+    __proto__: dart.getFields(ticker$.Ticker.__proto__),
+    [_future]: dart.fieldType(dart.legacy(ticker$.TickerFuture)),
+    [_muted]: dart.fieldType(dart.legacy(core.bool)),
+    [_startTime]: dart.fieldType(dart.legacy(core.Duration)),
+    [_onTick$]: dart.finalFieldType(dart.legacy(dart.fnType(dart.void, [dart.legacy(core.Duration)]))),
+    [_animationId]: dart.fieldType(dart.legacy(core.int)),
+    debugLabel: dart.finalFieldType(dart.legacy(core.String)),
+    [_debugCreationStack]: dart.fieldType(dart.legacy(core.StackTrace))
+  }));
+  dart.defineExtensionMethods(ticker$.Ticker, ['toString']);
+  var _primaryCompleter = dart.privateName(ticker$, "_primaryCompleter");
+  var _secondaryCompleter = dart.privateName(ticker$, "_secondaryCompleter");
+  var _completed = dart.privateName(ticker$, "_completed");
+  var TickerCanceled_ticker = dart.privateName(ticker$, "TickerCanceled.ticker");
+  var C0;
+  ticker$.TickerFuture = class TickerFuture extends core.Object {
+    [_complete]() {
+      let t0;
+      if (!(this[_completed] == null)) dart.assertFailed(null, L1, 381, 12, "_completed == null");
+      this[_completed] = true;
+      this[_primaryCompleter].complete(null);
+      t0 = this[_secondaryCompleter];
+      t0 == null ? null : t0.complete(null);
+    }
+    [_cancel](ticker) {
+      let t0;
+      if (!(this[_completed] == null)) dart.assertFailed(null, L1, 388, 12, "_completed == null");
+      this[_completed] = false;
+      t0 = this[_secondaryCompleter];
+      t0 == null ? null : t0.completeError(new ticker$.TickerCanceled.new(ticker));
+    }
+    whenCompleteOrCancel(callback) {
+      function thunk(value) {
+        callback();
+      }
+      dart.fn(thunk, dynamicTovoid());
+      this.orCancel.then(dart.void, thunk, {onError: thunk});
+    }
+    get orCancel() {
+      if (this[_secondaryCompleter] == null) {
+        this[_secondaryCompleter] = CompleterOfvoid().new();
+        if (this[_completed] != null) {
+          if (dart.test(this[_completed])) {
+            this[_secondaryCompleter].complete();
+          } else {
+            this[_secondaryCompleter].completeError(C0 || CT.C0);
+          }
+        }
+      }
+      return this[_secondaryCompleter].future;
+    }
+    asStream() {
+      return this[_primaryCompleter].future.asStream();
+    }
+    catchError(onError, opts) {
+      let test = opts && 'test' in opts ? opts.test : null;
+      return this[_primaryCompleter].future.catchError(onError, {test: test});
+    }
+    then(R, onValue, opts) {
+      let onError = opts && 'onError' in opts ? opts.onError : null;
+      return this[_primaryCompleter].future.then(dart.legacy(R), onValue, {onError: onError});
+    }
+    timeout(timeLimit, opts) {
+      let onTimeout = opts && 'onTimeout' in opts ? opts.onTimeout : null;
+      VoidToLdynamic().as(onTimeout);
+      return this[_primaryCompleter].future.timeout(timeLimit, {onTimeout: onTimeout});
+    }
+    whenComplete(action) {
+      return this[_primaryCompleter].future.whenComplete(action);
+    }
+    toString() {
+      return dart.str(diagnostics.describeIdentity(this)) + "(" + (this[_completed] == null ? "active" : dart.test(this[_completed]) ? "complete" : "canceled") + ")";
+    }
+  };
+  (ticker$.TickerFuture.__ = function() {
+    this[_primaryCompleter] = CompleterOfvoid().new();
+    this[_secondaryCompleter] = null;
+    this[_completed] = null;
+    ;
+  }).prototype = ticker$.TickerFuture.prototype;
+  (ticker$.TickerFuture.complete = function() {
+    this[_primaryCompleter] = CompleterOfvoid().new();
+    this[_secondaryCompleter] = null;
+    this[_completed] = null;
+    this[_complete]();
+  }).prototype = ticker$.TickerFuture.prototype;
+  ticker$.TickerFuture.prototype[dart.isFuture] = true;
+  dart.addTypeTests(ticker$.TickerFuture);
+  dart.addTypeCaches(ticker$.TickerFuture);
+  ticker$.TickerFuture[dart.implements] = () => [async.Future$(dart.void)];
+  dart.setMethodSignature(ticker$.TickerFuture, () => ({
+    __proto__: dart.getMethods(ticker$.TickerFuture.__proto__),
+    [_complete]: dart.fnType(dart.void, []),
+    [_cancel]: dart.fnType(dart.void, [dart.legacy(ticker$.Ticker)]),
+    whenCompleteOrCancel: dart.fnType(dart.void, [dart.legacy(dart.fnType(dart.void, []))]),
+    asStream: dart.fnType(dart.legacy(async.Stream$(dart.void)), []),
+    catchError: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.Function)], {test: dart.legacy(dart.fnType(dart.legacy(core.bool), [dart.dynamic]))}, {}),
+    then: dart.gFnType(R => [dart.legacy(async.Future$(dart.legacy(R))), [dart.legacy(dart.fnType(dart.legacy(async.FutureOr$(dart.legacy(R))), [dart.void]))], {onError: dart.legacy(core.Function)}, {}]),
+    timeout: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.Duration)], {onTimeout: dart.legacy(core.Object)}, {}),
+    whenComplete: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(dart.fnType(dart.dynamic, []))]),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setGetterSignature(ticker$.TickerFuture, () => ({
+    __proto__: dart.getGetters(ticker$.TickerFuture.__proto__),
+    orCancel: dart.legacy(async.Future$(dart.void))
+  }));
+  dart.setLibraryUri(ticker$.TickerFuture, L0);
+  dart.setFieldSignature(ticker$.TickerFuture, () => ({
+    __proto__: dart.getFields(ticker$.TickerFuture.__proto__),
+    [_primaryCompleter]: dart.finalFieldType(dart.legacy(async.Completer$(dart.void))),
+    [_secondaryCompleter]: dart.fieldType(dart.legacy(async.Completer$(dart.void))),
+    [_completed]: dart.fieldType(dart.legacy(core.bool))
+  }));
+  dart.defineExtensionMethods(ticker$.TickerFuture, ['toString']);
+  ticker$.TickerCanceled = class TickerCanceled extends core.Object {
+    get ticker() {
+      return this[ticker$0];
+    }
+    set ticker(value) {
+      super.ticker = value;
+    }
+    toString() {
+      if (this.ticker != null) return "This ticker was canceled: " + dart.str(this.ticker);
+      return "The ticker was canceled before the \"orCancel\" property was first used.";
+    }
+  };
+  (ticker$.TickerCanceled.new = function(ticker = null) {
+    this[ticker$0] = ticker;
+    ;
+  }).prototype = ticker$.TickerCanceled.prototype;
+  dart.addTypeTests(ticker$.TickerCanceled);
+  dart.addTypeCaches(ticker$.TickerCanceled);
+  const ticker$0 = TickerCanceled_ticker;
+  ticker$.TickerCanceled[dart.implements] = () => [core.Exception];
+  dart.setMethodSignature(ticker$.TickerCanceled, () => ({
+    __proto__: dart.getMethods(ticker$.TickerCanceled.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(ticker$.TickerCanceled, L0);
+  dart.setFieldSignature(ticker$.TickerCanceled, () => ({
+    __proto__: dart.getFields(ticker$.TickerCanceled.__proto__),
+    ticker: dart.finalFieldType(dart.legacy(ticker$.Ticker))
+  }));
+  dart.defineExtensionMethods(ticker$.TickerCanceled, ['toString']);
+  dart.trackLibraries("packages/flutter/src/scheduler/ticker.dart", {
+    "package:flutter/src/scheduler/ticker.dart": ticker$
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["ticker.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/flutter/src/scheduler/ticker.dart.lib.js"}');
+  // Exports:
+  return {
+    src__scheduler__ticker: ticker$
+  };
+}));
+
+//# sourceMappingURL=ticker.dart.lib.js.map

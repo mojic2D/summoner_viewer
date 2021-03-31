@@ -1,0 +1,319 @@
+define(['dart_sdk', 'packages/flutter/src/gestures/lsq_solver.dart'], (function load__packages__flutter__src__gestures__velocity_tracker_dart(dart_sdk, packages__flutter__src__gestures__lsq_solver$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const lsq_solver = packages__flutter__src__gestures__lsq_solver$46dart.src__gestures__lsq_solver;
+  var velocity_tracker = Object.create(dart.library);
+  var $toStringAsFixed = dartx.toStringAsFixed;
+  var $_equals = dartx._equals;
+  var $hashCode = dartx.hashCode;
+  var $toString = dartx.toString;
+  var $_set = dartx._set;
+  var $_get = dartx._get;
+  var $toDouble = dartx.toDouble;
+  var $abs = dartx.abs;
+  var $add = dartx.add;
+  var VelocityL = () => (VelocityL = dart.constFn(dart.legacy(velocity_tracker.Velocity)))();
+  var _PointAtTimeL = () => (_PointAtTimeL = dart.constFn(dart.legacy(velocity_tracker._PointAtTime)))();
+  var ListOf_PointAtTimeL = () => (ListOf_PointAtTimeL = dart.constFn(core.List$(_PointAtTimeL())))();
+  var doubleL = () => (doubleL = dart.constFn(dart.legacy(core.double)))();
+  var JSArrayOfdoubleL = () => (JSArrayOfdoubleL = dart.constFn(_interceptors.JSArray$(doubleL())))();
+  const CT = Object.create(null);
+  var L1 = "package:flutter/src/gestures/velocity_tracker.dart";
+  var L0 = "file:///C:/flutter/packages/flutter/lib/src/gestures/velocity_tracker.dart";
+  dart.defineLazy(CT, {
+    get C1() {
+      return C1 = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 0,
+        [OffsetBase__dx]: 0
+      });
+    },
+    get C0() {
+      return C0 = dart.const({
+        __proto__: velocity_tracker.Velocity.prototype,
+        [pixelsPerSecond$]: C1 || CT.C1
+      });
+    }
+  }, false);
+  var pixelsPerSecond$ = dart.privateName(velocity_tracker, "Velocity.pixelsPerSecond");
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  var C1;
+  var C0;
+  velocity_tracker.Velocity = class Velocity extends core.Object {
+    get pixelsPerSecond() {
+      return this[pixelsPerSecond$];
+    }
+    set pixelsPerSecond(value) {
+      super.pixelsPerSecond = value;
+    }
+    _negate() {
+      return new velocity_tracker.Velocity.new({pixelsPerSecond: this.pixelsPerSecond._negate()});
+    }
+    ['-'](other) {
+      return new velocity_tracker.Velocity.new({pixelsPerSecond: this.pixelsPerSecond['-'](other.pixelsPerSecond)});
+    }
+    ['+'](other) {
+      return new velocity_tracker.Velocity.new({pixelsPerSecond: this.pixelsPerSecond['+'](other.pixelsPerSecond)});
+    }
+    clampMagnitude(minValue, maxValue) {
+      if (!(minValue != null && dart.notNull(minValue) >= 0.0)) dart.assertFailed(null, L0, 57, 12, "minValue != null && minValue >= 0.0");
+      if (!(maxValue != null && dart.notNull(maxValue) >= 0.0 && dart.notNull(maxValue) >= dart.notNull(minValue))) dart.assertFailed(null, L0, 58, 12, "maxValue != null && maxValue >= 0.0 && maxValue >= minValue");
+      let valueSquared = this.pixelsPerSecond.distanceSquared;
+      if (dart.notNull(valueSquared) > dart.notNull(maxValue) * dart.notNull(maxValue)) return new velocity_tracker.Velocity.new({pixelsPerSecond: this.pixelsPerSecond['/'](this.pixelsPerSecond.distance)['*'](maxValue)});
+      if (dart.notNull(valueSquared) < dart.notNull(minValue) * dart.notNull(minValue)) return new velocity_tracker.Velocity.new({pixelsPerSecond: this.pixelsPerSecond['/'](this.pixelsPerSecond.distance)['*'](minValue)});
+      return this;
+    }
+    _equals(other) {
+      if (other == null) return false;
+      return VelocityL().is(other) && dart.equals(other.pixelsPerSecond, this.pixelsPerSecond);
+    }
+    get hashCode() {
+      return dart.hashCode(this.pixelsPerSecond);
+    }
+    toString() {
+      return "Velocity(" + dart.str(this.pixelsPerSecond.dx[$toStringAsFixed](1)) + ", " + dart.str(this.pixelsPerSecond.dy[$toStringAsFixed](1)) + ")";
+    }
+  };
+  (velocity_tracker.Velocity.new = function(opts) {
+    let pixelsPerSecond = opts && 'pixelsPerSecond' in opts ? opts.pixelsPerSecond : null;
+    this[pixelsPerSecond$] = pixelsPerSecond;
+    if (!(pixelsPerSecond != null)) dart.assertFailed(null, L0, 23, 15, "pixelsPerSecond != null");
+    ;
+  }).prototype = velocity_tracker.Velocity.prototype;
+  dart.addTypeTests(velocity_tracker.Velocity);
+  dart.addTypeCaches(velocity_tracker.Velocity);
+  dart.setMethodSignature(velocity_tracker.Velocity, () => ({
+    __proto__: dart.getMethods(velocity_tracker.Velocity.__proto__),
+    _negate: dart.fnType(dart.legacy(velocity_tracker.Velocity), []),
+    '-': dart.fnType(dart.legacy(velocity_tracker.Velocity), [dart.legacy(velocity_tracker.Velocity)]),
+    '+': dart.fnType(dart.legacy(velocity_tracker.Velocity), [dart.legacy(velocity_tracker.Velocity)]),
+    clampMagnitude: dart.fnType(dart.legacy(velocity_tracker.Velocity), [dart.legacy(core.double), dart.legacy(core.double)]),
+    _equals: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+    [$_equals]: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setGetterSignature(velocity_tracker.Velocity, () => ({
+    __proto__: dart.getGetters(velocity_tracker.Velocity.__proto__),
+    hashCode: dart.legacy(core.int),
+    [$hashCode]: dart.legacy(core.int)
+  }));
+  dart.setLibraryUri(velocity_tracker.Velocity, L1);
+  dart.setFieldSignature(velocity_tracker.Velocity, () => ({
+    __proto__: dart.getFields(velocity_tracker.Velocity.__proto__),
+    pixelsPerSecond: dart.finalFieldType(dart.legacy(ui.Offset))
+  }));
+  dart.defineExtensionMethods(velocity_tracker.Velocity, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(velocity_tracker.Velocity, ['hashCode']);
+  dart.defineLazy(velocity_tracker.Velocity, {
+    /*velocity_tracker.Velocity.zero*/get zero() {
+      return C0 || CT.C0;
+    }
+  }, true);
+  var pixelsPerSecond$0 = dart.privateName(velocity_tracker, "VelocityEstimate.pixelsPerSecond");
+  var confidence$ = dart.privateName(velocity_tracker, "VelocityEstimate.confidence");
+  var duration$ = dart.privateName(velocity_tracker, "VelocityEstimate.duration");
+  var offset$ = dart.privateName(velocity_tracker, "VelocityEstimate.offset");
+  velocity_tracker.VelocityEstimate = class VelocityEstimate extends core.Object {
+    get pixelsPerSecond() {
+      return this[pixelsPerSecond$0];
+    }
+    set pixelsPerSecond(value) {
+      super.pixelsPerSecond = value;
+    }
+    get confidence() {
+      return this[confidence$];
+    }
+    set confidence(value) {
+      super.confidence = value;
+    }
+    get duration() {
+      return this[duration$];
+    }
+    set duration(value) {
+      super.duration = value;
+    }
+    get offset() {
+      return this[offset$];
+    }
+    set offset(value) {
+      super.offset = value;
+    }
+    toString() {
+      return "VelocityEstimate(" + dart.str(this.pixelsPerSecond.dx[$toStringAsFixed](1)) + ", " + dart.str(this.pixelsPerSecond.dy[$toStringAsFixed](1)) + "; offset: " + dart.str(this.offset) + ", duration: " + dart.str(this.duration) + ", confidence: " + dart.str(this.confidence[$toStringAsFixed](1)) + ")";
+    }
+  };
+  (velocity_tracker.VelocityEstimate.new = function(opts) {
+    let pixelsPerSecond = opts && 'pixelsPerSecond' in opts ? opts.pixelsPerSecond : null;
+    let confidence = opts && 'confidence' in opts ? opts.confidence : null;
+    let duration = opts && 'duration' in opts ? opts.duration : null;
+    let offset = opts && 'offset' in opts ? opts.offset : null;
+    this[pixelsPerSecond$0] = pixelsPerSecond;
+    this[confidence$] = confidence;
+    this[duration$] = duration;
+    this[offset$] = offset;
+    if (!(pixelsPerSecond != null)) dart.assertFailed(null, L0, 102, 15, "pixelsPerSecond != null");
+    if (!(confidence != null)) dart.assertFailed(null, L0, 103, 15, "confidence != null");
+    if (!(duration != null)) dart.assertFailed(null, L0, 104, 15, "duration != null");
+    if (!(offset != null)) dart.assertFailed(null, L0, 105, 15, "offset != null");
+    ;
+  }).prototype = velocity_tracker.VelocityEstimate.prototype;
+  dart.addTypeTests(velocity_tracker.VelocityEstimate);
+  dart.addTypeCaches(velocity_tracker.VelocityEstimate);
+  dart.setMethodSignature(velocity_tracker.VelocityEstimate, () => ({
+    __proto__: dart.getMethods(velocity_tracker.VelocityEstimate.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(velocity_tracker.VelocityEstimate, L1);
+  dart.setFieldSignature(velocity_tracker.VelocityEstimate, () => ({
+    __proto__: dart.getFields(velocity_tracker.VelocityEstimate.__proto__),
+    pixelsPerSecond: dart.finalFieldType(dart.legacy(ui.Offset)),
+    confidence: dart.finalFieldType(dart.legacy(core.double)),
+    duration: dart.finalFieldType(dart.legacy(core.Duration)),
+    offset: dart.finalFieldType(dart.legacy(ui.Offset))
+  }));
+  dart.defineExtensionMethods(velocity_tracker.VelocityEstimate, ['toString']);
+  var time$ = dart.privateName(velocity_tracker, "_PointAtTime.time");
+  var point$ = dart.privateName(velocity_tracker, "_PointAtTime.point");
+  velocity_tracker._PointAtTime = class _PointAtTime extends core.Object {
+    get time() {
+      return this[time$];
+    }
+    set time(value) {
+      super.time = value;
+    }
+    get point() {
+      return this[point$];
+    }
+    set point(value) {
+      super.point = value;
+    }
+    toString() {
+      return "_PointAtTime(" + dart.str(this.point) + " at " + dart.str(this.time) + ")";
+    }
+  };
+  (velocity_tracker._PointAtTime.new = function(point, time) {
+    this[point$] = point;
+    this[time$] = time;
+    if (!(point != null)) dart.assertFailed(null, L0, 130, 14, "point != null");
+    if (!(time != null)) dart.assertFailed(null, L0, 131, 14, "time != null");
+    ;
+  }).prototype = velocity_tracker._PointAtTime.prototype;
+  dart.addTypeTests(velocity_tracker._PointAtTime);
+  dart.addTypeCaches(velocity_tracker._PointAtTime);
+  dart.setMethodSignature(velocity_tracker._PointAtTime, () => ({
+    __proto__: dart.getMethods(velocity_tracker._PointAtTime.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(velocity_tracker._PointAtTime, L1);
+  dart.setFieldSignature(velocity_tracker._PointAtTime, () => ({
+    __proto__: dart.getFields(velocity_tracker._PointAtTime.__proto__),
+    time: dart.finalFieldType(dart.legacy(core.Duration)),
+    point: dart.finalFieldType(dart.legacy(ui.Offset))
+  }));
+  dart.defineExtensionMethods(velocity_tracker._PointAtTime, ['toString']);
+  var _samples = dart.privateName(velocity_tracker, "_samples");
+  var _index = dart.privateName(velocity_tracker, "_index");
+  velocity_tracker.VelocityTracker = class VelocityTracker extends core.Object {
+    addPosition(time, position) {
+      this[_index] = dart.notNull(this[_index]) + 1;
+      if (this[_index] === 20) this[_index] = 0;
+      this[_samples][$_set](this[_index], new velocity_tracker._PointAtTime.new(position, time));
+    }
+    getVelocityEstimate() {
+      let x = JSArrayOfdoubleL().of([]);
+      let y = JSArrayOfdoubleL().of([]);
+      let w = JSArrayOfdoubleL().of([]);
+      let time = JSArrayOfdoubleL().of([]);
+      let sampleCount = 0;
+      let index = this[_index];
+      let newestSample = this[_samples][$_get](index);
+      if (newestSample == null) return null;
+      let previousSample = newestSample;
+      let oldestSample = newestSample;
+      do {
+        let sample = this[_samples][$_get](index);
+        if (sample == null) break;
+        let age = newestSample.time['-'](sample.time).inMilliseconds[$toDouble]();
+        let delta = sample.time['-'](previousSample.time).inMilliseconds[$abs]()[$toDouble]();
+        previousSample = sample;
+        if (age > 100 || delta > 40) break;
+        oldestSample = sample;
+        let position = sample.point;
+        x[$add](position.dx);
+        y[$add](position.dy);
+        w[$add](1.0);
+        time[$add](-age);
+        index = dart.notNull(index === 0 ? 20 : index) - 1;
+        sampleCount = sampleCount + 1;
+      } while (sampleCount < 20);
+      if (sampleCount >= 3) {
+        let xSolver = new lsq_solver.LeastSquaresSolver.new(time, x, w);
+        let xFit = xSolver.solve(2);
+        if (xFit != null) {
+          let ySolver = new lsq_solver.LeastSquaresSolver.new(time, y, w);
+          let yFit = ySolver.solve(2);
+          if (yFit != null) {
+            return new velocity_tracker.VelocityEstimate.new({pixelsPerSecond: new ui.Offset.new(dart.notNull(xFit.coefficients[$_get](1)) * 1000, dart.notNull(yFit.coefficients[$_get](1)) * 1000), confidence: dart.notNull(xFit.confidence) * dart.notNull(yFit.confidence), duration: newestSample.time['-'](oldestSample.time), offset: newestSample.point['-'](oldestSample.point)});
+          }
+        }
+      }
+      return new velocity_tracker.VelocityEstimate.new({pixelsPerSecond: ui.Offset.zero, confidence: 1.0, duration: newestSample.time['-'](oldestSample.time), offset: newestSample.point['-'](oldestSample.point)});
+    }
+    getVelocity() {
+      let estimate = this.getVelocityEstimate();
+      if (estimate == null || dart.equals(estimate.pixelsPerSecond, ui.Offset.zero)) return velocity_tracker.Velocity.zero;
+      return new velocity_tracker.Velocity.new({pixelsPerSecond: estimate.pixelsPerSecond});
+    }
+  };
+  (velocity_tracker.VelocityTracker.new = function() {
+    this[_samples] = ListOf_PointAtTimeL().new(20);
+    this[_index] = 0;
+    ;
+  }).prototype = velocity_tracker.VelocityTracker.prototype;
+  dart.addTypeTests(velocity_tracker.VelocityTracker);
+  dart.addTypeCaches(velocity_tracker.VelocityTracker);
+  dart.setMethodSignature(velocity_tracker.VelocityTracker, () => ({
+    __proto__: dart.getMethods(velocity_tracker.VelocityTracker.__proto__),
+    addPosition: dart.fnType(dart.void, [dart.legacy(core.Duration), dart.legacy(ui.Offset)]),
+    getVelocityEstimate: dart.fnType(dart.legacy(velocity_tracker.VelocityEstimate), []),
+    getVelocity: dart.fnType(dart.legacy(velocity_tracker.Velocity), [])
+  }));
+  dart.setLibraryUri(velocity_tracker.VelocityTracker, L1);
+  dart.setFieldSignature(velocity_tracker.VelocityTracker, () => ({
+    __proto__: dart.getFields(velocity_tracker.VelocityTracker.__proto__),
+    [_samples]: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(velocity_tracker._PointAtTime)))),
+    [_index]: dart.fieldType(dart.legacy(core.int))
+  }));
+  dart.defineLazy(velocity_tracker.VelocityTracker, {
+    /*velocity_tracker.VelocityTracker._assumePointerMoveStoppedMilliseconds*/get _assumePointerMoveStoppedMilliseconds() {
+      return 40;
+    },
+    /*velocity_tracker.VelocityTracker._historySize*/get _historySize() {
+      return 20;
+    },
+    /*velocity_tracker.VelocityTracker._horizonMilliseconds*/get _horizonMilliseconds() {
+      return 100;
+    },
+    /*velocity_tracker.VelocityTracker._minSampleSize*/get _minSampleSize() {
+      return 3;
+    }
+  }, true);
+  dart.trackLibraries("packages/flutter/src/gestures/velocity_tracker.dart", {
+    "package:flutter/src/gestures/velocity_tracker.dart": velocity_tracker
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["velocity_tracker.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/flutter/src/gestures/velocity_tracker.dart.lib.js"}');
+  // Exports:
+  return {
+    src__gestures__velocity_tracker: velocity_tracker
+  };
+}));
+
+//# sourceMappingURL=velocity_tracker.dart.lib.js.map

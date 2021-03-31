@@ -1,0 +1,434 @@
+define(['dart_sdk', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/rendering/custom_paint.dart', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/flutter/src/widgets/scroll_metrics.dart', 'packages/flutter/src/animation/listener_helpers.dart'], (function load__packages__flutter__src__widgets__scrollbar_dart(dart_sdk, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__rendering__custom_paint$46dart, packages__flutter__src__foundation__change_notifier$46dart, packages__flutter__src__widgets__scroll_metrics$46dart, packages__flutter__src__animation__listener_helpers$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const math = dart_sdk.math;
+  const _js_helper = dart_sdk._js_helper;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  const custom_paint = packages__flutter__src__rendering__custom_paint$46dart.src__rendering__custom_paint;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  const scroll_metrics = packages__flutter__src__widgets__scroll_metrics$46dart.src__widgets__scroll_metrics;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  var scrollbar = Object.create(dart.library);
+  var $clamp = dartx.clamp;
+  var doubleL = () => (doubleL = dart.constFn(dart.legacy(core.double)))();
+  var ScrollbarPainterL = () => (ScrollbarPainterL = dart.constFn(dart.legacy(scrollbar.ScrollbarPainter)))();
+  var CustomPainterL = () => (CustomPainterL = dart.constFn(dart.legacy(custom_paint.CustomPainter)))();
+  var ListenableL = () => (ListenableL = dart.constFn(dart.legacy(change_notifier.Listenable)))();
+  const CT = Object.create(null);
+  var L0 = "file:///C:/flutter/packages/flutter/lib/src/widgets/scrollbar.dart";
+  var L1 = "package:flutter/src/widgets/scrollbar.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 0,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 0
+      });
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.down",
+        index: 2
+      });
+    },
+    get C2() {
+      return C2 = dart.const({
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.up",
+        index: 0
+      });
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.left",
+        index: 3
+      });
+    },
+    get C4() {
+      return C4 = dart.const({
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.right",
+        index: 1
+      });
+    },
+    get C5() {
+      return C5 = dart.const(new _js_helper.PrivateSymbol.new('_repaint', _repaint));
+    }
+  }, false);
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  var C0;
+  var _lastMetrics = dart.privateName(scrollbar, "_lastMetrics");
+  var _lastAxisDirection = dart.privateName(scrollbar, "_lastAxisDirection");
+  var _thumbRect = dart.privateName(scrollbar, "_thumbRect");
+  var _color = dart.privateName(scrollbar, "_color");
+  var _textDirection = dart.privateName(scrollbar, "_textDirection");
+  var _padding = dart.privateName(scrollbar, "_padding");
+  var _paint = dart.privateName(scrollbar, "_paint");
+  var _name = dart.privateName(basic_types, "_name");
+  var C1;
+  var C2;
+  var C3;
+  var C4;
+  var _paintThumbCrossAxis = dart.privateName(scrollbar, "_paintThumbCrossAxis");
+  var _mainAxisPadding = dart.privateName(scrollbar, "_mainAxisPadding");
+  var _totalContentExtent = dart.privateName(scrollbar, "_totalContentExtent");
+  var _trackExtent = dart.privateName(scrollbar, "_trackExtent");
+  var _beforeExtent = dart.privateName(scrollbar, "_beforeExtent");
+  var _afterExtent = dart.privateName(scrollbar, "_afterExtent");
+  var _thumbExtent = dart.privateName(scrollbar, "_thumbExtent");
+  var _isVertical = dart.privateName(scrollbar, "_isVertical");
+  var _isReversed = dart.privateName(scrollbar, "_isReversed");
+  var _getScrollToTrack = dart.privateName(scrollbar, "_getScrollToTrack");
+  var _repaint = dart.privateName(scrollbar, "_repaint");
+  var C5;
+  var _repaint$ = dart.privateName(custom_paint, "_repaint");
+  var thickness$ = dart.privateName(scrollbar, "ScrollbarPainter.thickness");
+  var fadeoutOpacityAnimation$ = dart.privateName(scrollbar, "ScrollbarPainter.fadeoutOpacityAnimation");
+  var mainAxisMargin$ = dart.privateName(scrollbar, "ScrollbarPainter.mainAxisMargin");
+  var crossAxisMargin$ = dart.privateName(scrollbar, "ScrollbarPainter.crossAxisMargin");
+  var radius$ = dart.privateName(scrollbar, "ScrollbarPainter.radius");
+  var minLength$ = dart.privateName(scrollbar, "ScrollbarPainter.minLength");
+  var minOverscrollLength$ = dart.privateName(scrollbar, "ScrollbarPainter.minOverscrollLength");
+  scrollbar.ScrollbarPainter = class ScrollbarPainter extends change_notifier.ChangeNotifier {
+    get thickness() {
+      return this[thickness$];
+    }
+    set thickness(value) {
+      this[thickness$] = value;
+    }
+    get fadeoutOpacityAnimation() {
+      return this[fadeoutOpacityAnimation$];
+    }
+    set fadeoutOpacityAnimation(value) {
+      super.fadeoutOpacityAnimation = value;
+    }
+    get mainAxisMargin() {
+      return this[mainAxisMargin$];
+    }
+    set mainAxisMargin(value) {
+      super.mainAxisMargin = value;
+    }
+    get crossAxisMargin() {
+      return this[crossAxisMargin$];
+    }
+    set crossAxisMargin(value) {
+      super.crossAxisMargin = value;
+    }
+    get radius() {
+      return this[radius$];
+    }
+    set radius(value) {
+      this[radius$] = value;
+    }
+    get minLength() {
+      return this[minLength$];
+    }
+    set minLength(value) {
+      super.minLength = value;
+    }
+    get minOverscrollLength() {
+      return this[minOverscrollLength$];
+    }
+    set minOverscrollLength(value) {
+      super.minOverscrollLength = value;
+    }
+    get color() {
+      return this[_color];
+    }
+    set color(value) {
+      if (!(value != null)) dart.assertFailed(null, L0, 82, 12, "value != null");
+      if (dart.equals(this.color, value)) return;
+      this[_color] = value;
+      this.notifyListeners();
+    }
+    get textDirection() {
+      return this[_textDirection];
+    }
+    set textDirection(value) {
+      if (!(value != null)) dart.assertFailed(null, L0, 95, 12, "value != null");
+      if (dart.equals(this.textDirection, value)) return;
+      this[_textDirection] = value;
+      this.notifyListeners();
+    }
+    get padding() {
+      return this[_padding];
+    }
+    set padding(value) {
+      if (!(value != null)) dart.assertFailed(null, L0, 139, 12, "value != null");
+      if (dart.equals(this.padding, value)) return;
+      this[_padding] = value;
+      this.notifyListeners();
+    }
+    update(metrics, axisDirection) {
+      this[_lastMetrics] = metrics;
+      this[_lastAxisDirection] = axisDirection;
+      this.notifyListeners();
+    }
+    updateThickness(nextThickness, nextRadius) {
+      this.thickness = nextThickness;
+      this.radius = nextRadius;
+      this.notifyListeners();
+    }
+    get [_paint]() {
+      let t0;
+      t0 = ui.Paint.new();
+      return (() => {
+        t0.color = this.color.withOpacity(dart.notNull(this.color.opacity) * dart.notNull(this.fadeoutOpacityAnimation.value));
+        return t0;
+      })();
+    }
+    [_paintThumbCrossAxis](canvas, size, thumbOffset, thumbExtent, direction) {
+      let x = null;
+      let y = null;
+      let thumbSize = null;
+      switch (direction) {
+        case C1 || CT.C1:
+        {
+          thumbSize = new ui.Size.new(this.thickness, thumbExtent);
+          x = dart.equals(this.textDirection, ui.TextDirection.rtl) ? dart.notNull(this.crossAxisMargin) + dart.notNull(this.padding.left) : dart.notNull(size.width) - dart.notNull(this.thickness) - dart.notNull(this.crossAxisMargin) - dart.notNull(this.padding.right);
+          y = thumbOffset;
+          break;
+        }
+        case C2 || CT.C2:
+        {
+          thumbSize = new ui.Size.new(this.thickness, thumbExtent);
+          x = dart.equals(this.textDirection, ui.TextDirection.rtl) ? dart.notNull(this.crossAxisMargin) + dart.notNull(this.padding.left) : dart.notNull(size.width) - dart.notNull(this.thickness) - dart.notNull(this.crossAxisMargin) - dart.notNull(this.padding.right);
+          y = thumbOffset;
+          break;
+        }
+        case C3 || CT.C3:
+        {
+          thumbSize = new ui.Size.new(thumbExtent, this.thickness);
+          x = thumbOffset;
+          y = dart.notNull(size.height) - dart.notNull(this.thickness) - dart.notNull(this.crossAxisMargin) - dart.notNull(this.padding.bottom);
+          break;
+        }
+        case C4 || CT.C4:
+        {
+          thumbSize = new ui.Size.new(thumbExtent, this.thickness);
+          x = thumbOffset;
+          y = dart.notNull(size.height) - dart.notNull(this.thickness) - dart.notNull(this.crossAxisMargin) - dart.notNull(this.padding.bottom);
+          break;
+        }
+      }
+      this[_thumbRect] = new ui.Offset.new(x, y)['&'](thumbSize);
+      if (this.radius == null)
+        canvas.drawRect(this[_thumbRect], this[_paint]);
+      else
+        canvas.drawRRect(new ui.RRect.fromRectAndRadius(this[_thumbRect], this.radius), this[_paint]);
+    }
+    [_thumbExtent]() {
+      let fractionVisible = ((dart.notNull(this[_lastMetrics].extentInside) - dart.notNull(this[_mainAxisPadding])) / (dart.notNull(this[_totalContentExtent]) - dart.notNull(this[_mainAxisPadding])))[$clamp](0.0, 1.0);
+      let thumbExtent = math.max(doubleL(), math.min(doubleL(), this[_trackExtent], this.minOverscrollLength), dart.notNull(this[_trackExtent]) * fractionVisible);
+      let fractionOverscrolled = 1.0 - dart.notNull(this[_lastMetrics].extentInside) / dart.notNull(this[_lastMetrics].viewportDimension);
+      let safeMinLength = math.min(doubleL(), this.minLength, this[_trackExtent]);
+      let newMinLength = dart.notNull(this[_beforeExtent]) > 0 && dart.notNull(this[_afterExtent]) > 0 ? safeMinLength : safeMinLength * (1.0 - fractionOverscrolled[$clamp](0.0, 0.2) / 0.2);
+      return thumbExtent[$clamp](newMinLength, this[_trackExtent]);
+    }
+    dispose() {
+      this.fadeoutOpacityAnimation.removeListener(dart.bind(this, 'notifyListeners'));
+      super.dispose();
+    }
+    get [_isVertical]() {
+      return this[_lastAxisDirection] == basic_types.AxisDirection.down || this[_lastAxisDirection] == basic_types.AxisDirection.up;
+    }
+    get [_isReversed]() {
+      return this[_lastAxisDirection] == basic_types.AxisDirection.up || this[_lastAxisDirection] == basic_types.AxisDirection.left;
+    }
+    get [_beforeExtent]() {
+      return dart.test(this[_isReversed]) ? this[_lastMetrics].extentAfter : this[_lastMetrics].extentBefore;
+    }
+    get [_afterExtent]() {
+      return dart.test(this[_isReversed]) ? this[_lastMetrics].extentBefore : this[_lastMetrics].extentAfter;
+    }
+    get [_mainAxisPadding]() {
+      return dart.test(this[_isVertical]) ? this.padding.vertical : this.padding.horizontal;
+    }
+    get [_trackExtent]() {
+      return dart.notNull(this[_lastMetrics].viewportDimension) - 2 * dart.notNull(this.mainAxisMargin) - dart.notNull(this[_mainAxisPadding]);
+    }
+    get [_totalContentExtent]() {
+      return dart.notNull(this[_lastMetrics].maxScrollExtent) - dart.notNull(this[_lastMetrics].minScrollExtent) + dart.notNull(this[_lastMetrics].viewportDimension);
+    }
+    getTrackToScroll(thumbOffsetLocal) {
+      if (!(thumbOffsetLocal != null)) dart.assertFailed(null, L0, 303, 12, "thumbOffsetLocal != null");
+      let scrollableExtent = dart.notNull(this[_lastMetrics].maxScrollExtent) - dart.notNull(this[_lastMetrics].minScrollExtent);
+      let thumbMovableExtent = dart.notNull(this[_trackExtent]) - dart.notNull(this[_thumbExtent]());
+      return scrollableExtent * dart.notNull(thumbOffsetLocal) / thumbMovableExtent;
+    }
+    [_getScrollToTrack](metrics, thumbExtent) {
+      let scrollableExtent = dart.notNull(metrics.maxScrollExtent) - dart.notNull(metrics.minScrollExtent);
+      let fractionPast = scrollableExtent > 0 ? ((dart.notNull(metrics.pixels) - dart.notNull(metrics.minScrollExtent)) / scrollableExtent)[$clamp](0.0, 1.0) : 0.0;
+      return (dart.test(this[_isReversed]) ? 1 - fractionPast : fractionPast) * (dart.notNull(this[_trackExtent]) - dart.notNull(thumbExtent));
+    }
+    paint(canvas, size) {
+      if (this[_lastAxisDirection] == null || this[_lastMetrics] == null || this.fadeoutOpacityAnimation.value === 0.0) return;
+      if (dart.notNull(this[_lastMetrics].viewportDimension) <= dart.notNull(this[_mainAxisPadding]) || dart.notNull(this[_trackExtent]) <= 0) {
+        return;
+      }
+      let beforePadding = dart.test(this[_isVertical]) ? this.padding.top : this.padding.left;
+      let thumbExtent = this[_thumbExtent]();
+      let thumbOffsetLocal = this[_getScrollToTrack](this[_lastMetrics], thumbExtent);
+      let thumbOffset = dart.notNull(thumbOffsetLocal) + dart.notNull(this.mainAxisMargin) + dart.notNull(beforePadding);
+      return this[_paintThumbCrossAxis](canvas, size, thumbOffset, thumbExtent, this[_lastAxisDirection]);
+    }
+    hitTestInteractive(position) {
+      if (this[_thumbRect] == null) {
+        return false;
+      }
+      if (this.fadeoutOpacityAnimation.value === 0.0) {
+        return false;
+      }
+      let interactiveThumbRect = this[_thumbRect].expandToInclude(new ui.Rect.fromCircle({center: this[_thumbRect].center, radius: 48 / 2}));
+      return interactiveThumbRect.contains(position);
+    }
+    hitTest(position) {
+      if (this[_thumbRect] == null) {
+        return null;
+      }
+      if (this.fadeoutOpacityAnimation.value === 0.0) {
+        return false;
+      }
+      return this[_thumbRect].contains(position);
+    }
+    shouldRepaint(old) {
+      ScrollbarPainterL().as(old);
+      return !dart.equals(this.color, old.color) || !dart.equals(this.textDirection, old.textDirection) || this.thickness != old.thickness || !dart.equals(this.fadeoutOpacityAnimation, old.fadeoutOpacityAnimation) || this.mainAxisMargin != old.mainAxisMargin || this.crossAxisMargin != old.crossAxisMargin || !dart.equals(this.radius, old.radius) || this.minLength != old.minLength || !dart.equals(this.padding, old.padding);
+    }
+    shouldRebuildSemantics(oldDelegate) {
+      CustomPainterL().as(oldDelegate);
+      return false;
+    }
+    get semanticsBuilder() {
+      return null;
+    }
+    get [_repaint$]() {
+      return ListenableL().as(this.noSuchMethod(new core._Invocation.getter(C5 || CT.C5)));
+    }
+  };
+  (scrollbar.ScrollbarPainter.new = function(opts) {
+    let t0;
+    let color = opts && 'color' in opts ? opts.color : null;
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    let thickness = opts && 'thickness' in opts ? opts.thickness : null;
+    let fadeoutOpacityAnimation = opts && 'fadeoutOpacityAnimation' in opts ? opts.fadeoutOpacityAnimation : null;
+    let padding = opts && 'padding' in opts ? opts.padding : C0 || CT.C0;
+    let mainAxisMargin = opts && 'mainAxisMargin' in opts ? opts.mainAxisMargin : 0;
+    let crossAxisMargin = opts && 'crossAxisMargin' in opts ? opts.crossAxisMargin : 0;
+    let radius = opts && 'radius' in opts ? opts.radius : null;
+    let minLength = opts && 'minLength' in opts ? opts.minLength : 18;
+    let minOverscrollLength = opts && 'minOverscrollLength' in opts ? opts.minOverscrollLength : null;
+    this[_lastMetrics] = null;
+    this[_lastAxisDirection] = null;
+    this[_thumbRect] = null;
+    this[thickness$] = thickness;
+    this[fadeoutOpacityAnimation$] = fadeoutOpacityAnimation;
+    this[mainAxisMargin$] = mainAxisMargin;
+    this[crossAxisMargin$] = crossAxisMargin;
+    this[radius$] = radius;
+    this[minLength$] = minLength;
+    if (!(color != null)) dart.assertFailed(null, L0, 59, 15, "color != null");
+    if (!(textDirection != null)) dart.assertFailed(null, L0, 60, 15, "textDirection != null");
+    if (!(thickness != null)) dart.assertFailed(null, L0, 61, 15, "thickness != null");
+    if (!(fadeoutOpacityAnimation != null)) dart.assertFailed(null, L0, 62, 15, "fadeoutOpacityAnimation != null");
+    if (!(mainAxisMargin != null)) dart.assertFailed(null, L0, 63, 15, "mainAxisMargin != null");
+    if (!(crossAxisMargin != null)) dart.assertFailed(null, L0, 64, 15, "crossAxisMargin != null");
+    if (!(minLength != null)) dart.assertFailed(null, L0, 65, 15, "minLength != null");
+    if (!(dart.notNull(minLength) >= 0)) dart.assertFailed(null, L0, 66, 15, "minLength >= 0");
+    if (!(minOverscrollLength == null || dart.notNull(minOverscrollLength) <= dart.notNull(minLength))) dart.assertFailed(null, L0, 67, 15, "minOverscrollLength == null || minOverscrollLength <= minLength");
+    if (!(minOverscrollLength == null || dart.notNull(minOverscrollLength) >= 0)) dart.assertFailed(null, L0, 68, 15, "minOverscrollLength == null || minOverscrollLength >= 0");
+    if (!(padding != null)) dart.assertFailed(null, L0, 69, 15, "padding != null");
+    if (!dart.test(padding.isNonNegative)) dart.assertFailed(null, L0, 70, 15, "padding.isNonNegative");
+    this[_color] = color;
+    this[_textDirection] = textDirection;
+    this[_padding] = padding;
+    this[minOverscrollLength$] = (t0 = minOverscrollLength, t0 == null ? minLength : t0);
+    scrollbar.ScrollbarPainter.__proto__.new.call(this);
+    this.fadeoutOpacityAnimation.addListener(dart.bind(this, 'notifyListeners'));
+  }).prototype = scrollbar.ScrollbarPainter.prototype;
+  dart.addTypeTests(scrollbar.ScrollbarPainter);
+  dart.addTypeCaches(scrollbar.ScrollbarPainter);
+  scrollbar.ScrollbarPainter[dart.implements] = () => [custom_paint.CustomPainter];
+  dart.setMethodSignature(scrollbar.ScrollbarPainter, () => ({
+    __proto__: dart.getMethods(scrollbar.ScrollbarPainter.__proto__),
+    update: dart.fnType(dart.void, [dart.legacy(scroll_metrics.ScrollMetrics), dart.legacy(basic_types.AxisDirection)]),
+    updateThickness: dart.fnType(dart.void, [dart.legacy(core.double), dart.legacy(ui.Radius)]),
+    [_paintThumbCrossAxis]: dart.fnType(dart.void, [dart.legacy(ui.Canvas), dart.legacy(ui.Size), dart.legacy(core.double), dart.legacy(core.double), dart.legacy(basic_types.AxisDirection)]),
+    [_thumbExtent]: dart.fnType(dart.legacy(core.double), []),
+    getTrackToScroll: dart.fnType(dart.legacy(core.double), [dart.legacy(core.double)]),
+    [_getScrollToTrack]: dart.fnType(dart.legacy(core.double), [dart.legacy(scroll_metrics.ScrollMetrics), dart.legacy(core.double)]),
+    paint: dart.fnType(dart.void, [dart.legacy(ui.Canvas), dart.legacy(ui.Size)]),
+    hitTestInteractive: dart.fnType(dart.legacy(core.bool), [dart.legacy(ui.Offset)]),
+    hitTest: dart.fnType(dart.legacy(core.bool), [dart.legacy(ui.Offset)]),
+    shouldRepaint: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+    shouldRebuildSemantics: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)])
+  }));
+  dart.setGetterSignature(scrollbar.ScrollbarPainter, () => ({
+    __proto__: dart.getGetters(scrollbar.ScrollbarPainter.__proto__),
+    color: dart.legacy(ui.Color),
+    textDirection: dart.legacy(ui.TextDirection),
+    padding: dart.legacy(edge_insets.EdgeInsets),
+    [_paint]: dart.legacy(ui.Paint),
+    [_isVertical]: dart.legacy(core.bool),
+    [_isReversed]: dart.legacy(core.bool),
+    [_beforeExtent]: dart.legacy(core.double),
+    [_afterExtent]: dart.legacy(core.double),
+    [_mainAxisPadding]: dart.legacy(core.double),
+    [_trackExtent]: dart.legacy(core.double),
+    [_totalContentExtent]: dart.legacy(core.double),
+    semanticsBuilder: dart.legacy(dart.fnType(dart.legacy(core.List$(dart.legacy(custom_paint.CustomPainterSemantics))), [dart.legacy(ui.Size)])),
+    [_repaint$]: dart.legacy(change_notifier.Listenable)
+  }));
+  dart.setSetterSignature(scrollbar.ScrollbarPainter, () => ({
+    __proto__: dart.getSetters(scrollbar.ScrollbarPainter.__proto__),
+    color: dart.legacy(ui.Color),
+    textDirection: dart.legacy(ui.TextDirection),
+    padding: dart.legacy(edge_insets.EdgeInsets)
+  }));
+  dart.setLibraryUri(scrollbar.ScrollbarPainter, L1);
+  dart.setFieldSignature(scrollbar.ScrollbarPainter, () => ({
+    __proto__: dart.getFields(scrollbar.ScrollbarPainter.__proto__),
+    [_color]: dart.fieldType(dart.legacy(ui.Color)),
+    [_textDirection]: dart.fieldType(dart.legacy(ui.TextDirection)),
+    thickness: dart.fieldType(dart.legacy(core.double)),
+    fadeoutOpacityAnimation: dart.finalFieldType(dart.legacy(animation.Animation$(dart.legacy(core.double)))),
+    mainAxisMargin: dart.finalFieldType(dart.legacy(core.double)),
+    crossAxisMargin: dart.finalFieldType(dart.legacy(core.double)),
+    radius: dart.fieldType(dart.legacy(ui.Radius)),
+    [_padding]: dart.fieldType(dart.legacy(edge_insets.EdgeInsets)),
+    minLength: dart.finalFieldType(dart.legacy(core.double)),
+    minOverscrollLength: dart.finalFieldType(dart.legacy(core.double)),
+    [_lastMetrics]: dart.fieldType(dart.legacy(scroll_metrics.ScrollMetrics)),
+    [_lastAxisDirection]: dart.fieldType(dart.legacy(basic_types.AxisDirection)),
+    [_thumbRect]: dart.fieldType(dart.legacy(ui.Rect))
+  }));
+  dart.defineLazy(scrollbar, {
+    /*scrollbar._kMinThumbExtent*/get _kMinThumbExtent() {
+      return 18;
+    },
+    /*scrollbar._kMinInteractiveSize*/get _kMinInteractiveSize() {
+      return 48;
+    }
+  }, true);
+  dart.trackLibraries("packages/flutter/src/widgets/scrollbar.dart", {
+    "package:flutter/src/widgets/scrollbar.dart": scrollbar
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["scrollbar.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/flutter/src/widgets/scrollbar.dart.lib.js"}');
+  // Exports:
+  return {
+    src__widgets__scrollbar: scrollbar
+  };
+}));
+
+//# sourceMappingURL=scrollbar.dart.lib.js.map

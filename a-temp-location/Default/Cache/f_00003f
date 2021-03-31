@@ -1,0 +1,780 @@
+define(['dart_sdk', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/painting/alignment.dart'], (function load__packages__flutter__src__rendering__stack_dart(dart_sdk, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__painting__alignment$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const math = dart_sdk.math;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const debug = packages__flutter__src__foundation__debug$46dart.src__foundation__debug;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  var stack = Object.create(dart.library);
+  var $toStringAsFixed = dartx.toStringAsFixed;
+  var $_equals = dartx._equals;
+  var $hashCode = dartx.hashCode;
+  var $toString = dartx.toString;
+  var $add = dartx.add;
+  var $isEmpty = dartx.isEmpty;
+  var $join = dartx.join;
+  var doubleL = () => (doubleL = dart.constFn(dart.legacy(core.double)))();
+  var RelativeRectL = () => (RelativeRectL = dart.constFn(dart.legacy(stack.RelativeRect)))();
+  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
+  var JSArrayOfStringL = () => (JSArrayOfStringL = dart.constFn(_interceptors.JSArray$(StringL())))();
+  var StackFitL = () => (StackFitL = dart.constFn(dart.legacy(stack.StackFit)))();
+  var OverflowL = () => (OverflowL = dart.constFn(dart.legacy(stack.Overflow)))();
+  var RenderBoxL = () => (RenderBoxL = dart.constFn(dart.legacy(box.RenderBox)))();
+  var StackParentDataL = () => (StackParentDataL = dart.constFn(dart.legacy(stack.StackParentData)))();
+  var RenderBoxLTodoubleL = () => (RenderBoxLTodoubleL = dart.constFn(dart.fnType(doubleL(), [RenderBoxL()])))();
+  var OffsetL = () => (OffsetL = dart.constFn(dart.legacy(ui.Offset)))();
+  var RenderObjectL = () => (RenderObjectL = dart.constFn(dart.legacy(object.RenderObject)))();
+  var AlignmentGeometryL = () => (AlignmentGeometryL = dart.constFn(dart.legacy(alignment.AlignmentGeometry)))();
+  var DiagnosticsPropertyOfAlignmentGeometryL = () => (DiagnosticsPropertyOfAlignmentGeometryL = dart.constFn(diagnostics.DiagnosticsProperty$(AlignmentGeometryL())))();
+  var TextDirectionL = () => (TextDirectionL = dart.constFn(dart.legacy(ui.TextDirection)))();
+  var EnumPropertyOfTextDirectionL = () => (EnumPropertyOfTextDirectionL = dart.constFn(diagnostics.EnumProperty$(TextDirectionL())))();
+  var EnumPropertyOfStackFitL = () => (EnumPropertyOfStackFitL = dart.constFn(diagnostics.EnumProperty$(StackFitL())))();
+  var ClipL = () => (ClipL = dart.constFn(dart.legacy(ui.Clip)))();
+  var EnumPropertyOfClipL = () => (EnumPropertyOfClipL = dart.constFn(diagnostics.EnumProperty$(ClipL())))();
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
+  var BoxHitTestResultL = () => (BoxHitTestResultL = dart.constFn(dart.legacy(box.BoxHitTestResult)))();
+  var BoxHitTestResultLAndOffsetLToboolL = () => (BoxHitTestResultLAndOffsetLToboolL = dart.constFn(dart.fnType(boolL(), [BoxHitTestResultL(), OffsetL()])))();
+  const CT = Object.create(null);
+  var L1 = "package:flutter/src/rendering/stack.dart";
+  var L0 = "file:///C:/flutter/packages/flutter/lib/src/rendering/stack.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: stack.RelativeRect.prototype,
+        [bottom$]: 0,
+        [right$]: 0,
+        [top$]: 0,
+        [left$]: 0
+      });
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: stack.StackFit.prototype,
+        [_name$]: "StackFit.loose",
+        index: 0
+      });
+    },
+    get C2() {
+      return C2 = dart.const({
+        __proto__: stack.StackFit.prototype,
+        [_name$]: "StackFit.expand",
+        index: 1
+      });
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: stack.StackFit.prototype,
+        [_name$]: "StackFit.passthrough",
+        index: 2
+      });
+    },
+    get C4() {
+      return C4 = dart.constList([C1 || CT.C1, C2 || CT.C2, C3 || CT.C3], StackFitL());
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: stack.Overflow.prototype,
+        [_name$]: "Overflow.visible",
+        index: 0
+      });
+    },
+    get C6() {
+      return C6 = dart.const({
+        __proto__: stack.Overflow.prototype,
+        [_name$]: "Overflow.clip",
+        index: 1
+      });
+    },
+    get C7() {
+      return C7 = dart.constList([C5 || CT.C5, C6 || CT.C6], OverflowL());
+    },
+    get C8() {
+      return C8 = dart.const({
+        __proto__: alignment.AlignmentDirectional.prototype,
+        [AlignmentDirectional_y]: -1,
+        [AlignmentDirectional_start]: -1
+      });
+    },
+    get C9() {
+      return C9 = dart.const({
+        __proto__: ui.Clip.prototype,
+        [_name]: "Clip.hardEdge",
+        index: 1
+      });
+    },
+    get C10() {
+      return C10 = dart.const({
+        __proto__: box.BoxConstraints.prototype,
+        [BoxConstraints_maxHeight]: 1 / 0,
+        [BoxConstraints_minHeight]: 0,
+        [BoxConstraints_maxWidth]: 1 / 0,
+        [BoxConstraints_minWidth]: 0
+      });
+    }
+  }, false);
+  var left$ = dart.privateName(stack, "RelativeRect.left");
+  var top$ = dart.privateName(stack, "RelativeRect.top");
+  var right$ = dart.privateName(stack, "RelativeRect.right");
+  var bottom$ = dart.privateName(stack, "RelativeRect.bottom");
+  var C0;
+  stack.RelativeRect = class RelativeRect extends core.Object {
+    get left() {
+      return this[left$];
+    }
+    set left(value) {
+      super.left = value;
+    }
+    get top() {
+      return this[top$];
+    }
+    set top(value) {
+      super.top = value;
+    }
+    get right() {
+      return this[right$];
+    }
+    set right(value) {
+      super.right = value;
+    }
+    get bottom() {
+      return this[bottom$];
+    }
+    set bottom(value) {
+      super.bottom = value;
+    }
+    static fromSize(rect, container) {
+      return new stack.RelativeRect.fromLTRB(rect.left, rect.top, dart.notNull(container.width) - dart.notNull(rect.right), dart.notNull(container.height) - dart.notNull(rect.bottom));
+    }
+    static fromRect(rect, container) {
+      return new stack.RelativeRect.fromLTRB(dart.notNull(rect.left) - dart.notNull(container.left), dart.notNull(rect.top) - dart.notNull(container.top), dart.notNull(container.right) - dart.notNull(rect.right), dart.notNull(container.bottom) - dart.notNull(rect.bottom));
+    }
+    get hasInsets() {
+      return dart.notNull(this.left) > 0.0 || dart.notNull(this.top) > 0.0 || dart.notNull(this.right) > 0.0 || dart.notNull(this.bottom) > 0.0;
+    }
+    shift(offset) {
+      return new stack.RelativeRect.fromLTRB(dart.notNull(this.left) + dart.notNull(offset.dx), dart.notNull(this.top) + dart.notNull(offset.dy), dart.notNull(this.right) - dart.notNull(offset.dx), dart.notNull(this.bottom) - dart.notNull(offset.dy));
+    }
+    inflate(delta) {
+      return new stack.RelativeRect.fromLTRB(dart.notNull(this.left) - dart.notNull(delta), dart.notNull(this.top) - dart.notNull(delta), dart.notNull(this.right) - dart.notNull(delta), dart.notNull(this.bottom) - dart.notNull(delta));
+    }
+    deflate(delta) {
+      return this.inflate(-dart.notNull(delta));
+    }
+    intersect(other) {
+      return new stack.RelativeRect.fromLTRB(math.max(doubleL(), this.left, other.left), math.max(doubleL(), this.top, other.top), math.max(doubleL(), this.right, other.right), math.max(doubleL(), this.bottom, other.bottom));
+    }
+    toRect(container) {
+      return new ui.Rect.fromLTRB(this.left, this.top, dart.notNull(container.width) - dart.notNull(this.right), dart.notNull(container.height) - dart.notNull(this.bottom));
+    }
+    toSize(container) {
+      return new ui.Size.new(dart.notNull(container.width) - dart.notNull(this.left) - dart.notNull(this.right), dart.notNull(container.height) - dart.notNull(this.top) - dart.notNull(this.bottom));
+    }
+    static lerp(a, b, t) {
+      if (!(t != null)) dart.assertFailed(null, L0, 138, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return new stack.RelativeRect.fromLTRB(dart.notNull(b.left) * dart.notNull(t), dart.notNull(b.top) * dart.notNull(t), dart.notNull(b.right) * dart.notNull(t), dart.notNull(b.bottom) * dart.notNull(t));
+      if (b == null) {
+        let k = 1.0 - dart.notNull(t);
+        return new stack.RelativeRect.fromLTRB(dart.notNull(b.left) * k, dart.notNull(b.top) * k, dart.notNull(b.right) * k, dart.notNull(b.bottom) * k);
+      }
+      return new stack.RelativeRect.fromLTRB(ui.lerpDouble(a.left, b.left, t), ui.lerpDouble(a.top, b.top, t), ui.lerpDouble(a.right, b.right, t), ui.lerpDouble(a.bottom, b.bottom, t));
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      return RelativeRectL().is(other) && other.left == this.left && other.top == this.top && other.right == this.right && other.bottom == this.bottom;
+    }
+    get hashCode() {
+      return ui.hashValues(this.left, this.top, this.right, this.bottom);
+    }
+    toString() {
+      let t0, t0$, t0$0, t0$1;
+      return "RelativeRect.fromLTRB(" + dart.str((t0 = this.left, t0 == null ? null : t0[$toStringAsFixed](1))) + ", " + dart.str((t0$ = this.top, t0$ == null ? null : t0$[$toStringAsFixed](1))) + ", " + dart.str((t0$0 = this.right, t0$0 == null ? null : t0$0[$toStringAsFixed](1))) + ", " + dart.str((t0$1 = this.bottom, t0$1 == null ? null : t0$1[$toStringAsFixed](1))) + ")";
+    }
+  };
+  (stack.RelativeRect.fromLTRB = function(left, top, right, bottom) {
+    this[left$] = left;
+    this[top$] = top;
+    this[right$] = right;
+    this[bottom$] = bottom;
+    if (!(left != null && top != null && right != null && bottom != null)) dart.assertFailed(null, L0, 29, 14, "left != null && top != null && right != null && bottom != null");
+    ;
+  }).prototype = stack.RelativeRect.prototype;
+  dart.addTypeTests(stack.RelativeRect);
+  dart.addTypeCaches(stack.RelativeRect);
+  dart.setMethodSignature(stack.RelativeRect, () => ({
+    __proto__: dart.getMethods(stack.RelativeRect.__proto__),
+    shift: dart.fnType(dart.legacy(stack.RelativeRect), [dart.legacy(ui.Offset)]),
+    inflate: dart.fnType(dart.legacy(stack.RelativeRect), [dart.legacy(core.double)]),
+    deflate: dart.fnType(dart.legacy(stack.RelativeRect), [dart.legacy(core.double)]),
+    intersect: dart.fnType(dart.legacy(stack.RelativeRect), [dart.legacy(stack.RelativeRect)]),
+    toRect: dart.fnType(dart.legacy(ui.Rect), [dart.legacy(ui.Rect)]),
+    toSize: dart.fnType(dart.legacy(ui.Size), [dart.legacy(ui.Size)]),
+    _equals: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+    [$_equals]: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setGetterSignature(stack.RelativeRect, () => ({
+    __proto__: dart.getGetters(stack.RelativeRect.__proto__),
+    hasInsets: dart.legacy(core.bool),
+    hashCode: dart.legacy(core.int),
+    [$hashCode]: dart.legacy(core.int)
+  }));
+  dart.setLibraryUri(stack.RelativeRect, L1);
+  dart.setFieldSignature(stack.RelativeRect, () => ({
+    __proto__: dart.getFields(stack.RelativeRect.__proto__),
+    left: dart.finalFieldType(dart.legacy(core.double)),
+    top: dart.finalFieldType(dart.legacy(core.double)),
+    right: dart.finalFieldType(dart.legacy(core.double)),
+    bottom: dart.finalFieldType(dart.legacy(core.double))
+  }));
+  dart.defineExtensionMethods(stack.RelativeRect, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(stack.RelativeRect, ['hashCode']);
+  dart.defineLazy(stack.RelativeRect, {
+    /*stack.RelativeRect.fill*/get fill() {
+      return C0 || CT.C0;
+    }
+  }, true);
+  var top = dart.privateName(stack, "StackParentData.top");
+  var right = dart.privateName(stack, "StackParentData.right");
+  var bottom = dart.privateName(stack, "StackParentData.bottom");
+  var left = dart.privateName(stack, "StackParentData.left");
+  var width = dart.privateName(stack, "StackParentData.width");
+  var height = dart.privateName(stack, "StackParentData.height");
+  stack.StackParentData = class StackParentData extends box.ContainerBoxParentData$(dart.legacy(box.RenderBox)) {
+    get top() {
+      return this[top];
+    }
+    set top(value) {
+      this[top] = value;
+    }
+    get right() {
+      return this[right];
+    }
+    set right(value) {
+      this[right] = value;
+    }
+    get bottom() {
+      return this[bottom];
+    }
+    set bottom(value) {
+      this[bottom] = value;
+    }
+    get left() {
+      return this[left];
+    }
+    set left(value) {
+      this[left] = value;
+    }
+    get width() {
+      return this[width];
+    }
+    set width(value) {
+      this[width] = value;
+    }
+    get height() {
+      return this[height];
+    }
+    set height(value) {
+      this[height] = value;
+    }
+    get rect() {
+      return new stack.RelativeRect.fromLTRB(this.left, this.top, this.right, this.bottom);
+    }
+    set rect(value) {
+      this.top = value.top;
+      this.right = value.right;
+      this.bottom = value.bottom;
+      this.left = value.left;
+    }
+    get isPositioned() {
+      return this.top != null || this.right != null || this.bottom != null || this.left != null || this.width != null || this.height != null;
+    }
+    toString() {
+      let values = (() => {
+        let t0 = JSArrayOfStringL().of([]);
+        if (this.top != null) t0[$add]("top=" + dart.str(debug.debugFormatDouble(this.top)));
+        if (this.right != null) t0[$add]("right=" + dart.str(debug.debugFormatDouble(this.right)));
+        if (this.bottom != null) t0[$add]("bottom=" + dart.str(debug.debugFormatDouble(this.bottom)));
+        if (this.left != null) t0[$add]("left=" + dart.str(debug.debugFormatDouble(this.left)));
+        if (this.width != null) t0[$add]("width=" + dart.str(debug.debugFormatDouble(this.width)));
+        if (this.height != null) t0[$add]("height=" + dart.str(debug.debugFormatDouble(this.height)));
+        return t0;
+      })();
+      if (dart.test(values[$isEmpty])) values[$add]("not positioned");
+      values[$add](super.toString());
+      return values[$join]("; ");
+    }
+  };
+  (stack.StackParentData.new = function() {
+    this[top] = null;
+    this[right] = null;
+    this[bottom] = null;
+    this[left] = null;
+    this[width] = null;
+    this[height] = null;
+    stack.StackParentData.__proto__.new.call(this);
+    ;
+  }).prototype = stack.StackParentData.prototype;
+  dart.addTypeTests(stack.StackParentData);
+  dart.addTypeCaches(stack.StackParentData);
+  dart.setGetterSignature(stack.StackParentData, () => ({
+    __proto__: dart.getGetters(stack.StackParentData.__proto__),
+    rect: dart.legacy(stack.RelativeRect),
+    isPositioned: dart.legacy(core.bool)
+  }));
+  dart.setSetterSignature(stack.StackParentData, () => ({
+    __proto__: dart.getSetters(stack.StackParentData.__proto__),
+    rect: dart.legacy(stack.RelativeRect)
+  }));
+  dart.setLibraryUri(stack.StackParentData, L1);
+  dart.setFieldSignature(stack.StackParentData, () => ({
+    __proto__: dart.getFields(stack.StackParentData.__proto__),
+    top: dart.fieldType(dart.legacy(core.double)),
+    right: dart.fieldType(dart.legacy(core.double)),
+    bottom: dart.fieldType(dart.legacy(core.double)),
+    left: dart.fieldType(dart.legacy(core.double)),
+    width: dart.fieldType(dart.legacy(core.double)),
+    height: dart.fieldType(dart.legacy(core.double))
+  }));
+  dart.defineExtensionMethods(stack.StackParentData, ['toString']);
+  var _name$ = dart.privateName(stack, "_name");
+  var C1;
+  var C2;
+  var C3;
+  var C4;
+  stack.StackFit = class StackFit extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (stack.StackFit.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = stack.StackFit.prototype;
+  dart.addTypeTests(stack.StackFit);
+  dart.addTypeCaches(stack.StackFit);
+  dart.setMethodSignature(stack.StackFit, () => ({
+    __proto__: dart.getMethods(stack.StackFit.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(stack.StackFit, L1);
+  dart.setFieldSignature(stack.StackFit, () => ({
+    __proto__: dart.getFields(stack.StackFit.__proto__),
+    index: dart.finalFieldType(dart.legacy(core.int)),
+    [_name$]: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.defineExtensionMethods(stack.StackFit, ['toString']);
+  stack.StackFit.loose = C1 || CT.C1;
+  stack.StackFit.expand = C2 || CT.C2;
+  stack.StackFit.passthrough = C3 || CT.C3;
+  stack.StackFit.values = C4 || CT.C4;
+  var C5;
+  var C6;
+  var C7;
+  stack.Overflow = class Overflow extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (stack.Overflow.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = stack.Overflow.prototype;
+  dart.addTypeTests(stack.Overflow);
+  dart.addTypeCaches(stack.Overflow);
+  dart.setMethodSignature(stack.Overflow, () => ({
+    __proto__: dart.getMethods(stack.Overflow.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(stack.Overflow, L1);
+  dart.setFieldSignature(stack.Overflow, () => ({
+    __proto__: dart.getFields(stack.Overflow.__proto__),
+    index: dart.finalFieldType(dart.legacy(core.int)),
+    [_name$]: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.defineExtensionMethods(stack.Overflow, ['toString']);
+  stack.Overflow.visible = C5 || CT.C5;
+  stack.Overflow.clip = C6 || CT.C6;
+  stack.Overflow.values = C7 || CT.C7;
+  var AlignmentDirectional_y = dart.privateName(alignment, "AlignmentDirectional.y");
+  var AlignmentDirectional_start = dart.privateName(alignment, "AlignmentDirectional.start");
+  var C8;
+  var _name = dart.privateName(ui, "_name");
+  var C9;
+  var _hasVisualOverflow = dart.privateName(stack, "_hasVisualOverflow");
+  var _resolvedAlignment = dart.privateName(stack, "_resolvedAlignment");
+  var _clipBehavior = dart.privateName(stack, "_clipBehavior");
+  var _alignment = dart.privateName(stack, "_alignment");
+  var _textDirection = dart.privateName(stack, "_textDirection");
+  var _fit = dart.privateName(stack, "_fit");
+  var _resolve = dart.privateName(stack, "_resolve");
+  var _markNeedResolution = dart.privateName(stack, "_markNeedResolution");
+  var BoxConstraints_maxHeight = dart.privateName(box, "BoxConstraints.maxHeight");
+  var BoxConstraints_minHeight = dart.privateName(box, "BoxConstraints.minHeight");
+  var BoxConstraints_maxWidth = dart.privateName(box, "BoxConstraints.maxWidth");
+  var BoxConstraints_minWidth = dart.privateName(box, "BoxConstraints.minWidth");
+  var C10;
+  const RenderBox_ContainerRenderObjectMixin$36 = class RenderBox_ContainerRenderObjectMixin extends box.RenderBox {};
+  (RenderBox_ContainerRenderObjectMixin$36.new = function() {
+    object.ContainerRenderObjectMixin$(dart.legacy(box.RenderBox), dart.legacy(stack.StackParentData))[dart.mixinNew].call(this);
+    RenderBox_ContainerRenderObjectMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_ContainerRenderObjectMixin$36.prototype;
+  dart.applyMixin(RenderBox_ContainerRenderObjectMixin$36, object.ContainerRenderObjectMixin$(dart.legacy(box.RenderBox), dart.legacy(stack.StackParentData)));
+  const RenderBox_RenderBoxContainerDefaultsMixin$36 = class RenderBox_RenderBoxContainerDefaultsMixin extends RenderBox_ContainerRenderObjectMixin$36 {};
+  (RenderBox_RenderBoxContainerDefaultsMixin$36.new = function() {
+    RenderBox_RenderBoxContainerDefaultsMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_RenderBoxContainerDefaultsMixin$36.prototype;
+  dart.applyMixin(RenderBox_RenderBoxContainerDefaultsMixin$36, box.RenderBoxContainerDefaultsMixin$(dart.legacy(box.RenderBox), dart.legacy(stack.StackParentData)));
+  stack.RenderStack = class RenderStack extends RenderBox_RenderBoxContainerDefaultsMixin$36 {
+    setupParentData(child) {
+      RenderBoxL().as(child);
+      if (!StackParentDataL().is(child.parentData)) child.parentData = new stack.StackParentData.new();
+    }
+    [_resolve]() {
+      if (this[_resolvedAlignment] != null) return;
+      this[_resolvedAlignment] = this.alignment.resolve(this.textDirection);
+    }
+    [_markNeedResolution]() {
+      this[_resolvedAlignment] = null;
+      this.markNeedsLayout();
+    }
+    get alignment() {
+      return this[_alignment];
+    }
+    set alignment(value) {
+      if (!(value != null)) dart.assertFailed(null, L0, 385, 12, "value != null");
+      if (dart.equals(this[_alignment], value)) return;
+      this[_alignment] = value;
+      this[_markNeedResolution]();
+    }
+    get textDirection() {
+      return this[_textDirection];
+    }
+    set textDirection(value) {
+      if (dart.equals(this[_textDirection], value)) return;
+      this[_textDirection] = value;
+      this[_markNeedResolution]();
+    }
+    get fit() {
+      return this[_fit];
+    }
+    set fit(value) {
+      if (!(value != null)) dart.assertFailed(null, L0, 413, 12, "value != null");
+      if (this[_fit] != value) {
+        this[_fit] = value;
+        this.markNeedsLayout();
+      }
+    }
+    get clipBehavior() {
+      return this[_clipBehavior];
+    }
+    set clipBehavior(value) {
+      if (!(value != null)) dart.assertFailed(null, L0, 426, 12, "value != null");
+      if (!dart.equals(value, this[_clipBehavior])) {
+        this[_clipBehavior] = value;
+        this.markNeedsPaint();
+        this.markNeedsSemanticsUpdate();
+      }
+    }
+    static getIntrinsicDimension(firstChild, mainChildSizeGetter) {
+      let extent = 0.0;
+      let child = firstChild;
+      while (child != null) {
+        let childParentData = StackParentDataL().as(child.parentData);
+        if (!dart.test(childParentData.isPositioned)) extent = math.max(doubleL(), extent, mainChildSizeGetter(child));
+        if (!dart.equals(child.parentData, childParentData)) dart.assertFailed(null, L0, 442, 14, "child.parentData == childParentData");
+        child = childParentData.nextSibling;
+      }
+      return extent;
+    }
+    computeMinIntrinsicWidth(height) {
+      return stack.RenderStack.getIntrinsicDimension(this.firstChild, dart.fn(child => child.getMinIntrinsicWidth(height), RenderBoxLTodoubleL()));
+    }
+    computeMaxIntrinsicWidth(height) {
+      return stack.RenderStack.getIntrinsicDimension(this.firstChild, dart.fn(child => child.getMaxIntrinsicWidth(height), RenderBoxLTodoubleL()));
+    }
+    computeMinIntrinsicHeight(width) {
+      return stack.RenderStack.getIntrinsicDimension(this.firstChild, dart.fn(child => child.getMinIntrinsicHeight(width), RenderBoxLTodoubleL()));
+    }
+    computeMaxIntrinsicHeight(width) {
+      return stack.RenderStack.getIntrinsicDimension(this.firstChild, dart.fn(child => child.getMaxIntrinsicHeight(width), RenderBoxLTodoubleL()));
+    }
+    computeDistanceToActualBaseline(baseline) {
+      return this.defaultComputeDistanceToHighestActualBaseline(baseline);
+    }
+    static layoutPositionedChild(child, childParentData, size, alignment) {
+      if (!dart.test(childParentData.isPositioned)) dart.assertFailed(null, L0, 477, 12, "childParentData.isPositioned");
+      if (!dart.equals(child.parentData, childParentData)) dart.assertFailed(null, L0, 478, 12, "child.parentData == childParentData");
+      let hasVisualOverflow = false;
+      let childConstraints = C10 || CT.C10;
+      if (childParentData.left != null && childParentData.right != null)
+        childConstraints = childConstraints.tighten({width: dart.notNull(size.width) - dart.notNull(childParentData.right) - dart.notNull(childParentData.left)});
+      else if (childParentData.width != null) childConstraints = childConstraints.tighten({width: childParentData.width});
+      if (childParentData.top != null && childParentData.bottom != null)
+        childConstraints = childConstraints.tighten({height: dart.notNull(size.height) - dart.notNull(childParentData.bottom) - dart.notNull(childParentData.top)});
+      else if (childParentData.height != null) childConstraints = childConstraints.tighten({height: childParentData.height});
+      child.layout(childConstraints, {parentUsesSize: true});
+      let x = null;
+      if (childParentData.left != null) {
+        x = childParentData.left;
+      } else if (childParentData.right != null) {
+        x = dart.notNull(size.width) - dart.notNull(childParentData.right) - dart.notNull(child.size.width);
+      } else {
+        x = alignment.alongOffset(OffsetL().as(size['-'](child.size))).dx;
+      }
+      if (dart.notNull(x) < 0.0 || dart.notNull(x) + dart.notNull(child.size.width) > dart.notNull(size.width)) hasVisualOverflow = true;
+      let y = null;
+      if (childParentData.top != null) {
+        y = childParentData.top;
+      } else if (childParentData.bottom != null) {
+        y = dart.notNull(size.height) - dart.notNull(childParentData.bottom) - dart.notNull(child.size.height);
+      } else {
+        y = alignment.alongOffset(OffsetL().as(size['-'](child.size))).dy;
+      }
+      if (dart.notNull(y) < 0.0 || dart.notNull(y) + dart.notNull(child.size.height) > dart.notNull(size.height)) hasVisualOverflow = true;
+      childParentData.offset = new ui.Offset.new(x, y);
+      return hasVisualOverflow;
+    }
+    performLayout() {
+      let constraints = this.constraints;
+      this[_resolve]();
+      if (!(this[_resolvedAlignment] != null)) dart.assertFailed(null, L0, 528, 12, "_resolvedAlignment != null");
+      this[_hasVisualOverflow] = false;
+      let hasNonPositionedChildren = false;
+      if (this.childCount === 0) {
+        this.size = constraints.biggest;
+        if (!dart.test(this.size.isFinite)) dart.assertFailed(null, L0, 533, 14, "size.isFinite");
+        return;
+      }
+      let width = constraints.minWidth;
+      let height = constraints.minHeight;
+      let nonPositionedConstraints = null;
+      if (!(this.fit != null)) dart.assertFailed(null, L0, 541, 12, "fit != null");
+      switch (this.fit) {
+        case C1 || CT.C1:
+        {
+          nonPositionedConstraints = constraints.loosen();
+          break;
+        }
+        case C2 || CT.C2:
+        {
+          nonPositionedConstraints = new box.BoxConstraints.tight(constraints.biggest);
+          break;
+        }
+        case C3 || CT.C3:
+        {
+          nonPositionedConstraints = constraints;
+          break;
+        }
+      }
+      if (!(nonPositionedConstraints != null)) dart.assertFailed(null, L0, 553, 12, "nonPositionedConstraints != null");
+      let child = this.firstChild;
+      while (child != null) {
+        let childParentData = StackParentDataL().as(child.parentData);
+        if (!dart.test(childParentData.isPositioned)) {
+          hasNonPositionedChildren = true;
+          child.layout(nonPositionedConstraints, {parentUsesSize: true});
+          let childSize = child.size;
+          width = math.max(doubleL(), width, childSize.width);
+          height = math.max(doubleL(), height, childSize.height);
+        }
+        child = childParentData.nextSibling;
+      }
+      if (hasNonPositionedChildren) {
+        this.size = new ui.Size.new(width, height);
+        if (!(this.size.width == constraints.constrainWidth(width))) dart.assertFailed(null, L0, 574, 14, "size.width == constraints.constrainWidth(width)");
+        if (!(this.size.height == constraints.constrainHeight(height))) dart.assertFailed(null, L0, 575, 14, "size.height == constraints.constrainHeight(height)");
+      } else {
+        this.size = constraints.biggest;
+      }
+      if (!dart.test(this.size.isFinite)) dart.assertFailed(null, L0, 580, 12, "size.isFinite");
+      child = this.firstChild;
+      while (child != null) {
+        let childParentData = StackParentDataL().as(child.parentData);
+        if (!dart.test(childParentData.isPositioned)) {
+          childParentData.offset = this[_resolvedAlignment].alongOffset(OffsetL().as(this.size['-'](child.size)));
+        } else {
+          this[_hasVisualOverflow] = dart.test(stack.RenderStack.layoutPositionedChild(child, childParentData, this.size, this[_resolvedAlignment])) || dart.test(this[_hasVisualOverflow]);
+        }
+        if (!dart.equals(child.parentData, childParentData)) dart.assertFailed(null, L0, 592, 14, "child.parentData == childParentData");
+        child = childParentData.nextSibling;
+      }
+    }
+    hitTestChildren(result, opts) {
+      let position = opts && 'position' in opts ? opts.position : null;
+      return this.defaultHitTestChildren(result, {position: position});
+    }
+    paintStack(context, offset) {
+      this.defaultPaint(context, offset);
+    }
+    paint(context, offset) {
+      if (!dart.equals(this.clipBehavior, ui.Clip.none) && dart.test(this[_hasVisualOverflow])) {
+        context.pushClipRect(this.needsCompositing, offset, ui.Offset.zero['&'](this.size), dart.bind(this, 'paintStack'), {clipBehavior: this.clipBehavior});
+      } else {
+        this.paintStack(context, offset);
+      }
+    }
+    describeApproximatePaintClip(child) {
+      RenderObjectL().as(child);
+      return dart.test(this[_hasVisualOverflow]) ? ui.Offset.zero['&'](this.size) : null;
+    }
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(new (DiagnosticsPropertyOfAlignmentGeometryL()).new("alignment", this.alignment));
+      properties.add(new (EnumPropertyOfTextDirectionL()).new("textDirection", this.textDirection));
+      properties.add(new (EnumPropertyOfStackFitL()).new("fit", this.fit));
+      properties.add(new (EnumPropertyOfClipL()).new("clipBehavior", this.clipBehavior, {defaultValue: ui.Clip.hardEdge}));
+    }
+  };
+  (stack.RenderStack.new = function(opts) {
+    let children = opts && 'children' in opts ? opts.children : null;
+    let alignment = opts && 'alignment' in opts ? opts.alignment : C8 || CT.C8;
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    let fit = opts && 'fit' in opts ? opts.fit : C1 || CT.C1;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C9 || CT.C9;
+    this[_hasVisualOverflow] = false;
+    this[_resolvedAlignment] = null;
+    this[_clipBehavior] = ui.Clip.hardEdge;
+    if (!(alignment != null)) dart.assertFailed(null, L0, 336, 15, "alignment != null");
+    if (!(fit != null)) dart.assertFailed(null, L0, 337, 15, "fit != null");
+    if (!(clipBehavior != null)) dart.assertFailed(null, L0, 338, 15, "clipBehavior != null");
+    this[_alignment] = alignment;
+    this[_textDirection] = textDirection;
+    this[_fit] = fit;
+    this[_clipBehavior] = clipBehavior;
+    stack.RenderStack.__proto__.new.call(this);
+    this.addAll(children);
+  }).prototype = stack.RenderStack.prototype;
+  dart.addTypeTests(stack.RenderStack);
+  dart.addTypeCaches(stack.RenderStack);
+  dart.setMethodSignature(stack.RenderStack, () => ({
+    __proto__: dart.getMethods(stack.RenderStack.__proto__),
+    [_resolve]: dart.fnType(dart.void, []),
+    [_markNeedResolution]: dart.fnType(dart.void, []),
+    paintStack: dart.fnType(dart.void, [dart.legacy(object.PaintingContext), dart.legacy(ui.Offset)])
+  }));
+  dart.setGetterSignature(stack.RenderStack, () => ({
+    __proto__: dart.getGetters(stack.RenderStack.__proto__),
+    alignment: dart.legacy(alignment.AlignmentGeometry),
+    textDirection: dart.legacy(ui.TextDirection),
+    fit: dart.legacy(stack.StackFit),
+    clipBehavior: dart.legacy(ui.Clip)
+  }));
+  dart.setSetterSignature(stack.RenderStack, () => ({
+    __proto__: dart.getSetters(stack.RenderStack.__proto__),
+    alignment: dart.legacy(alignment.AlignmentGeometry),
+    textDirection: dart.legacy(ui.TextDirection),
+    fit: dart.legacy(stack.StackFit),
+    clipBehavior: dart.legacy(ui.Clip)
+  }));
+  dart.setLibraryUri(stack.RenderStack, L1);
+  dart.setFieldSignature(stack.RenderStack, () => ({
+    __proto__: dart.getFields(stack.RenderStack.__proto__),
+    [_hasVisualOverflow]: dart.fieldType(dart.legacy(core.bool)),
+    [_resolvedAlignment]: dart.fieldType(dart.legacy(alignment.Alignment)),
+    [_alignment]: dart.fieldType(dart.legacy(alignment.AlignmentGeometry)),
+    [_textDirection]: dart.fieldType(dart.legacy(ui.TextDirection)),
+    [_fit]: dart.fieldType(dart.legacy(stack.StackFit)),
+    [_clipBehavior]: dart.fieldType(dart.legacy(ui.Clip))
+  }));
+  var _index = dart.privateName(stack, "_index");
+  var _childAtIndex = dart.privateName(stack, "_childAtIndex");
+  stack.RenderIndexedStack = class RenderIndexedStack extends stack.RenderStack {
+    visitChildrenForSemantics(visitor) {
+      if (this.index != null && this.firstChild != null) visitor(this[_childAtIndex]());
+    }
+    get index() {
+      return this[_index];
+    }
+    set index(value) {
+      if (this[_index] != value) {
+        this[_index] = value;
+        this.markNeedsLayout();
+      }
+    }
+    [_childAtIndex]() {
+      if (!(this.index != null)) dart.assertFailed(null, L0, 671, 12, "index != null");
+      let child = this.firstChild;
+      let i = 0;
+      while (child != null && i < dart.notNull(this.index)) {
+        let childParentData = StackParentDataL().as(child.parentData);
+        child = childParentData.nextSibling;
+        i = i + 1;
+      }
+      if (!(i === this.index)) dart.assertFailed(null, L0, 679, 12, "i == index");
+      if (!(child != null)) dart.assertFailed(null, L0, 680, 12, "child != null");
+      return child;
+    }
+    hitTestChildren(result, opts) {
+      let position = opts && 'position' in opts ? opts.position : null;
+      if (this.firstChild == null || this.index == null) return false;
+      if (!(position != null)) dart.assertFailed(null, L0, 688, 12, "position != null");
+      let child = this[_childAtIndex]();
+      let childParentData = StackParentDataL().as(child.parentData);
+      return result.addWithPaintOffset({offset: childParentData.offset, position: position, hitTest: dart.fn((result, transformed) => {
+          if (!dart.equals(transformed, position['-'](childParentData.offset))) dart.assertFailed(null, L0, 695, 16, "transformed == position - childParentData.offset");
+          return child.hitTest(result, {position: transformed});
+        }, BoxHitTestResultLAndOffsetLToboolL())});
+    }
+    paintStack(context, offset) {
+      if (this.firstChild == null || this.index == null) return;
+      let child = this[_childAtIndex]();
+      let childParentData = StackParentDataL().as(child.parentData);
+      context.paintChild(child, childParentData.offset['+'](offset));
+    }
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(new diagnostics.IntProperty.new("index", this.index));
+    }
+  };
+  (stack.RenderIndexedStack.new = function(opts) {
+    let children = opts && 'children' in opts ? opts.children : null;
+    let alignment = opts && 'alignment' in opts ? opts.alignment : C8 || CT.C8;
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    let index = opts && 'index' in opts ? opts.index : 0;
+    this[_index] = index;
+    stack.RenderIndexedStack.__proto__.new.call(this, {children: children, alignment: alignment, textDirection: textDirection});
+    ;
+  }).prototype = stack.RenderIndexedStack.prototype;
+  dart.addTypeTests(stack.RenderIndexedStack);
+  dart.addTypeCaches(stack.RenderIndexedStack);
+  dart.setMethodSignature(stack.RenderIndexedStack, () => ({
+    __proto__: dart.getMethods(stack.RenderIndexedStack.__proto__),
+    [_childAtIndex]: dart.fnType(dart.legacy(box.RenderBox), [])
+  }));
+  dart.setGetterSignature(stack.RenderIndexedStack, () => ({
+    __proto__: dart.getGetters(stack.RenderIndexedStack.__proto__),
+    index: dart.legacy(core.int)
+  }));
+  dart.setSetterSignature(stack.RenderIndexedStack, () => ({
+    __proto__: dart.getSetters(stack.RenderIndexedStack.__proto__),
+    index: dart.legacy(core.int)
+  }));
+  dart.setLibraryUri(stack.RenderIndexedStack, L1);
+  dart.setFieldSignature(stack.RenderIndexedStack, () => ({
+    __proto__: dart.getFields(stack.RenderIndexedStack.__proto__),
+    [_index]: dart.fieldType(dart.legacy(core.int))
+  }));
+  dart.trackLibraries("packages/flutter/src/rendering/stack.dart", {
+    "package:flutter/src/rendering/stack.dart": stack
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["stack.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/flutter/src/rendering/stack.dart.lib.js"}');
+  // Exports:
+  return {
+    src__rendering__stack: stack
+  };
+}));
+
+//# sourceMappingURL=stack.dart.lib.js.map
